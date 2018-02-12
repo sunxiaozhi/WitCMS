@@ -1,12 +1,10 @@
 配置中文语言包，在common>>config>>main.php配置文件中添加
 ```php
-/* 源语言 */
-'sourceLanguage' => 'zh-CN',
 /* 目标语言 */
 'language' => 'zh-CN',
 ```
 
-然后再在conponent数组中添加
+然后再在components数组中添加
 ```php
 /**
  * 多语言管理，
