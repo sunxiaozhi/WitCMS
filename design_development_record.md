@@ -27,3 +27,13 @@
     ],
 ],
 ```
+
+## 配置数据库前缀
+配置数据库前缀，在common>>config>>main_local.php文件中添加
+```php
+    'db' => [
+        .....
+        'tablePrefix' => 'witcms_'
+    ],
+```
+数据库表添加witcms_前缀
