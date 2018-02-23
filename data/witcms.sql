@@ -10,10 +10,27 @@ Target Server Type    : MYSQL
 Target Server Version : 100119
 File Encoding         : 65001
 
-Date: 2018-02-23 10:48:57
+Date: 2018-02-23 16:55:25
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for wit_article
+-- ----------------------------
+DROP TABLE IF EXISTS `wit_article`;
+CREATE TABLE `wit_article` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章id',
+  `title` varchar(255) NOT NULL DEFAULT '' COMMENT '标题',
+  `created_at` int(11) NOT NULL COMMENT '创建时间',
+  `updated_at` int(11) NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of wit_article
+-- ----------------------------
+INSERT INTO `wit_article` VALUES ('1', '测试', '1519375410', '1519375410');
 
 -- ----------------------------
 -- Table structure for wit_migration

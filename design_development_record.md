@@ -33,7 +33,7 @@
 ```php
     'db' => [
         .....
-        'tablePrefix' => 'witcms_'
+        'tablePrefix' => 'wit_'
     ],
 ```
 数据库表添加witcms_前缀
