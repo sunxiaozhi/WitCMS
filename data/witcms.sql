@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-02-23 22:06:01
+Date: 2018-02-23 22:08:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -41,15 +41,15 @@ INSERT INTO `wit_article` VALUES ('1', '测试', '', '', '0', '1', '1519375410',
 -- ----------------------------
 DROP TABLE IF EXISTS `wit_friend_link`;
 CREATE TABLE `wit_friend_link` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '编号id',
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '友情链接id',
   `name` varchar(255) NOT NULL COMMENT '友情链接名字',
   `image` varchar(255) DEFAULT NULL COMMENT '友情链接图片',
   `url` varchar(255) DEFAULT NULL COMMENT '友情链接网址',
   `target` varchar(255) NOT NULL DEFAULT '_blank' COMMENT '跳转方式',
   `sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
   `status` smallint(6) unsigned NOT NULL DEFAULT '0' COMMENT '状态',
-  `created_at` int(11) unsigned NOT NULL COMMENT '创建时间',
-  `updated_at` int(11) unsigned NOT NULL COMMENT '更新时间',
+  `created_at` int(11) NOT NULL COMMENT '创建时间',
+  `updated_at` int(11) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='友情链接表';
 
