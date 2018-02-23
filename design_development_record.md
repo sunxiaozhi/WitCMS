@@ -36,4 +36,4 @@
         'tablePrefix' => 'wit_'
     ],
 ```
-数据库表添加witcms_前缀
+数据库表添加wit_前缀
