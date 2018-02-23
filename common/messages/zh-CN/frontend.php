@@ -12,4 +12,6 @@ return [
     'Contact' => '联系',
     'Signup' => '注册',
     'Login' => '登录',
+
+    'Article' => '文章'
 ];
