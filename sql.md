@@ -21,7 +21,7 @@
 | id | int(11) |  | 否 | 是 | 文章id |
 | title | varchar(255) |  | 否 |  | 标题 |
 | created_at | int(11) |  | 否 |  | 创建时间 |
-| title | varchar(11) |  | 否 |  | 更新时间 |
+| updated_at | iint(11) |  | 否 |  | 更新时间 |
 
 ##### 配置表
 
@@ -32,3 +32,16 @@
 ##### 文章评论表
 
 ##### 菜单表
+
+##### 友情链接表--wit_friend_link
+| 字段名 | 数据类型 | 默认值 | 允许非空 | 自动递增 | 备注 |
+| :------: | :------: | :------: | :------: | :------: | :------: |
+| id | int(11) |  | 否 | 是 | 文章id |
+| name | varchar(255) |  | 否 |  | 友情链接名字 |
+| image | varchar(255) |  |  |  | 友情链接图片 |
+| url | varchar(255) |  |  |  | 友情链接网址 |
+| target | varchar(255) | '_blank' | 否 |  | 跳转方式 |
+| sort | int(11) |  | 否 |  | 排序 |
+| status | smallint(6) |  | 否 |  | 状态 |
+| created_at | int(11) |  | 否 |  | 创建时间 |
+| updated_at | iint(11) |  | 否 |  | 更新时间 |
