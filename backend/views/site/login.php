@@ -19,10 +19,9 @@ AdminLteAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body class="hold-transition login-page">
 <?php $this->beginBody() ?>
 
-<body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
         <a href="../../index2.html"><b>Admin</b>LTE</a>
@@ -85,8 +84,6 @@ $(function () {
 JS;
 $this->registerJs($js);
 ?>
-
-</body>
 
 <?php $this->endBody() ?>
 </body>
