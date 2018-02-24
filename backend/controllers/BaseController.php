@@ -65,6 +65,9 @@ class BaseController extends Controller
      */
     public function actionLogin()
     {
+        //不适用布局
+        $this->layout =false;
+
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
