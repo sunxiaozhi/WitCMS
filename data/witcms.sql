@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50553
+Source Server Version : 100119
 Source Host           : localhost:3306
 Source Database       : witcms
 
 Target Server Type    : MYSQL
-Target Server Version : 50553
+Target Server Version : 100119
 File Encoding         : 65001
 
-Date: 2018-02-23 22:08:17
+Date: 2018-02-24 20:50:22
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -20,7 +20,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `wit_article`;
 CREATE TABLE `wit_article` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章id',
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章id',
   `title` varchar(255) NOT NULL COMMENT '标题',
   `sub_title` varchar(255) NOT NULL DEFAULT '' COMMENT '副标题',
   `abstract` varchar(255) NOT NULL DEFAULT '' COMMENT '摘要',
@@ -35,6 +35,22 @@ CREATE TABLE `wit_article` (
 -- Records of wit_article
 -- ----------------------------
 INSERT INTO `wit_article` VALUES ('1', '测试', '', '', '0', '1', '1519375410', '1519375410');
+
+-- ----------------------------
+-- Table structure for wit_article_content
+-- ----------------------------
+DROP TABLE IF EXISTS `wit_article_content`;
+CREATE TABLE `wit_article_content` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章内容id',
+  `article_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '文章id',
+  `content` text NOT NULL COMMENT '文章内容',
+  PRIMARY KEY (`id`),
+  KEY `article_id_index` (`article_id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章内容表';
+
+-- ----------------------------
+-- Records of wit_article_content
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for wit_friend_link
@@ -80,14 +96,14 @@ INSERT INTO `wit_migration` VALUES ('m130524_201442_init', '1518405203');
 DROP TABLE IF EXISTS `wit_user`;
 CREATE TABLE `wit_user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '用户名',
   `auth_key` varchar(32) CHARACTER SET utf8 NOT NULL,
   `password_hash` varchar(255) CHARACTER SET utf8 NOT NULL,
   `password_reset_token` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
-  `email` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '邮箱',
   `status` smallint(6) NOT NULL DEFAULT '10',
-  `created_at` int(11) NOT NULL,
-  `updated_at` int(11) NOT NULL,
+  `created_at` int(11) NOT NULL COMMENT '创建时间',
+  `updated_at` int(11) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
