@@ -76,13 +76,12 @@ AdminLteAsset::register($this);
 <?php
 $js = <<<JS
 $(function () {
-    alert("dasdas");
-        $('input').iCheck({
-            checkboxClass: 'icheckbox_square-blue',
-            radioClass: 'iradio_square-blue',
-            increaseArea: '20%' /* optional */
-        });
+    $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' /* optional */
     });
+});
 JS;
 $this->registerJs($js);
 ?>
