@@ -4,11 +4,11 @@
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model \common\models\LoginForm */
 
-use backend\assets\AdminLteAsset;
+use backend\assets\AdminLteLoginAsset;
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-AdminLteAsset::register($this);
+AdminLteLoginAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
