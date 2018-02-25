@@ -5,6 +5,7 @@
  * Date: 2018/2/25
  * Time: 18:06
  */
+use yii\helpers\Url;
 ?>
 <header class="main-header">
 
@@ -268,7 +269,7 @@
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="<?= URL::toRoute(['/site/logout']) ?>" class="btn btn-default btn-flat">Sign out</a>
                             </div>
                         </li>
                     </ul>
