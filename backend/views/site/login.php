@@ -9,6 +9,8 @@ use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
 AdminLteLoginAsset::register($this);
+
+$this->title = '登录';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -17,6 +19,8 @@ AdminLteLoginAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
