@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100119
 File Encoding         : 65001
 
-Date: 2018-02-24 20:50:22
+Date: 2018-02-26 16:59:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,12 +29,14 @@ CREATE TABLE `wit_article` (
   `created_at` int(11) NOT NULL COMMENT '创建时间',
   `updated_at` int(11) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='文章表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='文章表';
 
 -- ----------------------------
 -- Records of wit_article
 -- ----------------------------
 INSERT INTO `wit_article` VALUES ('1', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('2', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('3', 'dgdf', '', '', '0', '1', '444', '4444');
 
 -- ----------------------------
 -- Table structure for wit_article_content
