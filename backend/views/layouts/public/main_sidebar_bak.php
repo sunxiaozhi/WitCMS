@@ -21,7 +21,7 @@ use yii\helpers\Url;
             </div>
             <div class="pull-left info">
                 <p><?= Yii::$app->user->identity->username ?></p>
-                <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
         <!-- search form -->
@@ -39,68 +39,38 @@ use yii\helpers\Url;
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header"><?= Yii::t('backend', 'MAIN NAVIGATION') ?></li>
-
-            <!--系统设置 start-->
             <li class="active treeview menu-open">
                 <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>系统设置</span>
+                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><?= Html::a('<i class="fa fa-circle-o"></i> 网站设置', Url::toRoute('site/login')) ?></li>
+                    <li><?= Html::a('<i class="fa fa-circle-o"></i> Dashboard v1', Url::toRoute('site/login')) ?></li>
+                    <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                 </ul>
             </li>
-            <!--系统设置 end-->
 
-            <!--内容管理 start-->
+            <!--文章 start-->
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
-                    <span>内容管理</span>
+                    <span>文章</span>
                     <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?= Url::toRoute('article/index') ?>"><i class="fa fa-circle-o"></i> 文章管理</a></li>
-                    <li><a href="<?= Url::toRoute('article/index') ?>"><i class="fa fa-circle-o"></i> 分类管理</a></li>
-                    <li><a href="<?= Url::toRoute('article/index') ?>"><i class="fa fa-circle-o"></i> 单页管理</a></li>
-                </ul>
-            </li>
-            <!--内容管理 end-->
-
-            <!--评论管理 start-->
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-files-o"></i>
-                    <span>评论管理</span>
-                    <span class="pull-right-container">
-                        <span class="label label-primary pull-right">4</span>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
+                    <li><a href="<?= Url::toRoute('article/index') ?>"><i class="fa fa-circle-o"></i> 文章列表</a></li>
                     <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
                     <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
                     <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
                 </ul>
             </li>
-            <!--评论管理 end-->
+            <!--文章 end-->
 
-            <!--友情链接 start-->
-            <li>
-                <a href="<?= Url::toRoute('friend-link/index') ?>">
-                    <i class="fa fa-th"></i> <span>友情链接</span>
-                    <!--<span class="pull-right-container">
-                        <small class="label pull-right bg-green">new</small>
-                    </span>-->
-                </a>
-            </li>
-            <!--友情链接 end-->
-
-            <!--<li class="treeview">
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
                     <span>Layout Options</span>
@@ -115,7 +85,6 @@ use yii\helpers\Url;
                     <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
                 </ul>
             </li>
-
             <li>
                 <a href="pages/widgets.html">
                     <i class="fa fa-th"></i> <span>Widgets</span>
@@ -123,9 +92,8 @@ use yii\helpers\Url;
                         <small class="label pull-right bg-green">new</small>
                     </span>
                 </a>
-            </li>-->
-
-            <!--<li class="treeview">
+            </li>
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
                     <span>Charts</span>
@@ -258,7 +226,7 @@ use yii\helpers\Url;
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>-->
+            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->
