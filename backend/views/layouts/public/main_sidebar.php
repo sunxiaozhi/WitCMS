@@ -51,6 +51,25 @@ use yii\helpers\Url;
                     <li class="active"><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
                 </ul>
             </li>
+
+            <!--文章 start-->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>文章</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?= Url::toRoute('article/index') ?>"><i class="fa fa-circle-o"></i> 文章列表</a></li>
+                    <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
+                    <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
+                    <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                </ul>
+            </li>
+            <!--文章 end-->
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
