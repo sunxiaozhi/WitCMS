@@ -266,10 +266,10 @@ use yii\helpers\Url;
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat"><?= Yii::t('backend','Profile') ?></a>
                             </div>
                             <div class="pull-right">
-                                <a href="<?= URL::toRoute(['/site/logout']) ?>" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="<?= URL::toRoute(['/site/logout']) ?>" class="btn btn-default btn-flat"><?= Yii::t('backend','Sign out') ?></a>
                             </div>
                         </li>
                     </ul>

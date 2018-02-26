@@ -28,6 +28,10 @@
 ],
 ```
 
+语言包的调用
+<?= Yii::t('backend','') ?>
+<?= Yii::t('frontend','') ?>
+
 ## 配置数据库前缀
 配置数据库前缀，在common>>config>>main_local.php文件中添加
 ```php
