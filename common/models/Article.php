@@ -9,6 +9,10 @@ use Yii;
  *
  * @property string $id 文章id
  * @property string $title 标题
+ * @property string $sub_title 副标题
+ * @property string $abstract 摘要
+ * @property string $sort 排序
+ * @property string $status 状态
  * @property int $created_at 创建时间
  * @property int $updated_at 更新时间
  */
@@ -40,10 +44,14 @@ class Article extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('common', '文章id'),
-            'title' => Yii::t('common', '标题'),
-            'created_at' => Yii::t('common', '创建时间'),
-            'updated_at' => Yii::t('common', '更新时间'),
+            'id' => Yii::t('backend', 'ID'),
+            'title' => Yii::t('backend', 'Title'),
+            'sub_title' => Yii::t('backend', 'Sub Title'),
+            'abstract' => Yii::t('backend', 'Abstract'),
+            'sort' => Yii::t('backend', 'Sort'),
+            'status' => Yii::t('backend', 'Status'),
+            'created_at' => Yii::t('backend', 'Created At'),
+            'updated_at' => Yii::t('backend', 'Updated At'),
         ];
     }
 }
