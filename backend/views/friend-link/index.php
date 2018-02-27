@@ -12,30 +12,39 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="friend-link-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php  echo $this->render('_search', ['model' => $searchModel]); ?>
+    <!--<h1><? /*= Html::encode($this->title) */ ?></h1>-->
 
     <p>
         <?= Html::a(Yii::t('backend', 'Create Friend Link'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <div class="box box-primary">
+        <div class="box-body">
+            <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+        </div>
+    </div>
 
-            'id',
-            'name',
-            'image',
-            'url:url',
-            'target',
-            //'sort',
-            //'status',
-            //'created_at',
-            //'updated_at',
+    <div class="box box-primary">
+        <div class="box-body">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                //'filterModel' => $searchModel,
+                'columns' => [
+                    //['class' => 'yii\grid\SerialColumn'],
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+                    'id',
+                    'name',
+                    'image',
+                    'url:url',
+                    'target',
+                    //'sort',
+                    //'status',
+                    //'created_at',
+                    //'updated_at',
+
+                    ['class' => 'yii\grid\ActionColumn'],
+                ],
+            ]); ?>
+        </div>
+    </div>
 </div>

@@ -4,11 +4,11 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\FriendLinkSearch */
+/* @var $model backend\models\ArticleSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="friend-link-search">
+<div class="article-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -18,15 +18,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'name') ?>
+    <?= $form->field($model, 'title') ?>
 
-    <?= $form->field($model, 'image') ?>
+    <?= $form->field($model, 'sub_title') ?>
 
-    <?= $form->field($model, 'url') ?>
+    <?= $form->field($model, 'abstract') ?>
 
-    <?= $form->field($model, 'target') ?>
-
-    <?php // echo $form->field($model, 'sort') ?>
+    <?= $form->field($model, 'sort') ?>
 
     <?php // echo $form->field($model, 'status') ?>
 

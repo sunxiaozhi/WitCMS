@@ -2,8 +2,9 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
-use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
+/* @var $searchModel backend\models\ArticleSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('backend', 'Articles');
@@ -11,29 +12,37 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
 
-    <!--<h1><?/*= Html::encode($this->title) */?></h1>-->
-    <?php Pjax::begin(); ?>
+    <!--<h1><? /*= Html::encode($this->title) */ ?></h1>-->
+    <div class="box box-primary">
+        <div class="box-body">
+            <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+        </div>
+    </div>
 
     <p>
         <?= Html::a(Yii::t('backend', 'Create Article'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+    <div class="box box-primary">
+        <div class="box-body">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                //'filterModel' => $searchModel,
+                'columns' => [
+                    //['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'title',
-            'sub_title',
-            'abstract',
-            'sort',
-            'status',
-            'created_at',
-            'updated_at',
+                    'id',
+                    'title',
+                    'sub_title',
+                    'abstract',
+                    'sort',
+                    //'status',
+                    //'created_at',
+                    //'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-    <?php Pjax::end(); ?>
+                    ['class' => 'yii\grid\ActionColumn'],
+                ],
+            ]); ?>
+        </div>
+    </div>
 </div>

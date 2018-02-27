@@ -4,14 +4,15 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Article;
-use yii\data\ActiveDataProvider;
+use backend\models\ArticleSearch;
+use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
  */
-class ArticleController extends BaseController
+class ArticleController extends Controller
 {
     /**
      * @inheritdoc
@@ -34,11 +35,11 @@ class ArticleController extends BaseController
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Article::find(),
-        ]);
+        $searchModel = new ArticleSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
