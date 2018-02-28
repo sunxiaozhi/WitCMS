@@ -64,8 +64,8 @@ use yii\helpers\Url;
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?= Url::toRoute('article/index') ?>"><i class="fa fa-circle-o"></i> 后台菜单</a></li>
-                    <li><a href="<?= Url::toRoute('article/index') ?>"><i class="fa fa-circle-o"></i> 前台菜单</a></li>
+                    <li><a href="<?= Url::toRoute('menu/index') ?>"><i class="fa fa-circle-o"></i> 后台菜单</a></li>
+                    <li><a href="<?= Url::toRoute('menu/index') ?>"><i class="fa fa-circle-o"></i> 前台菜单</a></li>
                 </ul>
             </li>
             <!--菜单管理 end-->
@@ -89,7 +89,7 @@ use yii\helpers\Url;
 
             <!--评论管理 start-->
             <li>
-                <a href="#">
+                <a href="<?= Url::toRoute('comments/index') ?>">
                     <i class="fa fa-files-o"></i>
                     <span>评论管理</span>
                     <span class="pull-right-container">

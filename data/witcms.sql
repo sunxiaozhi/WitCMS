@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100119
 File Encoding         : 65001
 
-Date: 2018-02-26 16:59:19
+Date: 2018-02-28 11:24:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `wit_article` (
   `created_at` int(11) NOT NULL COMMENT '创建时间',
   `updated_at` int(11) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='文章表';
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COMMENT='文章表';
 
 -- ----------------------------
 -- Records of wit_article
@@ -37,6 +37,35 @@ CREATE TABLE `wit_article` (
 INSERT INTO `wit_article` VALUES ('1', '测试', '', '', '0', '1', '1519375410', '1519375410');
 INSERT INTO `wit_article` VALUES ('2', '33', '', '', '0', '1', '444', '555');
 INSERT INTO `wit_article` VALUES ('3', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('4', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('5', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('6', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('7', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('8', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('9', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('10', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('11', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('12', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('13', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('14', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('15', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('16', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('17', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('18', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('19', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('20', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('21', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('22', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('23', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('24', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('25', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('26', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('27', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('28', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('29', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('30', '测试', '', '', '0', '1', '1519375410', '1519375410');
+INSERT INTO `wit_article` VALUES ('31', '33', '', '', '0', '1', '444', '555');
+INSERT INTO `wit_article` VALUES ('32', 'dgdf', '', '', '0', '1', '444', '4444');
 
 -- ----------------------------
 -- Table structure for wit_article_content
@@ -52,6 +81,23 @@ CREATE TABLE `wit_article_content` (
 
 -- ----------------------------
 -- Records of wit_article_content
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for wit_comments
+-- ----------------------------
+DROP TABLE IF EXISTS `wit_comments`;
+CREATE TABLE `wit_comments` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `article_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '文章id',
+  `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
+  `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '父级id',
+  `content` text COMMENT '评论内容',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of wit_comments
 -- ----------------------------
 
 -- ----------------------------
@@ -75,6 +121,26 @@ CREATE TABLE `wit_friend_link` (
 -- Records of wit_friend_link
 -- ----------------------------
 INSERT INTO `wit_friend_link` VALUES ('1', '飞嗨网', '', 'http://www.feehi.com', '_blank', '0', '1', '1468303882', '0');
+
+-- ----------------------------
+-- Table structure for wit_menu
+-- ----------------------------
+DROP TABLE IF EXISTS `wit_menu`;
+CREATE TABLE `wit_menu` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '菜单id',
+  `name` varchar(255) NOT NULL COMMENT '菜单名称',
+  `parent_id` int(10) unsigned DEFAULT '0' COMMENT '父id',
+  `route` varchar(255) NOT NULL COMMENT '路由',
+  `icon` varchar(255) DEFAULT NULL COMMENT '图标样式',
+  `type` tinyint(1) DEFAULT '0' COMMENT '菜单类型 0 后台菜单 1前台菜单',
+  `created_at` int(10) DEFAULT NULL COMMENT '创建时间',
+  `updated_at` int(10) DEFAULT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='菜单表';
+
+-- ----------------------------
+-- Records of wit_menu
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for wit_migration
