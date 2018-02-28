@@ -10,10 +10,66 @@ Target Server Type    : MYSQL
 Target Server Version : 100119
 File Encoding         : 65001
 
-Date: 2018-02-28 11:24:05
+Date: 2018-02-28 17:00:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for auth_assignment
+-- ----------------------------
+DROP TABLE IF EXISTS `auth_assignment`;
+CREATE TABLE `auth_assignment` (
+  `item_name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `user_id` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`item_name`,`user_id`),
+  KEY `auth_assignment_user_id_idx` (`user_id`),
+  CONSTRAINT `auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of auth_assignment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for auth_item
+-- ----------------------------
+DROP TABLE IF EXISTS `auth_item`;
+CREATE TABLE `auth_item` (
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `type` smallint(6) NOT NULL,
+  `description` text COLLATE utf8_unicode_ci,
+  `rule_name` varchar(64) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `data` blob,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`name`),
+  KEY `rule_name` (`rule_name`),
+  KEY `idx-auth_item-type` (`type`),
+  CONSTRAINT `auth_item_ibfk_1` FOREIGN KEY (`rule_name`) REFERENCES `wit_auth_rule` (`name`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of auth_item
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for auth_item_child
+-- ----------------------------
+DROP TABLE IF EXISTS `auth_item_child`;
+CREATE TABLE `auth_item_child` (
+  `parent` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `child` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`parent`,`child`),
+  KEY `child` (`child`),
+  CONSTRAINT `auth_item_child_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `auth_item_child_ibfk_2` FOREIGN KEY (`child`) REFERENCES `auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of auth_item_child
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for wit_article
@@ -81,6 +137,22 @@ CREATE TABLE `wit_article_content` (
 
 -- ----------------------------
 -- Records of wit_article_content
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for wit_auth_rule
+-- ----------------------------
+DROP TABLE IF EXISTS `wit_auth_rule`;
+CREATE TABLE `wit_auth_rule` (
+  `name` varchar(64) COLLATE utf8_unicode_ci NOT NULL,
+  `data` blob,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of wit_auth_rule
 -- ----------------------------
 
 -- ----------------------------
@@ -157,6 +229,8 @@ CREATE TABLE `wit_migration` (
 -- ----------------------------
 INSERT INTO `wit_migration` VALUES ('m000000_000000_base', '1518405199');
 INSERT INTO `wit_migration` VALUES ('m130524_201442_init', '1518405203');
+INSERT INTO `wit_migration` VALUES ('m140506_102106_rbac_init', '1519788294');
+INSERT INTO `wit_migration` VALUES ('m170907_052038_rbac_add_index_on_auth_assignment_user_id', '1519788294');
 
 -- ----------------------------
 -- Table structure for wit_user
