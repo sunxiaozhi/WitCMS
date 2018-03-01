@@ -2,18 +2,43 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 100119
+Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : witcms
 
 Target Server Type    : MYSQL
-Target Server Version : 100119
+Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-01 16:57:49
+Date: 2018-03-01 22:29:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for wit_admin
+-- ----------------------------
+DROP TABLE IF EXISTS `wit_admin`;
+CREATE TABLE `wit_admin` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '用户名',
+  `auth_key` varchar(32) CHARACTER SET utf8 NOT NULL,
+  `password_hash` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `password_reset_token` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '邮箱',
+  `status` smallint(6) NOT NULL DEFAULT '10',
+  `created_at` int(11) NOT NULL COMMENT '创建时间',
+  `updated_at` int(11) NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`),
+  UNIQUE KEY `password_reset_token` (`password_reset_token`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台用户表';
+
+-- ----------------------------
+-- Records of wit_admin
+-- ----------------------------
+INSERT INTO `wit_admin` VALUES ('1', 'sxz123', 'uTZwVSzBGd5g2LK8UxhhU2TIES6F-M_E', '$2y$13$VD9jg6bYCaczMVqQwveGBOAU7FCsDlDzmxc.emKLzrEcL6yQRfijq', null, '1129535445@qq.com', '10', '1518405548', '1518405548');
 
 -- ----------------------------
 -- Table structure for wit_article
@@ -250,7 +275,7 @@ CREATE TABLE `wit_user` (
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `password_reset_token` (`password_reset_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='前台用户表';
 
 -- ----------------------------
 -- Records of wit_user
