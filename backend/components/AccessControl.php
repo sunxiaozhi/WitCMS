@@ -1,10 +1,4 @@
 <?php
-/**
- * Author: lf
- * Blog: https://blog.feehi.com
- * Email: job@feehi.com
- * Created at: 2017-09-10 16:42
- */
 
 namespace backend\components;
 
@@ -14,14 +8,36 @@ use Yii;
 use yii\web\User;
 use yii\di\Instance;
 
+/**
+ * Access Control Filter (ACF) is a simple authorization method that is best used by applications that only need some simple access control.
+ * As its name indicates, ACF is an action filter that can be attached to a controller or a module as a behavior.
+ * ACF will check a set of access rules to make sure the current user can access the requested action.
+ *
+ * To use AccessControl, declare it in the application config as behavior.
+ * For example.
+ *
+ * ```
+ * 'as access' => [
+ *     'class' => 'mdm\admin\components\AccessControl',
+ *     'allowActions' => ['site/login', 'site/error']
+ * ]
+ * ```
+ *
+ * @property User $user
+ *
+ * @author Misbahul D Munir <misbahuldmunir@gmail.com>
+ * @since 1.0
+ */
 class AccessControl extends \yii\base\ActionFilter
 {
-    /* @var User */
+    /**
+     * @var User User for check access.
+     */
     private $_user = 'user';
-
+    /**
+     * @var array List of action that not need to check access.
+     */
     public $allowActions = [];
-
-    public $superAdminUserIds = [];
 
     /**
      * Get user
@@ -51,10 +67,7 @@ class AccessControl extends \yii\base\ActionFilter
     {
         $actionId = $action->getUniqueId();
         $user = $this->getUser();
-        if( in_array($user->getId(), $this->superAdminUserIds) ){
-            return true;
-        }
-        if (self::checkRoute('/' . $actionId, Yii::$app->getRequest()->get(), $user)) {
+        if (Helper::checkRoute('/' . $actionId, Yii::$app->getRequest()->get(), $user)) {
             return true;
         }
         $this->denyAccess($user);
@@ -130,48 +143,5 @@ class AccessControl extends \yii\base\ActionFilter
         }
 
         return true;
-    }
-
-    /**
-     * Check access route for user.
-     * @param string|array $route
-     * @param integer|User $user
-     * @return boolean
-     */
-    public static function checkRoute($route, $params = [], $user = null)
-    {
-        $r = static::normalizeRoute($route);
-
-        if ($user === null) {
-            $user = Yii::$app->getUser();
-        }
-        $userId = $user instanceof User ? $user->getId() : $user;
-
-
-        if ($user->can($r, $params)) {
-            return true;
-        }
-        while (($pos = strrpos($r, '/')) > 0) {
-            $r = substr($r, 0, $pos);
-            if ($user->can($r . '/*', $params)) {
-                return true;
-            }
-        }
-        return $user->can('/*', $params);
-
-    }
-
-    protected static function normalizeRoute($route)
-    {
-        if ($route === '') {
-            return '/' . Yii::$app->controller->getRoute() . ':' . yii::$app->getRequest()->getMethod();
-        } elseif (strncmp($route, '/', 1) === 0) {
-            return $route . ':' . yii::$app->getRequest()->getMethod();
-        } elseif (strpos($route, '/') === false) {
-            return '/' . Yii::$app->controller->getUniqueId() . '/' . $route . ':' . yii::$app->getRequest()->getMethod();
-        } elseif (($mid = Yii::$app->controller->module->getUniqueId()) !== '') {
-            return '/' . $mid . '/' . $route . ':' . yii::$app->getRequest()->getMethod();
-        }
-        return '/' . $route . ':' . yii::$app->getRequest()->getMethod();
     }
 }
