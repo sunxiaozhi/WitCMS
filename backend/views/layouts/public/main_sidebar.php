@@ -20,7 +20,7 @@ use yii\helpers\Url;
                 <img src="admin_lte/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p><?= Yii::$app->user->identity->username ?></p>
+                <p><?= isset(Yii::$app->user->identity->username) ? Yii::$app->user->identity->username : ''; ?></p>
                 <a href="#"><i class="fa fa-circle text-success"></i> 在线</a>
             </div>
         </div>
