@@ -45,6 +45,26 @@ return [
             ],
         ],
         */
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'itemTable' => 'auth_item',
+            'assignmentTable' => 'auth_assignment',
+            'itemChildTable' => 'auth_item_child',
+        ],
+    ],
+    'as access' => [
+        'class' => 'yii\filters\AccessControl',
+        'rules' => [
+            [
+                'actions' => ['login', 'error'],
+                'allow' => true,
+            ],
+            [
+                'actions' => ['logout', 'index'],
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+        ],
     ],
     'params' => $params,
 ];
