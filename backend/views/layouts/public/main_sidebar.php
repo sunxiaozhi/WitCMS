@@ -49,7 +49,7 @@ use yii\helpers\Url;
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><?= Html::a('<i class="fa fa-circle-o"></i> 网站设置', Url::toRoute('site/login')) ?></li>
+                    <li class="active"><?= Html::a('<i class="fa fa-circle-o"></i> 网站设置', Url::toRoute('site/index')) ?></li>
                 </ul>
             </li>
             <!--系统设置 end-->

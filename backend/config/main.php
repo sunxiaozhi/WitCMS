@@ -55,9 +55,9 @@ return [
     'as access' => [
         'class' => 'backend\components\AccessControl',
         'allowActions' => [
-            //'site/login',
+            'site/login',
             'site/logout',
-            //'site/index',
+            'site/index',
         ]
     ],
     'params' => $params,
