@@ -53,7 +53,8 @@ class RbacBehavior extends \yii\base\Behavior
      * @return boolean
      * ---------------------------------------
      */
-    public function rbacAction($event){
+    public function rbacAction($event)
+    {
         $event->isValid = true; // 继续执行action
         $action = $event->action;
         $rule = $action->getUniqueId();
@@ -61,7 +62,7 @@ class RbacBehavior extends \yii\base\Behavior
         foreach ($this->allowActions as $allow) {
             //dump($rule); dump(rtrim($allow,'*')); echo '<br>';
             if (substr($allow, -1) == '*') {
-                if (strpos($rule, rtrim($allow,'*')) === 0) {
+                if (strpos($rule, rtrim($allow, '*')) === 0) {
                     return true;
                 }
             } else {
@@ -72,7 +73,7 @@ class RbacBehavior extends \yii\base\Behavior
         }
 
         /* 权限检查 */
-        if ( MenuController::checkRule($rule) ){
+        if (MenuController::checkRule($rule)) {
             return true;
         }
         //echo 'Access Denied';
@@ -94,6 +95,4 @@ class RbacBehavior extends \yii\base\Behavior
             throw new ForbiddenHttpException(Yii::t('yii', 'You are not allowed to perform this action.'));
         }
     }
-
-    
 }

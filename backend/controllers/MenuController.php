@@ -129,11 +129,12 @@ class MenuController extends Controller
     /**
      * ---------------------------------------
      * 栏目权限检测
-     * @param string  $rule    检测的规则
+     * @param string $rule 检测的规则
      * @return boolean
      * ---------------------------------------
      */
-    public static function checkRule($rule){
+    public static function checkRule($rule)
+    {
 
         /* 超级管理员允许访问任何页面 */
         /*if(Yii::$app->params['admin'] == Yii::$app->user->id){
