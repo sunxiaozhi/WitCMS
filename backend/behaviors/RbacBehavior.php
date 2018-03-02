@@ -4,7 +4,7 @@ namespace backend\behaviors;
 
 use Yii;
 use yii\base\Controller;
-use backend\models\Menu;
+use backend\controllers\MenuController;
 use yii\web\ForbiddenHttpException;
 
 /**
@@ -72,7 +72,7 @@ class RbacBehavior extends \yii\base\Behavior
         }
 
         /* 权限检查 */
-        if ( Menu::checkRule($rule) ){
+        if ( MenuController::checkRule($rule) ){
             return true;
         }
         //echo 'Access Denied';

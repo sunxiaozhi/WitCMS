@@ -53,11 +53,11 @@ return [
         ],
     ],
     'as access' => [
-        'class' => 'backend\components\AccessControl',
+        'class' => 'backend\behaviors\RbacBehavior',
         'allowActions' => [
             'site/login',
             'site/logout',
-            'site/index',
+            //'site/index',
         ]
     ],
     'params' => $params,

@@ -124,4 +124,27 @@ class MenuController extends Controller
 
         throw new NotFoundHttpException(Yii::t('backend', 'The requested page does not exist.'));
     }
+
+
+    /**
+     * ---------------------------------------
+     * 栏目权限检测
+     * @param string  $rule    检测的规则
+     * @return boolean
+     * ---------------------------------------
+     */
+    public static function checkRule($rule){
+
+        /* 超级管理员允许访问任何页面 */
+        /*if(Yii::$app->params['admin'] == Yii::$app->user->id){
+            return true;
+        }*/
+        /* rbac */
+        if (!\Yii::$app->user->can($rule)) {
+            return false;
+        }
+        return true;
+
+    }
+
 }
