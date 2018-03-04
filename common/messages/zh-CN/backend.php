@@ -12,10 +12,13 @@ return [
     'password' => '密码',
     /*登录页 end*/
 
-    /*后台页面 start*/
+    /*后台页面公用 start*/
     'MAIN NAVIGATION' => '主要导航',
     'Profile' => '用户资料',
     'Sign out' => '退出',
+    'Search' => '搜索',
+    'Reset' => '重置',
+    /*后台页面公用 end*/
 
     /*内容管理 start*/
     'Articles' => '文章管理',
@@ -31,6 +34,4 @@ return [
     'Comments' => '评论管理',
     'Create Comments' => '创建评论',
     /*友情链接 end*/
-
-    /*后台页面 end*/
 ];

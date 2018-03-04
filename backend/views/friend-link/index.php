@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\FriendLinkSearch */
+/* @var $searchModel backend\models\search\FriendLinkSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('backend', 'Friend Links');
@@ -39,7 +39,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'created_at:datetime',
                     'updated_at:datetime',
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'class' => 'yii\grid\ActionColumn',
+                        'template' => ' {update} {delete}'
+                    ],
                 ],
             ]); ?>
         </div>
