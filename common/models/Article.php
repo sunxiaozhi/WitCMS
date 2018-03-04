@@ -44,14 +44,14 @@ class Article extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('backend', 'ID'),
-            'title' => Yii::t('backend', 'Title'),
-            'sub_title' => Yii::t('backend', 'Sub Title'),
-            'abstract' => Yii::t('backend', 'Abstract'),
-            'sort' => Yii::t('backend', 'Sort'),
-            'status' => Yii::t('backend', 'Status'),
-            'created_at' => Yii::t('backend', 'Created At'),
-            'updated_at' => Yii::t('backend', 'Updated At'),
+            'id' => Yii::t('database', 'ID'),
+            'title' => Yii::t('database', 'Title'),
+            'sub_title' => Yii::t('database', 'Sub Title'),
+            'abstract' => Yii::t('database', 'Abstract'),
+            'sort' => Yii::t('database', 'Sort'),
+            'status' => Yii::t('database', 'Status'),
+            'created_at' => Yii::t('database', 'Created At'),
+            'updated_at' => Yii::t('database', 'Updated At'),
         ];
     }
 }

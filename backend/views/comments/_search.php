@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model backend\models\CommentsSearch */
+/* @var $model backend\models\search\CommentsSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -13,6 +13,7 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
+        'options' => ['class' => 'form-inline'],
     ]); ?>
 
     <?= $form->field($model, 'id') ?>

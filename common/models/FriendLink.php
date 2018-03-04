@@ -45,15 +45,15 @@ class FriendLink extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('backend', '友情链接id'),
-            'name' => Yii::t('backend', '友情链接名字'),
-            'image' => Yii::t('backend', '友情链接图片'),
-            'url' => Yii::t('backend', '友情链接网址'),
-            'target' => Yii::t('backend', '跳转方式'),
-            'sort' => Yii::t('backend', '排序'),
-            'status' => Yii::t('backend', '状态'),
-            'created_at' => Yii::t('backend', '创建时间'),
-            'updated_at' => Yii::t('backend', '更新时间'),
+            'id' => Yii::t('database', 'ID'),
+            'name' => Yii::t('database', 'Name'),
+            'image' => Yii::t('database', 'Image'),
+            'url' => Yii::t('database', 'Url'),
+            'target' => Yii::t('database', 'Target'),
+            'sort' => Yii::t('database', 'Sort'),
+            'status' => Yii::t('database', 'Status'),
+            'created_at' => Yii::t('database', 'Created At'),
+            'updated_at' => Yii::t('database', 'Updated At'),
         ];
     }
 }

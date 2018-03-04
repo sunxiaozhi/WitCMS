@@ -30,9 +30,17 @@ return [
                         'common'=>'common.php',
                         'backend'=>'backend.php',
                         'frontend'=>'frontend.php',
+                        'database'=>'database.php',
                     ],
                 ],
             ],
+        ],
+        'formatter' => [//格式显示配置
+            'dateFormat' => 'php:Y-m-d H:i',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode' => 'CHY',
+            'nullDisplay' => '-',
         ],
     ],
 ];

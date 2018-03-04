@@ -40,11 +40,11 @@ class Comments extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('backend', 'ID'),
-            'article_id' => Yii::t('backend', 'Article ID'),
-            'user_id' => Yii::t('backend', 'User ID'),
-            'parent_id' => Yii::t('backend', 'Parent ID'),
-            'content' => Yii::t('backend', 'Content'),
+            'id' => Yii::t('database', 'ID'),
+            'article_id' => Yii::t('database', 'Article ID'),
+            'user_id' => Yii::t('database', 'User ID'),
+            'parent_id' => Yii::t('database', 'Parent ID'),
+            'content' => Yii::t('database', 'Content'),
         ];
     }
 }

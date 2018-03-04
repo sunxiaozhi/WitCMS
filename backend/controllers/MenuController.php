@@ -4,7 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Menu;
-use backend\models\MenuSearch;
+use backend\models\search\MenuSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

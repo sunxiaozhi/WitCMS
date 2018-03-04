@@ -12,8 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="friend-link-index">
 
-    <!--<h1><? /*= Html::encode($this->title) */ ?></h1>-->
-
     <p>
         <?= Html::a(Yii::t('backend', 'Create Friend Link'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -32,15 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'columns' => [
                     //['class' => 'yii\grid\SerialColumn'],
 
-                    'id',
                     'name',
                     'image',
                     'url:url',
                     'target',
-                    //'sort',
-                    //'status',
-                    //'created_at',
-                    //'updated_at',
+                    'sort',
+                    'status',
+                    'created_at:datetime',
+                    'updated_at:datetime',
 
                     ['class' => 'yii\grid\ActionColumn'],
                 ],

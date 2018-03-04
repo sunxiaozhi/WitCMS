@@ -86,6 +86,22 @@ use yii\helpers\Url;
             </li>
             <!--用户管理 end-->
 
+            <!--权限管理 start-->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>权限管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?= Url::toRoute('admin/index') ?>"><i class="fa fa-circle-o"></i> 权限</a></li>
+                    <li><a href="<?= Url::toRoute('user/index') ?>"><i class="fa fa-circle-o"></i> 角色</a></li>
+                </ul>
+            </li>
+            <!--权限管理 end-->
+
             <!--内容管理 start-->
             <li class="treeview">
                 <a href="#">
