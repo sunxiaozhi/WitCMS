@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : phpstudy_mysql
+Source Server         : localhost
 Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : witcms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-02 18:31:49
+Date: 2018-03-04 21:53:49
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -212,12 +212,13 @@ CREATE TABLE `wit_friend_link` (
   `created_at` int(11) NOT NULL COMMENT '创建时间',
   `updated_at` int(11) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='友情链接表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='友情链接表';
 
 -- ----------------------------
 -- Records of wit_friend_link
 -- ----------------------------
-INSERT INTO `wit_friend_link` VALUES ('1', '飞嗨网', '', 'http://www.feehi.com', '_blank', '0', '1', '1468303882', '0');
+INSERT INTO `wit_friend_link` VALUES ('1', '百度', '', 'www.baidu.com', '_self', '0', '0', '1468303882', '0');
+INSERT INTO `wit_friend_link` VALUES ('2', '谷歌', '', 'www.google.com', '_self', '1', '1', '222', '2');
 
 -- ----------------------------
 -- Table structure for wit_menu
