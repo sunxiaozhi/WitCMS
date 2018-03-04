@@ -20,15 +20,11 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'target')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'target')->radioList(['_blank'=>'新窗口打开','_self'=>'本窗口打开'])->label('状态') ?>
 
             <?= $form->field($model, 'sort')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'status')->textInput() ?>
-
-            <?= $form->field($model, 'created_at')->textInput() ?>
-
-            <?= $form->field($model, 'updated_at')->textInput() ?>
+            <?= $form->field($model, 'status')->radioList(['1'=>'正常','0'=>'隐藏'])->label('状态') ?>
 
             <div class="form-group">
                 <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-success']) ?>
