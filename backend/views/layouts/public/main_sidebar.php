@@ -70,6 +70,22 @@ use yii\helpers\Url;
             </li>
             <!--菜单管理 end-->
 
+            <!--用户管理 start-->
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>用户管理</span>
+                    <span class="pull-right-container">
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="<?= Url::toRoute('admin/index') ?>"><i class="fa fa-circle-o"></i> 后台用户</a></li>
+                    <li><a href="<?= Url::toRoute('user/index') ?>"><i class="fa fa-circle-o"></i> 前台用户</a></li>
+                </ul>
+            </li>
+            <!--用户管理 end-->
+
             <!--内容管理 start-->
             <li class="treeview">
                 <a href="#">
