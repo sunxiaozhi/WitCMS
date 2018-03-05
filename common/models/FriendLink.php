@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%friend_link}}".
@@ -27,14 +28,24 @@ class FriendLink extends \yii\db\ActiveRecord
         return '{{%friend_link}}';
     }
 
+    /*
+     * 通过行为自动使时间创建和更新
+     * */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'created_at', 'updated_at'], 'required'],
-            [['sort', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['name'], 'required'],
+            [['sort', 'status'], 'integer'],
             [['name', 'image', 'url', 'target'], 'string', 'max' => 255],
         ];
     }

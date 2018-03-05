@@ -36,9 +36,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     'target',
                     'sort',
                     'status',
-                    'created_at:datetime',
-                    'updated_at:datetime',
-
+                    [
+                        'attribute' => 'created_at',
+                        'format' => ['date', 'php:Y-m-d H:i:s']
+                    ],
+                    [
+                        'attribute' => 'updated_at',
+                        'format' => ['date', 'php:Y-m-d H:i:s']
+                    ],
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'template' => ' {update} {delete}'

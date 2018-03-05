@@ -20,7 +20,7 @@ class AdminLteAsset extends AssetBundle
         'admin_lte/dist/css/skins/_all-skins.min.css',
     ];
     public $js = [
-        'admin_lte/components/jquery/jquery.min.js',
+        //'admin_lte/components/jquery/jquery.min.js',
         'admin_lte/components/bootstrap/js/bootstrap.min.js',
         'admin_lte/plugins/iCheck/icheck.min.js',
         'admin_lte/components/fastclick/lib/fastclick.js',
@@ -29,8 +29,8 @@ class AdminLteAsset extends AssetBundle
         'admin_lte/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js',
         'admin_lte/plugins/jvectormap/jquery-jvectormap-world-mill-en.js',
         'admin_lte/components/jquery-slimscroll/jquery.slimscroll.min.js',
-        'admin_lte/components/chart.js/Chart.js',
-        'admin_lte/dist/js/pages/dashboard2.js',
+        //'admin_lte/components/chart.js/Chart.js',
+        //'admin_lte/dist/js/pages/dashboard2.js',
         'admin_lte/dist/js/demo.js',
     ];
     public $depends = [
