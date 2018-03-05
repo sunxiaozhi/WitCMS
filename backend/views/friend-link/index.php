@@ -12,8 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="friend-link-index">
 
-    <p>
-        <?= Html::a(Yii::t('backend', 'Create Friend Link'), ['create'], ['class' => 'btn btn-success']) ?>
+    <p class="text-right">
+        <?= Html::a(Yii::t('backend', 'Create Friend Link'), ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <div class="box box-primary">
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 //'filterModel' => $searchModel,
                 'columns' => [
                     //['class' => 'yii\grid\SerialColumn'],
-
+                    ['class' => 'yii\grid\CheckboxColumn'],
                     'name',
                     'image',
                     'url:url',

@@ -18,6 +18,7 @@ return [
     'Sign out' => '退出',
     'Search' => '搜索',
     'Reset' => '重置',
+    'Save' => '保存',
     /*后台页面公用 end*/
 
     /*内容管理 start*/
