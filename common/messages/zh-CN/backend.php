@@ -17,6 +17,7 @@ return [
     'Profile' => '用户资料',
     'Sign out' => '退出',
     'Search' => '搜索',
+    'Article' => '文章',
     'Reset' => '重置',
     'Save' => '保存',
     /*后台页面公用 end*/
