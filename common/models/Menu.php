@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%menu}}".
@@ -26,6 +27,16 @@ class Menu extends \yii\db\ActiveRecord
         return '{{%menu}}';
     }
 
+    /*
+     * 通过行为自动使时间创建和更新
+     * */
+    public function behaviors()
+    {
+        return [
+            TimestampBehavior::className(),
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -44,14 +55,14 @@ class Menu extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('backend', 'ID'),
-            'name' => Yii::t('backend', 'Name'),
-            'parent_id' => Yii::t('backend', 'Parent ID'),
-            'route' => Yii::t('backend', 'Route'),
-            'icon' => Yii::t('backend', 'Icon'),
-            'type' => Yii::t('backend', 'Type'),
-            'created_at' => Yii::t('backend', 'Created At'),
-            'updated_at' => Yii::t('backend', 'Updated At'),
+            'id' => Yii::t('database', 'ID'),
+            'name' => Yii::t('database', 'Name'),
+            'parent_id' => Yii::t('database', 'Parent ID'),
+            'route' => Yii::t('database', 'Route'),
+            'icon' => Yii::t('database', 'Icon'),
+            'type' => Yii::t('database', 'Type'),
+            'created_at' => Yii::t('database', 'Created At'),
+            'updated_at' => Yii::t('database', 'Updated At'),
         ];
     }
 }
