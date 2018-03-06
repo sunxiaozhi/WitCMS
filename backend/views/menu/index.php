@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-index">
 
-    <p>
+    <p class="text-right">
         <?= Html::a(Yii::t('backend', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
@@ -30,9 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'columns' => [
                     //['class' => 'yii\grid\SerialColumn'],
 
-                    'id',
+                    [
+                        'header' => 'ID',
+                        'attribute' => 'id',
+                        'options' => ['width' => '50px;']
+                    ],
                     'name',
-                    'parent_id',
                     'route',
                     'icon',
                     'type',

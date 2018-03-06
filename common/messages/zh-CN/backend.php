@@ -36,4 +36,9 @@ return [
     'Comments' => '评论管理',
     'Create Comments' => '创建评论',
     /*友情链接 end*/
+
+    /*友情链接 start*/
+    'Menus' => '菜单管理',
+    'Create Menu' => '创建菜单',
+    /*友情链接 end*/
 ];

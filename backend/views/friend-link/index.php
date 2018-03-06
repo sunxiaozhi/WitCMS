@@ -34,15 +34,21 @@ $this->params['breadcrumbs'][] = $this->title;
                     'image',
                     'url:url',
                     'target',
-                    'sort',
-                    'status',
+                    [
+                        'attribute' => 'sort',
+                        'options' => ['width' => '50px;']
+                    ],
+                    [
+                        'attribute' => 'status',
+                        'options' => ['width' => '50px;']
+                    ],
                     [
                         'attribute' => 'created_at',
-                        'format' => ['date', 'php:Y-m-d H:i:s']
+                        'format' => ['date', 'php:Y-m-d H:i']
                     ],
                     [
                         'attribute' => 'updated_at',
-                        'format' => ['date', 'php:Y-m-d H:i:s']
+                        'format' => ['date', 'php:Y-m-d H:i']
                     ],
                     [
                         'class' => 'yii\grid\ActionColumn',
