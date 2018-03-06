@@ -20,7 +20,7 @@ class AdminLteAsset extends AssetBundle
         'admin_lte/dist/css/skins/_all-skins.min.css',
     ];
     public $js = [
-        'admin_lte/components/jquery/jquery.min.js',
+        //'admin_lte/components/jquery/jquery.min.js',
         'admin_lte/components/bootstrap/js/bootstrap.min.js',
         'admin_lte/plugins/iCheck/icheck.min.js',
         'admin_lte/components/fastclick/lib/fastclick.js',
@@ -34,7 +34,7 @@ class AdminLteAsset extends AssetBundle
         'admin_lte/dist/js/demo.js',
     ];
     public $depends = [
-        //'yii\web\YiiAsset',
+        'yii\web\YiiAsset',
         //'yii\bootstrap\BootstrapAsset',
     ];
 }
