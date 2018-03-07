@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\FriendLinkSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -12,13 +13,13 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="friend-link-index">
 
-   <!-- <p class="text-right">
-        <?/*= Html::a(Yii::t('backend', 'Create Friend Link'), ['create'], ['class' => 'btn btn-primary']) */?>
-    </p>-->
+     <p class="text-right">
+        <?= Html::a(Yii::t('backend', 'Create Friend Link'), ['create'], ['class' => 'btn btn-primary']) ?>
+    </p>
 
     <!--<div class="box box-primary">
         <div class="box-body">
-            <?php /*echo $this->render('_search', ['model' => $searchModel]); */?>
+            <?php /*echo $this->render('_search', ['model' => $searchModel]); */ ?>
         </div>
     </div>-->
 
@@ -36,21 +37,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     [
                         'attribute' => 'name',
-                        'options' => ['width' => '120px;']
+                        'options' => ['width' => '150px;']
                     ],
                     //'image',
                     [
                         'attribute' => 'url',
                         'format' => ['url'],
-                        'options' => ['width' => '140px;']
+                        'options' => ['width' => '150px;']
                     ],
                     [
                         'attribute' => 'target',
                         'options' => ['width' => '105px;'],
-                        'content' => function($model){
-                            return 'ddd';
+                        'content' => function ($model) {
+                            return $model['target'] == '_blank' ?
+                                Html::tag('span', '新窗口', ['class' => 'label label-sm label-success']) :
+                                Html::tag('span', '本窗口', ['class' => 'label label-sm label-danger']);
                         },
-                        'filter'  => Html::activeDropDownList($searchModel, 'target', ['_blank' => '新窗口', '_self' => '本窗口'], ['prompt'=>'全部','class'=>'form-control']),
+                        'filter' => Html::activeDropDownList($searchModel, 'target', ['_blank' => '新窗口', '_self' => '本窗口'], ['prompt' => '全部', 'class' => 'form-control']),
                     ],
                     [
                         'attribute' => 'sort',
@@ -59,20 +62,22 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'status',
                         'options' => ['width' => '100px;'],
-                        'content' => function($model){
-                            return 'ddd';
+                        'content' => function ($model) {
+                            return $model['status'] ?
+                                Html::tag('span', '显示', ['class' => 'label label-sm label-success']) :
+                                Html::tag('span', '隐藏', ['class' => 'label label-sm label-danger']);
                         },
-                        'filter'  => Html::activeDropDownList($searchModel, 'status', ['0' => '隐藏', '1' => '正常'], ['prompt'=>'全部','class'=>'form-control']),
+                        'filter' => Html::activeDropDownList($searchModel, 'status', ['0' => '隐藏', '1' => '显示'], ['prompt' => '全部', 'class' => 'form-control']),
                     ],
                     [
                         'attribute' => 'created_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
-                        'options' => ['width' => '140px;']
+                        'options' => ['width' => '200px;']
                     ],
                     [
                         'attribute' => 'updated_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
-                        'options' => ['width' => '140px;']
+                        'options' => ['width' => '200px;']
                     ],
                     [
                         'header' => '操作',

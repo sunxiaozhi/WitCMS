@@ -63,6 +63,8 @@ class CommentsSearch extends Comments
             'article_id' => $this->article_id,
             'user_id' => $this->user_id,
             'parent_id' => $this->parent_id,
+            'status' => $this->status,
+            'created_at' => $this->created_at,
         ]);
 
         $query->andFilterWhere(['like', 'content', $this->content]);

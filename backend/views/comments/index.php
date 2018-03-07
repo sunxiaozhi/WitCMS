@@ -12,16 +12,9 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="comments-index">
 
-    <!--<p>
-        <?/*= Html::a(Yii::t('backend', 'Create Comments'), ['create'], ['class' => 'btn btn-success']) */?>
-    </p>-->
-
-    <!--<h1><?/*= Html::encode($this->title) */?></h1>-->
-    <div class="box box-primary">
-        <div class="box-body">
-            <?=$this->render('_search', ['model' => $searchModel]); ?>
-        </div>
-    </div>
+    <p class="text-right">
+        <?= Html::a(Yii::t('backend', 'Create Comments'), ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 
     <div class="box box-primary">
         <div class="box-body">
@@ -29,13 +22,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'columns' => [
-                    ['class' => 'yii\grid\SerialColumn'],
+                    //['class' => 'yii\grid\SerialColumn'],
 
-                    'id',
+                    [
+                        'attribute' => 'id',
+                        'options' => ['width' => '80px;'],
+                    ],
                     'article_id',
                     'user_id',
                     'parent_id',
+                    [
+                        'attribute' => 'status',
+                        //'filter' => Html::activeDropDownList($searchModel, 'status', [0 => '未审核', 1 => '通过', 2 => '未通过'], ['prompt' => '全部', 'class' => 'form-control'])
+                    ],
                     'content:ntext',
+                    [
+                        'attribute' => 'created_at',
+                        'format' => ['date', 'php:Y-m-d H:i'],
+                        'options' => ['width' => '200px;']
+                    ],
 
                     ['class' => 'yii\grid\ActionColumn'],
                 ],

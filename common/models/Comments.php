@@ -11,7 +11,9 @@ use Yii;
  * @property string $article_id 文章id
  * @property string $user_id 用户id
  * @property string $parent_id 父级id
+ * @property int $status 评论的状态 0未审 1通过 2未通过
  * @property string $content 评论内容
+ * @property int $created_at 创建时间
  */
 class Comments extends \yii\db\ActiveRecord
 {
@@ -29,8 +31,10 @@ class Comments extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['article_id', 'user_id', 'parent_id'], 'integer'],
+            [['article_id', 'user_id', 'parent_id', 'created_at'], 'integer'],
             [['content'], 'string'],
+            [['created_at'], 'required'],
+            [['status'], 'string', 'max' => 2],
         ];
     }
 
@@ -44,7 +48,9 @@ class Comments extends \yii\db\ActiveRecord
             'article_id' => Yii::t('database', 'Article ID'),
             'user_id' => Yii::t('database', 'User ID'),
             'parent_id' => Yii::t('database', 'Parent ID'),
+            'status' => Yii::t('database', 'Status'),
             'content' => Yii::t('database', 'Content'),
+            'created_at' => Yii::t('database', 'Created At'),
         ];
     }
 }

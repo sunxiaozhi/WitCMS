@@ -44,7 +44,7 @@ class FriendLink extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['name', 'url'], 'required'],
             [['sort', 'status'], 'integer'],
             [['name', 'image', 'url', 'target'], 'string', 'max' => 255],
         ];
