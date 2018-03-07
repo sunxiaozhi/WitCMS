@@ -12,23 +12,22 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
 
-    <p>
+    <p class="text-right">
         <?= Html::a(Yii::t('backend', 'Create Article'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <!--<h1><? /*= Html::encode($this->title) */ ?></h1>-->
-    <div class="box box-primary">
+   <!-- <div class="box box-primary">
         <div class="box-body">
-            <?php echo $this->render('_search', ['model' => $searchModel]); ?>
+            <?php /*echo $this->render('_search', ['model' => $searchModel]); */?>
         </div>
-    </div>
+    </div>-->
 
     <div class="box box-primary">
         <div class="box-body">
             <?= GridView::widget([
                 //'layout' => "{items}\n{summary}\n{pager}",
                 'dataProvider' => $dataProvider,
-                //'filterModel' => $searchModel,
+                'filterModel' => $searchModel,
                 'columns' => [
                     //['class' => 'yii\grid\SerialColumn'],
 
@@ -38,8 +37,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     'abstract',
                     'sort',
                     'status',
-                    'created_at:datetime',
-                    'updated_at:datetime',
+                    [
+                        'attribute' => 'created_at',
+                        'format' => ['date', 'php:Y-m-d H:i'],
+                        'options' => ['width' => '160px;']
+                    ],
+                    [
+                        'attribute' => 'updated_at',
+                        'format' => ['date', 'php:Y-m-d H:i'],
+                        'options' => ['width' => '160px;']
+                    ],
 
                     ['class' => 'yii\grid\ActionColumn'],
                 ],

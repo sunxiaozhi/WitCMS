@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\MenuSearch */
+/* @var $searchModel backend\models\search\MenuSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('backend', 'Menus');
@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="box-body">
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
-                //'filterModel' => $searchModel,
+                'filterModel' => $searchModel,
                 'columns' => [
                     //['class' => 'yii\grid\SerialColumn'],
 
@@ -38,7 +38,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     'name',
                     'route',
                     'icon',
-                    'type',
+                    [
+                        'attribute' => 'status',
+                        'content' => function ($model) {
+                            return $model['status'] ?
+                                Html::tag('span', '显示', ['class' => 'label label-sm label-success']) :
+                                Html::tag('span', '隐藏', ['class' => 'label label-sm label-danger']);
+                        },
+                        'filter' => Html::activeDropDownList($searchModel, 'status', [0 => '隐藏', 1 => '显示'], ['prompt' => '全部', 'class' => 'form-control']),
+                    ],
                     [
                         'attribute' => 'created_at',
                         'format' => ['date', 'php:Y-m-d H:i:s']

@@ -44,7 +44,7 @@ class Menu extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'route'], 'required'],
-            [['parent_id', 'type', 'created_at', 'updated_at'], 'integer'],
+            [['parent_id', 'type', 'status', 'created_at', 'updated_at'], 'integer'],
             [['name', 'route', 'icon'], 'string', 'max' => 255],
         ];
     }
@@ -61,6 +61,7 @@ class Menu extends \yii\db\ActiveRecord
             'route' => Yii::t('database', 'Route'),
             'icon' => Yii::t('database', 'Icon'),
             'type' => Yii::t('database', 'Type'),
+            'status' => Yii::t('database', 'Status'),
             'created_at' => Yii::t('database', 'Created At'),
             'updated_at' => Yii::t('database', 'Updated At'),
         ];
