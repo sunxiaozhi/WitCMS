@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : phpstudy_mysql
+Source Server         : localhost
 Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : witcms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-07 21:40:44
+Date: 2018-03-07 22:42:01
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -189,16 +189,18 @@ CREATE TABLE `wit_comments` (
   `article_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '文章id',
   `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '父级id',
-  `status` tinyint(2) DEFAULT '0' COMMENT '评论的状态 0未审 1通过 2未通过',
-  `content` text COMMENT '评论内容',
+  `status` smallint(2) unsigned NOT NULL DEFAULT '0' COMMENT '评论的状态 0未审 1通过 2未通过',
+  `content` text NOT NULL COMMENT '评论内容',
   `created_at` int(10) NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='评论表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='评论表';
 
 -- ----------------------------
 -- Records of wit_comments
 -- ----------------------------
 INSERT INTO `wit_comments` VALUES ('1', '1', '1', '1', '0', '测试', '0');
+INSERT INTO `wit_comments` VALUES ('2', '1', '1', '1', '1', '测试', '0');
+INSERT INTO `wit_comments` VALUES ('3', '1', '1', '1', '2', '测试', '0');
 
 -- ----------------------------
 -- Table structure for wit_friend_link
@@ -234,14 +236,16 @@ CREATE TABLE `wit_menu` (
   `route` varchar(255) NOT NULL COMMENT '路由',
   `icon` varchar(255) DEFAULT NULL COMMENT '图标样式',
   `type` tinyint(1) DEFAULT '0' COMMENT '菜单类型 0 后台菜单 1前台菜单',
+  `status` tinyint(1) DEFAULT '0' COMMENT '状态 0不显示 1显示',
   `created_at` int(10) DEFAULT NULL COMMENT '创建时间',
   `updated_at` int(10) DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of wit_menu
 -- ----------------------------
+INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', '', '1', '0', '1520433003', '1520433022');
 
 -- ----------------------------
 -- Table structure for wit_migration
