@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
+Source Server         : phpstudy_mysql
 Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : witcms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-04 21:53:49
+Date: 2018-03-07 21:40:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -189,13 +189,16 @@ CREATE TABLE `wit_comments` (
   `article_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '文章id',
   `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '用户id',
   `parent_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '父级id',
+  `status` tinyint(2) DEFAULT '0' COMMENT '评论的状态 0未审 1通过 2未通过',
   `content` text COMMENT '评论内容',
+  `created_at` int(10) NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='评论表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='评论表';
 
 -- ----------------------------
 -- Records of wit_comments
 -- ----------------------------
+INSERT INTO `wit_comments` VALUES ('1', '1', '1', '1', '0', '测试', '0');
 
 -- ----------------------------
 -- Table structure for wit_friend_link
