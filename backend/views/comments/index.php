@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="comments-index">
 
     <p class="text-right">
-        <?= Html::a(Yii::t('backend', 'Create Comments'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('backend', 'Create Comments'), ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <div class="box box-primary">
@@ -28,12 +28,28 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'id',
                         'options' => ['width' => '80px;'],
                     ],
-                    'article_id',
-                    'user_id',
-                    'parent_id',
+                    [
+                        //'header' => Yii::t('backend', 'Article Name'),
+                        'attribute' => 'article_id',
+                        'options' => ['width' => '80px;']
+                    ],
+                    [
+                        'attribute' => 'user_id',
+                        'options' => ['width' => '80px;'],
+                    ],
                     [
                         'attribute' => 'status',
-                        //'filter' => Html::activeDropDownList($searchModel, 'status', [0 => '未审核', 1 => '通过', 2 => '未通过'], ['prompt' => '全部', 'class' => 'form-control'])
+                        'content' => function ($model) {
+                            $status_value = Html::tag('span', '未审核', ['class' => 'label label-sm label-primary']);
+                            if ($model->status == 1) {
+                                $status_value = Html::tag('span', '通过', ['class' => 'label label-sm label-success']);
+                            } elseif ($model->status == 2) {
+                                $status_value = Html::tag('span', '未通过', ['class' => 'label label-sm label-danger']);
+                            }
+                            return $status_value;
+                        },
+                        'filter' => Html::activeDropDownList($searchModel, 'status', [0 => '未审核', 1 => '通过', 2 => '未通过'], ['prompt' => '全部', 'class' => 'form-control']),
+                        'options' => ['width' => '110px;'],
                     ],
                     'content:ntext',
                     [
@@ -42,7 +58,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         'options' => ['width' => '200px;']
                     ],
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'header' => '操作',
+                        'class' => 'yii\grid\ActionColumn',
+                    ],
                 ],
             ]); ?>
         </div>

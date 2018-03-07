@@ -13,7 +13,9 @@ use yii\widgets\ActiveForm;
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
         'method' => 'get',
-        'options' => ['class' => 'form-inline'],
+        'options' => [
+            'data-pjax' => 1
+        ],
     ]); ?>
 
     <?= $form->field($model, 'id') ?>
@@ -24,7 +26,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'parent_id') ?>
 
-    <?= $form->field($model, 'content') ?>
+    <?= $form->field($model, 'status') ?>
+
+    <?php // echo $form->field($model, 'content') ?>
+
+    <?php // echo $form->field($model, 'created_at') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('backend', 'Search'), ['class' => 'btn btn-primary']) ?>
