@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
+Source Server         : phpstudy_mysql
 Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : witcms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-07 22:42:01
+Date: 2018-03-08 16:20:33
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -245,7 +245,7 @@ CREATE TABLE `wit_menu` (
 -- ----------------------------
 -- Records of wit_menu
 -- ----------------------------
-INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', '', '1', '0', '1520433003', '1520433022');
+INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', '', '1', '0', '1520433003', '1520475432');
 
 -- ----------------------------
 -- Table structure for wit_migration
