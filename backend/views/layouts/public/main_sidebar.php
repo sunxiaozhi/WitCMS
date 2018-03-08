@@ -64,8 +64,8 @@ use yii\helpers\Url;
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?= Url::toRoute('menu/index') ?>"><i class="fa fa-circle-o"></i> 后台菜单</a></li>
-                    <li><a href="<?= Url::toRoute('menu/index') ?>"><i class="fa fa-circle-o"></i> 前台菜单</a></li>
+                    <li><a href="<?= Url::toRoute('backend-menu/index') ?>"><i class="fa fa-circle-o"></i> 后台菜单</a></li>
+                    <li><a href="<?= Url::toRoute('frontend-menu/index') ?>"><i class="fa fa-circle-o"></i> 前台菜单</a></li>
                 </ul>
             </li>
             <!--菜单管理 end-->

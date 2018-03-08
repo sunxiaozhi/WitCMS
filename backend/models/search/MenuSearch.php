@@ -62,6 +62,7 @@ class MenuSearch extends Menu
             'id' => $this->id,
             'parent_id' => $this->parent_id,
             'type' => $this->type,
+            'status' => $this->status,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);

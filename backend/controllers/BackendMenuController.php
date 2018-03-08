@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * MenuController implements the CRUD actions for Menu model.
  */
-class MenuController extends Controller
+class BackendMenuController extends Controller
 {
     /**
      * @inheritdoc
