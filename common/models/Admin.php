@@ -56,6 +56,24 @@ class Admin extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    /*
+     * 定义attributeLables
+     * */
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('database', 'ID'),
+            'username' => Yii::t('database', 'User Name'),
+            'auth_key' => Yii::t('database', 'Auth Key'),
+            'password_hash' => Yii::t('database', 'Password Hash'),
+            'password_reset_token' => Yii::t('database', 'Password Reset Token'),
+            'email' => Yii::t('database', 'Email'),
+            'status' => Yii::t('database', 'Status'),
+            'created_at' => Yii::t('database', 'Created At'),
+            'updated_at' => Yii::t('database', 'Updated At'),
+        ];
+    }
+
     /**
      * @inheritdoc
      */

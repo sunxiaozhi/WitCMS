@@ -16,11 +16,11 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('backend', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <div class="box box-primary">
+    <!--<div class="box box-primary">
         <div class="box-body">
-            <?= $this->render('_search', ['model' => $searchModel]); ?>
+            <? /*= $this->render('_search', ['model' => $searchModel]); */ ?>
         </div>
-    </div>
+    </div>-->
 
     <div class="box box-primary">
         <div class="box-body">
@@ -35,9 +35,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'id',
                         'options' => ['width' => '50px;']
                     ],
-                    'name',
-                    'route',
-                    'icon',
+                    [
+                        'attribute' => 'name',
+                        'options' => ['width' => '150px;']
+                    ],
+                    [
+                        'attribute' => 'route',
+                        'options' => ['width' => '150px;']
+                    ],
+                    [
+                        'attribute' => 'icon',
+                        'options' => ['width' => '80px;']
+                    ],
                     [
                         'attribute' => 'status',
                         'content' => function ($model) {
@@ -46,16 +55,20 @@ $this->params['breadcrumbs'][] = $this->title;
                                 Html::tag('span', '隐藏', ['class' => 'label label-sm label-danger']);
                         },
                         'filter' => Html::activeDropDownList($searchModel, 'status', [0 => '隐藏', 1 => '显示'], ['prompt' => '全部', 'class' => 'form-control']),
+                        'options' => ['width' => '120px;']
                     ],
                     [
                         'attribute' => 'created_at',
-                        'format' => ['date', 'php:Y-m-d H:i:s']
+                        'format' => ['date', 'php:Y-m-d H:i:s'],
+                        'options' => ['width' => '200px;']
                     ],
                     [
                         'attribute' => 'updated_at',
-                        'format' => ['date', 'php:Y-m-d H:i:s']
+                        'format' => ['date', 'php:Y-m-d H:i:s'],
+                        'options' => ['width' => '200px;']
                     ],
                     [
+                        'header' => '操作',
                         'class' => 'yii\grid\ActionColumn',
                         'template' => ' {update} {delete}'
                     ],

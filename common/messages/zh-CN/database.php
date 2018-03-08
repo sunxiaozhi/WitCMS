@@ -39,4 +39,12 @@ return [
     'Route' => '路由',
     'Icon' => '图标',
     /*wit_menu end*/
+
+    /*wit_admin/wit_user start*/
+    'User Name' => '用户名',
+    'Auth Key' => '权密钥',
+    'Password Hash' => '密码哈希',
+    'Password Reset Token' => '密码重置标志',
+    'Email' => '邮箱',
+    /*wit_admin/wit_user end*/
 ];

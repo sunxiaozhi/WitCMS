@@ -21,7 +21,7 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'type')->textInput() ?>
+            <?= $form->field($model, 'status')->radioList(['0' => '隐藏', '1' => '显示']) ?>
 
             <?= $form->field($model, 'created_at')->textInput() ?>
 
