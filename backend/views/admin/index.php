@@ -36,8 +36,21 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'auth_key',
                     //'password_hash',
                     //'password_reset_token',
-                    'email:email',
-                    'status',
+                    [
+                        'attribute' => 'email',
+                        'format' => 'email',
+                        'options' => ['width' => '180px;']
+                    ],
+                    [
+                        'attribute' => 'status',
+                        'options' => ['width' => '100px;'],
+                        'content' => function ($model) {
+                            return $model['status'] == 10 ?
+                                Html::tag('span', '正常', ['class' => 'label label-sm label-success']) :
+                                Html::tag('span', '注销', ['class' => 'label label-sm label-danger']);
+                        },
+                        'filter' => Html::activeDropDownList($searchModel, 'status', [0 => '注销', 10 => '正常'], ['prompt' => '全部', 'class' => 'form-control']),
+                    ],
                     [
                         'attribute' => 'created_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
@@ -49,7 +62,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         'options' => ['width' => '200px;']
                     ],
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'header' => '操作',
+                        'class' => 'yii\grid\ActionColumn'
+                    ],
                 ],
             ]); ?>
         </div>

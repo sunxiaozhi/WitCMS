@@ -19,6 +19,9 @@ use yii\behaviors\TimestampBehavior;
  */
 class Menu extends \yii\db\ActiveRecord
 {
+    const BACKEND_MENU_TYPE = 0;  //后台菜单
+    const FRONTEND_MENU_TYPE = 1;  //前台菜单
+
     /**
      * @inheritdoc
      */
