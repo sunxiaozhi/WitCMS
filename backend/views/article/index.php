@@ -31,12 +31,32 @@ $this->params['breadcrumbs'][] = $this->title;
                 'columns' => [
                     //['class' => 'yii\grid\SerialColumn'],
 
-                    'id',
-                    'title',
-                    'sub_title',
-                    'abstract',
-                    'sort',
-                    'status',
+                    [
+                        'class' => 'yii\grid\CheckboxColumn',
+                        'options' => ['width' => '30px;']
+                    ],
+                    [
+                        'attribute' => 'title',
+                        'options' => ['width' => '200px;']
+                    ],
+                    [
+                        'attribute' => 'sub_title',
+                        'options' => ['width' => '200px;']
+                    ],
+                    [
+                        'attribute' => 'sort',
+                        'options' => ['width' => '50px;']
+                    ],
+                    [
+                        'attribute' => 'status',
+                        'options' => ['width' => '100px;'],
+                        'content' => function ($model) {
+                            return $model['status'] ?
+                                Html::tag('span', '显示', ['class' => 'label label-sm label-success']) :
+                                Html::tag('span', '隐藏', ['class' => 'label label-sm label-danger']);
+                        },
+                        'filter' => Html::activeDropDownList($searchModel, 'status', ['0' => '隐藏', '1' => '显示'], ['prompt' => '全部', 'class' => 'form-control']),
+                    ],
                     [
                         'attribute' => 'created_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
