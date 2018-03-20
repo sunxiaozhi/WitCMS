@@ -7,14 +7,14 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\search\AdminSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Admins');
+$this->title = Yii::t('backend', Yii::t('backend','Admins'));
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="admin-index">
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p class="text-right">
-        <?= Html::a(Yii::t('backend', 'Create Admin'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('backend', Yii::t('backend','Create Admin')), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <div class="box box-primary">

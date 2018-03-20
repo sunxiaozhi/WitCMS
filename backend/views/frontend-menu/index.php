@@ -7,13 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel backend\models\search\MenuSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Menus');
+$this->title = Yii::t('backend', Yii::t('backend', 'Frontend Menus'));
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-index">
 
     <p class="text-right">
-        <?= Html::a(Yii::t('backend', 'Create Menu'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('backend', 'Create Frontend Menu'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <!--<div class="box box-primary">
@@ -30,11 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'columns' => [
                     //['class' => 'yii\grid\SerialColumn'],
 
-                    [
+                    /*[
                         'header' => 'ID',
                         'attribute' => 'id',
                         'options' => ['width' => '50px;']
-                    ],
+                    ],*/
                     [
                         'attribute' => 'name',
                         'options' => ['width' => '150px;']

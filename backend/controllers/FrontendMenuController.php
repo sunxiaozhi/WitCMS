@@ -36,7 +36,7 @@ class FrontendMenuController extends Controller
     public function actionIndex()
     {
         $searchModel = new MenuSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, Menu::FRONTEND_MENU_TYPE);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -126,30 +126,4 @@ class FrontendMenuController extends Controller
 
         throw new NotFoundHttpException(Yii::t('backend', 'The requested page does not exist.'));
     }
-
-
-    /**
-     * ---------------------------------------
-     * 栏目权限检测
-     * @param string $rule 检测的规则
-     * @return boolean
-     * ---------------------------------------
-     */
-    public static function checkRule($rule)
-    {
-        /* 超级管理员允许访问任何页面 */
-        /*if(Yii::$app->params['admin'] == Yii::$app->user->id){
-            return true;
-        }*/
-        if(1 == Yii::$app->user->id){
-            return true;
-        }
-        /* rbac */
-        if (!\Yii::$app->user->can($rule)) {
-            return false;
-        }
-        return true;
-
-    }
-
 }

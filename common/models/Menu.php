@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use backend\models\search\MenuSearch;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -68,5 +69,52 @@ class Menu extends \yii\db\ActiveRecord
             'created_at' => Yii::t('database', 'Created At'),
             'updated_at' => Yii::t('database', 'Updated At'),
         ];
+    }
+
+    /**
+     * ---------------------------------------
+     * 栏目权限检测
+     * @param string $rule 检测的规则
+     * @return boolean
+     * ---------------------------------------
+     */
+    public static function checkRule($rule)
+    {
+        /* 超级管理员允许访问任何页面 */
+        /*if(Yii::$app->params['admin'] == Yii::$app->user->id){
+            return true;
+        }*/
+        if(1 == Yii::$app->user->id){
+            return true;
+        }
+        /* rbac */
+        if (!\Yii::$app->user->can($rule)) {
+            return false;
+        }
+        return true;
+
+    }
+
+    /**
+     * 获取全部菜单
+     * @param int $type
+     */
+    public static function getMenuData($type = self::BACKEND_MENU_TYPE)
+    {
+        $query = self::find()->where(['type' => $type]);
+
+        return $query;
+    }
+
+    /**
+     * 按等级生成菜单
+     * @param $type
+     * @return Menu
+     */
+    public static function getMenus($type)
+    {
+        $menuData = self::getMenuData($type);
+
+        return $menuData;
     }
 }

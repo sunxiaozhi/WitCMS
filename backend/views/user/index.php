@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\search\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', 'Users');
+$this->title = Yii::t('backend', Yii::t('backend','Users'));
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p class="text-right">
-        <?= Html::a(Yii::t('backend', 'Create User'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('backend', Yii::t('backend','Create User')), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <div class="box box-primary">

@@ -39,9 +39,10 @@ class MenuSearch extends Menu
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $type = self::BACKEND_MENU_TYPE)
     {
-        $query = Menu::find();
+        //$query = Menu::find()->where(['type' => $type]);
+        $query = Menu::getMenus($type);
 
         // add conditions that should always apply here
 

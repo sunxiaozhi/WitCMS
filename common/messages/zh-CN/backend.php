@@ -22,6 +22,16 @@ return [
     'Save' => '保存',
     /*后台页面公用 end*/
 
+    /*后台用户 start*/
+    'Admins' => '后台用户',
+    'Create Admin' => '添加管理员',
+    /*后台用户 send*/
+
+    /*前台用户 start*/
+    'Users' => '前台用户',
+    'Create User' => '添加用户',
+    /*前台用户 send*/
+
     /*内容管理 start*/
     'Articles' => '文章管理',
     'Create Article' => '创建文章',
@@ -37,8 +47,13 @@ return [
     'Create Comments' => '创建评论',
     /*友情链接 end*/
 
-    /*友情链接 start*/
-    'Menus' => '菜单管理',
-    'Create Menu' => '创建菜单',
-    /*友情链接 end*/
+    /*后台菜单管理 start*/
+    'Backend Menus' => '后台菜单管理',
+    'Create Backend Menu' => '创建后台菜单',
+    /*后台菜单管理 end*/
+
+    /*后台菜单管理 start*/
+    'Frontend Menus' => '前台菜单管理',
+    'Create Frontend Menu' => '创建前台菜单',
+    /*后台菜单管理 end*/
 ];
