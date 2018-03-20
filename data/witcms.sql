@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-08 22:13:03
+Date: 2018-03-20 22:29:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -236,16 +236,22 @@ CREATE TABLE `wit_menu` (
   `route` varchar(255) NOT NULL COMMENT '路由',
   `icon` varchar(255) DEFAULT NULL COMMENT '图标样式',
   `type` tinyint(1) DEFAULT '0' COMMENT '菜单类型 0 后台菜单 1前台菜单',
+  `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   `status` tinyint(1) DEFAULT '0' COMMENT '状态 0不显示 1显示',
   `created_at` int(10) DEFAULT NULL COMMENT '创建时间',
   `updated_at` int(10) DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of wit_menu
 -- ----------------------------
-INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', '', '1', '0', '1520433003', '1520433022');
+INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', '', '1', '0', '0', '1520433003', '1520433022');
+INSERT INTO `wit_menu` VALUES ('2', 'ceshi', '1', 'site/index', '', '1', '0', '0', '1520433003', '1520433022');
+INSERT INTO `wit_menu` VALUES ('3', 'ceshi2', '2', 'site/index', '', '1', '0', '0', '1520433003', '1520433022');
+INSERT INTO `wit_menu` VALUES ('4', 'ceshi2', '2', 'site/index', '', '1', '0', '0', '0', '1520433003');
+INSERT INTO `wit_menu` VALUES ('5', '友情链接', '0', 'site/index', '', '1', '0', '0', '0', '1520433003');
+INSERT INTO `wit_menu` VALUES ('7', 'dfgd', '0', 'dgdfg', 'gdfg', '1', '0', '1', '1521553777', '1521554001');
 
 -- ----------------------------
 -- Table structure for wit_migration
