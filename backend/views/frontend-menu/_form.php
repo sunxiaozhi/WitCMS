@@ -15,7 +15,8 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'parent_id')->textInput(['maxlength' => true]) ?>
+
+            <?= $form->field($model, 'parent_id')->dropDownList([0 => '一级菜单'] + $treeArr, ['encode' => false]) ?>
 
             <?= $form->field($model, 'route')->textInput(['maxlength' => true]) ?>
 
