@@ -21,6 +21,17 @@ class Rabc extends Model
     public $type;
 
     public $description;
+    public $_item;
+
+    public function __construct($item = null) {
+        $this->_item = $item;
+        if($item !== null) {
+            $this->name = $item->name;
+            $this->description = $item->description;
+        }
+
+        parent::__construct();
+    }
 
     public function rules()
     {
@@ -35,5 +46,9 @@ class Rabc extends Model
             "name" => '名字',
             "description" => '描述',
         ];
+    }
+
+    public function save() {
+echo "dasd";exit;
     }
 }

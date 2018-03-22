@@ -10,14 +10,18 @@ namespace backend\controllers;
 
 use yii\web\Controller;
 use Yii;
-use yii\data\ArrayDataProvider;
+use yii\web\NotFoundHttpException;
 use backend\models\search\RabcSearch;
+use backend\models\Rabc;
+use yii\rbac\Item;
 
 class RabcController extends Controller
 {
     /**
      * @var yii\rbac\DbManager
      */
+
+    public $type = Item::TYPE_ROLE;
 
     public function actionIndex()
     {
@@ -30,12 +34,42 @@ class RabcController extends Controller
         ]);
     }
 
-    public function actionCreate() {
+    public function actionCreate()
+    {
+        $model = new Rabc();
 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $this->redirect('index');
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
-    public function actionUptate($role_name) {
+    public function actionUpdate($id)
+    {
+        $model = $this->findModel($id);
 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect('index');
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
+    public function findModel($id)
+    {
+        $authManager = Yii::$app->authManager;
+        $item = $this->type === Item::TYPE_ROLE ? $authManager->getRole($id) : $authManager->getPermission($id);
+
+        if ($item) {
+            return new Rabc($item);
+        } else {
+            throw new NotFoundHttpException("The requested page does not exist.");
+        }
     }
 
 
