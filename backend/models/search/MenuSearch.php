@@ -87,7 +87,5 @@ class MenuSearch extends Menu
         ]);
 
         return $dataProvider;
-
-        return $dataProvider;
     }
 }
