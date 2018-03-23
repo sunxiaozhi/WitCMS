@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
+Source Server         : phpstudy_mysql
 Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : witcms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-20 22:29:23
+Date: 2018-03-23 16:45:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -119,11 +119,16 @@ CREATE TABLE `wit_auth_assignment` (
   PRIMARY KEY (`item_name`,`user_id`),
   KEY `auth_assignment_user_id_idx` (`user_id`),
   CONSTRAINT `wit_auth_assignment_ibfk_1` FOREIGN KEY (`item_name`) REFERENCES `wit_auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色分配表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='给用户分配权限的表';
 
 -- ----------------------------
 -- Records of wit_auth_assignment
 -- ----------------------------
+INSERT INTO `wit_auth_assignment` VALUES ('author', '2', '1521783127');
+INSERT INTO `wit_auth_assignment` VALUES ('editor', '5', '1521783127');
+INSERT INTO `wit_auth_assignment` VALUES ('reader', '2', '1521783127');
+INSERT INTO `wit_auth_assignment` VALUES ('reader', '3', '1521783127');
+INSERT INTO `wit_auth_assignment` VALUES ('reader', '4', '1521783127');
 
 -- ----------------------------
 -- Table structure for wit_auth_item
@@ -141,11 +146,18 @@ CREATE TABLE `wit_auth_item` (
   KEY `rule_name` (`rule_name`),
   KEY `idx-auth_item-type` (`type`),
   CONSTRAINT `wit_auth_item_ibfk_1` FOREIGN KEY (`rule_name`) REFERENCES `wit_auth_rule` (`name`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色路由表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='生成许可表';
 
 -- ----------------------------
 -- Records of wit_auth_item
 -- ----------------------------
+INSERT INTO `wit_auth_item` VALUES ('author', '1', '123', null, null, '1521783127', '1521787884');
+INSERT INTO `wit_auth_item` VALUES ('editor', '1', 'hfgh', null, null, '1521783127', '1521783447');
+INSERT INTO `wit_auth_item` VALUES ('postAdd', '2', '文章添加', null, null, '1521783127', '1521783127');
+INSERT INTO `wit_auth_item` VALUES ('postDelete', '2', '文章删除', null, null, '1521783127', '1521783127');
+INSERT INTO `wit_auth_item` VALUES ('postSelect', '2', '文章查看', null, null, '1521783127', '1521783127');
+INSERT INTO `wit_auth_item` VALUES ('postUpdate', '2', '文章编辑', null, null, '1521783127', '1521783127');
+INSERT INTO `wit_auth_item` VALUES ('reader', '1', 'hfghgf', null, null, '1521783127', '1521783451');
 
 -- ----------------------------
 -- Table structure for wit_auth_item_child
@@ -158,11 +170,18 @@ CREATE TABLE `wit_auth_item_child` (
   KEY `child` (`child`),
   CONSTRAINT `wit_auth_item_child_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `wit_auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `wit_auth_item_child_ibfk_2` FOREIGN KEY (`child`) REFERENCES `wit_auth_item` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='角色权限表';
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='给用户分配许可的表';
 
 -- ----------------------------
 -- Records of wit_auth_item_child
 -- ----------------------------
+INSERT INTO `wit_auth_item_child` VALUES ('editor', 'author');
+INSERT INTO `wit_auth_item_child` VALUES ('author', 'postAdd');
+INSERT INTO `wit_auth_item_child` VALUES ('editor', 'postDelete');
+INSERT INTO `wit_auth_item_child` VALUES ('editor', 'postSelect');
+INSERT INTO `wit_auth_item_child` VALUES ('reader', 'postSelect');
+INSERT INTO `wit_auth_item_child` VALUES ('author', 'postUpdate');
+INSERT INTO `wit_auth_item_child` VALUES ('editor', 'reader');
 
 -- ----------------------------
 -- Table structure for wit_auth_rule
@@ -222,7 +241,7 @@ CREATE TABLE `wit_friend_link` (
 -- ----------------------------
 -- Records of wit_friend_link
 -- ----------------------------
-INSERT INTO `wit_friend_link` VALUES ('1', '百度', '', 'www.baidu.com', '_self', '0', '0', '1468303882', '0');
+INSERT INTO `wit_friend_link` VALUES ('1', '百度', '', 'www.baidu.com', '_self', '0', '0', '1468303882', '1521775415');
 INSERT INTO `wit_friend_link` VALUES ('2', '谷歌', '', 'www.google.com', '_self', '1', '1', '222', '2');
 
 -- ----------------------------
@@ -241,17 +260,19 @@ CREATE TABLE `wit_menu` (
   `created_at` int(10) DEFAULT NULL COMMENT '创建时间',
   `updated_at` int(10) DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of wit_menu
 -- ----------------------------
-INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', '', '1', '0', '0', '1520433003', '1520433022');
-INSERT INTO `wit_menu` VALUES ('2', 'ceshi', '1', 'site/index', '', '1', '0', '0', '1520433003', '1520433022');
-INSERT INTO `wit_menu` VALUES ('3', 'ceshi2', '2', 'site/index', '', '1', '0', '0', '1520433003', '1520433022');
-INSERT INTO `wit_menu` VALUES ('4', 'ceshi2', '2', 'site/index', '', '1', '0', '0', '0', '1520433003');
-INSERT INTO `wit_menu` VALUES ('5', '友情链接', '0', 'site/index', '', '1', '0', '0', '0', '1520433003');
-INSERT INTO `wit_menu` VALUES ('7', 'dfgd', '0', 'dgdfg', 'gdfg', '1', '0', '1', '1521553777', '1521554001');
+INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', '', '0', '0', '1', '1520433003', '1521793941');
+INSERT INTO `wit_menu` VALUES ('5', '友情链接', '0', 'site/index', '', '0', '0', '1', '0', '1521793945');
+INSERT INTO `wit_menu` VALUES ('8', '用户管理', '0', '#', '', '0', '0', '1', '1521793577', '1521793577');
+INSERT INTO `wit_menu` VALUES ('9', '菜单管理', '0', '#', '', '0', '0', '1', '1521793810', '1521793810');
+INSERT INTO `wit_menu` VALUES ('10', '权限管理', '0', '#', '', '0', '0', '1', '1521793840', '1521793840');
+INSERT INTO `wit_menu` VALUES ('11', '后台菜单', '9', 'backend-menu/index', '', '0', '0', '1', '1521793890', '1521793900');
+INSERT INTO `wit_menu` VALUES ('12', '前台菜单', '9', 'frontend-menu', '', '0', '0', '1', '1521793936', '1521793936');
+INSERT INTO `wit_menu` VALUES ('13', '用户管理', '0', '#', '', '0', '0', '1', '1521794136', '1521794136');
 
 -- ----------------------------
 -- Table structure for wit_migration
@@ -295,4 +316,3 @@ CREATE TABLE `wit_user` (
 -- Records of wit_user
 -- ----------------------------
 INSERT INTO `wit_user` VALUES ('1', 'sxz123', 'uTZwVSzBGd5g2LK8UxhhU2TIES6F-M_E', '$2y$13$VD9jg6bYCaczMVqQwveGBOAU7FCsDlDzmxc.emKLzrEcL6yQRfijq', null, '1129535445@qq.com', '10', '1518405548', '1518405548');
-INSERT INTO `wit_user` VALUES ('2', 'admin', 'WsUYKDcLbAHWA0xTN3l50rzvkC9ZoTLy', '$2y$13$9bZ..JB3.9Bhd8ewi1RA3uyV.Zwzn/sBGxrIUmRVB/wAplBViLxoC', null, '1129535444@qq.com', '10', '1519954202', '1519954202');
