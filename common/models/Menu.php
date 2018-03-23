@@ -23,6 +23,9 @@ class Menu extends \yii\db\ActiveRecord
     const BACKEND_MENU_TYPE = 0;  //后台菜单
     const FRONTEND_MENU_TYPE = 1;  //前台菜单
 
+    const DISPLAY_NO = 0;
+    const DISPLAY_YES = 1;
+
     /**
      * @inheritdoc
      */
@@ -85,7 +88,7 @@ class Menu extends \yii\db\ActiveRecord
         /*if(Yii::$app->params['admin'] == Yii::$app->user->id){
             return true;
         }*/
-        if(1 == Yii::$app->user->id){
+        if (1 == Yii::$app->user->id) {
             return true;
         }
         /* rbac */
