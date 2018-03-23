@@ -15,7 +15,6 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-
             <?= $form->field($model, 'parent_id')->dropDownList([0 => '一级菜单'] + $treeArr, ['encode' => false]) ?>
 
             <?= $form->field($model, 'route')->textInput(['maxlength' => true]) ?>
@@ -23,10 +22,6 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'status')->radioList(['0' => '隐藏', '1' => '显示']) ?>
-
-            <?= $form->field($model, 'created_at')->textInput() ?>
-
-            <?= $form->field($model, 'updated_at')->textInput() ?>
 
             <div class="form-group">
                 <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-success']) ?>

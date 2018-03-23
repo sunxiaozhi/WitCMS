@@ -67,12 +67,14 @@ class FrontendMenuController extends Controller
     {
         $model = new Menu();
 
+        $model->type = Menu::FRONTEND_MENU_TYPE;
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             //return $this->redirect(['view', 'id' => $model->id]);
             return $this->redirect(['index']);
         } else {
             $model->parent_id = Yii::$app->request->get('parent_id', 0);
-            $arr = Menu::find()->asArray()->all();
+            $arr = Menu::find()->where(['type' => Menu::FRONTEND_MENU_TYPE])->asArray()->all();
             $treeObj = new Tree($arr);
             //print_r($treeObj->getTree());exit;
             return $this->render('create', [
@@ -101,7 +103,7 @@ class FrontendMenuController extends Controller
             //return $this->redirect(['view', 'id' => $model->id]);
             return $this->redirect(['index']);
         } else {
-            $arr = Menu::find()->asArray()->all();
+            $arr = Menu::find()->where(['type' => Menu::FRONTEND_MENU_TYPE])->asArray()->all();
             $treeObj = new Tree($arr);
             return $this->render('update', [
                 'model' => $model,

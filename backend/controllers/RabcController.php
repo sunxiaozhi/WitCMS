@@ -23,6 +23,9 @@ class RabcController extends Controller
 
     public $type = Item::TYPE_ROLE;
 
+    /**
+     * @return string
+     */
     public function actionIndex()
     {
         $searchModel = new RabcSearch();
@@ -34,9 +37,14 @@ class RabcController extends Controller
         ]);
     }
 
+    /**
+     * @return string
+     */
     public function actionCreate()
     {
-        $model = new Rabc();
+        $model = new Rabc(null);
+
+        $model->type = $this->type;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $this->redirect('index');
@@ -47,12 +55,28 @@ class RabcController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     * @return \yii\web\Response
+     * @throws NotFoundHttpException
+     */
+    public function actionDelete($id) {
+        $model = $this->findModel($id);
+        Yii::$app->authManager->remove($model->item);
+        return $this->redirect(['index']);
+    }
+
+    /**
+     * @param $id
+     * @return string|\yii\web\Response
+     * @throws NotFoundHttpException
+     */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect('index');
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -60,6 +84,11 @@ class RabcController extends Controller
         ]);
     }
 
+    /**
+     * @param $id
+     * @return Rabc
+     * @throws NotFoundHttpException
+     */
     public function findModel($id)
     {
         $authManager = Yii::$app->authManager;
@@ -73,40 +102,9 @@ class RabcController extends Controller
     }
 
 
-    /**
-     * 创建角色
-     * @throws \Exception
-     */
-    public function actionAddRole()
-    {
-        $role = Yii::$app->authManager->createRole('ceshi');
-
-        $role->description = 'ceshi';
-
-        Yii::$app->authManager->add($role);
-    }
-
-    /**
-     * 创建规则
-     * @throws \Exception
-     */
-    public function actionAddPermission()
-    {
-        $role = Yii::$app->authManager->createPermission('ceshi');
-
-        //$role->description = 'ceshi';
-
-        Yii::$app->authManager->add($role);
-    }
-
-    /**
-     * 给角色分配权限
-     */
 
 
-    /**
-     * 给用户分配权限
-     */
+
 
 
     public function actionAuth()

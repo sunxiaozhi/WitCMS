@@ -97,7 +97,6 @@ use yii\helpers\Url;
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="<?= Url::toRoute('rabc/index') ?>"><i class="fa fa-circle-o"></i> 角色</a></li>
-                    <li><a href="<?= Url::toRoute('user/index') ?>"><i class="fa fa-circle-o"></i> 角色</a></li>
                 </ul>
             </li>
             <!--权限管理 end-->

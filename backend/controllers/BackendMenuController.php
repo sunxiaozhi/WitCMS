@@ -8,6 +8,7 @@ use backend\models\search\MenuSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\helpers\Tree;
 
 /**
  * MenuController implements the CRUD actions for Menu model.
@@ -36,7 +37,7 @@ class BackendMenuController extends Controller
     public function actionIndex()
     {
         $searchModel = new MenuSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, Menu::BACKEND_MENU_TYPE);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -66,14 +67,20 @@ class BackendMenuController extends Controller
     {
         $model = new Menu();
 
+        $model->type = Menu::BACKEND_MENU_TYPE;
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             //return $this->redirect(['view', 'id' => $model->id]);
             return $this->redirect(['index']);
+        } else {
+            $model->parent_id = Yii::$app->request->get('parent_id', 0);
+            $arr = Menu::find()->where(['type' => Menu::BACKEND_MENU_TYPE])->asArray()->all();
+            $treeObj = new Tree($arr);
+            return $this->render('create', [
+                'model' => $model,
+                'treeArr' => $treeObj->getTree(),
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -90,11 +97,18 @@ class BackendMenuController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             //return $this->redirect(['view', 'id' => $model->id]);
             return $this->redirect(['index']);
+        } else {
+            $arr = Menu::find()->where(['type' => Menu::BACKEND_MENU_TYPE])->asArray()->all();
+            $treeObj = new Tree($arr);
+            return $this->render('update', [
+                'model' => $model,
+                'treeArr' => $treeObj->getTree(),
+            ]);
         }
 
-        return $this->render('update', [
+        /*return $this->render('update', [
             'model' => $model,
-        ]);
+        ]);*/
     }
 
     /**

@@ -12,31 +12,42 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
+use yii\rbac\Item;
+use yii\helpers\Html;
 
 
 class Rabc extends Model
 {
     public $name;
-
     public $type;
-
     public $description;
     public $_item;
 
-    public function __construct($item = null) {
+    public function __construct($item = null)
+    {
         $this->_item = $item;
-        if($item !== null) {
+        if ($item !== null) {
             $this->name = $item->name;
             $this->description = $item->description;
+            $this->type = $item->type;
         }
 
-        parent::__construct();
+        //parent::__construct();
     }
 
     public function rules()
     {
-        return[
-          [['name,description'], 'safe'],
+        /*return[
+          [['name,description,type'], 'safe'],
+        ];*/
+
+        return [
+            [['name'], 'required'],
+            ['description', 'filter', 'filter' => function ($value) {
+                return Html::encode($value);
+            }],
+            [['type'], 'integer'],
+            [['description', 'ruleName'], 'safe'],
         ];
     }
 
@@ -45,10 +56,37 @@ class Rabc extends Model
         return [
             "name" => '名字',
             "description" => '描述',
+            "type" => '类型',
         ];
     }
 
-    public function save() {
-echo "dasd";exit;
+    public function save()
+    {
+        if (!$this->validate()) {
+            return false;
+        }
+
+        $authManager = Yii::$app->authManager;
+
+        if ($this->_item !== null) {
+            $isNew = false;
+            $oldName = $this->_item->name;
+        } else {
+            $isNew = true;
+            $this->_item = ($this->type == Item::TYPE_ROLE) ? $authManager->createRole($this->name) : $authManager->createPermission($this->name);
+        }
+
+        $this->_item->name = $this->name;
+        $this->_item->type = $this->type;
+        $this->_item->description = $this->description;
+
+        $isNew ? $authManager->add($this->_item) : $authManager->update($oldName, $this->_item);
+
+        return true;
+    }
+
+    public function getItem()
+    {
+        return $this->_item;
     }
 }

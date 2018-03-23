@@ -11,6 +11,9 @@ use yii\helpers\Html;
 /* @var $model /backend/modles/rabc */
 ?>
 
+<div class="box box-primary">
+    <div class="box-body">
+
 <?php $form = ActiveForm::begin(); ?>
 
 <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
@@ -21,3 +24,5 @@ use yii\helpers\Html;
 </div>
 
 <?php ActiveForm::end(); ?>
+    </div>
+</div>

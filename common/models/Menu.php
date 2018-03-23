@@ -50,6 +50,7 @@ class Menu extends \yii\db\ActiveRecord
             [['name', 'route'], 'required'],
             [['parent_id', 'type', 'status', 'created_at', 'updated_at'], 'integer'],
             [['name', 'route', 'icon'], 'string', 'max' => 255],
+            //['status', 'default', 'value' => '1']
         ];
     }
 
