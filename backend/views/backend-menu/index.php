@@ -41,7 +41,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     [
                         'attribute' => 'icon',
-                        'options' => ['width' => '80px;']
+                        'options' => ['width' => '80px;'],
+                        'content' => function($model) {
+                            return $model['icon'] ? '<i class="' . $model['icon'] . '"></i>' : '';
+                        }
                     ],
                     [
                         'attribute' => 'status',
