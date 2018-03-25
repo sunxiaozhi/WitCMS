@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : phpstudy_mysql
+Source Server         : localhost
 Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : witcms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-23 16:45:31
+Date: 2018-03-25 21:41:09
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -257,22 +257,27 @@ CREATE TABLE `wit_menu` (
   `type` tinyint(1) DEFAULT '0' COMMENT '菜单类型 0 后台菜单 1前台菜单',
   `sort` int(10) unsigned DEFAULT '0' COMMENT '排序',
   `status` tinyint(1) DEFAULT '0' COMMENT '状态 0不显示 1显示',
+  `is_absolute_url` tinyint(1) DEFAULT '0' COMMENT '是否是绝对地址',
   `created_at` int(10) DEFAULT NULL COMMENT '创建时间',
   `updated_at` int(10) DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of wit_menu
 -- ----------------------------
-INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', '', '0', '0', '1', '1520433003', '1521793941');
-INSERT INTO `wit_menu` VALUES ('5', '友情链接', '0', 'site/index', '', '0', '0', '1', '0', '1521793945');
-INSERT INTO `wit_menu` VALUES ('8', '用户管理', '0', '#', '', '0', '0', '1', '1521793577', '1521793577');
-INSERT INTO `wit_menu` VALUES ('9', '菜单管理', '0', '#', '', '0', '0', '1', '1521793810', '1521793810');
-INSERT INTO `wit_menu` VALUES ('10', '权限管理', '0', '#', '', '0', '0', '1', '1521793840', '1521793840');
-INSERT INTO `wit_menu` VALUES ('11', '后台菜单', '9', 'backend-menu/index', '', '0', '0', '1', '1521793890', '1521793900');
-INSERT INTO `wit_menu` VALUES ('12', '前台菜单', '9', 'frontend-menu', '', '0', '0', '1', '1521793936', '1521793936');
-INSERT INTO `wit_menu` VALUES ('13', '用户管理', '0', '#', '', '0', '0', '1', '1521794136', '1521794136');
+INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', '#', 'fa fa-cog', '0', '0', '1', '0', '1521970930', '1521971530');
+INSERT INTO `wit_menu` VALUES ('2', '用户管理', '0', '#', 'fa fa-user-circle-o', '0', '0', '1', '0', '1521970961', '1521971485');
+INSERT INTO `wit_menu` VALUES ('3', '权限管理', '0', '#', 'fa fa-lock', '0', '0', '1', '0', '1521970961', '1521971972');
+INSERT INTO `wit_menu` VALUES ('4', '菜单管理', '0', '#', 'fa fa-bars', '0', '0', '1', '0', '1521971007', '1521971690');
+INSERT INTO `wit_menu` VALUES ('5', '内容管理', '0', '#', 'fa fa-file', '0', '0', '1', '0', '1521970983', '1521971644');
+INSERT INTO `wit_menu` VALUES ('6', '友情链接', '0', 'friend-link/index', 'fa fa-link', '0', '0', '1', '0', '1521971227', '1521973122');
+INSERT INTO `wit_menu` VALUES ('7', '用户', '2', 'user/index', '', '0', '0', '1', '0', '1521971290', '1521971290');
+INSERT INTO `wit_menu` VALUES ('8', '管理员', '2', 'admin/index', '', '0', '0', '1', '0', '1521971313', '1521971313');
+INSERT INTO `wit_menu` VALUES ('9', '角色', '3', 'rabc/index', '', '0', '0', '1', '0', '1521972025', '1521972048');
+INSERT INTO `wit_menu` VALUES ('10', '后台菜单', '4', 'backend-menu/index', '', '0', '0', '1', '0', '1521972100', '1521972100');
+INSERT INTO `wit_menu` VALUES ('11', '前台菜单', '4', 'frontend-menu/index', '', '0', '0', '1', '0', '1521972134', '1521972134');
+INSERT INTO `wit_menu` VALUES ('12', '文章管理', '5', 'article/index', '', '0', '0', '1', '0', '1521972263', '1521972272');
 
 -- ----------------------------
 -- Table structure for wit_migration
@@ -310,7 +315,7 @@ CREATE TABLE `wit_user` (
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `password_reset_token` (`password_reset_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='前台用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='前台用户表';
 
 -- ----------------------------
 -- Records of wit_user
