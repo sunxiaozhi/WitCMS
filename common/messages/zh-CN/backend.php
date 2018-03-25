@@ -52,8 +52,12 @@ return [
     'Create Backend Menu' => '创建后台菜单',
     /*后台菜单管理 end*/
 
-    /*后台菜单管理 start*/
+    /*前台菜单管理 start*/
     'Frontend Menus' => '前台菜单管理',
     'Create Frontend Menu' => '创建前台菜单',
     /*后台菜单管理 end*/
+
+    /*权限管理 start*/
+    'Create Roles' => '创建角色'
+    /*权限管理 end*/
 ];

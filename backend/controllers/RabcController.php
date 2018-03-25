@@ -1,6 +1,6 @@
 <?php
 /**
- * Created by PhpStorm.
+ * 权限控制器.
  * User: sunxiaozhi
  * Date: 2018/3/21
  * Time: 21:10
@@ -47,7 +47,7 @@ class RabcController extends Controller
         $model->type = $this->type;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->redirect('index');
+            $this->redirect('rabc/index');
         }
 
         return $this->render('create', [
