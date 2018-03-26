@@ -16,9 +16,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('backend', 'Create Article'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-   <!-- <div class="box box-primary">
+    <!-- <div class="box box-primary">
         <div class="box-body">
-            <?php /*echo $this->render('_search', ['model' => $searchModel]); */?>
+            <?php /*echo $this->render('_search', ['model' => $searchModel]); */ ?>
         </div>
     </div>-->
 
@@ -68,7 +68,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         'options' => ['width' => '160px;']
                     ],
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    [
+                        'class' => 'backend\grid\ActionColumn',
+                        'template' => '{update} {delete}'
+                    ],
                 ],
             ]); ?>
         </div>

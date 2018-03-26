@@ -72,16 +72,16 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'created_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
-                        'options' => ['width' => '200px;']
+                        'options' => ['width' => '150px;']
                     ],
                     [
                         'attribute' => 'updated_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
-                        'options' => ['width' => '200px;']
+                        'options' => ['width' => '150px;']
                     ],
                     [
                         'header' => '操作',
-                        'class' => 'yii\grid\ActionColumn',
+                        'class' => 'backend\grid\ActionColumn',
                         'template' => ' {update} {delete}'
                     ],
                 ],

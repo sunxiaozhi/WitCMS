@@ -65,7 +65,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
                     [
                         'header' => '操作',
-                        'class' => 'yii\grid\ActionColumn'
+                        'class' => 'backend\grid\ActionColumn',
+                        'template' => '{update} {delete}'
                     ],
                 ],
             ]); ?>
