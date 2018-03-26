@@ -21,6 +21,7 @@ class Rabc extends Model
     public $name;
     public $type;
     public $description;
+    public $ruleName;
     public $_item;
 
     public function __construct($item = null)
@@ -30,6 +31,7 @@ class Rabc extends Model
             $this->name = $item->name;
             $this->description = $item->description;
             $this->type = $item->type;
+            $this->ruleName = $item->ruleName;
         }
 
         //parent::__construct();
@@ -79,7 +81,7 @@ class Rabc extends Model
         $this->_item->name = $this->name;
         $this->_item->type = $this->type;
         $this->_item->description = $this->description;
-
+        if($this->ruleName) $this->_item->ruleName = $this->ruleName;
         $isNew ? $authManager->add($this->_item) : $authManager->update($oldName, $this->_item);
 
         return true;

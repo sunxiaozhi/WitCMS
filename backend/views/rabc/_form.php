@@ -13,16 +13,15 @@ use yii\helpers\Html;
 
 <div class="box box-primary">
     <div class="box-body">
+        <?php $form = ActiveForm::begin(); ?>
 
-<?php $form = ActiveForm::begin(); ?>
+        <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+        <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-<?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
-<?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+        <div class="form-group">
+            <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-success']) ?>
+        </div>
 
-<div class="form-group">
-    <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-success']) ?>
-</div>
-
-<?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
     </div>
 </div>

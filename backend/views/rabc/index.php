@@ -37,9 +37,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
                     'action' => Url::to(['roles-sort']),
                 ],*/
-                 [
+                 /*[
                      'class' => ActionColumn::className(),
-                 ]
+                 ]*/
+                [
+                    'class' => 'backend\grid\ActionColumn',
+                    'header' => Yii::t('backend', 'Operate'),
+                    'template' => '{update} {auth} {delete}',
+                ],
             ]
         ]) ?>
     </div>

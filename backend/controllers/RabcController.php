@@ -14,6 +14,9 @@ use yii\web\NotFoundHttpException;
 use backend\models\search\RabcSearch;
 use backend\models\Rabc;
 use yii\rbac\Item;
+use backend\models\AuthRule;
+use common\models\Menu;
+use backend\helpers\Tree;
 
 class RabcController extends Controller
 {
@@ -47,7 +50,7 @@ class RabcController extends Controller
         $model->type = $this->type;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $this->redirect('rabc/index');
+            $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -102,12 +105,52 @@ class RabcController extends Controller
     }
 
 
+    public function actionAuth($id) {
+        $authManager = Yii::$app->authManager;
+        if(Yii::$app->request->isPost) {
+            $rules = Yii::$app->request->post('rules', []);
+            if(!$role = $authManager->getRole($id)) {
+                Yii::$app->session->setFlash('error', '角色不存在');
+            }
+            //删除角色所有child
+            $authManager->removeChildren($role);
+            foreach ($rules as $rule) {
+                //auth_rule表
+                $ruleModel = new AuthRule();
+                $ruleModel->name = $rule;
+                $ruleModel->save();
+                //auth_item表
+                $itemModel = new Rabc($authManager->getPermission($rule));
+                $itemModel->name = $rule;
+                $itemModel->type = Item::TYPE_PERMISSION;
+                $itemModel->ruleName = $rule;
+                $itemModel->save();
+                //auth_item_child表
+                if(!$authManager->hasChild($role, $itemModel)) {
+                    $authManager->addChild($role, $itemModel);
+                }
+            }
+            Yii::$app->session->setFlash('success', '操作成功');
+        }
+        $arr = Menu::find()->asArray()->all();
+        $treeObj = new Tree($arr);
+        $authRules = $authManager->getChildren($id);
+        $authRules = array_keys($authRules); //var_dump($authRules); exit();
+        //var_dump($treeObj->getTreeArray()); exit();
+        return $this->render('auth', [
+            'treeArr' => $treeObj->getTreeArray(),
+            'authRules' => $authRules,
+            'role' => $id,
+        ]);
+    }
 
 
 
 
 
-    public function actionAuth()
+
+
+    public function actionAuth_test()
     {
         /*@var yii\rbac\DbManager $auth*/
 

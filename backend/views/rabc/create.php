@@ -8,10 +8,6 @@
 
 ?>
 
-
-
-        <?= $this->render('_form', [
-            'model' => $model,
-        ]) ?>
-    </div>
-</div>
+<?= $this->render('_form', [
+    'model' => $model,
+]) ?>
