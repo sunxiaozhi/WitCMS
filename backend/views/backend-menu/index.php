@@ -69,7 +69,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'header' => '操作',
                         'class' => 'backend\grid\ActionColumn',
-                        'template' => ' {update} {delete}'
+                        'template' => '{create} {update} {delete}',
+                        'buttons' => [
+                            'create' => function ($url, $model, $key) {
+                                return Html::a('<span class="fa fa-plus"></span> 添加子菜单', ['create', 'parent_id' => $key], [
+                                    'title' => '添加子菜单',
+                                    'class' => 'btn btn-success btn-xs'
+                                ]);
+                            },
+                        ],
                     ],
                 ],
             ]); ?>

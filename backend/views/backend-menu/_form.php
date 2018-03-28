@@ -6,6 +6,7 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\Menu */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $treeArr backend\helpers\Tree  getTree()*/
 ?>
 <div class="box box-primary">
     <div class="box-body">

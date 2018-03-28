@@ -44,18 +44,31 @@ class Tree
     public function getTree($parent_id = 0, $pk = 'id', $pidFeldName = 'parent_id', $cateFieldName = 'name', $adds = '')
     {
         $num = 1;
+
         $child = $this->getChild($parent_id, $pidFeldName);
-        if (empty($child)) return $this->treeArr;
+
+        if (empty($child)) {
+            return $this->treeArr;
+        }
+
         $total = count($child);
+
         foreach ($child as $id => $value) {
-            $j = $this->icon[1];
-            $k = $adds ? $this->icon[0] : '';
-            if ($num == $total) $j = $this->icon[2];
+            $j = $this->icon[1];  // ├
+            $k = $adds ? $this->icon[0] : ''; // │
+            if ($num == $total) {
+                $j = $this->icon[2]; // └
+            }
+
             $spacer = $adds ? $adds . $j : '';
+
             $this->treeArr[$value[$pk]] = $spacer . ' ' . $value[$cateFieldName];
+
             $this->getTree($value[$pk], $pk, $pidFeldName, $cateFieldName, $adds . $k . $this->nbsp);
+
             $num++;
         }
+
         return $this->treeArr;
     }
 
@@ -71,17 +84,31 @@ class Tree
     public function getGridTree($parent_id = 0, $pk = 'id', $pidFeldName = 'parent_id', $cateFieldName = 'name', $adds = '')
     {
         $num = 1;
+
         $child = $this->getChild(intval($parent_id), $pidFeldName);
-        if (empty($child)) return $this->treeArr;
+
+        if (empty($child)) {
+            return $this->treeArr;
+        }
+
         $total = count($child);
+
         foreach ($child as $id => $value) {
+
             $j = $this->icon[1];
             $k = $adds ? $this->icon[0] : '';
-            if ($num == $total) $j = $this->icon[2];
+            if ($num == $total) {
+                $j = $this->icon[2];
+            }
+
             $spacer = $adds ? $adds . $j : '';
+
             $value[$cateFieldName] = $spacer . ' ' . $value[$cateFieldName];
+
             $this->treeArr[$value[$pk]] = $value;
+
             $this->getGridTree($value[$pk], $pk, $pidFeldName, $cateFieldName, $adds . $k . $this->nbsp);
+
             $num++;
         }
         return $this->treeArr;
@@ -126,7 +153,9 @@ class Tree
         $child = [];
         if (!empty($this->arr)) {
             foreach ($this->arr as $id => $value) {
-                if ($value[$pidFeldName] == $parent_id) $child[$id] = $value;
+                if ($value[$pidFeldName] == $parent_id) {
+                    $child[$id] = $value;
+                }
             }
         }
         return $child;

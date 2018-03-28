@@ -115,16 +115,19 @@ class RabcController extends Controller
             //删除角色所有child
             $authManager->removeChildren($role);
             foreach ($rules as $rule) {
+
                 //auth_rule表
                 $ruleModel = new AuthRule();
                 $ruleModel->name = $rule;
                 $ruleModel->save();
+
                 //auth_item表
                 $itemModel = new Rabc($authManager->getPermission($rule));
                 $itemModel->name = $rule;
                 $itemModel->type = Item::TYPE_PERMISSION;
                 $itemModel->ruleName = $rule;
                 $itemModel->save();
+
                 //auth_item_child表
                 if(!$authManager->hasChild($role, $itemModel)) {
                     $authManager->addChild($role, $itemModel);
