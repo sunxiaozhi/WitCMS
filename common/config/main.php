@@ -12,6 +12,29 @@ return [
     'language' => 'zh-CN',
 
     'components' => [
+        //配置读写分离
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=192.168.20.66;dbname=witcms',
+            'username' => 'root',
+            'password' => '123456',
+            'charset' => 'utf8',
+            'tablePrefix' => 'wit_',
+
+            'slaveConfig' => [
+                'username' => 'root',
+                'password' => '123456',
+                'attributes' => [
+                    // use a smaller connection timeout
+                    PDO::ATTR_TIMEOUT => 10,
+                ],
+            ],
+
+            'slaves' => [
+                ['dsn' => 'mysql:host=192.168.20.66;dbname=witcms'],
+            ]
+        ],
+
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
