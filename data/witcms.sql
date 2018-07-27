@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-03-26 16:12:25
+Date: 2018-07-27 14:19:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -149,12 +149,12 @@ CREATE TABLE `wit_auth_item` (
 INSERT INTO `wit_auth_item` VALUES ('#', '2', '', '#', null, '1522050422', '1522050852');
 INSERT INTO `wit_auth_item` VALUES ('admin/index', '2', '', 'admin/index', null, '1522049871', '1522050852');
 INSERT INTO `wit_auth_item` VALUES ('article/index', '2', '', 'article/index', null, '1522050419', '1522050852');
-INSERT INTO `wit_auth_item` VALUES ('author', '1', '123', null, null, '1521783127', '1522045434');
 INSERT INTO `wit_auth_item` VALUES ('backend-menu/index', '2', '', 'backend-menu/index', null, '1522050419', '1522050852');
-INSERT INTO `wit_auth_item` VALUES ('editor', '1', 'hfgh', null, null, '1521783127', '1521783447');
 INSERT INTO `wit_auth_item` VALUES ('frontend-menu/index', '2', '', 'frontend-menu/index', null, '1522050419', '1522050852');
 INSERT INTO `wit_auth_item` VALUES ('rabc/index', '2', '', 'rabc/index', null, '1522050414', '1522050852');
 INSERT INTO `wit_auth_item` VALUES ('user/index', '2', '', 'user/index', null, '1522049871', '1522050852');
+INSERT INTO `wit_auth_item` VALUES ('普通管理员', '1', '普通管理员', null, null, '1521783127', '1522052221');
+INSERT INTO `wit_auth_item` VALUES ('超级管理员', '1', '拥有所有权限', null, null, '1521783127', '1522054534');
 
 -- ----------------------------
 -- Table structure for wit_auth_item_child
@@ -172,13 +172,13 @@ CREATE TABLE `wit_auth_item_child` (
 -- ----------------------------
 -- Records of wit_auth_item_child
 -- ----------------------------
-INSERT INTO `wit_auth_item_child` VALUES ('author', '#');
-INSERT INTO `wit_auth_item_child` VALUES ('author', 'admin/index');
-INSERT INTO `wit_auth_item_child` VALUES ('author', 'article/index');
-INSERT INTO `wit_auth_item_child` VALUES ('author', 'backend-menu/index');
-INSERT INTO `wit_auth_item_child` VALUES ('author', 'frontend-menu/index');
-INSERT INTO `wit_auth_item_child` VALUES ('author', 'rabc/index');
-INSERT INTO `wit_auth_item_child` VALUES ('author', 'user/index');
+INSERT INTO `wit_auth_item_child` VALUES ('超级管理员', '#');
+INSERT INTO `wit_auth_item_child` VALUES ('超级管理员', 'admin/index');
+INSERT INTO `wit_auth_item_child` VALUES ('超级管理员', 'article/index');
+INSERT INTO `wit_auth_item_child` VALUES ('超级管理员', 'backend-menu/index');
+INSERT INTO `wit_auth_item_child` VALUES ('超级管理员', 'frontend-menu/index');
+INSERT INTO `wit_auth_item_child` VALUES ('超级管理员', 'rabc/index');
+INSERT INTO `wit_auth_item_child` VALUES ('超级管理员', 'user/index');
 
 -- ----------------------------
 -- Table structure for wit_auth_rule
@@ -246,7 +246,7 @@ CREATE TABLE `wit_friend_link` (
 -- Records of wit_friend_link
 -- ----------------------------
 INSERT INTO `wit_friend_link` VALUES ('1', '百度', '', 'www.baidu.com', '_self', '0', '0', '1468303882', '1521775415');
-INSERT INTO `wit_friend_link` VALUES ('2', '谷歌', '', 'www.google.com', '_self', '1', '1', '222', '2');
+INSERT INTO `wit_friend_link` VALUES ('2', '谷歌', '', 'www.google.com', '_self', '1', '1', '222', '1522140486');
 
 -- ----------------------------
 -- Table structure for wit_menu
@@ -270,7 +270,7 @@ CREATE TABLE `wit_menu` (
 -- ----------------------------
 -- Records of wit_menu
 -- ----------------------------
-INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', '#', 'fa fa-cog', '0', '0', '1', '0', '1521970930', '1521971530');
+INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', 'fa fa-cog', '0', '0', '1', '0', '1521970930', '1522140524');
 INSERT INTO `wit_menu` VALUES ('2', '用户管理', '0', '#', 'fa fa-user-circle-o', '0', '0', '1', '0', '1521970961', '1521971485');
 INSERT INTO `wit_menu` VALUES ('3', '权限管理', '0', '#', 'fa fa-lock', '0', '0', '1', '0', '1521970961', '1521971972');
 INSERT INTO `wit_menu` VALUES ('4', '菜单管理', '0', '#', 'fa fa-bars', '0', '0', '1', '0', '1521971007', '1521971690');
