@@ -13,6 +13,14 @@ return [
     'bootstrap' => ['log'],
     'modules' => [],
     'components' => [
+        'view' => [
+            'theme' => [
+                'pathMap' => [
+                    '@app/views' => '@backend/views/yii2-app'
+                ],
+            ],
+        ],
+
         'request' => [
             'csrfParam' => '_csrf-backend',
         ],

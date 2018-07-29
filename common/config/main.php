@@ -13,9 +13,9 @@ return [
 
     'components' => [
         //配置读写分离
-        'db' => [
+        /*'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=192.168.20.66;dbname=witcms',
+            'dsn' => 'mysql:host=192.168.0.65;dbname=witcms',
             'username' => 'root',
             'password' => '123456',
             'charset' => 'utf8',
@@ -31,9 +31,9 @@ return [
             ],
 
             'slaves' => [
-                ['dsn' => 'mysql:host=192.168.20.66;dbname=witcms'],
+                ['dsn' => 'mysql:host=192.168.0.66;dbname=witcms'],
             ]
-        ],
+        ],*/
 
         'cache' => [
             'class' => 'yii\caching\FileCache',
