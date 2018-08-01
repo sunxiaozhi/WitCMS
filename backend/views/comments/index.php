@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="comments-index">
 
-    <p class="text-right">
+    <p class="text-left">
         <?= Html::a(Yii::t('backend', 'Create Comments'), ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 

@@ -14,8 +14,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p class="text-right">
-        <?= Html::a(Yii::t('backend', Yii::t('backend','Create User')), ['create'], ['class' => 'btn btn-success']) ?>
+    <p class="text-left">
+        <?= Html::a(Yii::t('backend', Yii::t('backend','Create User')), ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <div class="box box-primary">

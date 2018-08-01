@@ -7,9 +7,10 @@
  */
 return [
     /*登录页 start*/
-    'Sign In' => '登录',
+    'Sign in' => '登录',
     'username' => '用户名',
     'password' => '密码',
+    'rememberMe' => '记住我的登录状态',
     /*登录页 end*/
 
     /*后台页面公用 start*/

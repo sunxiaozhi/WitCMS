@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-07-27 14:19:41
+Date: 2018-08-01 16:11:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -271,17 +271,16 @@ CREATE TABLE `wit_menu` (
 -- Records of wit_menu
 -- ----------------------------
 INSERT INTO `wit_menu` VALUES ('1', '系统设置', '0', 'site/index', 'fa fa-cog', '0', '0', '1', '0', '1521970930', '1522140524');
-INSERT INTO `wit_menu` VALUES ('2', '用户管理', '0', '#', 'fa fa-user-circle-o', '0', '0', '1', '0', '1521970961', '1521971485');
+INSERT INTO `wit_menu` VALUES ('2', '用户管理', '0', 'user/index', 'fa fa-users', '0', '0', '1', '0', '1521970961', '1533108596');
 INSERT INTO `wit_menu` VALUES ('3', '权限管理', '0', '#', 'fa fa-lock', '0', '0', '1', '0', '1521970961', '1521971972');
 INSERT INTO `wit_menu` VALUES ('4', '菜单管理', '0', '#', 'fa fa-bars', '0', '0', '1', '0', '1521971007', '1521971690');
 INSERT INTO `wit_menu` VALUES ('5', '内容管理', '0', '#', 'fa fa-file', '0', '0', '1', '0', '1521970983', '1521971644');
 INSERT INTO `wit_menu` VALUES ('6', '友情链接', '0', 'friend-link/index', 'fa fa-link', '0', '0', '1', '0', '1521971227', '1521973122');
-INSERT INTO `wit_menu` VALUES ('7', '用户', '2', 'user/index', '', '0', '0', '1', '0', '1521971290', '1521971290');
-INSERT INTO `wit_menu` VALUES ('8', '管理员', '2', 'admin/index', '', '0', '0', '1', '0', '1521971313', '1521971313');
-INSERT INTO `wit_menu` VALUES ('9', '角色', '3', 'rabc/index', '', '0', '0', '1', '0', '1521972025', '1521972048');
-INSERT INTO `wit_menu` VALUES ('10', '后台菜单', '4', 'backend-menu/index', '', '0', '0', '1', '0', '1521972100', '1521972100');
-INSERT INTO `wit_menu` VALUES ('11', '前台菜单', '4', 'frontend-menu/index', '', '0', '0', '1', '0', '1521972134', '1521972134');
-INSERT INTO `wit_menu` VALUES ('12', '文章管理', '5', 'article/index', '', '0', '0', '1', '0', '1521972263', '1521972272');
+INSERT INTO `wit_menu` VALUES ('8', '管理员', '3', 'admin/index', 'fa fa-id-badge', '0', '0', '1', '0', '1521971313', '1533107632');
+INSERT INTO `wit_menu` VALUES ('9', '角色', '3', 'rabc/index', 'fa fa-th-large', '0', '0', '1', '0', '1521972025', '1521972048');
+INSERT INTO `wit_menu` VALUES ('10', '后台菜单', '4', 'backend-menu/index', 'fa fa-map', '0', '0', '1', '0', '1521972100', '1533108290');
+INSERT INTO `wit_menu` VALUES ('11', '前台菜单', '4', 'frontend-menu/index', 'fa fa-map-o', '0', '0', '1', '0', '1521972134', '1533108306');
+INSERT INTO `wit_menu` VALUES ('12', '文章管理', '5', 'article/index', 'fa fa-edit', '0', '0', '1', '0', '1521972263', '1533108167');
 
 -- ----------------------------
 -- Table structure for wit_migration

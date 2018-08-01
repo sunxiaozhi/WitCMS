@@ -8,7 +8,7 @@ $this->title = Yii::t('backend', '权限管理');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
-<p class="text-right">
+<p class="text-left">
     <?= Html::a(Yii::t('backend', 'Create Roles'), ['create'], ['class' => 'btn btn-primary']) ?>
 </p>
 
