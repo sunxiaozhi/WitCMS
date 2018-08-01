@@ -23,7 +23,7 @@ class MenuView extends \yii\base\Widget
 
     public $subTemplate = "<ul class=\"treeview-menu\">{lis}</ul>";
 
-    public $subLitemplate = "<li class=\"{current_menu_class}\"><a href=\"{url}\"><i class=\"fa fa-circle-o\"></i>{sub_menu_name}</a></li>";
+    public $subLitemplate = "<li class=\"{current_menu_class}\"><a href=\"{url}\"><i class=\"{icon}\"></i>{sub_menu_name}</a></li>";
 
     /**
      * @inheritdoc
@@ -137,8 +137,9 @@ class MenuView extends \yii\base\Widget
                 $content .= str_replace([
                     '{current_menu_class}',
                     '{url}',
+                    '{icon}',
                     '{sub_menu_name}'
-                ], [$current_menu_class, $url, $menu['name']], $this->subLitemplate);
+                ], [$current_menu_class, $url, $menu['icon'], $menu['name']], $this->subLitemplate);
             }
         }
 

@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="article-index">
 
     <p class="text-left">
-        <?= Html::a(Yii::t('backend', 'Create Article'), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('backend', 'Create Article'), ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <!-- <div class="box box-primary">
