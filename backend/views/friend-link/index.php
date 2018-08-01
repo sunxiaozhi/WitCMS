@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="friend-link-index">
 
-     <p class="text-right">
+     <p class="text-left">
         <?= Html::a(Yii::t('backend', 'Create Friend Link'), ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 

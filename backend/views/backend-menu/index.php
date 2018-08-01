@@ -12,8 +12,8 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-index">
 
-    <p class="text-right">
-        <?= Html::a(Yii::t('backend', 'Create Backend Menu'), ['create'], ['class' => 'btn btn-success']) ?>
+    <p class="text-left">
+        <?= Html::a(Yii::t('backend', 'Create Backend Menu'), ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
     <!--<div class="box box-primary">
