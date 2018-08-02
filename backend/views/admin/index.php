@@ -60,7 +60,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => ['date', 'php:Y-m-d H:i'],
                         'options' => ['width' => '200px;']
                     ],
-
                     [
                         'header' => '操作',
                         'class' => 'backend\grid\ActionColumn',

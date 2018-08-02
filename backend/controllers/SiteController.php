@@ -6,6 +6,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use backend\models\LoginForm;
+use yii\db\Query;
 
 /**
  * Site controller
@@ -60,7 +61,29 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        switch (Yii::$app->getDb()->driverName) {
+            case "mysql":
+                $dbInfo = 'MySQL ' . (new Query())->select('version()')->one()['version()'];
+                break;
+            case "pgsql":
+                $dbInfo = (new Query())->select('version()')->one()['version'];
+                break;
+            default:
+                $dbInfo = "Unknown";
+        }
+        $info = [
+            'OPERATING_ENVIRONMENT' => PHP_OS . ' ' . $_SERVER['SERVER_SOFTWARE'],
+            'PHP_RUN_MODE' => php_sapi_name(),
+            'PHP_VERSION' => PHP_VERSION,
+            'DB_INFO' => $dbInfo,
+            'PROGRAM_VERSION' => "1.0",
+            'UPLOAD_MAX_FILESIZE' => ini_get('upload_max_filesize'),
+            'MAX_EXECUTION_TIME' => ini_get('max_execution_time') . "s",
+        ];
+
+        return $this->render('index',[
+            'info' => $info
+        ]);
     }
 
     /**

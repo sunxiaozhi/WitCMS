@@ -12,7 +12,6 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
-    'name' => 'WitCMS',
     'components' => [
         'view' => [
             'theme' => [

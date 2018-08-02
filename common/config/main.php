@@ -1,5 +1,8 @@
 <?php
 return [
+    'name' => 'WitCMS',
+    'version' => '1.0.0',
+
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
