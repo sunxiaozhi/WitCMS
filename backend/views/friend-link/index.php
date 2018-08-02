@@ -12,18 +12,18 @@ $this->title = Yii::t('backend', 'Friend Links');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="friend-link-index">
-
-     <p class="text-left">
-        <?= Html::a(Yii::t('backend', 'Create Friend Link'), ['create'], ['class' => 'btn btn-primary']) ?>
-    </p>
-
-    <!--<div class="box box-primary">
+    <!--<div class="box ">
         <div class="box-body">
             <?php /*echo $this->render('_search', ['model' => $searchModel]); */ ?>
         </div>
     </div>-->
 
-    <div class="box box-primary">
+    <div class="box ">
+        <div class="box-header">
+            <div class="box-title">
+                <?= Html::a(Yii::t('backend', 'Create Friend Link'), ['create'], ['class' => 'btn btn-primary']) ?>
+            </div>
+        </div>
         <div class="box-body">
             <?php Pjax::begin(); ?>
             <?= GridView::widget([

@@ -2,7 +2,8 @@
 
 /* @var $this yii\web\View */
 
-$this->title = '系统设置';
+$this->title = '仪表盘';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 
 <!-- Info boxes -->
@@ -13,7 +14,7 @@ $this->title = '系统设置';
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= Yii::t('backend', 'Article') ?></span>
-                <span class="info-box-number">总共<small>100</small></span>
+                <span class="info-box-number">100</span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -26,7 +27,7 @@ $this->title = '系统设置';
 
             <div class="info-box-content">
                 <span class="info-box-text">评论</span>
-                <span class="info-box-number">总共<small>100</small></span>
+                <span class="info-box-number">100</span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -43,7 +44,7 @@ $this->title = '系统设置';
 
             <div class="info-box-content">
                 <span class="info-box-text">用户</span>
-                <span class="info-box-number">总共<small>200</small></span>
+                <span class="info-box-number">200</span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -56,7 +57,7 @@ $this->title = '系统设置';
 
             <div class="info-box-content">
                 <span class="info-box-text">友情链接</span>
-                <span class="info-box-number">总共<small>2</small></span>
+                <span class="info-box-number">2</span>
             </div>
             <!-- /.info-box-content -->
         </div>

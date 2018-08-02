@@ -11,7 +11,7 @@ use yii\helpers\Html;
 /* @var $model /backend/modles/rabc */
 ?>
 
-<div class="box box-primary">
+<div class="box ">
     <div class="box-body">
         <?php $form = ActiveForm::begin(); ?>
 

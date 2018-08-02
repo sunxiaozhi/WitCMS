@@ -101,9 +101,9 @@ a.desc:after {
     border: none;
 }
 
-@media(max-width:767px) {
+@media (max-width: 767px) {
     .nav li > form > button.logout {
-        display:block;
+        display: block;
         text-align: left;
         width: 100%;
         padding: 10px 15px;
@@ -119,6 +119,9 @@ a.desc:after {
     outline: none;
 }
 
-.content {
-    margin-top: 20px;
+/*
+new add
+*/
+.m-right {
+    margin-right: 5px;
 }

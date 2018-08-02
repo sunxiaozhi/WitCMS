@@ -11,18 +11,18 @@ $this->title = Yii::t('backend', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
-
-    <p class="text-left">
-        <?= Html::a(Yii::t('backend', 'Create Article'), ['create'], ['class' => 'btn btn-primary']) ?>
-    </p>
-
-    <!-- <div class="box box-primary">
+    <!-- <div class="box ">
         <div class="box-body">
             <?php /*echo $this->render('_search', ['model' => $searchModel]); */ ?>
         </div>
     </div>-->
 
-    <div class="box box-primary">
+    <div class="box ">
+        <div class="box-header">
+            <div class="box-title">
+                <?= Html::a(Yii::t('backend', 'Create Article'), ['create'], ['class' => 'btn btn-primary']) ?>
+            </div>
+        </div>
         <div class="box-body">
             <?= GridView::widget([
                 //'layout' => "{items}\n{summary}\n{pager}",

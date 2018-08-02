@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a(Yii::t('backend', 'Create Comments'), ['create'], ['class' => 'btn btn-primary']) ?>
     </p>
 
-    <div class="box box-primary">
+    <div class="box ">
         <div class="box-body">
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
