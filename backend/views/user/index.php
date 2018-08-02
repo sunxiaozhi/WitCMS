@@ -14,10 +14,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <div class="box ">
+    <div class="box">
         <div class="box-header">
             <div class="box-title">
-                <?= Html::a(Yii::t('backend', Yii::t('backend','Create User')), ['create'], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a(Html::tag('i', ' ' . Yii::t('backend', 'Create'), ['class' => "fa fa-plus"]), ['create'], ['class' => 'btn btn-primary']) ?>
             </div>
         </div>
         <div class="box-body">

@@ -21,6 +21,7 @@ return [
     'Article' => '文章',
     'Reset' => '重置',
     'Update' => '更新',
+    'Create' => '创建',
     'Save' => '保存',
     /*后台页面公用 end*/
 

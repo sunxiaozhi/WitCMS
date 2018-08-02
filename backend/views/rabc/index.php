@@ -8,10 +8,10 @@ $this->title = Yii::t('backend', '权限管理');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rabc-index">
-    <div class="box ">
+    <div class="box">
         <div class="box-header">
             <div class="box-title">
-                <?= Html::a(Yii::t('backend', 'Create Roles'), ['create'], ['class' => 'btn btn-primary']) ?>
+                <?= Html::a(Html::tag('i', ' ' . Yii::t('backend', 'Create'), ['class' => "fa fa-plus"]), ['create'], ['class' => 'btn btn-primary']) ?>
             </div>
         </div>
         <div class="box-body">

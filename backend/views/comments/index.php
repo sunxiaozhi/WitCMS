@@ -11,12 +11,12 @@ $this->title = Yii::t('backend', 'Comments');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="comments-index">
-
-    <p class="text-left">
-        <?= Html::a(Yii::t('backend', 'Create Comments'), ['create'], ['class' => 'btn btn-primary']) ?>
-    </p>
-
-    <div class="box ">
+    <div class="box">
+        <div class="box-header">
+            <div class="box-title">
+                <?= Html::a(Html::tag('i', ' ' . Yii::t('backend', 'Create'), ['class' => "fa fa-plus"]), ['create'], ['class' => 'btn btn-primary']) ?>
+            </div>
+        </div>
         <div class="box-body">
             <?= GridView::widget([
                 'dataProvider' => $dataProvider,
