@@ -5,11 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 
-$this->title = Yii::t('backend', 'Update Article: {nameAttribute}', [
-    'nameAttribute' => $model->title,
-]);
+$this->title = Yii::t('backend', 'Update');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Articles'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->title, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->title];
 $this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
 ?>
 <div class="article-update">

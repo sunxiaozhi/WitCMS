@@ -4,7 +4,7 @@ use yii\grid\GridView;
 use yii\grid\ActionColumn;
 use yii\helpers\Html;
 
-$this->title = Yii::t('backend', '权限管理');
+$this->title = Yii::t('backend', 'Rabc');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="rabc-index">

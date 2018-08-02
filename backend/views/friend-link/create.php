@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model common\models\FriendLink */
 
-$this->title = Yii::t('backend', 'Create Friend Link');
+$this->title = Yii::t('backend', 'Create');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Friend Links'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

@@ -7,21 +7,24 @@ use yii\widgets\ActiveForm;
 /* @var $model common\models\Article */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+<div class="box ">
+    <div class="box-body">
+        <div class="article-form">
 
-<div class="article-form">
+            <?php $form = ActiveForm::begin(); ?>
 
-    <?php $form = ActiveForm::begin(); ?>
+            <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'created_at')->textInput() ?>
 
-    <?= $form->field($model, 'created_at')->textInput() ?>
+            <?= $form->field($model, 'updated_at')->textInput() ?>
 
-    <?= $form->field($model, 'updated_at')->textInput() ?>
+            <div class="form-group">
+                <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-success']) ?>
+            </div>
 
-    <div class="form-group">
-        <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-success']) ?>
+            <?php ActiveForm::end(); ?>
+
+        </div>
     </div>
-
-    <?php ActiveForm::end(); ?>
-
 </div>

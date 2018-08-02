@@ -80,6 +80,8 @@ class MenuView extends \yii\base\Widget
                     $current_menu_class = '';
                     if ($menu['route'] == Yii::$app->controller->id . '/' . Yii::$app->controller->action->id) {
                         $current_menu_class = ' active ';
+                    } elseif ($menu['route'] == Yii::$app->controller->id . '/index') {
+                        $current_menu_class = ' active ';
                     } else {
                         if (yii::$app->request->getPathInfo() == $menu['route']) {
                             $current_menu_class = ' active ';
@@ -124,7 +126,11 @@ class MenuView extends \yii\base\Widget
                     }
                 }
                 $current_menu_class = '';
+
                 if ($menu['route'] == Yii::$app->controller->id . '/' . Yii::$app->controller->action->id) {
+                    $current_menu_class = ' active ';
+                    $menu_open = ' active menu_open ';
+                } elseif ($menu['route'] == Yii::$app->controller->id . '/index') {
                     $current_menu_class = ' active ';
                     $menu_open = ' active menu_open ';
                 } else {
@@ -133,6 +139,8 @@ class MenuView extends \yii\base\Widget
                         $menu_open = ' active menu_open ';
                     }
                 }
+
+                //(substr($menu['route'],0,strrpos($menu['route'],'/')) . '/index')  == Yii::$app->controller->id . '/' . Yii::$app->controller->action->id
 
                 $content .= str_replace([
                     '{current_menu_class}',

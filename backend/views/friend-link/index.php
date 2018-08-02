@@ -12,12 +12,6 @@ $this->title = Yii::t('backend', 'Friend Links');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="friend-link-index">
-    <!--<div class="box ">
-        <div class="box-body">
-            <?php /*echo $this->render('_search', ['model' => $searchModel]); */ ?>
-        </div>
-    </div>-->
-
     <div class="box">
         <div class="box-header">
             <div class="box-title">

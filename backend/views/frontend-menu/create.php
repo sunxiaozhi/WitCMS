@@ -1,12 +1,10 @@
 <?php
 
-use yii\helpers\Html;
-
-
 /* @var $this yii\web\View */
 /* @var $model common\models\Menu */
+/* @var $treeArr backend\helpers\Tree */
 
-$this->title = Yii::t('backend', Yii::t('backend', 'Create Frontend Menu'));
+$this->title = Yii::t('backend', Yii::t('backend', 'Create'));
 $this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Frontend Menus'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

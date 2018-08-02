@@ -11,9 +11,6 @@ $this->title = Yii::t('backend', Yii::t('backend','Users'));
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <div class="box">
         <div class="box-header">
             <div class="box-title">
@@ -73,5 +70,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ]); ?>
         </div>
     </div>
-    <?php Pjax::end(); ?>
 </div>
