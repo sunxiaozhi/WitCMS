@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use dosamigos\ckeditor\CKEditor;
+use froala\froalaeditor\FroalaEditorWidget;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
@@ -16,7 +18,20 @@ use yii\widgets\ActiveForm;
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'sub_title')->textInput() ?>
                 <?= $form->field($model, 'abstract')->textarea() ?>
-                <?= $form->field($model, 'content')->textarea() ?>
+
+                <?= $form->field($model, 'content')->widget(FroalaEditorWidget::className(), [
+                    'name' => 'body',
+                    'clientOptions' => [
+                        'toolbarInline'=> false,
+                        'height' => 200,
+                        'theme' => 'royal',//optional: dark, red, gray, royal
+                        'language' => 'en_gb' ,
+                        'toolbarButtons' => ['fullscreen', 'bold', 'italic', 'underline', '|', 'paragraphFormat', 'insertImage'],
+                        'imageUploadParam' => 'file',
+                        'imageUploadURL' => \yii\helpers\Url::to(['site/upload/'])
+                    ],
+                    'clientPlugins'=> ['fullscreen', 'paragraph_format', 'image']
+                ]) ?>
             </div>
             <div class="col-md-5">
                 <div class="box">
