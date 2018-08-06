@@ -14,18 +14,21 @@ return [
     'Updated At' => '更新时间',
     'Parent ID' => '父id',
     'Type' => '类型',
-
+    'Content' => '内容',
 
     /*wit_article start*/
     'Title' => '标题',
     'Sub Title' => '副标题',
     'Abstract' => '摘要',
+    'ArticleContent' => '文章内容',
+    'seo_title' => 'SEO标题',
+    'seo_keywords' => 'SEO关键词',
+    'seo_description' => 'SEO描述',
     /*wit_article end*/
 
     /*wit_comments start*/
     'Article ID' => '文章id',
     'User ID' => '用户id',
-    'Content' => '评论内容',
     /*wit_comments end*/
 
     /*wit_friend_link start*/
