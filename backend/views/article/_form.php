@@ -37,6 +37,7 @@ use froala\froalaeditor\FroalaEditorWidget;
                     <div class="box-header">
                         <div class="box-title">分类</div>
                         <div class="box-body">
+                            <?= $form->field($model, 'catrgory_id')->dropDownList(['a' => 'Item A', 'b' => 'Item B', 'c' => 'Item C']);?>
                         </div>
                     </div>
                 </div>
