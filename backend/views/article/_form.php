@@ -22,7 +22,7 @@ use froala\froalaeditor\FroalaEditorWidget;
                     'name' => 'body',
                     'clientOptions' => [
                         'toolbarInline'=> false,
-                        'height' => 200,
+                        'height' => 600,
                         'theme' => 'royal',//optional: dark, red, gray, royal
                         'language' => 'zh_cn' ,
                         'toolbarButtons' => ['fullscreen', 'bold', 'italic', 'underline', '|', 'paragraphFormat', 'insertImage'],
