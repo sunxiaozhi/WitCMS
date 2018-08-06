@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-08-06 16:36:44
+Date: 2018-08-06 16:48:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -47,6 +47,7 @@ DROP TABLE IF EXISTS `wit_article`;
 CREATE TABLE `wit_article` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章id',
   `title` varchar(255) NOT NULL COMMENT '标题',
+  `catrgory_id` int(11) unsigned NOT NULL COMMENT '文章分类',
   `sub_title` varchar(255) NOT NULL DEFAULT '' COMMENT '副标题',
   `abstract` varchar(255) NOT NULL DEFAULT '' COMMENT '摘要',
   `content` text NOT NULL COMMENT '文章内容',
@@ -63,7 +64,30 @@ CREATE TABLE `wit_article` (
 -- ----------------------------
 -- Records of wit_article
 -- ----------------------------
-INSERT INTO `wit_article` VALUES ('44', '测试文章', '测试文章副标题', '测试文章摘要', '<h1><strong>和电饭锅电饭锅的看过好几个擐甲挥戈</strong></h1><p><br></p><p><strong>dfgdf</strong></p><p><strong>sdfsdfsdf</strong>fsdfsdfsdfgdfg</p>', '1', '1', '1233', '444', '55555', '1533533945', '1533544520');
+INSERT INTO `wit_article` VALUES ('44', '测试文章', '0', '测试文章副标题', '测试文章摘要', '<h1>测试文章</h1>', '1', '1', '1233', '444', '55555', '1533533945', '1533544699');
+
+-- ----------------------------
+-- Table structure for wit_article_category
+-- ----------------------------
+DROP TABLE IF EXISTS `wit_article_category`;
+CREATE TABLE `wit_article_category` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) unsigned NOT NULL DEFAULT '0',
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `alias` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `sort` int(11) unsigned NOT NULL DEFAULT '0',
+  `remark` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `created_at` int(11) unsigned NOT NULL,
+  `updated_at` int(11) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of wit_article_category
+-- ----------------------------
+INSERT INTO `wit_article_category` VALUES ('1', '0', 'php', 'php', '0', '', '1468293958', '0');
+INSERT INTO `wit_article_category` VALUES ('2', '0', 'java', 'java', '0', '', '1468293965', '0');
+INSERT INTO `wit_article_category` VALUES ('3', '0', 'javascript', 'javascript', '0', '', '1468293974', '0');
 
 -- ----------------------------
 -- Table structure for wit_article_content

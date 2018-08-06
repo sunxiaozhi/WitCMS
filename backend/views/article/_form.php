@@ -36,6 +36,8 @@ use froala\froalaeditor\FroalaEditorWidget;
                 <div class="box">
                     <div class="box-header">
                         <div class="box-title">分类</div>
+                        <div class="box-body">
+                        </div>
                     </div>
                 </div>
                 <div class="box">
