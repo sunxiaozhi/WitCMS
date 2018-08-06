@@ -70,6 +70,9 @@ class ArticleSearch extends Article
             ->andFilterWhere(['like', 'sub_title', $this->sub_title])
             ->andFilterWhere(['like', 'abstract', $this->abstract]);
 
+        $query->orderBy(['created_at' => SORT_DESC]);
+        $query->orderBy(['updated_at' => SORT_DESC]);
+
         return $dataProvider;
     }
 }

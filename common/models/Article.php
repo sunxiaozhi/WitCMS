@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%article}}".
@@ -32,9 +34,10 @@ class Article extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['created_at', 'updated_at'], 'required'],
-            [['created_at', 'updated_at'], 'integer'],
+            //[['created_at', 'updated_at'], 'required'],
+            //[['created_at', 'updated_at'], 'integer'],
             [['title'], 'string', 'max' => 255],
+            [['sub_title', 'abstract'], 'string'],
         ];
     }
 
@@ -52,6 +55,20 @@ class Article extends \yii\db\ActiveRecord
             'status' => Yii::t('database', 'Status'),
             'created_at' => Yii::t('database', 'Created At'),
             'updated_at' => Yii::t('database', 'Updated At'),
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value' => time(),
+            ],
         ];
     }
 }
