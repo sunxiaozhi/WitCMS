@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use dosamigos\ckeditor\CKEditor;
 use froala\froalaeditor\FroalaEditorWidget;
 
 /* @var $this yii\web\View */
@@ -25,7 +24,7 @@ use froala\froalaeditor\FroalaEditorWidget;
                         'toolbarInline'=> false,
                         'height' => 200,
                         'theme' => 'royal',//optional: dark, red, gray, royal
-                        'language' => 'en_gb' ,
+                        'language' => 'zh_cn' ,
                         'toolbarButtons' => ['fullscreen', 'bold', 'italic', 'underline', '|', 'paragraphFormat', 'insertImage'],
                         'imageUploadParam' => 'file',
                         'imageUploadURL' => \yii\helpers\Url::to(['site/upload/'])

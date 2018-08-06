@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-08-02 23:02:46
+Date: 2018-08-06 16:36:44
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -49,48 +49,21 @@ CREATE TABLE `wit_article` (
   `title` varchar(255) NOT NULL COMMENT '标题',
   `sub_title` varchar(255) NOT NULL DEFAULT '' COMMENT '副标题',
   `abstract` varchar(255) NOT NULL DEFAULT '' COMMENT '摘要',
+  `content` text NOT NULL COMMENT '文章内容',
   `sort` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
   `status` smallint(6) unsigned NOT NULL DEFAULT '1' COMMENT '状态',
+  `seo_title` varchar(255) DEFAULT '' COMMENT 'seo标题',
+  `seo_keywords` varchar(255) DEFAULT '' COMMENT 'seo关键词',
+  `seo_description` varchar(255) DEFAULT '' COMMENT 'seo描述',
   `created_at` int(11) NOT NULL COMMENT '创建时间',
   `updated_at` int(11) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8 COMMENT='文章表';
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COMMENT='文章表';
 
 -- ----------------------------
 -- Records of wit_article
 -- ----------------------------
-INSERT INTO `wit_article` VALUES ('1', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('2', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('3', 'dgdf', '', '', '0', '1', '444', '4444');
-INSERT INTO `wit_article` VALUES ('4', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('5', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('6', 'dgdf', '', '', '0', '1', '444', '4444');
-INSERT INTO `wit_article` VALUES ('7', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('8', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('9', 'dgdf', '', '', '0', '1', '444', '4444');
-INSERT INTO `wit_article` VALUES ('10', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('11', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('12', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('13', 'dgdf', '', '', '0', '1', '444', '4444');
-INSERT INTO `wit_article` VALUES ('14', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('15', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('16', 'dgdf', '', '', '0', '1', '444', '4444');
-INSERT INTO `wit_article` VALUES ('17', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('18', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('19', 'dgdf', '', '', '0', '1', '444', '4444');
-INSERT INTO `wit_article` VALUES ('20', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('21', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('22', 'dgdf', '', '', '0', '1', '444', '4444');
-INSERT INTO `wit_article` VALUES ('23', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('24', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('25', 'dgdf', '', '', '0', '1', '444', '4444');
-INSERT INTO `wit_article` VALUES ('26', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('27', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('28', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('29', 'dgdf', '', '', '0', '1', '444', '4444');
-INSERT INTO `wit_article` VALUES ('30', '测试', '', '', '0', '1', '1519375410', '1519375410');
-INSERT INTO `wit_article` VALUES ('31', '33', '', '', '0', '1', '444', '555');
-INSERT INTO `wit_article` VALUES ('32', 'dgdf', '', '', '0', '1', '444', '4444');
+INSERT INTO `wit_article` VALUES ('44', '测试文章', '测试文章副标题', '测试文章摘要', '<h1><strong>和电饭锅电饭锅的看过好几个擐甲挥戈</strong></h1><p><br></p><p><strong>dfgdf</strong></p><p><strong>sdfsdfsdf</strong>fsdfsdfsdfgdfg</p>', '1', '1', '1233', '444', '55555', '1533533945', '1533544520');
 
 -- ----------------------------
 -- Table structure for wit_article_content
@@ -245,7 +218,7 @@ CREATE TABLE `wit_friend_link` (
 -- ----------------------------
 -- Records of wit_friend_link
 -- ----------------------------
-INSERT INTO `wit_friend_link` VALUES ('1', '百度', '', 'www.baidu.com', '_self', '0', '0', '1468303882', '1533196671');
+INSERT INTO `wit_friend_link` VALUES ('1', '百度', '', 'www.baidu.com', '_self', '0', '1', '1468303882', '1533524780');
 INSERT INTO `wit_friend_link` VALUES ('2', '谷歌', '', 'www.google.com', '_self', '1', '1', '222', '1533197740');
 
 -- ----------------------------
