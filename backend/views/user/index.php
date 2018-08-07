@@ -3,11 +3,12 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('backend', Yii::t('backend','Users'));
+$this->title = Yii::t('backend', Yii::t('backend', 'Users'));
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
@@ -48,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 Html::tag('span', '正常', ['class' => 'label label-sm label-success']) :
                                 Html::tag('span', '注销', ['class' => 'label label-sm label-danger']);
                         },
-                        'filter' => Html::activeDropDownList($searchModel, 'status', [0 => '注销', 10 => '正常'], ['prompt' => '全部', 'class' => 'form-control']),
+                        'filter' => Html::activeDropDownList($searchModel, 'status', [10 => '正常', 0 => '注销',], ['prompt' => '全部', 'class' => 'form-control']),
                     ],
                     [
                         'attribute' => 'created_at',

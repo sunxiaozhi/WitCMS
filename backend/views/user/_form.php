@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
 
             <?php $form = ActiveForm::begin(); ?>
 
+            <?= $form->field($model, 'username')->textInput() ?>
+
             <?= $form->field($model, 'status')->textInput() ?>
 
             <div class="form-group">

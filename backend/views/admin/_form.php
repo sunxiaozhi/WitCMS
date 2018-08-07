@@ -14,7 +14,9 @@ use yii\widgets\ActiveForm;
 
             <?php $form = ActiveForm::begin(); ?>
 
-            <?= $form->field($model, 'status')->textInput() ?>
+            <?= $form->field($model, 'username')->textInput() ?>
+
+            <?= $form->field($model, 'status')->radioList(['10' => '正常', '0' => '隐藏'])->label('状态') ?>
 
             <div class="form-group">
                 <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-success']) ?>
