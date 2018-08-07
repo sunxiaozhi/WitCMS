@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-08-06 16:48:35
+Date: 2018-08-07 18:53:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,7 +33,7 @@ CREATE TABLE `wit_admin` (
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `password_reset_token` (`password_reset_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台用户表';
 
 -- ----------------------------
 -- Records of wit_admin
@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS `wit_article`;
 CREATE TABLE `wit_article` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT '文章id',
   `title` varchar(255) NOT NULL COMMENT '标题',
-  `catrgory_id` int(11) unsigned NOT NULL COMMENT '文章分类',
+  `category_id` int(11) unsigned NOT NULL COMMENT '文章分类',
   `sub_title` varchar(255) NOT NULL DEFAULT '' COMMENT '副标题',
   `abstract` varchar(255) NOT NULL DEFAULT '' COMMENT '摘要',
   `content` text NOT NULL COMMENT '文章内容',
@@ -64,30 +64,30 @@ CREATE TABLE `wit_article` (
 -- ----------------------------
 -- Records of wit_article
 -- ----------------------------
-INSERT INTO `wit_article` VALUES ('44', '测试文章', '0', '测试文章副标题', '测试文章摘要', '<h1>测试文章</h1>', '1', '1', '1233', '444', '55555', '1533533945', '1533544699');
+INSERT INTO `wit_article` VALUES ('44', '测试文章', '3', '测试文章副标题', '测试文章摘要', '', '12', '0', '1233', '444', '55555', '1533533945', '1533629781');
 
 -- ----------------------------
 -- Table structure for wit_article_category
 -- ----------------------------
 DROP TABLE IF EXISTS `wit_article_category`;
 CREATE TABLE `wit_article_category` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `parent_id` int(11) unsigned NOT NULL DEFAULT '0',
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `alias` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `sort` int(11) unsigned NOT NULL DEFAULT '0',
-  `remark` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
-  `created_at` int(11) unsigned NOT NULL,
-  `updated_at` int(11) unsigned NOT NULL DEFAULT '0',
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `parent_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '父类id',
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '名称',
+  `alias` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '别名',
+  `sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '备注',
+  `created_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of wit_article_category
 -- ----------------------------
-INSERT INTO `wit_article_category` VALUES ('1', '0', 'php', 'php', '0', '', '1468293958', '0');
-INSERT INTO `wit_article_category` VALUES ('2', '0', 'java', 'java', '0', '', '1468293965', '0');
-INSERT INTO `wit_article_category` VALUES ('3', '0', 'javascript', 'javascript', '0', '', '1468293974', '0');
+INSERT INTO `wit_article_category` VALUES ('1', '0', 'php', 'php', '0', 'www', '1468293958', '0');
+INSERT INTO `wit_article_category` VALUES ('2', '0', 'java', 'java', '3', '1313', '1468293965', '1533621214');
+INSERT INTO `wit_article_category` VALUES ('3', '0', 'javascript', 'javascript', '0', '', '1468293974', '1533621262');
 
 -- ----------------------------
 -- Table structure for wit_article_content
@@ -262,7 +262,7 @@ CREATE TABLE `wit_menu` (
   `created_at` int(10) DEFAULT NULL COMMENT '创建时间',
   `updated_at` int(10) DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of wit_menu
@@ -279,6 +279,7 @@ INSERT INTO `wit_menu` VALUES ('10', '后台菜单', '4', 'backend-menu/index', 
 INSERT INTO `wit_menu` VALUES ('11', '前台菜单', '4', 'frontend-menu/index', 'fa fa-map-o', '0', '0', '1', '0', '1521972134', '1533108306');
 INSERT INTO `wit_menu` VALUES ('12', '文章管理', '5', 'article/index', 'fa fa-edit', '0', '0', '1', '0', '1521972263', '1533108167');
 INSERT INTO `wit_menu` VALUES ('13', '首页', '0', 'site/index', 'fa fa-map', '1', '0', '1', '0', '1533193393', '1533193393');
+INSERT INTO `wit_menu` VALUES ('14', '文章分类', '5', 'article-category/index', 'fa fa-tags', '0', '0', '1', '0', '1533611643', '1533612073');
 
 -- ----------------------------
 -- Table structure for wit_migration
