@@ -23,13 +23,14 @@ use froala\froalaeditor\FroalaEditorWidget;
                     'clientOptions' => [
                         'toolbarInline'=> false,
                         'height' => 600,
-                        'theme' => 'royal',//optional: dark, red, gray, royal
+                        'theme' => 'gray',//optional: dark, red, gray, royal
                         'language' => 'zh_cn' ,
-                        'toolbarButtons' => ['fullscreen', 'bold', 'italic', 'underline', '|', 'paragraphFormat', 'insertImage'],
+                        'toolbarButtons' => ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '|', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
                         'imageUploadParam' => 'file',
                         'imageUploadURL' => \yii\helpers\Url::to(['site/upload/'])
                     ],
-                    'clientPlugins'=> ['fullscreen', 'paragraph_format', 'image']
+                    'clientPlugins'=> ['align', 'char_counter', 'code_beautifier', 'code_view', 'colors', 'draggable', 'emoticons', 'entities', 'file', 'font_family', 'font_size', 'forms', 'fullscreen', 'help', 'image', 'image_manager', 'inline_style', 'line_breaker', 'link', 'lists', 'paragraph_format', 'paragraph_style', 'print', /*'quick_insert',*/ 'quote', 'save', 'special_characters', 'table', 'url', 'video', 'word_paste',
+                    ]
                 ]) ?>
             </div>
             <div class="col-md-5">
