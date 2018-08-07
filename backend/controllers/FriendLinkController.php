@@ -71,6 +71,9 @@ class FriendLinkController extends Controller
             return $this->redirect(['index']);
         }
 
+        $model->target = '_blank';
+        $model->status = 1;
+
         return $this->render('create', [
             'model' => $model,
         ]);

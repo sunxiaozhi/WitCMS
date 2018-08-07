@@ -70,12 +70,12 @@ class BackendMenuController extends Controller
         $model->type = Menu::BACKEND_MENU_TYPE;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //return $this->redirect(['view', 'id' => $model->id]);
             return $this->redirect(['index']);
         } else {
             $model->parent_id = Yii::$app->request->get('parent_id', 0);
             $arr = Menu::find()->where(['type' => Menu::BACKEND_MENU_TYPE])->asArray()->all();
             $treeObj = new Tree($arr);
+            $model->status = 1;
             return $this->render('create', [
                 'model' => $model,
                 'treeArr' => $treeObj->getTree(),

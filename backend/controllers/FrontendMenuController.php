@@ -70,22 +70,17 @@ class FrontendMenuController extends Controller
         $model->type = Menu::FRONTEND_MENU_TYPE;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //return $this->redirect(['view', 'id' => $model->id]);
             return $this->redirect(['index']);
         } else {
             $model->parent_id = Yii::$app->request->get('parent_id', 0);
             $arr = Menu::find()->where(['type' => Menu::FRONTEND_MENU_TYPE])->asArray()->all();
             $treeObj = new Tree($arr);
-            //print_r($treeObj->getTree());exit;
+            $model->status = 1;
             return $this->render('create', [
                 'model' => $model,
                 'treeArr' => $treeObj->getTree(),
             ]);
         }
-
-        /*return $this->render('create', [
-            'model' => $model,
-        ]);*/
     }
 
     /**
@@ -100,7 +95,6 @@ class FrontendMenuController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            //return $this->redirect(['view', 'id' => $model->id]);
             return $this->redirect(['index']);
         } else {
             $arr = Menu::find()->where(['type' => Menu::FRONTEND_MENU_TYPE])->asArray()->all();
@@ -110,10 +104,6 @@ class FrontendMenuController extends Controller
                 'treeArr' => $treeObj->getTree(),
             ]);
         }
-
-        /*return $this->render('update', [
-            'model' => $model,
-        ]);*/
     }
 
     /**

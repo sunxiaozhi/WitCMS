@@ -71,9 +71,10 @@ class ArticleController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
-            //$model->category_id = Yii::$app->request->get('category_id', 0);
             $arr = ArticleCategory::find()->asArray()->all();
             $treeObj = new Tree($arr);
+
+            $model->status = 1;
 
             return $this->render('create', [
                 'model' => $model,
@@ -96,7 +97,6 @@ class ArticleController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
-            //$model->category_id = Yii::$app->request->get('category_id', 0);
             $arr = ArticleCategory::find()->asArray()->all();
             $treeObj = new Tree($arr);
             return $this->render('create', [
