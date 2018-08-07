@@ -80,4 +80,12 @@ class Article extends \yii\db\ActiveRecord
             ],
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticleCategory()
+    {
+        return $this->hasOne(ArticleCategory::className(), ['id' => 'category_id']);
+    }
 }

@@ -40,7 +40,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         'options' => ['width' => '200px;']
                     ],
                     [
-                        'attribute' => 'sub_title',
+                        'attribute' => 'category_id',
+                        'label' => '分类',
+                        'value' => function ($model) {
+                            return $model->articleCategory ? $model->articleCategory->name : Yii::t('app', 'uncategoried');
+                        },
                         'options' => ['width' => '200px;']
                     ],
                     [
