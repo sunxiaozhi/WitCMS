@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\ArticleCategory;
+use backend\helpers\Tree;
 
 /**
  * ArticleCategorySearch represents the model behind the search form of `common\models\ArticleCategory`.
@@ -69,6 +70,19 @@ class ArticleCategorySearch extends ArticleCategory
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'alias', $this->alias])
             ->andFilterWhere(['like', 'remark', $this->remark]);
+
+        $query->orderBy(['sort' => SORT_ASC]);
+
+        $arr = $query->asArray()->all();
+        $treeObj = new Tree(\yii\helpers\ArrayHelper::toArray($arr));
+        $treeObj->icon = ['&nbsp;&nbsp;&nbsp;│ ', '&nbsp;&nbsp;&nbsp;├─ ', '&nbsp;&nbsp;&nbsp;└─ '];
+        $treeObj->nbsp = '&nbsp;&nbsp;&nbsp;';
+        $dataProvider = new \yii\data\ArrayDataProvider([
+            'allModels' => $treeObj->getGridTree(),
+            'pagination' => [
+                'pageSize' => 50,
+            ],
+        ]);
 
         return $dataProvider;
     }

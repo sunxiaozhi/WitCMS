@@ -8,6 +8,7 @@ use backend\models\search\ArticleCategorySearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use backend\helpers\Tree;
 
 /**
  * ArticleCategoryController implements the CRUD actions for ArticleCategory model.
@@ -67,12 +68,16 @@ class ArticleCategoryController extends Controller
         $model = new ArticleCategory();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
+        } else {
+            $model->parent_id = Yii::$app->request->get('parent_id', 0);
+            $arr = ArticleCategory::find()->asArray()->all();
+            $treeObj = new Tree($arr);
+            return $this->render('create', [
+                'model' => $model,
+                'treeArr' => $treeObj->getTree(),
+            ]);
         }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
     }
 
     /**
@@ -87,12 +92,16 @@ class ArticleCategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
+        } else {
+            $model->parent_id = Yii::$app->request->get('parent_id', 0);
+            $arr = ArticleCategory::find()->asArray()->all();
+            $treeObj = new Tree($arr);
+            return $this->render('create', [
+                'model' => $model,
+                'treeArr' => $treeObj->getTree(),
+            ]);
         }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
     }
 
     /**

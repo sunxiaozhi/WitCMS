@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="box ">
+<div class="box">
     <div class="box-body">
         <div class="friend-link-form">
 

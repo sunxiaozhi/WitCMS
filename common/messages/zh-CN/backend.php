@@ -37,6 +37,8 @@ return [
     'Articles' => '文章管理',
     /*内容管理 end*/
 
+    'Article Categories' => '文章分类',
+
     /*友情链接 start*/
     'Friend Links' => '友情链接',
     /*友情链接 end*/
