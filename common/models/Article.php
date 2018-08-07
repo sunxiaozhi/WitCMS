@@ -10,6 +10,7 @@ use yii\db\ActiveRecord;
  * This is the model class for table "{{%article}}".
  *
  * @property string $id 文章id
+ * @property string $category_id 文章分类id
  * @property string $title 标题
  * @property string $sub_title 副标题
  * @property string $abstract 摘要
@@ -37,7 +38,7 @@ class Article extends \yii\db\ActiveRecord
         return [
             //[['created_at', 'updated_at'], 'required'],
             //[['created_at', 'updated_at'], 'integer'],
-            [['title'], 'required'],
+            [['title','category_id'], 'required'],
             [['title', 'sub_title', 'abstract'], 'string', 'max' => 255],
             [['content', 'seo_title', 'seo_keywords', 'seo_description',], 'string'],
             [['sort', 'status'], 'integer'],
@@ -51,6 +52,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             'id' => Yii::t('database', 'ID'),
+            'category_id' => Yii::t('database', 'Category Id'),
             'title' => Yii::t('database', 'Title'),
             'sub_title' => Yii::t('database', 'Sub Title'),
             'abstract' => Yii::t('database', 'Abstract'),

@@ -7,6 +7,7 @@ use froala\froalaeditor\FroalaEditorWidget;
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 /* @var $form yii\widgets\ActiveForm */
+/* @var $treeArr backend\helpers\Tree  getTree()*/
 ?>
 
 <div class="box">
@@ -38,7 +39,7 @@ use froala\froalaeditor\FroalaEditorWidget;
                     <div class="box-header">
                         <div class="box-title">分类</div>
                         <div class="box-body">
-                            <?= $form->field($model, 'catrgory_id')->dropDownList(['a' => 'Item A', 'b' => 'Item B', 'c' => 'Item C']);?>
+                            <?= $form->field($model, 'category_id')->dropDownList([0 => '一级菜单'] + $treeArr, ['encode' => false]) ?>
                         </div>
                     </div>
                 </div>

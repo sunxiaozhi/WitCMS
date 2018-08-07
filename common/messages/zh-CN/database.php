@@ -17,6 +17,7 @@ return [
     'Content' => '内容',
 
     /*wit_article start*/
+    'Category Id' => '文章分类',
     'Title' => '标题',
     'Sub Title' => '副标题',
     'Abstract' => '摘要',
@@ -25,6 +26,10 @@ return [
     'seo_keywords' => 'SEO关键词',
     'seo_description' => 'SEO描述',
     /*wit_article end*/
+
+    /*wit_article_category start*/
+    'Alias' => '别名',
+    /*wit_article_category end*/
 
     /*wit_comments start*/
     'Article ID' => '文章id',
