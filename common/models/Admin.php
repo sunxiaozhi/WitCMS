@@ -26,6 +26,7 @@ class Admin extends ActiveRecord implements IdentityInterface
     const STATUS_DELETED = 0;
     const STATUS_ACTIVE = 10;
 
+    public $password;
 
     /**
      * @inheritdoc
@@ -51,6 +52,9 @@ class Admin extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            [['username', 'email', 'password'], 'string'],
+            [['password'], 'required'],
+            ['password', 'string', 'min' => 6],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];
@@ -203,5 +207,22 @@ class Admin extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+    /**
+     * Signs user up.
+     *
+     * @return Admin|null the saved model or null if saving fails
+     */
+    public function adminSave()
+    {
+        if (!$this->validate()) {
+            return null;
+        }
+
+        $this->setPassword($this->password);
+        $this->generateAuthKey();
+
+        return $this->save() ? $this : null;
     }
 }

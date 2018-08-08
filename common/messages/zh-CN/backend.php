@@ -27,6 +27,11 @@ return [
 
     /*后台用户 start*/
     'Admins' => '后台用户',
+    'This username has already been taken.' => '这个用户名已经被占用了。',
+    'This email address has already been taken.' => '这个电子邮件已经被占用了。',
+    'User Name' => '用户名',
+    'Email' => '邮箱',
+    'Password' => '密码',
     /*后台用户 send*/
 
     /*前台用户 start*/
