@@ -39,7 +39,7 @@ use froala\froalaeditor\FroalaEditorWidget;
                     <div class="box-header">
                         <div class="box-title">分类</div>
                         <div class="box-body">
-                            <?= $form->field($model, 'category_id')->dropDownList([0 => '一级菜单'] + $treeArr, ['encode' => false]) ?>
+                            <?= $form->field($model, 'category_id')->dropDownList([0 => '无分类'] + $treeArr, ['encode' => false]) ?>
                         </div>
                     </div>
                 </div>

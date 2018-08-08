@@ -135,7 +135,7 @@ class RabcController extends Controller
             }
             Yii::$app->session->setFlash('success', '操作成功');
         }
-        $arr = Menu::find()->asArray()->all();
+        $arr = Menu::find()->where(['type' => Menu::BACKEND_MENU_TYPE])->asArray()->all();
         $treeObj = new Tree($arr);
         $authRules = $authManager->getChildren($id);
         $authRules = array_keys($authRules); //var_dump($authRules); exit();
