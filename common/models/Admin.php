@@ -52,11 +52,27 @@ class Admin extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'email', 'password'], 'string'],
+            /*[['username', 'email', 'password'], 'string'],
             [['password'], 'required'],
             ['password', 'string', 'min' => 6],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],*/
+            ['username', 'trim'],
+            ['username', 'required'],
+            ['username', 'unique', 'targetClass' => '\common\models\Admin', 'message' => Yii::t('backend', 'This username has already been taken.')],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['email', 'trim'],
+            ['email', 'required'],
+            ['email', 'email'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique', 'targetClass' => '\common\models\Admin', 'message' => Yii::t('backend', 'This email address has already been taken.')],
+
+            ['password', 'required'],
+            ['password', 'string', 'min' => 6],
+
+            ['status', 'default', 'value' => Admin::STATUS_ACTIVE],
+            ['status', 'in', 'range' => [Admin::STATUS_ACTIVE, Admin::STATUS_DELETED]],
         ];
     }
 
@@ -69,6 +85,7 @@ class Admin extends ActiveRecord implements IdentityInterface
             'id' => Yii::t('database', 'ID'),
             'username' => Yii::t('database', 'User Name'),
             'auth_key' => Yii::t('database', 'Auth Key'),
+            'password' => Yii::t('database', 'Password'),
             'password_hash' => Yii::t('database', 'Password Hash'),
             'password_reset_token' => Yii::t('database', 'Password Reset Token'),
             'email' => Yii::t('database', 'Email'),

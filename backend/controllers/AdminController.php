@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use DeepCopy\f008\A;
 use Yii;
 use common\models\Admin;
 use backend\models\search\AdminSearch;
@@ -65,12 +66,17 @@ class AdminController extends Controller
      */
     public function actionCreate()
     {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                return $this->redirect(['index']);
+        $model = new Admin();
+
+        if (Yii::$app->getRequest()->getIsPost()) {
+            if ($model->load(Yii::$app->request->post())) {
+                if ($user = $model->adminSave()) {
+                    return $this->redirect(['index']);
+                }
             }
         }
+
+        $model->status = 10;
 
         return $this->render('create', [
             'model' => $model,
