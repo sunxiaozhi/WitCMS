@@ -45,7 +45,7 @@ class ActionColumn extends \yii\grid\ActionColumn
                         $title = Yii::t('yii', 'Delete');
                         break;
                     case 'auth':
-                        $title = Yii::t('yii', 'Auth');
+                        $title = Yii::t('backend', 'Auth');
                         break;
                     default:
                         $title = ucfirst($name);

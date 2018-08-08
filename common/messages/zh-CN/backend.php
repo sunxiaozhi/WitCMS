@@ -23,6 +23,7 @@ return [
     'Update' => '更新',
     'Create' => '创建',
     'Save' => '保存',
+    'Auth' => '权限',
     /*后台页面公用 end*/
 
     /*后台用户 start*/
