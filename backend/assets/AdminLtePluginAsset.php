@@ -1,7 +1,7 @@
 <?php
 /**
  * WitPHP
- *
+ * 引用adminlte的插件
  * Author: sunhuanzhi
  * Date: 2018/8/7 16:45
  */

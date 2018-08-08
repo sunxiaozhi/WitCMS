@@ -2,14 +2,12 @@
 
 namespace backend\controllers;
 
-use DeepCopy\f008\A;
 use Yii;
 use common\models\Admin;
 use backend\models\search\AdminSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\models\SignupForm;
 
 /**
  * AdminController implements the CRUD actions for Admin model.
@@ -135,5 +133,44 @@ class AdminController extends Controller
         }
 
         throw new NotFoundHttpException(Yii::t('backend', 'The requested page does not exist.'));
+    }
+
+    /**
+     * 用户授权
+     * @param $id
+     * @return string
+     * @throws \Exception
+     */
+    public function actionAuth($id)
+    {
+        $auth = Yii::$app->authManager;
+        /* 获取用户信息 */
+        $model = Admin::findOne($id);
+
+        if (Yii::$app->request->isPost) {
+            $data = Yii::$app->request->post();
+            /* 用户权限组 */
+            $item_name = $data['param'];
+
+            /* 先删除 用户组-用户 记录 */
+            $auth->revokeAll($id);
+            /* 再添加记录 */
+            $role = $auth->getRole($item_name);
+
+            $auth->assign($role, $id);
+
+            $this->redirect(['index']);
+        }
+
+        /* 获取所有权限组 */
+        $roles = $auth->getRoles();
+        /* 获取该用户的权限 */
+        $group = array_keys($auth->getAssignments($id));
+
+        return $this->render('auth', [
+            'model' => $model,
+            'roles' => $roles,
+            'group' => $group
+        ]);
     }
 }
