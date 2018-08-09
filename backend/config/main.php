@@ -65,7 +65,6 @@ return [
         'allowActions' => [
             'site/login',
             'site/logout',
-            //'site/index',
         ]
     ],
     'params' => $params,

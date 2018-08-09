@@ -27,7 +27,7 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'status')->radioList(['1'=>'正常','0'=>'隐藏'],['itemOptions' => ['class' => 'flat-blue']]) ?>
 
             <div class="form-group">
-                <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-success']) ?>
+                <?= Html::submitButton(Yii::t('backend', 'Save'), ['class' => 'btn btn-primary']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>

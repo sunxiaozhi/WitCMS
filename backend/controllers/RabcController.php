@@ -147,12 +147,6 @@ class RabcController extends Controller
         ]);
     }
 
-
-
-
-
-
-
     public function actionAuth_test()
     {
         /*@var yii\rbac\DbManager $auth*/
