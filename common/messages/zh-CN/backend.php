@@ -24,6 +24,7 @@ return [
     'Create' => '创建',
     'Save' => '保存',
     'Auth' => '权限',
+    'Accredit' => '授权',
     /*后台页面公用 end*/
 
     /*后台用户 start*/
