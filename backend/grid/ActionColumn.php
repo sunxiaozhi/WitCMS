@@ -15,19 +15,19 @@ use yii\helpers\Html;
 class ActionColumn extends \yii\grid\ActionColumn
 {
 
-    public $template = '{view} {update} {auth} {delete}';
+    public $template = '{view} {update} {auth} {accredit} {delete}';
 
     public function initDefaultButtons()
     {
-        $this->initDefaultButton('view', 'eye-open',['class' => 'btn btn-info btn-xs']);
-        $this->initDefaultButton('update', 'pencil',['class' => 'btn btn-primary btn-xs']);
-        $this->initDefaultButton('auth', 'lock',['class' => 'btn btn-success btn-xs']);
+        $this->initDefaultButton('view', 'eye-open', ['class' => 'btn btn-info btn-xs']);
+        $this->initDefaultButton('update', 'pencil', ['class' => 'btn btn-primary btn-xs']);
+        $this->initDefaultButton('auth', 'lock', ['class' => 'btn btn-success btn-xs']);
+        $this->initDefaultButton('accredit', 'user', ['class' => 'btn btn-success btn-xs']);
         $this->initDefaultButton('delete', 'trash', [
             'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
             'data-method' => 'post',
             'class' => 'btn btn-danger btn-xs'
         ]);
-
     }
 
     protected function initDefaultButton($name, $iconName, $additionalOptions = [])
@@ -47,6 +47,9 @@ class ActionColumn extends \yii\grid\ActionColumn
                     case 'auth':
                         $title = Yii::t('backend', 'Auth');
                         break;
+                    case 'accredit': //授权
+                        $title = Yii::t('backend', 'Accredit');
+                        break;
                     default:
                         $title = ucfirst($name);
                 }
@@ -60,55 +63,4 @@ class ActionColumn extends \yii\grid\ActionColumn
             };
         }
     }
-
-    /*protected function initDefaultButtons()
-    {
-        if (!isset($this->buttons['view'])) {
-            $this->buttons['view'] = function ($url, $model, $key) {
-                $options = array_merge([
-                    'title' => Yii::t('yii', 'View'),
-                    'aria-label' => Yii::t('yii', 'View'),
-                    'data-pjax' => '0',
-                    'class' => 'btn btn-info btn-xs',
-                ], $this->buttonOptions);
-                return Html::a('<span class="fa fa-eye"></span> ' . Yii::t('yii', 'View'), $url, $options);
-            };
-        }
-        if (!isset($this->buttons['update'])) {
-            $this->buttons['update'] = function ($url, $model, $key) {
-                $options = array_merge([
-                    'title' => Yii::t('yii', 'Update'),
-                    'aria-label' => Yii::t('yii', 'Update'),
-                    'data-pjax' => '0',
-                    'class' => 'btn btn-primary btn-xs',
-                ], $this->buttonOptions);
-                return Html::a('<span class="fa fa-edit"></span> ' . Yii::t('yii', 'Update'), $url, $options);
-            };
-        }
-        if (!isset($this->buttons['auth'])) {
-            $this->buttons['auth'] = function ($url, $model, $key) {
-                $options = array_merge([
-                    'title' => Yii::t('backend', 'Auth'),
-                    'aria-label' => Yii::t('backend', 'Auth'),
-                    'data-pjax' => '0',
-                    'class' => 'btn btn-success btn-xs',
-                ], $this->buttonOptions);
-                return Html::a('<span class="fa fa-user"></span> ' . Yii::t('backend', 'Auth'), $url, $options);
-            };
-        }
-        if (!isset($this->buttons['delete'])) {
-            $this->buttons['delete'] = function ($url, $model, $key) {
-                $options = array_merge([
-                    'title' => Yii::t('yii', 'Delete'),
-                    'aria-label' => Yii::t('yii', 'Delete'),
-                    'data-confirm' => Yii::t('yii', 'Are you sure you want to delete this item?'),
-                    'data-method' => 'post',
-                    'data-pjax' => '0',
-                    'class' => 'btn btn-danger btn-xs',
-                ], $this->buttonOptions);
-                return Html::a('<span class="fa fa-times"></span> ' . Yii::t('yii', 'Delete'), $url, $options);
-            };
-        }
-    }*/
-
 }

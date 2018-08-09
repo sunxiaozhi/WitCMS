@@ -63,7 +63,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'header' => '操作',
                         'class' => 'backend\grid\ActionColumn',
-                        'template' => '{update} {auth} {delete}'
+                        'template' => '{update} {accredit} {delete}'
                     ],
                 ],
             ]); ?>

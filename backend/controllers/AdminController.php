@@ -141,7 +141,7 @@ class AdminController extends Controller
      * @return string
      * @throws \Exception
      */
-    public function actionAuth($id)
+    public function actionAccredit($id)
     {
         $auth = Yii::$app->authManager;
         /* 获取用户信息 */
@@ -167,7 +167,7 @@ class AdminController extends Controller
         /* 获取该用户的权限 */
         $group = array_keys($auth->getAssignments($id));
 
-        return $this->render('auth', [
+        return $this->render('accredit', [
             'model' => $model,
             'roles' => $roles,
             'group' => $group
