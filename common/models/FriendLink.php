@@ -15,6 +15,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string $target 跳转方式
  * @property string $sort 排序
  * @property int $status 状态
+ * @property string $remark 备注
  * @property int $created_at 创建时间
  * @property int $updated_at 更新时间
  */
@@ -63,6 +64,7 @@ class FriendLink extends \yii\db\ActiveRecord
             'target' => Yii::t('database', 'Target'),
             'sort' => Yii::t('database', 'Sort'),
             'status' => Yii::t('database', 'Status'),
+            'remark' => Yii::t('database', 'Remark'),
             'created_at' => Yii::t('database', 'Created At'),
             'updated_at' => Yii::t('database', 'Updated At'),
         ];
