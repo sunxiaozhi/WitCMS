@@ -15,7 +15,7 @@ use yii\filters\VerbFilter;
 class ArticleController extends Controller
 {
     /**
-     * @inheritdoc
+     *  @inheritdoc
      */
     public function behaviors()
     {
@@ -35,6 +35,7 @@ class ArticleController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = false;
         $dataProvider = new ActiveDataProvider([
             'query' => Article::find(),
         ]);

@@ -337,7 +337,7 @@
             </div><!--/tab-content-->
 
         	<!-- Photo Stream -->
-        	<div class="headline"><h3>Photo Stream</h3></div>
+        	<!--<div class="headline"><h3>Photo Stream</h3></div>
             <ul class="unstyled blog-ads">
             	<li><a href="#"><img src="basic_assets/img/sliders/elastislide/5.jpg" alt="" class="hover-effect" /></a></li>
             	<li><a href="#"><img src="basic_assets/img/sliders/elastislide/6.jpg" alt="" class="hover-effect" /></a></li>
@@ -347,7 +347,7 @@
             	<li><a href="#"><img src="basic_assets/img/sliders/elastislide/1.jpg" alt="" class="hover-effect" /></a></li>
             	<li><a href="#"><img src="basic_assets/img/sliders/elastislide/2.jpg" alt="" class="hover-effect" /></a></li>
             	<li><a href="#"><img src="basic_assets/img/sliders/elastislide/7.jpg" alt="" class="hover-effect" /></a></li>
-            </ul>
+            </ul>-->
 
         	<!-- Blog Tags -->
         	<div class="headline"><h3>Blog Tags</h3></div>
