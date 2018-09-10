@@ -25,11 +25,11 @@ class MenuView extends \yii\base\Widget
 
     public $subLitemplate = "<li class=\"{current_menu_class}\"><a href=\"{url}\"><i class=\"{icon}\"></i>{sub_menu_name}</a></li>";*/
 
-    public $template = "<ul class=\"nav top-2\">{lis}<b class=\"caret-out\"></b></ul>";
+    public $template = "<ul class=\"nav top-2\">{lis}<li><a class=\"search\"><i class=\"icon-search search-btn\"></i></a></li></ul>";
 
-    public $liTemplate_have_sub = "<li class='{current_menu_class}'><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">{menu_name}<b class=\"caret\"></b></a>{sub_menu}</li>";
+    public $liTemplate_have_sub = "<li class='{current_menu_class}'><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">{menu_name}<b class=\"caret\"></b></a>{sub_menu}<b class=\"caret-out\"></b></li>";
 
-    public $liTemplate_no_sub = "<li class='{current_menu_class}'><a href=\"{url}\">{menu_name}<b class=\"caret\"></b></a></li>";
+    public $liTemplate_no_sub = "<li class='{current_menu_class}'><a href=\"{url}\">{menu_name}<b class=\"caret\"></b></a><b class=\"caret-out\"></b></li>";
 
     //public $liTemplate_no_sub = "<li class='{current_menu_class}'><a href=\"{url}\"><i class=\"{icon}\"></i> <span>{menu_name}</span></a></li>";
 
