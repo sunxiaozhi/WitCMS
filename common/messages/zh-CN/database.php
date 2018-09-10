@@ -41,6 +41,7 @@ return [
     'Image' => '链接图片',
     'Url' => '网址',
     'Target' => '跳转方式',
+    'Remark' => '备注',
     /*wit_friend_link end*/
 
     /*wit_menu start*/
