@@ -1,3 +1,9 @@
+<?php
+use frontend\widgets\MenuView;
+
+?>
+
+
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
@@ -81,7 +87,7 @@
                     <span class="icon-bar"></span>
                 </a><!-- /nav-collapse -->                                  
                 <div class="nav-collapse collapse">                                     
-                    <ul class="nav top-2">
+                    <!--<ul class="nav top-2">
                         <li>
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home
                                 <b class="caret"></b>                            
@@ -174,7 +180,8 @@
                             <b class="caret-out"></b>                        
                         </li>
                         <li><a class="search"><i class="icon-search search-btn"></i></a></li>                               
-                    </ul>
+                    </ul>-->
+                    <?= MenuView::widget()?>
                     <div class="search-open">
                         <div class="input-append">
                             <form />

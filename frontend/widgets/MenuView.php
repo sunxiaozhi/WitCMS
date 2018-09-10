@@ -1,13 +1,13 @@
 <?php
 /**
- * 后台菜单部件.
+ * 前台菜单部件.
  *
  * User: sunhuanzhi
  * Date: 2018/3/22
  * Time: 9:50
  */
 
-namespace backend\widgets;
+namespace frontend\widgets;
 
 use yii;
 use yii\helpers\Url;
@@ -15,7 +15,7 @@ use common\models\Menu;
 
 class MenuView extends \yii\base\Widget
 {
-    public $template = "<ul class=\"sidebar-menu\" data-widget=\"tree\">{lis}</ul>";
+    /*public $template = "<ul class=\"sidebar-menu\" data-widget=\"tree\">{lis}</ul>";
 
     public $liTemplate_have_sub = "<li class=\"treeview {current_menu_class}\"><a href=\"#\"><i class=\"{icon}\"></i> <span>{menu_name}</span><span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span></a>{sub_menu}</li>";
 
@@ -23,7 +23,19 @@ class MenuView extends \yii\base\Widget
 
     public $subTemplate = "<ul class=\"treeview-menu\">{lis}</ul>";
 
-    public $subLitemplate = "<li class=\"{current_menu_class}\"><a href=\"{url}\"><i class=\"{icon}\"></i>{sub_menu_name}</a></li>";
+    public $subLitemplate = "<li class=\"{current_menu_class}\"><a href=\"{url}\"><i class=\"{icon}\"></i>{sub_menu_name}</a></li>";*/
+
+    public $template = "<ul class=\"nav top-2\">{lis}<b class=\"caret-out\"></b></ul>";
+
+    public $liTemplate_have_sub = "<li class='{current_menu_class}'><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">{menu_name}<b class=\"caret\"></b></a>{sub_menu}</li>";
+
+    public $liTemplate_no_sub = "<li class='{current_menu_class}'><a href=\"{url}\">{menu_name}<b class=\"caret\"></b></a></li>";
+
+    //public $liTemplate_no_sub = "<li class='{current_menu_class}'><a href=\"{url}\"><i class=\"{icon}\"></i> <span>{menu_name}</span></a></li>";
+
+    public $subTemplate = "<ul class=\"dropdown-menu\">{lis}</ul>";
+
+    public $subLitemplate = "<li><a href=\"{url}\">{sub_menu_name}</a></li>";
 
     /**
      * @inheritdoc
@@ -34,7 +46,7 @@ class MenuView extends \yii\base\Widget
         static $menus = null;
         if ($menus === null) {
             $menus = Menu::find()
-                ->where(['type' => Menu::BACKEND_MENU_TYPE, 'status' => Menu::DISPLAY_YES])
+                ->where(['type' => Menu::FRONTEND_MENU_TYPE, 'status' => Menu::DISPLAY_YES])
                 ->orderBy("sort asc,parent_id asc")
                 ->asArray()
                 ->all();
