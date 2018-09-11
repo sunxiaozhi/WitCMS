@@ -106,9 +106,9 @@ use frontend\widgets\MenuView;
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-20">
 	<div class="container">
-        <h1 class="color-green pull-left">Latest Posts</h1>
+        <h1 class="color-green pull-left"><?= Yii::t('frontend','Latest Posts')?></h1>
         <ul class="pull-right breadcrumb">
-            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li><a href="<?= Yii::$app->getHomeUrl()?>"><?= Yii::t('frontend', 'Home')?></a> <span class="divider">/</span></li>
             <li class="active">Blog</li>
         </ul>
     </div><!--/container-->
@@ -135,7 +135,7 @@ use frontend\widgets\MenuView;
 		<div class="row-fluid">
 			<div class="span4">
                 <!-- About -->
-		        <div class="headline"><h3>About</h3></div>	
+		        <div class="headline"><h3><?= Yii::t('frontend', 'About')?></h3></div>
 				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>	
 
 	            <!-- Monthly Newsletter -->
@@ -232,7 +232,5 @@ use frontend\widgets\MenuView;
 <!--[if lt IE 9]>
     <script src="basic_assets/js/respond.js"></script>
 <![endif]-->
-
-<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
 </body>
 </html>	

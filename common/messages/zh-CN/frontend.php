@@ -13,5 +13,10 @@ return [
     'Signup' => '注册',
     'Login' => '登录',
 
-    'Article' => '文章'
+    'Article' => '文章',
+
+    'Latest Posts' => '最新文章',
+    'Search Bar' => '文章搜索',
+    'Search' => '搜索',
+
 ];

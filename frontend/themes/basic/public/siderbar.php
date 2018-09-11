@@ -1,9 +1,9 @@
 <div class="span3">
     <!-- Search Bar -->
-    <div class="headline"><h3>Search Bar</h3></div>
+    <div class="headline"><h3><?= Yii::t('frontend', 'Search Bar')?></h3></div>
     <div class="input-append  margin-bottom-20">
         <input type="text" class="span9" />
-        <button type="button" class="btn-u">Search</button>
+        <button type="button" class="btn-u"><?= Yii::t('frontend', 'Search')?></button>
     </div>
 
     <!-- Posts -->
