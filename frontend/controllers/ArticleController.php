@@ -35,7 +35,6 @@ class ArticleController extends Controller
      */
     public function actionIndex()
     {
-        $this->layout = false;
         $dataProvider = new ActiveDataProvider([
             'query' => Article::find(),
         ]);
