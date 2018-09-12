@@ -75,7 +75,7 @@ use frontend\widgets\MenuView;
     <div class="container"> 
         <!-- Logo -->       
         <div class="logo">                                             
-            <a href="index.html"><img id="logo-header" src="basic_assets/img/logo1-default.png" alt="Logo" /></a>
+            <a href="<?= Yii::$app->getHomeUrl()?>"><img id="logo-header" src="basic_assets/img/logo1-default.png" alt="Logo" /></a>
         </div><!-- /logo -->        
                                     
         <!-- Menu -->       
