@@ -8,7 +8,7 @@
 
     <!-- Posts -->
     <div class="posts margin-bottom-20">
-        <div class="headline"><h3>Recent Blog Entries</h3></div>
+        <div class="headline"><h3><?= Yii::t('frontend','Recommended Article')?></h3></div>
         <dl class="dl-horizontal">
             <dt><a href="#"><img src="basic_assets/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
             <dd>
@@ -59,7 +59,7 @@
     </ul>-->
 
     <!-- Blog Tags -->
-    <div class="headline"><h3>Blog Tags</h3></div>
+    <div class="headline"><h3><?= Yii::t('frontend', 'Article Tags')?></h3></div>
     <ul class="unstyled inline blog-tags">
         <li><a href="#"><i class="icon-tags"></i> Business</a></li>
         <li><a href="#"><i class="icon-tags"></i> Music</a></li>
@@ -79,7 +79,7 @@
 
     <!-- Blog Latest Tweets -->
     <div class="blog-twitter">
-        <div class="headline"><h3>Latest Tweets</h3></div>
+        <div class="headline"><h3><?= Yii::t('frontend', 'Latest Comment')?></h3></div>
         <p><a href="">@htmlstream</a> At vero eos et accusamus et iusto odio dignissimos. <a href="#">http://t.co/sBav7dm</a> <span>5 hours ago</span></p>
         <p><a href="">@unify</a> At vero eos et accusamus et iusto odio dignissimos. <a href="#">http://t.co/f58Ddg4</a> <span>8 hours ago</span></p>
         <p><a href="">@veroeos</a> At vero eos et accusamus et iusto odio dignissimos. <a href="#">http://t.co/adVs9f</a> <span>17 hours ago</span></p>

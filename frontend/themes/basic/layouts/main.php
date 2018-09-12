@@ -53,7 +53,7 @@ use frontend\widgets\MenuView;
 <div class="top">
     <div class="container">			
         <ul class="loginbar pull-right">
-            <li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
+            <!--<li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
             	<ul class="nav-list">
                 	<li class="active"><a href="#">English</a> <i class="icon-ok"></i></li>
                 	<li><a href="#">Spanish</a></li>
@@ -63,7 +63,7 @@ use frontend\widgets\MenuView;
             </li>	
             <li class="devider">&nbsp;</li>
             <li><a href="page_faq.html" class="login-btn">Help</a></li>	
-            <li class="devider">&nbsp;</li>
+            <li class="devider">&nbsp;</li>-->
             <li><a href="page_login.html" class="login-btn">Login</a></li>	
         </ul>
     </div>		

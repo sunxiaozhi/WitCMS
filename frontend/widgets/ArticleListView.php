@@ -46,7 +46,7 @@ class ArticleListView extends \yii\widgets\ListView
         </ul>
         <div class='blog-img'><img src='basic_assets/img/posts/1.jpg' alt='' /></div>
         <p>{abstract}</p>
-        <p><a class='btn-u btn-u-small' href='{article_url}'>Read More</a></p>
+        <p style='float: right'><a class='btn-u btn-u-small' href='{article_url}'>阅读更多</a></p>
     </div>";
 
     public function init()
