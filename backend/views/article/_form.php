@@ -45,6 +45,14 @@ use froala\froalaeditor\FroalaEditorWidget;
                 </div>
                 <div class="box">
                     <div class="box-header">
+                        <div class="box-title">标签</div>
+                        <div class="box-body">
+                            <?= $form->field($model, 'tag')->textInput() ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-header">
                         <div class="box-title">SEO设置</div>
                         <div class="box-body">
                             <?= $form->field($model, 'seo_title')->textInput() ?>

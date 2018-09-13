@@ -18,6 +18,7 @@ return [
 
     /*wit_article start*/
     'Category Id' => '文章分类',
+    'Tag' => '文章标签',  //此字段只是一个属性
     'Title' => '标题',
     'Sub Title' => '副标题',
     'Abstract' => '摘要',
