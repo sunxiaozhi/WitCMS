@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-08-07 18:53:42
+Date: 2018-09-13 16:46:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,12 +33,12 @@ CREATE TABLE `wit_admin` (
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `password_reset_token` (`password_reset_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台用户表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='后台用户表';
 
 -- ----------------------------
 -- Records of wit_admin
 -- ----------------------------
-INSERT INTO `wit_admin` VALUES ('1', 'admin', 'uTZwVSzBGd5g2LK8UxhhU2TIES6F-M_E', '$2y$13$VD9jg6bYCaczMVqQwveGBOAU7FCsDlDzmxc.emKLzrEcL6yQRfijq', null, '1129535445@qq.com', '10', '1518405548', '1518405548');
+INSERT INTO `wit_admin` VALUES ('1', 'admin', 'fVXR19v5dMVRub2Hy06h4f_e8Mn1ocVq', '$2y$13$257Eh6dhyfkSL76iinsQJ.Z/OTE1rgca7b/9aThY1CH6lDLSL072.', null, '1129535445@qq.com', '10', '1518405548', '1533716711');
 
 -- ----------------------------
 -- Table structure for wit_article
@@ -59,12 +59,13 @@ CREATE TABLE `wit_article` (
   `created_at` int(11) NOT NULL COMMENT '创建时间',
   `updated_at` int(11) NOT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8 COMMENT='文章表';
+) ENGINE=InnoDB AUTO_INCREMENT=46 DEFAULT CHARSET=utf8 COMMENT='文章表';
 
 -- ----------------------------
 -- Records of wit_article
 -- ----------------------------
-INSERT INTO `wit_article` VALUES ('44', '测试文章', '3', '测试文章副标题', '测试文章摘要', '', '12', '0', '1233', '444', '55555', '1533533945', '1533629781');
+INSERT INTO `wit_article` VALUES ('44', '测试文章', '3', '测试文章副标题', '测试文章摘要水电费水电费水电费水电费是的发送到水电费水电费所发生的水电费沙发斯蒂芬舒服舒服沙发斯蒂芬所发生的发送放松放松发送的发顺分发送发顺分舒服舒服所发生的防守打法舒服舒服是否是沙发斯蒂芬是所发生的飞', '', '12', '1', '1233', '444', '55555', '1533533945', '1536719238');
+INSERT INTO `wit_article` VALUES ('45', '阿萨德', '1', '打的', 'dadas', '<p>打打杀杀</p>', '2', '1', 'dasd', 'dad', 'dad', '1536718630', '1536718630');
 
 -- ----------------------------
 -- Table structure for wit_article_category
@@ -80,7 +81,7 @@ CREATE TABLE `wit_article_category` (
   `created_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `updated_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='文章分类表';
 
 -- ----------------------------
 -- Records of wit_article_category
@@ -106,6 +107,43 @@ CREATE TABLE `wit_article_content` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for wit_article_tag
+-- ----------------------------
+DROP TABLE IF EXISTS `wit_article_tag`;
+CREATE TABLE `wit_article_tag` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '名称',
+  `alias` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT '别名',
+  `sort` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
+  `remark` varchar(255) COLLATE utf8_unicode_ci DEFAULT '' COMMENT '备注',
+  `created_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
+  `updated_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='文章标签表';
+
+-- ----------------------------
+-- Records of wit_article_tag
+-- ----------------------------
+INSERT INTO `wit_article_tag` VALUES ('1', 'php', 'php', '0', 'www', '1468293958', '1468293958');
+INSERT INTO `wit_article_tag` VALUES ('2', 'java', 'java', '3', '1313', '1468293965', '1533621214');
+INSERT INTO `wit_article_tag` VALUES ('3', 'javascript', 'javascript', '0', '', '1468293974', '1533621262');
+
+-- ----------------------------
+-- Table structure for wit_article_tag_relation
+-- ----------------------------
+DROP TABLE IF EXISTS `wit_article_tag_relation`;
+CREATE TABLE `wit_article_tag_relation` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `article_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '文章id',
+  `tag_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '标签id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章标签映射表';
+
+-- ----------------------------
+-- Records of wit_article_tag_relation
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for wit_auth_assignment
 -- ----------------------------
 DROP TABLE IF EXISTS `wit_auth_assignment`;
@@ -121,6 +159,8 @@ CREATE TABLE `wit_auth_assignment` (
 -- ----------------------------
 -- Records of wit_auth_assignment
 -- ----------------------------
+INSERT INTO `wit_auth_assignment` VALUES ('普通管理员', '1', '1533776565');
+INSERT INTO `wit_auth_assignment` VALUES ('普通管理员', '20', '1533716031');
 
 -- ----------------------------
 -- Table structure for wit_auth_item
@@ -151,6 +191,7 @@ INSERT INTO `wit_auth_item` VALUES ('frontend-menu/index', '2', '', 'frontend-me
 INSERT INTO `wit_auth_item` VALUES ('rabc/index', '2', '', 'rabc/index', null, '1522050414', '1522050852');
 INSERT INTO `wit_auth_item` VALUES ('user/index', '2', '', 'user/index', null, '1522049871', '1522050852');
 INSERT INTO `wit_auth_item` VALUES ('普通管理员', '1', '普通管理员', null, null, '1521783127', '1522052221');
+INSERT INTO `wit_auth_item` VALUES ('测试', '1', '测试', null, null, '1533712861', '1533712861');
 INSERT INTO `wit_auth_item` VALUES ('超级管理员', '1', '拥有所有权限', null, null, '1521783127', '1522054534');
 
 -- ----------------------------
@@ -242,8 +283,8 @@ CREATE TABLE `wit_friend_link` (
 -- ----------------------------
 -- Records of wit_friend_link
 -- ----------------------------
-INSERT INTO `wit_friend_link` VALUES ('1', '百度', '', 'www.baidu.com', '_self', '0', '1', '1468303882', '1533524780');
-INSERT INTO `wit_friend_link` VALUES ('2', '谷歌', '', 'www.google.com', '_self', '1', '1', '222', '1533197740');
+INSERT INTO `wit_friend_link` VALUES ('1', '百度', '', 'www.baidu.com', '_blank', '0', '1', '1468303882', '1536196092');
+INSERT INTO `wit_friend_link` VALUES ('2', '谷歌', '', 'www.google.com', '_self', '1', '1', '222', '1533776786');
 
 -- ----------------------------
 -- Table structure for wit_menu
@@ -262,7 +303,7 @@ CREATE TABLE `wit_menu` (
   `created_at` int(10) DEFAULT NULL COMMENT '创建时间',
   `updated_at` int(10) DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='菜单表';
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COMMENT='菜单表';
 
 -- ----------------------------
 -- Records of wit_menu
@@ -280,6 +321,8 @@ INSERT INTO `wit_menu` VALUES ('11', '前台菜单', '4', 'frontend-menu/index',
 INSERT INTO `wit_menu` VALUES ('12', '文章管理', '5', 'article/index', 'fa fa-edit', '0', '0', '1', '0', '1521972263', '1533108167');
 INSERT INTO `wit_menu` VALUES ('13', '首页', '0', 'site/index', 'fa fa-map', '1', '0', '1', '0', '1533193393', '1533193393');
 INSERT INTO `wit_menu` VALUES ('14', '文章分类', '5', 'article-category/index', 'fa fa-tags', '0', '0', '1', '0', '1533611643', '1533612073');
+INSERT INTO `wit_menu` VALUES ('15', 'PHP', '0', 'article/index', '', '1', '0', '1', '0', '1536568679', '1536568679');
+INSERT INTO `wit_menu` VALUES ('16', 'PHP知识', '15', 'article/index', '', '1', '0', '1', '0', '1536568723', '1536568723');
 
 -- ----------------------------
 -- Table structure for wit_migration
