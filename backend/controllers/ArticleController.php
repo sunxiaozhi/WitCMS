@@ -99,7 +99,7 @@ class ArticleController extends Controller
         } else {
             $arr = ArticleCategory::find()->asArray()->all();
             $treeObj = new Tree($arr);
-            return $this->render('create', [
+            return $this->render('update', [
                 'model' => $model,
                 'treeArr' => $treeObj->getTree(),
             ]);

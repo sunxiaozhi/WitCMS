@@ -3,6 +3,8 @@
 namespace common\models;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "{{%article_tag}}".
@@ -15,7 +17,7 @@ use Yii;
  * @property string $created_at 创建时间
  * @property string $updated_at 更新时间
  */
-class ArticleTag extends \yii\db\ActiveRecord
+class ArticleTag extends ActiveRecord
 {
     /**
      * {@inheritdoc}
@@ -50,6 +52,20 @@ class ArticleTag extends \yii\db\ActiveRecord
             'remark' => Yii::t('backend', '备注'),
             'created_at' => Yii::t('backend', '创建时间'),
             'updated_at' => Yii::t('backend', '更新时间'),
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+                'value' => time(),
+            ],
         ];
     }
 }
