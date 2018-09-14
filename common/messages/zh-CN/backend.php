@@ -46,6 +46,8 @@ return [
 
     'Article Categories' => '文章分类',
 
+    'Article Tags' => '文章标签',
+
     /*友情链接 start*/
     'Friend Links' => '友情链接',
     /*友情链接 end*/

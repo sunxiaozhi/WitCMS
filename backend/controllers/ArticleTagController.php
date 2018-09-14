@@ -3,17 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\ArticleCategory;
-use backend\models\search\ArticleCategorySearch;
+use common\models\ArticleTag;
+use backend\models\search\ArticleTagSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use backend\helpers\Tree;
 
 /**
- * ArticleCategoryController implements the CRUD actions for ArticleCategory model.
+ * ArticleTagController implements the CRUD actions for ArticleTag model.
  */
-class ArticleCategoryController extends Controller
+class ArticleTagController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,12 +30,12 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Lists all ArticleCategory models.
+     * Lists all ArticleTag models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ArticleCategorySearch();
+        $searchModel = new ArticleTagSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -46,7 +45,7 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Displays a single ArticleCategory model.
+     * Displays a single ArticleTag model.
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -59,29 +58,25 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Creates a new ArticleCategory model.
+     * Creates a new ArticleTag model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ArticleCategory();
+        $model = new ArticleTag();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
-        } else {
-            $model->parent_id = Yii::$app->request->get('parent_id', 0);
-            $arr = ArticleCategory::find()->asArray()->all();
-            $treeObj = new Tree($arr);
-            return $this->render('create', [
-                'model' => $model,
-                'treeArr' => $treeObj->getTree(),
-            ]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Updates an existing ArticleCategory model.
+     * Updates an existing ArticleTag model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -92,20 +87,16 @@ class ArticleCategoryController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['index']);
-        } else {
-            $model->parent_id = Yii::$app->request->get('parent_id', 0);
-            $arr = ArticleCategory::find()->asArray()->all();
-            $treeObj = new Tree($arr);
-            return $this->render('update', [
-                'model' => $model,
-                'treeArr' => $treeObj->getTree(),
-            ]);
+            return $this->redirect(['view', 'id' => $model->id]);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Deletes an existing ArticleCategory model.
+     * Deletes an existing ArticleTag model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -119,15 +110,15 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Finds the ArticleCategory model based on its primary key value.
+     * Finds the ArticleTag model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return ArticleCategory the loaded model
+     * @return ArticleTag the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ArticleCategory::findOne($id)) !== null) {
+        if (($model = ArticleTag::findOne($id)) !== null) {
             return $model;
         }
 
