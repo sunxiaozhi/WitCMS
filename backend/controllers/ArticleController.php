@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Article;
+use backend\models\Article;
 use common\models\ArticleCategory;
 use backend\models\search\ArticleSearch;
 use yii\web\Controller;
