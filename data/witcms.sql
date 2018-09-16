@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : phpstudy_mysql
+Source Server         : phpStudy2018
 Source Server Version : 50553
 Source Host           : localhost:3306
 Source Database       : witcms
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-09-15 21:18:23
+Date: 2018-09-16 22:11:48
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -64,8 +64,8 @@ CREATE TABLE `wit_article` (
 -- ----------------------------
 -- Records of wit_article
 -- ----------------------------
-INSERT INTO `wit_article` VALUES ('44', '测试文章', '3', '测试文章副标题', '测试文章摘要水电费水电费水电费水电费是的发送到水电费水电费所发生的水电费沙发斯蒂芬舒服舒服沙发斯蒂芬所发生的发送放松放松发送的发顺分发送发顺分舒服舒服所发生的防守打法舒服舒服是否是沙发斯蒂芬是所发生的飞', '', '12', '1', '1233', '444', '55555', '1533533945', '1536719238');
-INSERT INTO `wit_article` VALUES ('45', '阿萨德', '1', '打的', 'dadas', '<p>打打杀杀</p>', '2', '1', 'dasd', 'dad', 'dad', '1536718630', '1536718630');
+INSERT INTO `wit_article` VALUES ('44', '测试文章', '3', '测试文章副标题', '测试文章摘要水电费水电费水电费水电费是的发送到水电费水电费所发生的水电费沙发斯蒂芬舒服舒服沙发斯蒂芬所发生的发送放松放松发送的发顺分发送发顺分舒服舒服所发生的防守打法舒服舒服是否是沙发斯蒂芬是所发生的飞', '', '12', '1', '1233', '444', '55555', '1533533945', '1537106686');
+INSERT INTO `wit_article` VALUES ('45', '阿萨德', '1', '打的', 'dadas', '<p>打打杀杀</p>', '2', '1', 'dasd', 'dad', 'dad', '1536718630', '1537106971');
 
 -- ----------------------------
 -- Table structure for wit_article_category
@@ -119,16 +119,26 @@ CREATE TABLE `wit_article_tag` (
   `created_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `updated_at` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='文章标签表';
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='文章标签表';
 
 -- ----------------------------
 -- Records of wit_article_tag
 -- ----------------------------
-INSERT INTO `wit_article_tag` VALUES ('1', 'php', 'php', '0', 'www', '1468293958', '1468293958');
-INSERT INTO `wit_article_tag` VALUES ('2', 'java', 'java', '3', '1313', '1468293965', '1533621214');
-INSERT INTO `wit_article_tag` VALUES ('3', 'javascript', 'javascript', '0', '', '1468293974', '1533621262');
-INSERT INTO `wit_article_tag` VALUES ('4', '3543', '5345', '3', '4534543', '1536893860', '1536893860');
-INSERT INTO `wit_article_tag` VALUES ('5', '3543', '5345', '3', '4534543', '1536893891', '1536893891');
+INSERT INTO `wit_article_tag` VALUES ('13', 'centos7', 'centos7', '0', '', '1537100353', '1537100353');
+INSERT INTO `wit_article_tag` VALUES ('14', '456', '456', '0', '', '1537100510', '1537100510');
+INSERT INTO `wit_article_tag` VALUES ('15', '1', '1', '0', '', '1537101606', '1537101606');
+INSERT INTO `wit_article_tag` VALUES ('16', '2', '2', '0', '', '1537101606', '1537101606');
+INSERT INTO `wit_article_tag` VALUES ('17', '3', '3', '0', '', '1537101606', '1537101606');
+INSERT INTO `wit_article_tag` VALUES ('18', '4', '4', '0', '', '1537101606', '1537101606');
+INSERT INTO `wit_article_tag` VALUES ('19', '5', '5', '0', '', '1537101606', '1537101606');
+INSERT INTO `wit_article_tag` VALUES ('20', '66', '66', '0', '', '1537101643', '1537101643');
+INSERT INTO `wit_article_tag` VALUES ('21', '33', '33', '0', '', '1537102101', '1537102101');
+INSERT INTO `wit_article_tag` VALUES ('22', '5345', '5345', '0', '', '1537103120', '1537103120');
+INSERT INTO `wit_article_tag` VALUES ('23', '4534', '4534', '0', '', '1537103120', '1537103120');
+INSERT INTO `wit_article_tag` VALUES ('24', '435345', '435345', '0', '', '1537103120', '1537103120');
+INSERT INTO `wit_article_tag` VALUES ('25', '43534', '43534', '0', '', '1537103120', '1537103120');
+INSERT INTO `wit_article_tag` VALUES ('26', '435', '435', '0', '', '1537106642', '1537106642');
+INSERT INTO `wit_article_tag` VALUES ('27', '8899', '8899', '0', '', '1537106687', '1537106687');
 
 -- ----------------------------
 -- Table structure for wit_article_tag_relation
@@ -139,11 +149,18 @@ CREATE TABLE `wit_article_tag_relation` (
   `article_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '文章id',
   `tag_id` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '标签id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='文章标签映射表';
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COMMENT='文章标签映射表';
 
 -- ----------------------------
 -- Records of wit_article_tag_relation
 -- ----------------------------
+INSERT INTO `wit_article_tag_relation` VALUES ('52', '44', '15');
+INSERT INTO `wit_article_tag_relation` VALUES ('53', '44', '16');
+INSERT INTO `wit_article_tag_relation` VALUES ('54', '44', '17');
+INSERT INTO `wit_article_tag_relation` VALUES ('55', '44', '27');
+INSERT INTO `wit_article_tag_relation` VALUES ('56', '45', '15');
+INSERT INTO `wit_article_tag_relation` VALUES ('57', '45', '16');
+INSERT INTO `wit_article_tag_relation` VALUES ('58', '45', '17');
 
 -- ----------------------------
 -- Table structure for wit_auth_assignment
