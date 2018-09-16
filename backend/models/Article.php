@@ -29,7 +29,7 @@ class Article extends BaseArticle
         if (Yii::$app->request->isPost) {
             $formArticle = Yii::$app->request->post('Article');
 
-            if (isset($formArticle['tag']) && !empty($formArticle['tag'])) {
+            if (isset($formArticle['tag'])) {
                 $tagArr = explode(',', $formArticle['tag']);
 
                 //清除所有的文章和标签的关系
