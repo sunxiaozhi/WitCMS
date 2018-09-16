@@ -91,4 +91,11 @@ class Article extends \yii\db\ActiveRecord
     {
         return $this->hasOne(ArticleCategory::className(), ['id' => 'category_id']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticleTag() {
+        return $this->hasMany(ArticleTag::className(), ['id' => 'tag_id'])->viaTable(ArticleTagRelation::tableName(),['article_id' => 'id']);
+    }
 }

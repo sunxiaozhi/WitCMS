@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\helpers\Tree;
+use common\models\ArticleTagRelation;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -97,8 +98,17 @@ class ArticleController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
+            //处理文章标签
+            $articleTagArr = [];
+            foreach ($model->articleTag as $key => $val) {
+                $articleTagArr[] = $val->name;
+            }
+
+            $model->tag = implode(',', $articleTagArr);
+
             $arr = ArticleCategory::find()->asArray()->all();
             $treeObj = new Tree($arr);
+
             return $this->render('update', [
                 'model' => $model,
                 'treeArr' => $treeObj->getTree(),
