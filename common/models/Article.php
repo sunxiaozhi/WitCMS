@@ -22,6 +22,9 @@ use yii\db\ActiveRecord;
  */
 class Article extends \yii\db\ActiveRecord
 {
+    const STATUS_YES = 1;
+    const STATUS_NO = 0;
+
     public $tag;
 
     /**
@@ -85,6 +88,7 @@ class Article extends \yii\db\ActiveRecord
     }
 
     /**
+     * 获取文章分类
      * @return \yii\db\ActiveQuery
      */
     public function getArticleCategory()
@@ -93,6 +97,7 @@ class Article extends \yii\db\ActiveRecord
     }
 
     /**
+     * 获取文章标签
      * @return \yii\db\ActiveQuery
      */
     public function getArticleTag() {

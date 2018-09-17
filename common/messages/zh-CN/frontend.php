@@ -8,7 +8,7 @@
 return [
     'Application Name' => '技术之路',
     'Home' => '首页',
-    'About' => '关于',
+    'About' => '关于站点',
     'Contact' => '联系',
     'Signup' => '注册',
     'Login' => '登录',
@@ -22,4 +22,7 @@ return [
     'Search Bar' => '文章搜索',
     'Search' => '搜索',
 
+    'Site Statistics' => '站点统计',
+    'Stay Connected' => '保持联系',
+    'Random Articles' => '随机文章',
 ];
