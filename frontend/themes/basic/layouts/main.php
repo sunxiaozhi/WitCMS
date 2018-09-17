@@ -1,9 +1,6 @@
 <?php
 use frontend\widgets\MenuView;
-
 ?>
-
-
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
@@ -29,7 +26,7 @@ use frontend\widgets\MenuView;
     <link rel="stylesheet" href="basic_assets/plugins/font-awesome/css/font-awesome.css" />
     <!-- CSS Theme -->    
     <link rel="stylesheet" href="basic_assets/css/themes/default.css" id="style_color" />
-    <link rel="stylesheet" href="basic_assets/css/themes/headers/default.css" id="style_color-header-1" />        
+    <!--<link rel="stylesheet" href="basic_assets/css/themes/headers/default.css" id="style_color-header-1" />-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
@@ -51,7 +48,7 @@ use frontend\widgets\MenuView;
 
 <!--=== Top ===-->    
 <div class="top">
-    <div class="container">			
+    <div class="container">
         <ul class="loginbar pull-right">
             <!--<li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
             	<ul class="nav-list">
@@ -60,27 +57,27 @@ use frontend\widgets\MenuView;
                 	<li><a href="#">Russian</a></li>
                 	<li><a href="#">German</a></li>
                 </ul>
-            </li>	
+            </li>
             <li class="devider">&nbsp;</li>
-            <li><a href="page_faq.html" class="login-btn">Help</a></li>	
+            <li><a href="page_faq.html" class="login-btn">Help</a></li>
             <li class="devider">&nbsp;</li>-->
-            <li><a href="page_login.html" class="login-btn">Login</a></li>	
+            <li><a href="page_login.html" class="login-btn">Login</a></li>
         </ul>
-    </div>		
+    </div>
 </div><!--/top-->
 <!--=== End Top ===-->    
 
 <!--=== Header ===-->
-<div class="header">               
-    <div class="container"> 
-        <!-- Logo -->       
-        <div class="logo">                                             
-            <a href="<?= Yii::$app->getHomeUrl()?>"><img id="logo-header" src="basic_assets/img/logo1-default.png" alt="Logo" /></a>
-        </div><!-- /logo -->        
+<div class="header">
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+            <a href="<?= Yii::$app->getHomeUrl()?>"><!--<img id="logo-header" src="basic_assets/img/logo1-default.png" alt="Logo" />--><h2>技术之路</h2></a>
+        </div><!-- /logo -->
                                     
         <!-- Menu -->       
-        <div class="navbar">                                
-            <div class="navbar-inner">                                  
+        <div class="navbar">
+            <div class="navbar-inner">
                 <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -104,15 +101,16 @@ use frontend\widgets\MenuView;
 <!--=== End Header ===-->
 
 <!--=== Breadcrumbs ===-->
-<div class="breadcrumbs margin-bottom-20">
+<!--<div class="breadcrumbs margin-bottom-20">
 	<div class="container">
-        <h1 class="color-green pull-left"><?= Yii::t('frontend','Latest Posts')?></h1>
+        <h1 class="color-green pull-left"><?/*= Yii::t('frontend','Latest Posts')*/?></h1>
         <ul class="pull-right breadcrumb">
-            <li><a href="<?= Yii::$app->getHomeUrl()?>"><?= Yii::t('frontend', 'Home')?></a> <span class="divider">/</span></li>
+            <li><a href="<?/*= Yii::$app->getHomeUrl()*/?>"><?/*= Yii::t('frontend', 'Home')*/?></a> <span class="divider">/</span></li>
             <li class="active">Blog</li>
         </ul>
-    </div><!--/container-->
-</div><!--/breadcrumbs-->
+    </div>
+</div>-->
+<!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->
 
 <!--=== Content Part ===-->
@@ -206,7 +204,7 @@ use frontend\widgets\MenuView;
 	<div class="container">
 		<div class="row-fluid">
 			<div class="span8">						
-	            <p>Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+	            <p>Copyright &copy; <?= date('Y')?>.Company name All rights reserved.</p>
 			</div>
 			<div class="span4">	
 				<a href="index.html"><img id="logo-footer" src="basic_assets/img/logo2-default.png" class="pull-right" alt="" /></a>

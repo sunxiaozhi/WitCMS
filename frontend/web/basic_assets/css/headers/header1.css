@@ -138,6 +138,17 @@
 	left:0;
 }
 
+.logo a {
+	display: inline;
+}
+
+.logo a:link,
+a:visited,
+a:hover,
+a:active {
+	text-decoration: none;
+}
+
 /*Menu*/
 .navbar, 
 .navbar-inner, 
