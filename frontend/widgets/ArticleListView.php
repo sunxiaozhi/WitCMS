@@ -38,10 +38,11 @@ class ArticleListView extends \yii\widgets\ListView
         <ul class='unstyled inline blog-tags'>
             <li>
                 <i class='icon-tags'></i>
-                <a href='#'>Technology</a>
+                <!--<a href='#'>Technology</a>
                 <a href='#'>Education</a>
                 <a href='#'>Internet</a>
-                <a href='#'>Media</a>
+                <a href='#'>Media</a>-->
+                {article_tag}
             </li>
         </ul>
         <div class='blog-img'><img src='basic_assets/img/posts/1.jpg' alt='' /></div>
@@ -77,10 +78,9 @@ class ArticleListView extends \yii\widgets\ListView
             //$author_name = StringHelper::truncate($model->author_name, 28);
             //文章标签
             $article_tag = '';
-            if (!empty($model->tag)) {
-                $arr_article_tag = explode(',', $model->tag);
-                foreach ($arr_article_tag as $v) {
-                    $article_tag .= "<a href='" . Url::to(['search/index', 'q' => $v]) . "'>$v</a>&nbsp;&nbsp";
+            if (!empty($model->articleTag)) {
+                foreach ($model->articleTag as $key => $val) {
+                    $article_tag .= "<a href='" . Url::to(['search/index', 'q' => $val->name]) . "'>$val->name</a>";
                 }
             }
 
@@ -93,9 +93,9 @@ class ArticleListView extends \yii\widgets\ListView
                 '{abstract}',
                 '{pub_date}',
                 //'{scan_count}',
-                '{comment_count}',
-                '{category}',
-                '{comment_url}',
+                //'{comment_count}',
+                //'{category}',
+                //'{comment_url}',
                 '{article_tag}'
             ], [
                 $articleUrl,
@@ -108,7 +108,7 @@ class ArticleListView extends \yii\widgets\ListView
                 //$model->scan_count,
                 //$model->comment_count,
                 //$categoryName,
-                $articleUrl . "#comments",
+               //$articleUrl . "#comments",
                 $article_tag
             ], $this->template);
         };

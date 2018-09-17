@@ -77,7 +77,7 @@ class SiteController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Article::find()->orderBy('id'),
             'pagination' => [//分页
-                'pagesize' => 5
+                'pagesize' => 3
             ]
         ]);
 
