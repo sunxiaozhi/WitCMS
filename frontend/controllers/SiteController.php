@@ -75,7 +75,7 @@ class SiteController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Article::find()->orderBy('id'),
+            'query' => Article::find()->orderBy(['id' => SORT_DESC]),
             'pagination' => [//分页
                 'pagesize' => 3
             ]

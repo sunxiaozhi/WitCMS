@@ -135,21 +135,23 @@ use frontend\widgets\MenuView;
                 <!-- About -->
 		        <div class="headline"><h3><?= Yii::t('frontend', 'About')?></h3></div>
 				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>	
+				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
+				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
 
 	            <!-- Monthly Newsletter -->
-		        <div class="headline"><h3>Monthly Newsletter</h3></div>	
+		        <!--<div class="headline"><h3>Monthly Newsletter</h3></div>
 				<p>Subscribe to our newsletter and stay up to date with the latest news and deals!</p>
 				<form class="form-inline" />
 					<div class="input-append">
 						<input type="text" placeholder="Email Address" class="input-medium" />
 						<button class="btn-u">Subscribe</button>
 					</div>
-				</form>							
+				</form>		-->
 			</div><!--/span4-->	
 			
 			<div class="span4">
                 <div class="posts">
-                    <div class="headline"><h3>Recent Blog Entries</h3></div>
+                    <div class="headline"><h3><?= Yii::t('Frontend', 'Random Articles')?></h3></div>
                     <dl class="dl-horizontal">
                         <dt><a href="#"><img src="basic_assets/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
                         <dd>
@@ -173,25 +175,19 @@ use frontend\widgets\MenuView;
 
 			<div class="span4">
 	            <!-- Monthly Newsletter -->
-		        <div class="headline"><h3>Contact Us</h3></div>	
+		        <div class="headline"><h3><?= Yii::t('frontend', 'Site Statistics')?></h3></div>
                 <address>
-					25, Lorem Lis Street, Orange <br />
-					California, US <br />
-					Phone: 800 123 3456 <br />
-					Fax: 800 123 3456 <br />
-					Email: <a href="mailto:info@anybiz.com" class="">info@anybiz.com</a>
+                    文章总数：270篇 <br />
+                    分类总数：32个 <br />
+                    标签总数：327个 <br />
+                    评论总数：4610条 <br />
+                    网站已运行：2137天
                 </address>
 
                 <!-- Stay Connected -->
-		        <div class="headline"><h3>Stay Connected</h3></div>	
+		        <div class="headline"><h3><?= Yii::t('frontend', 'Stay Connected')?></h3></div>
                 <ul class="social-icons">
-                    <li><a href="#" data-original-title="Feed" class="social_rss"></a></li>
-                    <li><a href="#" data-original-title="Facebook" class="social_facebook"></a></li>
-                    <li><a href="#" data-original-title="Twitter" class="social_twitter"></a></li>
-                    <li><a href="#" data-original-title="Goole Plus" class="social_googleplus"></a></li>
-                    <li><a href="#" data-original-title="Pinterest" class="social_pintrest"></a></li>
-                    <li><a href="#" data-original-title="Linkedin" class="social_linkedin"></a></li>
-                    <li><a href="#" data-original-title="Vimeo" class="social_vimeo"></a></li>
+                    <li><a target="_blank" href="https://github.com/sunxiaozhi" data-original-title="Github" class="social_github"></a></li>
                 </ul>
 			</div><!--/span4-->
 		</div><!--/row-fluid-->	
@@ -203,12 +199,12 @@ use frontend\widgets\MenuView;
 <div class="copyright">
 	<div class="container">
 		<div class="row-fluid">
-			<div class="span8">						
+			<div class="span12">
 	            <p>Copyright &copy; <?= date('Y')?>.Company name All rights reserved.</p>
 			</div>
-			<div class="span4">	
+			<!--<div class="span4">
 				<a href="index.html"><img id="logo-footer" src="basic_assets/img/logo2-default.png" class="pull-right" alt="" /></a>
-			</div>
+			</div>-->
 		</div><!--/row-fluid-->
 	</div><!--/container-->	
 </div><!--/copyright-->	
