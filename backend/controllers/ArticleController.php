@@ -10,7 +10,6 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\helpers\Tree;
-use common\models\ArticleTagRelation;
 
 /**
  * ArticleController implements the CRUD actions for Article model.
@@ -75,7 +74,8 @@ class ArticleController extends Controller
             $arr = ArticleCategory::find()->asArray()->all();
             $treeObj = new Tree($arr);
 
-            $model->status = 1;
+            //文章默认状态
+            $model->status = Article::STATUS_YES;
 
             return $this->render('create', [
                 'model' => $model,
