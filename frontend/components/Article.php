@@ -12,13 +12,11 @@ namespace frontend\components;
 use yii\base\Object;
 use yii\data\ActiveDataProvider;
 use common\models\Article as ArticleModel;
+use common\models\ArticleTag;
+use common\models\ArticleTagRelation;
 
 class Article extends Object
 {
-    public static function getArticleByRecommend($limit, $cid) {
-        return self::_getArticleList("id desc", $limit, $cid, []);
-    }
-
     /**
      * 根据点击量获取文章列表
      *
@@ -97,16 +95,9 @@ class Article extends Object
      * @param int $limit
      * @return array|\yii\db\ActiveRecord[]
      */
-    public static function getTags($limit = 14)
+    public static function getTags($limit = 14, $where = [])
     {
-        $data = ArticleModel::find()->select('tag')->where(['<>', 'tag', ''])->andWhere(['status' => 1])->asArray()->all();
-        $tags = [];
-        foreach ($data as $val) {
-            $tags = array_merge($tags, explode(',', $val['tag']));
-        }
-        shuffle($tags);
-        $data = array_slice(array_count_values($tags), 0, $limit);
-        return $data;
+        return ArticleTagRelation::find()->joinWith('articleTag')->select([])->where($where)->limit($limit)->all();
     }
 
     /**

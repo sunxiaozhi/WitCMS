@@ -42,4 +42,11 @@ class ArticleTagRelation extends \yii\db\ActiveRecord
             'tag_id' => Yii::t('backend', 'Tag ID'),
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticleTag() {
+        return $this->hasOne(ArticleTag::className(), ['id' => 'tag_id']);
+    }
 }

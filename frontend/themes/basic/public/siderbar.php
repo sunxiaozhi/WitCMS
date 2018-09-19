@@ -14,24 +14,6 @@ use frontend\components\Article;
     <!-- Posts -->
     <div class="posts margin-bottom-20">
         <div class="headline"><h3><?= Yii::t('frontend','Recommend Article')?></h3></div>
-        <!--<dl class="dl-horizontal">
-            <dt><a href="#"><img src="basic_assets/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
-            <dd>
-                <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
-            </dd>
-        </dl>
-        <dl class="dl-horizontal">
-            <dt><a href="#"><img src="basic_assets/img/sliders/elastislide/10.jpg" alt="" /></a></dt>
-            <dd>
-                <p><a href="#">Lorem sequat ipsum dolor lorem sunt aliqua put a bird sit amet consectetur.</a></p>
-            </dd>
-        </dl>
-        <dl class="dl-horizontal">
-            <dt><a href="#"><img src="basic_assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
-            <dd>
-                <p><a href="#">It works on all major web browsers, tablets and aliqua lorem sequat ipsum.</a></p>
-            </dd>
-        </dl>-->
         <?php
         $articles = Article::getArticleLists(['status' => 1, 'is_recommend' => '1']);
         foreach ($articles as $article) {
@@ -62,36 +44,15 @@ use frontend\components\Article;
         </div>
     </div><!--/tab-content-->
 
-    <!-- Photo Stream -->
-    <!--<div class="headline"><h3>Photo Stream</h3></div>
-    <ul class="unstyled blog-ads">
-        <li><a href="#"><img src="basic_assets/img/sliders/elastislide/5.jpg" alt="" class="hover-effect" /></a></li>
-        <li><a href="#"><img src="basic_assets/img/sliders/elastislide/6.jpg" alt="" class="hover-effect" /></a></li>
-        <li><a href="#"><img src="basic_assets/img/sliders/elastislide/8.jpg" alt="" class="hover-effect" /></a></li>
-        <li><a href="#"><img src="basic_assets/img/sliders/elastislide/10.jpg" alt="" class="hover-effect" /></a></li>
-        <li><a href="#"><img src="basic_assets/img/sliders/elastislide/11.jpg" alt="" class="hover-effect" /></a></li>
-        <li><a href="#"><img src="basic_assets/img/sliders/elastislide/1.jpg" alt="" class="hover-effect" /></a></li>
-        <li><a href="#"><img src="basic_assets/img/sliders/elastislide/2.jpg" alt="" class="hover-effect" /></a></li>
-        <li><a href="#"><img src="basic_assets/img/sliders/elastislide/7.jpg" alt="" class="hover-effect" /></a></li>
-    </ul>-->
-
     <!-- Blog Tags -->
     <div class="headline"><h3><?= Yii::t('frontend', 'Article Tags')?></h3></div>
     <ul class="unstyled inline blog-tags">
-        <li><a href="#"><i class="icon-tags"></i> Business</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Music</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Internet</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Money</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Google</a></li>
-        <li><a href="#"><i class="icon-tags"></i> TV Shows</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Education</a></li>
-        <li><a href="#"><i class="icon-tags"></i> People</a></li>
-        <li><a href="#"><i class="icon-tags"></i> People</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Math</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Photos</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Electronics</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Apple</a></li>
-        <li><a href="#"><i class="icon-tags"></i> Canada</a></li>
+        <?php
+        $tags = Article::getTags(14);
+        foreach ($tags as $tag) {
+            echo '<li><a href="#"><i class="icon-tags"></i> '  . $tag->articleTag->name . '</a></li>';
+        }
+        ?>
     </ul>
 
     <!-- Blog Latest Tweets -->
