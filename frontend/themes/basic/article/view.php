@@ -1,6 +1,9 @@
+<?php
+use yii\helpers\Url;
+?>
 <div class="span9 blog-item">
     <div class="blog margin-bottom-30">
-        <h3>Pellentesque habitant morbi tristique</h3>
+        <h3><?= $model->title?></h3>
         <ul class="unstyled inline blog-info">
             <li><i class="icon-calendar"></i> February 02, 2013</li>
             <li><i class="icon-pencil"></i> Diana Anderson</li>
@@ -9,10 +12,21 @@
         <ul class="unstyled inline blog-tags">
             <li>
                 <i class="icon-tags"></i>
-                <a href="#">Technology</a>
+                <?php
+                $article_tag = '';
+                if (!empty($model->articleTag)) {
+                    foreach ($model->articleTag as $key => $val) {
+                        $article_tag .= "<a href='" . Url::to(['search/index', 'q' => $val->name]) . "'>$val->name</a>";
+                    }
+                }
+
+                echo $article_tag;
+                ?>
+
+                <!--<a href="#">Technology</a>
                 <a href="#">Education</a>
                 <a href="#">Internet</a>
-                <a href="#">Media</a>
+                <a href="#">Media</a>-->
             </li>
         </ul>
         <div class="blog-img"><img src="basic_assets/img/posts/1.jpg" alt="" /></div>
