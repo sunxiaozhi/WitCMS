@@ -41,12 +41,16 @@ use yii\helpers\Url;
         if ($prev != null) {
         ?>
         <p>上一篇：<a href="<?= Url::to(['article/view', 'id' => $prev->id]) ?>"><?= $prev->title?></a></p>
-        <?php } ?>
+        <?php } else { ?>
+            <p>上一篇：没有了</p>
+        <?php }?>
         <?php
         if ($next != null) {
         ?>
         <p>下一篇：<a href="<?= Url::to(['article/view', 'id' => $next->id]) ?>"><?= $next->title?></a></p>
-        <?php } ?>
+        <?php } else { ?>
+            <p>下一篇：没有了</p>
+        <?php }?>
     </div>
 
     <!-- Media -->
