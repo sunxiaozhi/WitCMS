@@ -16,8 +16,8 @@ return [
     'Article' => '文章',
 
     'Latest Posts' => '最新文章',
-    'Recommend Article' => '推荐文章',
-    'Article Tags' => '文章标签',
+    'Recommend Article' => '置顶推荐',
+    'Hot Tags' => '热门标签',
     'Latest Comment' => '最新评论',
     'Search Bar' => '文章搜索',
     'Search' => '搜索',

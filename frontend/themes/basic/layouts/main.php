@@ -74,7 +74,7 @@ use yii\helpers\Url;
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href="<?= Yii::$app->getHomeUrl()?>"><!--<img id="logo-header" src="basic_assets/img/logo1-default.png" alt="Logo" />--><h2>技术之路</h2></a>
+            <a href="<?= Yii::$app->getHomeUrl()?>"><img style="padding-bottom: 15px;margin-right: 3px" id="logo-header" src="basic_assets/img/logo1-default.png" alt="Logo" /><h2 style="display: inline">技术之路</h2></a>
         </div><!-- /logo -->
                                     
         <!-- Menu -->       
@@ -103,15 +103,15 @@ use yii\helpers\Url;
 <!--=== End Header ===-->
 
 <!--=== Breadcrumbs ===-->
-<!--<div class="breadcrumbs margin-bottom-20">
+<div class="breadcrumbs margin-bottom-20">
 	<div class="container">
-        <h1 class="color-green pull-left"><?/*= Yii::t('frontend','Latest Posts')*/?></h1>
-        <ul class="pull-right breadcrumb">
+        <h1 class="color-green pull-left"><?= Yii::t('frontend','Latest Posts')?></h1>
+        <!--<ul class="pull-right breadcrumb">
             <li><a href="<?/*= Yii::$app->getHomeUrl()*/?>"><?/*= Yii::t('frontend', 'Home')*/?></a> <span class="divider">/</span></li>
             <li class="active">Blog</li>
-        </ul>
+        </ul>-->
     </div>
-</div>-->
+</div>
 <!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->
 

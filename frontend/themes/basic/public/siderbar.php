@@ -28,6 +28,17 @@ use frontend\components\Article;
         ?>
     </div><!--/posts-->
 
+    <!-- Blog Tags -->
+    <div class="headline"><h3><?= Yii::t('frontend', 'Hot Tags')?></h3></div>
+    <ul class="unstyled inline blog-tags">
+        <?php
+        $tags = Article::getTags(14);
+        foreach ($tags as $tag) {
+            echo '<li><a href="#"><i class="icon-tags"></i> '  . $tag->articleTag->name . '</a></li>';
+        }
+        ?>
+    </ul>
+
     <!-- Tabs Widget -->
     <div class="headline"><h3>Tabs Widget</h3></div>
     <ul class="nav nav-tabs tabs">
@@ -43,17 +54,6 @@ use frontend\components\Article;
             <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc.</p>
         </div>
     </div><!--/tab-content-->
-
-    <!-- Blog Tags -->
-    <div class="headline"><h3><?= Yii::t('frontend', 'Article Tags')?></h3></div>
-    <ul class="unstyled inline blog-tags">
-        <?php
-        $tags = Article::getTags(14);
-        foreach ($tags as $tag) {
-            echo '<li><a href="#"><i class="icon-tags"></i> '  . $tag->articleTag->name . '</a></li>';
-        }
-        ?>
-    </ul>
 
     <!-- Blog Latest Tweets -->
     <!--<div class="blog-twitter">
