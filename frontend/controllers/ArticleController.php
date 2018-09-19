@@ -52,8 +52,25 @@ class ArticleController extends Controller
      */
     public function actionView($id)
     {
+        $model = Article::findOne(['id' => $id, 'type' => Article::ARTICLE, 'status' => Article::STATUS_YES]);
+        if( $model === null ) throw new NotFoundHttpException(Yii::t("frontend", "Article id {id} is not exists", ['id' => $id]));
+        $prev = Article::find()
+            ->where(['category_id' => $model->category_id])
+            ->andWhere(['>', 'id', $id])
+            ->orderBy("sort asc,created_at desc,id desc")
+            ->limit(1)
+            ->one();
+        $next = Article::find()
+            ->where(['category_id' => $model->category_id])
+            ->andWhere(['<', 'id', $id])
+            ->orderBy("sort desc,created_at desc,id asc")
+            ->limit(1)
+            ->one();//->createCommand()->getRawSql();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'prev' => $prev,
+            'next' => $next,
         ]);
     }
 

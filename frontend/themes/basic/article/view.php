@@ -1,4 +1,9 @@
 <?php
+/**
+ * @var $model common\models\Article
+ * @var $prev common\models\Article
+ * @var $next common\models\Article
+ */
 use yii\helpers\Url;
 ?>
 <div class="span9 blog-item">
@@ -22,28 +27,32 @@ use yii\helpers\Url;
 
                 echo $article_tag;
                 ?>
-
-                <!--<a href="#">Technology</a>
-                <a href="#">Education</a>
-                <a href="#">Internet</a>
-                <a href="#">Media</a>-->
             </li>
         </ul>
-        <div class="blog-img"><img src="basic_assets/img/posts/1.jpg" alt="" /></div>
-        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-
-        <blockquote class="hero">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit posuere erat a ante.</p>
-            <small>Someone famous <cite title="Source Title">Source Title</cite></small>
-        </blockquote>
-
-        <p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
+        <div style="margin-top: 20px">
+            <?= $model->content?>
+        </div>
     </div><!--/blog-->
 
     <hr />
 
+    <?php
+    if ($prev != null) {
+    ?>
+    <div>
+        上一篇：<a href="<?= Url::to(['article/view', 'id' => $prev->id]) ?>"><?= $prev->title?></a>
+    </div>
+    <?php } ?>
+    <?php
+    if ($next != null) {
+    ?>
+    <div>
+        下一篇：<a href="<?= Url::to(['article/view', 'id' => $next->id]) ?>"><?= $next->title?></a>
+    </div>
+    <?php } ?>
+
     <!-- Media -->
-    <div class="media">
+    <!--<div class="media">
         <h3 class="color-green">Comments</h3>
         <a class="pull-left" href="#">
             <img class="media-object" src="basic_assets/img/sliders/elastislide/2.jpg" alt="" />
@@ -54,7 +63,6 @@ use yii\helpers\Url;
 
             <hr />
 
-            <!-- Nested media object -->
             <div class="media">
                 <a class="pull-left" href="#">
                     <img class="media-object" src="basic_assets/img/sliders/elastislide/5.jpg" alt="" />
@@ -63,7 +71,7 @@ use yii\helpers\Url;
                     <h4 class="media-heading">Media heading <span>17 hours ago / <a href="#">Reply</a></span></h4>
                     <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                 </div>
-            </div><!--/media-->
+            </div>
 
             <hr />
 
@@ -75,9 +83,9 @@ use yii\helpers\Url;
                     <h4 class="media-heading">Media heading <span>2 days ago / <a href="#">Reply</a></span></h4>
                     <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
                 </div>
-            </div><!--/media-->
+            </div>
         </div>
-    </div><!--/media-->
+    </div>
 
     <div class="media">
         <a class="pull-left" href="#">
@@ -87,12 +95,12 @@ use yii\helpers\Url;
             <h4 class="media-heading">Media heading <span>July 5,2013 / <a href="#">Reply</a></span></h4>
             <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
         </div>
-    </div><!--/media-->
+    </div>
 
-    <hr />
+    <hr />-->
 
     <!-- Leave a Comment -->
-    <div class="post-comment">
+    <!--<div class="post-comment">
         <h3 class="color-green">Leave a Comment</h3>
         <form />
         <label>Name</label>
@@ -103,5 +111,6 @@ use yii\helpers\Url;
         <textarea rows="8" class="span10"></textarea>
         <p><button type="submit" class="btn-u">Send Message</button></p>
         </form>
-    </div><!--/post-comment-->
+    </div>-->
+    <!--/post-comment-->
 </div><!--/span9-->

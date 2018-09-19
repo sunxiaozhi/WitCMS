@@ -23,9 +23,10 @@ return [
     'Sub Title' => '副标题',
     'Abstract' => '摘要',
     'ArticleContent' => '文章内容',
-    'seo_title' => 'SEO标题',
-    'seo_keywords' => 'SEO关键词',
-    'seo_description' => 'SEO描述',
+    'Seo_Title' => 'SEO标题',
+    'Seo_Keywords' => 'SEO关键词',
+    'Seo_Description' => 'SEO描述',
+    'Is_Recommend' => '推荐',
     /*wit_article end*/
 
     /*wit_article_category start*/

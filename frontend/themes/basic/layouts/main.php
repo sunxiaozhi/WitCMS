@@ -154,24 +154,6 @@ use yii\helpers\Url;
 			<div class="span4">
                 <div class="posts">
                     <div class="headline"><h3><?= Yii::t('Frontend', 'Random Articles')?></h3></div>
-                    <!--<dl class="dl-horizontal">
-                        <dt><a href="#"><img src="basic_assets/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
-                        <dd>
-                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
-                        </dd>
-                    </dl>
-                    <dl class="dl-horizontal">
-                    <dt><a href="#"><img src="basic_assets/img/sliders/elastislide/10.jpg" alt="" /></a></dt>
-                        <dd>
-                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
-                        </dd>
-                    </dl>
-                    <dl class="dl-horizontal">
-                    <dt><a href="#"><img src="basic_assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
-                        <dd>
-                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
-                        </dd>
-                    </dl>-->
                     <?php
                     $articles = Article::getArticleLists(['status' => 1], 3);
                     foreach ($articles as $article) {
@@ -192,8 +174,8 @@ use yii\helpers\Url;
 		        <div class="headline"><h3><?= Yii::t('frontend', 'Site Statistics')?></h3></div>
                 <address>
                     文章总数：<?= Yii::$app->siteInfo->getArticleCount()?> 篇<br/>
-                    分类总数：<?= Yii::$app->siteInfo->getTagCount()?> 个<br/>
-                    标签总数：<?= Yii::$app->siteInfo->getCategoryCount()?> 个<br/>
+                    分类总数：<?= Yii::$app->siteInfo->getCategoryCount()?> 个<br/>
+                    标签总数：<?= Yii::$app->siteInfo->getTagCount()?> 个<br/>
                     评论总数：<?= Yii::$app->siteInfo->getCommentCount()?> 条<br/>
                     网站已运行：<?= Yii::$app->siteInfo->getRunningDays()?> 天
                 </address>

@@ -18,6 +18,7 @@ use yii\db\ActiveRecord;
  * @property string $sort 排序
  * @property string $status 状态
  * @property string $type 类型
+ * @property string $is_recommend 类型
  * @property int $created_at 创建时间
  * @property int $updated_at 更新时间
  */
@@ -53,7 +54,7 @@ class Article extends \yii\db\ActiveRecord
             [['title','category_id'], 'required'],
             [['title', 'sub_title', 'abstract'], 'string', 'max' => 255],
             [['content', 'seo_title', 'seo_keywords', 'seo_description',], 'string'],
-            [['sort', 'status', 'type'], 'integer'],
+            [['sort', 'status', 'type', 'is_recommend'], 'integer'],
         ];
     }
 
@@ -73,9 +74,10 @@ class Article extends \yii\db\ActiveRecord
             'sort' => Yii::t('database', 'Sort'),
             'status' => Yii::t('database', 'Status'),
             'type' => Yii::t('database', 'Type'),
-            'seo_title' => Yii::t('database', 'seo_title'),
-            'seo_keywords' => Yii::t('database', 'seo_keywords'),
-            'seo_description' => Yii::t('database', 'seo_description'),
+            'is_recommend' => Yii::t('database', 'Is_Recommend'),
+            'seo_title' => Yii::t('database', 'Seo_Title'),
+            'seo_keywords' => Yii::t('database', 'Seo_Keywords'),
+            'seo_description' => Yii::t('database', 'Seo_Description'),
             'created_at' => Yii::t('database', 'Created At'),
             'updated_at' => Yii::t('database', 'Updated At'),
         ];

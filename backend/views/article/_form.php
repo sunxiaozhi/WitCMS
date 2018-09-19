@@ -66,8 +66,17 @@ use froala\froalaeditor\FroalaEditorWidget;
                     <div class="box-header">
                         <div class="box-title">设置</div>
                         <div class="box-body">
-                            <?= $form->field($model, 'sort')->textInput(['maxlength' => true]) ?>
                             <?= $form->field($model, 'status')->radioList(['1' => '正常', '0' => '隐藏'], ['itemOptions' => ['class' => 'flat-blue']]) ?>
+                            <?= $form->field($model, 'sort')->textInput(['maxlength' => true]) ?>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-title">属性</div>
+                        <div class="box-body">
+                            <?= $form->field($model, 'is_recommend')->checkbox(['class' => 'flat-blue']) ?>
                         </div>
                     </div>
                 </div>

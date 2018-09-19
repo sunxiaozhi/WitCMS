@@ -17,7 +17,7 @@ use common\models\Menu;
 
 class MenuView extends \yii\base\Widget
 {
-    public $template = "<ul class=\"nav top-2\">{lis}<li><a class=\"search\"><i class=\"icon-search search-btn\"></i></a></li></ul>";
+    public $template = "<ul class=\"nav top-2\">{lis}<!--<li><a class=\"search\"><i class=\"icon-search search-btn\"></i></a></li>--></ul>";
 
     public $liTemplate_have_sub = "<li class='{current_menu_class}'><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">{menu_name}<b class=\"caret\"></b></a>{sub_menu}<b class=\"caret-out\"></b></li>";
 
