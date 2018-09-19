@@ -36,16 +36,18 @@ use yii\helpers\Url;
 
     <hr />
 
-    <?php
-    if ($prev != null) {
-    ?>
-    <p>上一篇：<a href="<?= Url::to(['article/view', 'id' => $prev->id]) ?>"><?= $prev->title?></a></p>
-    <?php } ?>
-    <?php
-    if ($next != null) {
-    ?>
-    <p>下一篇：<a href="<?= Url::to(['article/view', 'id' => $next->id]) ?>"><?= $next->title?></a></p>
-    <?php } ?>
+    <div>
+        <?php
+        if ($prev != null) {
+        ?>
+        <p>上一篇：<a href="<?= Url::to(['article/view', 'id' => $prev->id]) ?>"><?= $prev->title?></a></p>
+        <?php } ?>
+        <?php
+        if ($next != null) {
+        ?>
+        <p>下一篇：<a href="<?= Url::to(['article/view', 'id' => $next->id]) ?>"><?= $next->title?></a></p>
+        <?php } ?>
+    </div>
 
     <!-- Media -->
     <!--<div class="media">
