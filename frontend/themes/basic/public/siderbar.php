@@ -1,3 +1,8 @@
+<?php
+use yii\helpers\Url;
+use frontend\components\Article;
+?>
+
 <div class="span3">
     <!-- Search Bar -->
     <div class="headline"><h3><?= Yii::t('frontend', 'Search Bar')?></h3></div>
@@ -8,8 +13,8 @@
 
     <!-- Posts -->
     <div class="posts margin-bottom-20">
-        <div class="headline"><h3><?= Yii::t('frontend','Recommended Article')?></h3></div>
-        <dl class="dl-horizontal">
+        <div class="headline"><h3><?= Yii::t('frontend','Recommend Article')?></h3></div>
+        <!--<dl class="dl-horizontal">
             <dt><a href="#"><img src="basic_assets/img/sliders/elastislide/6.jpg" alt="" /></a></dt>
             <dd>
                 <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p>
@@ -26,7 +31,19 @@
             <dd>
                 <p><a href="#">It works on all major web browsers, tablets and aliqua lorem sequat ipsum.</a></p>
             </dd>
-        </dl>
+        </dl>-->
+        <?php
+        $articles = Article::getArticleLists(['status' => 1, 'is_recommend' => '1']);
+        foreach ($articles as $article) {
+            $url = Url::to(['article/view', 'id' => $article->id]);
+            echo '<dl class="dl-horizontal">
+                    <dt><a href="' . $url .'"><img src="basic_assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
+                    <dd>
+                        <p><a href="' . $url .'">' . $article->title . '</a></p>
+                    </dd>
+                </dl>';
+        }
+        ?>
     </div><!--/posts-->
 
     <!-- Tabs Widget -->

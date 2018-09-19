@@ -17,6 +17,7 @@ use yii\db\ActiveRecord;
  * @property string $content 文章内容
  * @property string $sort 排序
  * @property string $status 状态
+ * @property string $type 类型
  * @property int $created_at 创建时间
  * @property int $updated_at 更新时间
  */
@@ -24,6 +25,12 @@ class Article extends \yii\db\ActiveRecord
 {
     const STATUS_YES = 1;
     const STATUS_NO = 0;
+
+    const ARTICLE =0;
+    const PAGE =1;
+
+    const RECOMMEND_YES = 1;
+    const RECOMMEND_NO = 0;
 
     public $tag;
 
@@ -46,7 +53,7 @@ class Article extends \yii\db\ActiveRecord
             [['title','category_id'], 'required'],
             [['title', 'sub_title', 'abstract'], 'string', 'max' => 255],
             [['content', 'seo_title', 'seo_keywords', 'seo_description',], 'string'],
-            [['sort', 'status'], 'integer'],
+            [['sort', 'status', 'type'], 'integer'],
         ];
     }
 
@@ -65,6 +72,7 @@ class Article extends \yii\db\ActiveRecord
             'content' => Yii::t('database', 'ArticleContent'),
             'sort' => Yii::t('database', 'Sort'),
             'status' => Yii::t('database', 'Status'),
+            'type' => Yii::t('database', 'Type'),
             'seo_title' => Yii::t('database', 'seo_title'),
             'seo_keywords' => Yii::t('database', 'seo_keywords'),
             'seo_description' => Yii::t('database', 'seo_description'),

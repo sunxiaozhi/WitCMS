@@ -51,8 +51,8 @@ return [
             ],
         ],
         */
-        'site' => [
-            'class' => 'frontend\components\Site'
+        'siteInfo' => [
+            'class' => 'frontend\components\SiteInfo'
         ]
     ],
     'params' => $params,
