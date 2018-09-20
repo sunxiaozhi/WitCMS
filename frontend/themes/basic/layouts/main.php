@@ -45,7 +45,8 @@ use yii\helpers\Url;
         <li class="theme-red" data-style="red" data-header="light"></li>
         <li class="theme-light" data-style="light" data-header="light"></li>
     </ul>
-</div><!--/style-switcher-->
+</div>
+<!--/style-switcher-->
 <!--=== End Style Switcher ===-->    
 
 <!--=== Top ===-->    
@@ -105,7 +106,7 @@ use yii\helpers\Url;
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-20">
 	<div class="container">
-        <h1 class="color-green pull-left"><?= Yii::t('frontend','Latest Posts')?></h1>
+        <h1 class="color-green pull-left"><?= Yii::t('frontend','Latest Posts')?><span>标签：23423</span></h1>
         <!--<ul class="pull-right breadcrumb">
             <li><a href="<?/*= Yii::$app->getHomeUrl()*/?>"><?/*= Yii::t('frontend', 'Home')*/?></a> <span class="divider">/</span></li>
             <li class="active">Blog</li>

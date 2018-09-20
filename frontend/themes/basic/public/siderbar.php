@@ -34,7 +34,8 @@ use frontend\components\Article;
         <?php
         $tags = Article::getTags(14);
         foreach ($tags as $tag) {
-            echo '<li><a href="#"><i class="icon-tags"></i> '  . $tag->articleTag->name . '</a></li>';
+            $url = Url::to(['article/index', 'tid' => $tag->articleTag->id]);
+            echo '<li><a href="' . $url . '"><i class="icon-tags"></i> '  . $tag->articleTag->name . '</a></li>';
         }
         ?>
     </ul>

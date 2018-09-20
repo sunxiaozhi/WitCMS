@@ -591,6 +591,12 @@ blockquote:hover {
 	font-size:30px;
 	text-shadow:0 1px 0 #f1efef;
 }
+.breadcrumbs span {
+	margin-left: 10px;
+	color:#686868;
+	font-size:25px;
+	text-shadow:0 1px 0 #f1efef;
+}
 .breadcrumbs .container {
 	padding:0 15px;
 }
