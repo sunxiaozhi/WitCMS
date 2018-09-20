@@ -3,6 +3,7 @@ use frontend\widgets\MenuView;
 use frontend\components\Article;
 use yii\helpers\Url;
 use yii\helpers\Html;
+use frontend\widgets\Breadcrumbs;
 ?>
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
@@ -105,15 +106,19 @@ use yii\helpers\Html;
 <!--=== End Header ===-->
 
 <!--=== Breadcrumbs ===-->
-<div class="breadcrumbs margin-bottom-20">
+<!--<div class="breadcrumbs margin-bottom-20">
 	<div class="container">
-        <h1 class="color-green pull-left"><?= Yii::t('frontend','Latest Posts')?><span>标签：23423</span></h1>
-        <!--<ul class="pull-right breadcrumb">
+        <h1 class="color-green pull-left"><?/*= Yii::t('frontend','Latest Posts')*/?><span>标签：23423</span></h1>
+        <ul class="pull-right breadcrumb">
             <li><a href="<?/*= Yii::$app->getHomeUrl()*/?>"><?/*= Yii::t('frontend', 'Home')*/?></a> <span class="divider">/</span></li>
             <li class="active">Blog</li>
-        </ul>-->
+        </ul>
     </div>
-</div>
+</div>-->
+<?= Breadcrumbs::widget([
+        'breadcrumbTitle' => isset($this->params['breadcrumbTitle']) ? $this->params['breadcrumbTitle'] : '',
+        'breadcrumbItem' => isset($this->params['breadcrumbItem']) ? $this->params['breadcrumbItem'] : '',
+]);?>
 <!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->
 

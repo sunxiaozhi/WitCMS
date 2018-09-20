@@ -44,12 +44,11 @@ class ArticleController extends Controller
         $where = $articleIdArr = [];
 
         if (!empty($tagId)) {
-            //$articleIdData = ArticleTagRelation::find()->where(['tag_id' => $tagId])->select(['article_id'])->all();
             $articleIdData = ArticleTagRelation::find()->joinWith('articleTag')->select([])->where(['tag_id' => $tagId])->all();
             if (!empty($articleIdData)) {
                 foreach ($articleIdData as $key) {
                     array_push($articleIdArr, $key->article_id);
-                    $breadcrumbTitle = $key->articleTag->name;
+                    $breadcrumbItem = $key->articleTag->name;
                 }
                 $where = ['in', 'id', $articleIdArr];
             }
@@ -65,7 +64,7 @@ class ArticleController extends Controller
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
-            'breadcrumbTitle' => $breadcrumbTitle,
+            'breadcrumbItem' => $breadcrumbItem,
         ]);
     }
 

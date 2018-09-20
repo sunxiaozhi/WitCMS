@@ -71,7 +71,7 @@ class ArticleListView extends \yii\widgets\ListView
             $article_tag = '';
             if (!empty($model->articleTag)) {
                 foreach ($model->articleTag as $key => $val) {
-                    $article_tag .= "<a href='" . Url::to(['search/index', 'q' => $val->name]) . "'>$val->name</a>";
+                    $article_tag .= "<a href='" . Url::to(['article/index', 'tid' => $val->id]) . "'>$val->name</a>";
                 }
             }
 
