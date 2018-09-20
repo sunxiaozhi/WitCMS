@@ -5,6 +5,7 @@
  * @var $next common\models\Article
  */
 use yii\helpers\Url;
+$this->params['breadcrumbTitle'] = '文章';
 ?>
 <div class="span9 blog-item">
     <div class="blog margin-bottom-30">
