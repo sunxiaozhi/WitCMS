@@ -1,9 +1,11 @@
 <?php
 /* @var $dataProvider yii\data\ActiveDataProvider */
+/* @var $breadcrumbTitle string */
+/* @var $breadcrumbItem string */
 use frontend\widgets\ArticleListView;
 $this->title = Yii::t('common', 'Articles');
-$this->params['breadcrumbTitle'] = '文章';
-$this->params['breadcrumbItem'] = '标签：' . $breadcrumbItem;
+$this->params['breadcrumbTitle'] = $breadcrumbTitle;
+$this->params['breadcrumbItem'] = $breadcrumbItem;
 ?>
 
 <div class="span9">

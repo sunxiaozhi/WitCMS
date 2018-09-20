@@ -90,14 +90,14 @@ use frontend\widgets\Breadcrumbs;
                 </a><!-- /nav-collapse -->                                  
                 <div class="nav-collapse collapse">
                     <?= MenuView::widget()?>
-                    <div class="search-open">
+                    <!--<div class="search-open">
                         <div class="input-append">
                             <form />
                                 <input type="text" class="span3" placeholder="Search" />
                                 <button type="submit" class="btn-u">Go</button>
                             </form>
                         </div>
-                    </div>
+                    </div>-->
                 </div><!-- /nav-collapse -->                                
             </div><!-- /navbar-inner -->
         </div><!-- /navbar -->                          

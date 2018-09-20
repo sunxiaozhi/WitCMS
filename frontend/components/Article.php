@@ -90,14 +90,14 @@ class Article extends Object
     }
 
     /**
-     * 获取随机标签
+     * 获取文章标签（只取存在文章的标签）
      *
      * @param int $limit
      * @return array|\yii\db\ActiveRecord[]
      */
     public static function getTags($limit = 14, $where = [])
     {
-        return ArticleTagRelation::find()->joinWith('articleTag')->select([])->where($where)->limit($limit)->all();
+        return ArticleTagRelation::find()->joinWith('articleTag')->select([])->where($where)->limit($limit)->groupBy(['tag_id'])->all();
     }
 
     /**

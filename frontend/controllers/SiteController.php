@@ -68,25 +68,6 @@ class SiteController extends Controller
     }
 
     /**
-     * Displays homepage.
-     *
-     * @return mixed
-     */
-    public function actionIndex()
-    {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Article::find()->where(['status' => Article::STATUS_YES])->orderBy(['id' => SORT_DESC]),
-            'pagination' => [//分页
-                'pagesize' => 3
-            ]
-        ]);
-
-        return $this->render('index', [
-            'dataProvider' => $dataProvider
-        ]);
-    }
-
-    /**
      * Logs in a user.
      *
      * @return mixed

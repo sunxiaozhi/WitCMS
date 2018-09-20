@@ -38,32 +38,48 @@ class ArticleController extends Controller
     {
         $tagId = Yii::$app->getRequest()->get('tid');
         $categoryId = Yii::$app->getRequest()->get('cid');
+        $search = Yii::$app->getRequest()->get('search');
 
-        $andWhere = ['status' => Article::STATUS_YES];
+        $where = ['status' => Article::STATUS_YES];
 
-        $where = $articleIdArr = [];
+        $articleIdArr = $filterWhere = [];
+
+        $breadcrumbTitle = '最新文章';
+        $breadcrumbItem = '';
 
         if (!empty($tagId)) {
             $articleIdData = ArticleTagRelation::find()->joinWith('articleTag')->select([])->where(['tag_id' => $tagId])->all();
             if (!empty($articleIdData)) {
                 foreach ($articleIdData as $key) {
                     array_push($articleIdArr, $key->article_id);
-                    $breadcrumbItem = $key->articleTag->name;
+                    $breadcrumbItem = '标签：' . $key->articleTag->name;
                 }
-                $where = ['in', 'id', $articleIdArr];
+
+                $filterWhere = ['in', 'id', $articleIdArr];
+                $breadcrumbTitle = '文章';
             }
         }
 
         if (!empty($categoryId)) {
-            $where = ['category_id' => $categoryId];
+            $filterWhere = ['category_id' => $categoryId];
+            $breadcrumbTitle = '文章';
+            $breadcrumbItem = '分类：';
+        }
+
+        $searchWhere = ['like', 'title', $search];
+
+        if (!empty($search)) {
+            $breadcrumbTitle = '文章';
+            $breadcrumbItem = '搜索：' . $search;
         }
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Article::find()->where($where)->andwhere($andWhere),
+            'query' => Article::find()->where($where)->andFilterWhere($filterWhere)->andFilterWhere($searchWhere)->orderBy('id desc'),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+            'breadcrumbTitle' => $breadcrumbTitle,
             'breadcrumbItem' => $breadcrumbItem,
         ]);
     }
