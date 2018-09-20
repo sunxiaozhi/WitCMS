@@ -2,6 +2,7 @@
 use frontend\widgets\MenuView;
 use frontend\components\Article;
 use yii\helpers\Url;
+use yii\helpers\Html;
 ?>
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
@@ -9,7 +10,7 @@ use yii\helpers\Url;
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Unify | Welcome...</title>
+    <title><?= Html::encode($this->title) ?></title>
 
     <!-- Meta -->
     <meta charset="utf-8" />
