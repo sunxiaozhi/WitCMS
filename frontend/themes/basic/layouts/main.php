@@ -1,9 +1,14 @@
 <?php
+
+/* @var $this \yii\web\View */
+/* @var $content string */
+
 use frontend\widgets\MenuView;
 use frontend\components\Article;
 use yii\helpers\Url;
 use yii\helpers\Html;
 use frontend\widgets\Breadcrumbs;
+
 ?>
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
