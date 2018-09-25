@@ -188,7 +188,7 @@ use frontend\widgets\Breadcrumbs;
                     文章总数：<?= Yii::$app->siteInfo->getArticleCount()?> 篇<br/>
                     分类总数：<?= Yii::$app->siteInfo->getCategoryCount()?> 个<br/>
                     标签总数：<?= Yii::$app->siteInfo->getTagCount()?> 个<br/>
-                    评论总数：<?= Yii::$app->siteInfo->getCommentCount()?> 条<br/>
+                    <!--评论总数：<?/*= Yii::$app->siteInfo->getCommentCount()*/?> 条<br/>-->
                     网站已运行：<?= Yii::$app->siteInfo->getRunningDays()?> 天
                 </address>
 
@@ -220,12 +220,13 @@ use frontend\widgets\Breadcrumbs;
 
 <!-- JS Global Compulsory -->           
 <script type="text/javascript" src="basic_assets/js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="basic_assets/js/modernizr.custom.js"></script>        
-<script type="text/javascript" src="basic_assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
-<!-- JS Implementing Plugins -->           
+<script type="text/javascript" src="basic_assets/js/modernizr.custom.js"></script>
+<script type="text/javascript" src="basic_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- JS Implementing Plugins -->
 <script type="text/javascript" src="basic_assets/plugins/back-to-top.js"></script>
-<!-- JS Page Level -->           
+<!-- JS Page Level -->
 <script type="text/javascript" src="basic_assets/js/app.js"></script>
+<script type="text/javascript" src="basic_assets/js/preload.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
