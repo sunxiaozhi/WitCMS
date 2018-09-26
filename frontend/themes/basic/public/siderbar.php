@@ -45,13 +45,13 @@ use frontend\components\Article;
     </ul>
 
     <!-- Tabs Widget -->
-    <div class="headline"><h3>Tabs Widget</h3></div>
+    <!--<div class="headline"><h3>Tabs Widget</h3></div>
     <ul class="nav nav-tabs tabs">
         <li class="active"><a href="#home" data-toggle="tab">First Tab</a></li>
         <li><a href="#profile" data-toggle="tab">Second Tab</a></li>
-    </ul><!--/tabs-->
+    </ul>--><!--/tabs-->
 
-    <div class="tab-content">
+    <!--<div class="tab-content">
         <div class="tab-pane active" id="home">
             <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Pellentesque fermentum, Vivamus
                 felis consectetur eget orci metus.</p>
@@ -60,7 +60,19 @@ use frontend\components\Article;
             <p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac
                 adipiscing nunc.</p>
         </div>
-    </div><!--/tab-content-->
+    </div>--><!--/tab-content-->
+
+    <!-- Blog Tags -->
+    <div class="headline"><h3><?= Yii::t('frontend', 'Friend Link') ?></h3></div>
+    <ul class="unstyled inline blog-tags">
+        <?php
+        $FriendLinks = Yii::$app->siteInfo->getFriendLinks();
+        foreach ($FriendLinks as $FriendLink) {
+            $url = $FriendLink->url;
+            echo '<li><a target="'. $FriendLink->target .'" href="' . $url . '"><i class="icon-link"></i> ' . $FriendLink->name . '</a></li>';
+        }
+        ?>
+    </ul>
 
     <!-- Blog Latest Tweets -->
     <!--<div class="blog-twitter">

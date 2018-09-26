@@ -8,6 +8,7 @@
 
 namespace frontend\components;
 
+use common\models\FriendLink;
 use yii\base\Component;
 use common\models\Article as ArticleModel;
 use common\models\ArticleTag;
@@ -48,8 +49,19 @@ class SiteInfo extends Component
         return Comments::find()->count();
     }
 
-
+    /**
+     * 获取网站的运行时间
+     * @return int
+     */
     public function getRunningDays() {
         return 1000;
+    }
+
+    /**
+     * 获取友情链接
+     * @return array|\yii\db\ActiveRecord[]
+     */
+    public function getFriendLinks() {
+        return FriendLink::find()->where(['status' => FriendLink::STATUS_YES])->orderBy(['sort' => SORT_DESC, 'id' => SORT_DESC])->all();
     }
 }
