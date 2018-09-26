@@ -96,8 +96,8 @@ var App = function () {
             handleSwitcher();
 
             $.QianLoad.PageLoading({
-                sleep: 50,
-                css: '<style>body{margin:0}.load-wrap{width:100%;height:100%;position:absolute;top:0;left:0;}#pre-load{position:fixed;top:0;height:3px;background:#d0fefe;transition:opacity .5s linear}#pre-load span{position:absolute;width:150px;height:2px;-webkit-border-radius:100%;-webkit-box-shadow:#2085c5 1px 0 6px 1px;opacity:1;right:-10px;-webkit-animation:pulse 2s ease-out 0s infinite}@-webkit-keyframes pulse{30%{opacity:.6}60%{opacity:0}to{opacity:.6}}</style>'
+                sleep: 500,
+                css: '<style>body{margin:0}.load-wrap{width:100%;position:absolute;top:0;left:0;}#pre-load{position:fixed;top:0;height:3px;background:#72c02c;transition:opacity .5s linear}#pre-load span{position:absolute;width:150px;height:2px;-webkit-border-radius:100%;-webkit-box-shadow:#72c02c 1px 0 6px 1px;opacity:1;right:-10px;-webkit-animation:pulse 2s ease-out 0s infinite}@-webkit-keyframes pulse{30%{opacity:.6}60%{opacity:0}to{opacity:.6}}</style>'
             });
         },
 

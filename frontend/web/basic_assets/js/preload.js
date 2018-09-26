@@ -1,7 +1,7 @@
 /*
 * @Author: fanqian
-* @Date:   2016-06-15 12:34:55
-* @Website:   Administrator
+* @Date: 2016-06-15 12:34:55
+* @Website: Administrator
 * @使用请注明作者和网站
 */
 $.QianLoad = {
@@ -35,16 +35,15 @@ $.QianLoad = {
                     if (document.readyState == "complete") {
                         loadingMask.css('width', 100 + "%");
                         setTimeout(function() {
-                                loadingMask.animate({
-                                        "opacity": 0
-                                    },
-                                    load_options.delayTime,
-                                    function() {
-                                        $(this).remove();
-                                        console.log('Loading has been successful');
-                                    });
-                            },
-                            load_options.sleep);
+                            loadingMask.animate({
+                                    "opacity": 0
+                                },
+                                load_options.delayTime,
+                                function() {
+                                $(this).remove();
+                                console.log('Loading has been successful');
+                                });
+                        }, load_options.sleep);
                     }
                 }
             });
