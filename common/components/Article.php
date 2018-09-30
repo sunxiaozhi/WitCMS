@@ -7,7 +7,7 @@
  * Created at: 2017-08-17 14:34
  */
 
-namespace frontend\components;
+namespace common\components;
 
 use yii\base\Object;
 use yii\data\ActiveDataProvider;

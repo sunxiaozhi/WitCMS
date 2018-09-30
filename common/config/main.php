@@ -68,6 +68,9 @@ return [
             'currencyCode' => 'CHY',
             'nullDisplay' => '-',
         ],
+        'siteInfo' => [
+            'class' => 'common\components\SiteInfo'
+        ]
     ],
     //'timeZone' => 'Asia/Shanghai',
 ];

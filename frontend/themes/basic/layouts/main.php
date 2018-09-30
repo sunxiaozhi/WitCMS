@@ -4,7 +4,7 @@
 /* @var $content string */
 
 use frontend\widgets\MenuView;
-use frontend\components\Article;
+use common\components\Article;
 use yii\helpers\Url;
 use yii\helpers\Html;
 use frontend\widgets\Breadcrumbs;

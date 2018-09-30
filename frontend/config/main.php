@@ -51,9 +51,6 @@ return [
                 '' => 'article/index'
             ],
         ],*/
-        'siteInfo' => [
-            'class' => 'frontend\components\SiteInfo'
-        ]
     ],
     'params' => $params,
 ];

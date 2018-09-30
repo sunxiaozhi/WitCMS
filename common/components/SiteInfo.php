@@ -6,7 +6,7 @@
  * Time: 21:59
  */
 
-namespace frontend\components;
+namespace common\components;
 
 use common\models\FriendLink;
 use yii\base\Component;
@@ -47,6 +47,10 @@ class SiteInfo extends Component
      */
     public function getCommentCount() {
         return Comments::find()->count();
+    }
+
+    public function getFriendLinkCount() {
+        return FriendLink::find()->count();
     }
 
     /**

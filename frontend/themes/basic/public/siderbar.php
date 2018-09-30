@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Url;
-use frontend\components\Article;
+use common\components\Article;
 
 ?>
 
