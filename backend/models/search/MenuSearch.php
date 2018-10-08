@@ -73,7 +73,7 @@ class MenuSearch extends Menu
             ->andFilterWhere(['like', 'route', $this->route])
             ->andFilterWhere(['like', 'icon', $this->icon]);
 
-        $query->orderBy(['sort' => SORT_ASC]);
+        $query->orderBy(['sort' => SORT_DESC]);
 
         $arr = $query->asArray()->all();
         $treeObj = new Tree(\yii\helpers\ArrayHelper::toArray($arr));

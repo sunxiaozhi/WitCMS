@@ -35,7 +35,7 @@ class MenuView extends \yii\base\Widget
         if ($menus === null) {
             $menus = Menu::find()
                 ->where(['type' => Menu::BACKEND_MENU_TYPE, 'status' => Menu::DISPLAY_YES])
-                ->orderBy("sort asc,parent_id asc")
+                ->orderBy("sort desc,parent_id asc")
                 ->asArray()
                 ->all();
         }

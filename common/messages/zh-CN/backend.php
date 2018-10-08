@@ -52,6 +52,10 @@ return [
     'Friend Links' => '友情链接',
     /*友情链接 end*/
 
+    /*系统配置 start*/
+    'Configs' => '系统配置',
+    /*系统配置 end*/
+
     /*友情链接 start*/
     'Comments' => '评论管理',
     /*友情链接 end*/

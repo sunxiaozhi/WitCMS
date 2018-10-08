@@ -5,9 +5,8 @@
 /* @var $treeArr backend\helpers\Tree */
 
 $this->title = Yii::t('backend', 'Update');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Menus'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name];
-$this->params['breadcrumbs'][] = Yii::t('backend', 'Update');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('backend', 'Backend Menus'), 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="menu-update">
 

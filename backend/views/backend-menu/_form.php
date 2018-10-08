@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 /* @var $treeArr backend\helpers\Tree  getTree() */
 ?>
-<div class="box ">
+<div class="box">
     <div class="box-body">
         <div class="menu-form">
 
@@ -21,6 +21,8 @@ use yii\widgets\ActiveForm;
             <?= $form->field($model, 'route')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'icon')->textInput(['maxlength' => true]) ?>
+
+            <?= $form->field($model, 'sort')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'status')->radioList(['1' => '显示', '0' => '隐藏'], ['itemOptions' => ['class' => 'flat-blue']]) ?>
 
