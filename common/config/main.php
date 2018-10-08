@@ -70,7 +70,10 @@ return [
         ],
         'siteInfo' => [
             'class' => 'common\components\SiteInfo'
-        ]
+        ],
+        'siteConfig' => [
+            'class' => 'common\components\SiteConfig'
+        ],
     ],
     //'timeZone' => 'Asia/Shanghai',
 ];

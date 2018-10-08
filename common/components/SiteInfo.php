@@ -1,9 +1,8 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: sunxiaozhi
- * Date: 2018/9/18
- * Time: 21:59
+ * 网站配置
+ * Author: sunhuanzhi
+ * Date: 2018/10/8 16:36
  */
 
 namespace common\components;
