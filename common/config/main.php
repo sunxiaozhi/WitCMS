@@ -74,7 +74,7 @@ return [
         'siteConfig' => [
             'class' => 'common\components\SiteConfig'
         ],
-        'on beforeRequest' => [common\components\SiteConfig::className(), 'getSiteConfigs']
     ],
+    'on beforeRequest' => [common\components\SiteConfig::className(), 'getSiteConfigs']
     //'timeZone' => 'Asia/Shanghai',
 ];
