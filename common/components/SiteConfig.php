@@ -21,7 +21,7 @@ class SiteConfig extends Component
         $this->configData = Config::find()->where('')->all();
     }
 
-    public function getSiteConfigs()
+    public static function getSiteConfigs()
     {
     }
 }
