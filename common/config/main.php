@@ -5,7 +5,7 @@ return [
 
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
 
@@ -51,12 +51,12 @@ return [
             'translations' => [
                 '*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath'=>'@common/messages',
+                    'basePath' => '@common/messages',
                     'fileMap' => [
-                        'common'=>'common.php',
-                        'backend'=>'backend.php',
-                        'frontend'=>'frontend.php',
-                        'database'=>'database.php',
+                        'common' => 'common.php',
+                        'backend' => 'backend.php',
+                        'frontend' => 'frontend.php',
+                        'database' => 'database.php',
                     ],
                 ],
             ],
@@ -74,6 +74,7 @@ return [
         'siteConfig' => [
             'class' => 'common\components\SiteConfig'
         ],
+        'on beforeRequest' => [common\components\SiteConfig::className(), 'getSiteConfigs']
     ],
     //'timeZone' => 'Asia/Shanghai',
 ];

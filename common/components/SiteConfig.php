@@ -18,4 +18,8 @@ class SiteConfig extends Component
 
         $configsData = Config::find()->where('')->all();
     }
+
+    public function getSiteConfigs()
+    {
+    }
 }
