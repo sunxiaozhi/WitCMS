@@ -148,9 +148,10 @@ use frontend\widgets\Breadcrumbs;
 			<div class="span4">
                 <!-- About -->
 		        <div class="headline"><h3><?= Yii::t('frontend', 'About')?></h3></div>
-				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>	
+				<!--<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
 				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
-				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
+				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>-->
+                <?= Yii::$app->params['site']['WEB_SITE_KEYWORD']?>
 
 	            <!-- Monthly Newsletter -->
 		        <!--<div class="headline"><h3>Monthly Newsletter</h3></div>

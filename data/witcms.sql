@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2018-10-08 15:29:04
+Date: 2018-10-10 16:36:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -285,33 +285,30 @@ CREATE TABLE `wit_config` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '配置ID',
   `name` varchar(30) NOT NULL DEFAULT '' COMMENT '配置名称',
   `title` varchar(50) NOT NULL DEFAULT '' COMMENT '配置说明',
-  `group` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '配置分组',
-  `type` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '配置类型',
+  `group` varchar(20) NOT NULL DEFAULT 'basic' COMMENT '配置分组 basic email',
+  `type` tinyint(3) unsigned NOT NULL DEFAULT '0' COMMENT '配置类型 ',
   `value` text COMMENT '配置值',
   `extra` varchar(255) NOT NULL DEFAULT '' COMMENT '配置值',
   `remark` varchar(100) NOT NULL DEFAULT '' COMMENT '配置说明',
   `sort` smallint(3) unsigned NOT NULL DEFAULT '0' COMMENT '排序',
-  `status` tinyint(4) NOT NULL DEFAULT '1' COMMENT '状态',
+  `status` tinyint(4) unsigned NOT NULL DEFAULT '1' COMMENT '状态 0不显示 1显示',
   `created_at` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '创建时间',
   `updated_at` int(10) unsigned NOT NULL DEFAULT '0' COMMENT '更新时间',
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_name` (`name`),
   KEY `type` (`type`),
   KEY `group` (`group`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COMMENT='网站配置表';
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COMMENT='网站配置表';
 
 -- ----------------------------
 -- Records of wit_config
 -- ----------------------------
-INSERT INTO `wit_config` VALUES ('1', 'WEB_SITE_TITLE', '网站标题', '1', '1', '内容管理框架', '', '网站标题前台显示标题', '0', '1', '1378898976', '1538272395');
-INSERT INTO `wit_config` VALUES ('2', 'WEB_SITE_DESCRIPTION', '网站描述', '1', '2', '内容管理框架', '', '网站搜索引擎描述', '1', '1', '1378898976', '1538272395');
-INSERT INTO `wit_config` VALUES ('3', 'WEB_SITE_KEYWORD', '网站关键字', '1', '2', '黄龙飞11', '', '网站搜索引擎关键字', '8', '1', '1378898976', '1538272395');
-INSERT INTO `wit_config` VALUES ('4', 'WEB_SITE_CLOSE', '关闭站点', '4', '4', '1', '0:关闭,1:开启', '站点关闭后其他用户不能访问，管理员可以正常访问', '1', '0', '1378898976', '1463024280');
-INSERT INTO `wit_config` VALUES ('9', 'CONFIG_TYPE_LIST', '配置类型列表', '3', '3', '0:数字\r\n1:字符\r\n2:文本\r\n3:数组\r\n4:枚举', '', '主要用于数据解析和页面表单的生成', '2', '1', '1378898976', '1463024244');
-INSERT INTO `wit_config` VALUES ('10', 'WEB_SITE_ICP', '网站备案号', '1', '1', '沪ICP备12007941号-2', '', '设置在网站底部显示的备案号，如“沪ICP备12007941号-2', '9', '1', '1378900335', '1538272395');
-INSERT INTO `wit_config` VALUES ('11', 'DATA_BACKUP_PATH', '数据库备份路径', '4', '1', '/storage/web/database/', '', '路径必须以 / 结尾', '3', '1', '1379053380', '1476448404');
-INSERT INTO `wit_config` VALUES ('12', 'DOCUMENT_DISPLAY', '文档可见性', '2', '3', '0:所有人可见\r\n1:仅注册会员可见\r\n2:仅管理员可见', '', '文章可见性仅影响前台显示，后台不收影响', '4', '1', '1379056370', '1481279789');
-INSERT INTO `wit_config` VALUES ('13', 'COLOR_STYLE', '后台色系', '1', '4', 'blue_color', 'default_color:默认\r\nblue_color:紫罗兰', '后台颜色风格', '10', '1', '1379122533', '1538272395');
+INSERT INTO `wit_config` VALUES ('1', 'WEB_SITE_TITLE', '网站标题', 'basic', '1', '内容管理框架', '', '网站标题前台显示标题', '0', '1', '1378898976', '1538272395');
+INSERT INTO `wit_config` VALUES ('2', 'WEB_SITE_DESCRIPTION', '网站描述', 'basic', '2', '内容管理框架', '', '网站搜索引擎描述', '1', '1', '1378898976', '1538272395');
+INSERT INTO `wit_config` VALUES ('3', 'WEB_SITE_KEYWORD', '网站关键字', 'basic', '2', 'WitCMS', '', '网站搜索引擎关键字', '8', '1', '1378898976', '1538272395');
+INSERT INTO `wit_config` VALUES ('4', 'WEB_SITE_CLOSE', '关闭站点', 'basic', '4', '1', '0:关闭,1:开启', '站点关闭后其他用户不能访问，管理员可以正常访问', '1', '0', '1378898976', '1463024280');
+INSERT INTO `wit_config` VALUES ('10', 'WEB_SITE_ICP', '网站备案号', 'basic', '1', '沪ICP备12007941号-2', '', '设置在网站底部显示的备案号，如“沪ICP备12007941号-2', '9', '1', '1378900335', '1538272395');
+INSERT INTO `wit_config` VALUES ('11', 'DATA_BACKUP_PATH', '数据库备份路径', 'basic', '1', '/storage/web/database/', '', '路径必须以 / 结尾', '3', '1', '1379053380', '1476448404');
 
 -- ----------------------------
 -- Table structure for wit_friend_link
