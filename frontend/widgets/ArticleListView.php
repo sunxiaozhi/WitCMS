@@ -1,10 +1,9 @@
 <?php
 /**
+ * WitCMS
  * 文章列表部件
- *
- * User: sunhuanzhi
- * Date: 2018/3/22
- * Time: 9:50
+ * Author: sunxiaozhi
+ * Date: 2018/10/13 11:59
  */
 
 namespace frontend\widgets;
@@ -32,8 +31,8 @@ class ArticleListView extends \yii\widgets\ListView
         <h3>{title}</h3>
         <ul class='unstyled inline blog-info'>
             <li><i class='icon-calendar'></i> {pub_date}</li>
-            <!--<li><i class='icon-pencil'></i> Diana Anderson</li>-->
-            <li><i class='icon-eye-open'></i> 100</li>
+            <li><i class='icon-pencil'></i> Sun Xiaozhi</li>
+            <li><i class='icon-eye-open'></i> {page_views}</li>
             <!--<li><i class='icon-comments'></i> <a href='#'>24 Comments</a></li>-->
         </ul>
         <ul class='unstyled inline blog-tags'>
@@ -65,6 +64,8 @@ class ArticleListView extends \yii\widgets\ListView
             $abstract = StringHelper::truncate($model->abstract, 120);
             //文章标题
             $title = StringHelper::truncate($model->title, 28);
+            //文章浏览量
+            $pageViews = $model->page_views;
             //文章作者
             //$author_name = StringHelper::truncate($model->author_name, 28);
             //文章标签
@@ -81,6 +82,7 @@ class ArticleListView extends \yii\widgets\ListView
                 '{title}',
                 '{abstract}',
                 '{pub_date}',
+                '{page_views}',
                 '{article_tag}'
             ], [
                 $articleUrl,
@@ -88,6 +90,7 @@ class ArticleListView extends \yii\widgets\ListView
                 $title,
                 $abstract,
                 $pubTime,
+                $pageViews,
                 $article_tag
             ], $this->template);
         };

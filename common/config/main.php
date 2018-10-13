@@ -61,12 +61,10 @@ return [
                 ],
             ],
         ],
-        'formatter' => [//格式显示配置
-            'dateFormat' => 'php:Y-m-d H:i',
-            'decimalSeparator' => ',',
-            'thousandSeparator' => ' ',
-            'currencyCode' => 'CHY',
-            'nullDisplay' => '-',
+        'formatter' => [
+            'dateFormat' => 'php:Y-m-d',
+            'datetimeFormat' => 'php:Y-m-d H:i:s',
+            'timeFormat' => 'php:H:i:s',
         ],
         'siteInfo' => [
             'class' => 'common\components\SiteInfo'

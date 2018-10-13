@@ -4,6 +4,8 @@
  * @var $prev common\models\Article
  * @var $next common\models\Article
  */
+
+//use Yii;
 use yii\helpers\Url;
 $this->params['breadcrumbTitle'] = '文章';
 ?>
@@ -11,9 +13,10 @@ $this->params['breadcrumbTitle'] = '文章';
     <div class="blog margin-bottom-30">
         <h3><?= $model->title?></h3>
         <ul class="unstyled inline blog-info">
-            <li><i class="icon-calendar"></i> February 02, 2013</li>
-            <li><i class="icon-pencil"></i> Diana Anderson</li>
-            <li><i class="icon-comments"></i> <a href="#">24 Comments</a></li>
+            <li><i class="icon-calendar"></i> <?= Yii::$app->getFormatter()->asDatetime($model->created_at);?></li>
+            <li><i class="icon-pencil"></i> Sun Xiaozhi</li>
+            <li><i class='icon-eye-open'></i> <?= $model->page_views?></li>
+            <!--<li><i class="icon-comments"></i> <a href="#">24 Comments</a></li>-->
         </ul>
         <ul class="unstyled inline blog-tags">
             <li>

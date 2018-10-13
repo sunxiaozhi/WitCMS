@@ -84,7 +84,13 @@ class ArticleController extends Controller
     public function actionView($id)
     {
         $model = Article::findOne(['id' => $id, 'type' => Article::ARTICLE, 'status' => Article::STATUS_YES]);
-        if ($model === null) throw new NotFoundHttpException(Yii::t("frontend", "Article id {id} is not exists", ['id' => $id]));
+
+        if ($model === null) {
+            throw new NotFoundHttpException(Yii::t("frontend", "Article id {id} is not exists", ['id' => $id]));
+        }
+
+        //更新文章浏览量
+        Article::updateAllCounters(['page_views' => 1], ['id' => $id]);
 
         //获取前一篇文章
         $prev = Article::find()
