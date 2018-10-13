@@ -1165,6 +1165,7 @@ blockquote:hover {
 }
 .blog ul.blog-info {
 	border-top:solid 1px #eee;
+	padding-top: 4px !important;
 }
 .blog .blog-img { 
 	margin:10px 0;
