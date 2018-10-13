@@ -16,7 +16,7 @@ use yii\filters\VerbFilter;
 class ArticleController extends Controller
 {
     /**
-     *  @inheritdoc
+     * @inheritdoc
      */
     public function behaviors()
     {
@@ -42,35 +42,39 @@ class ArticleController extends Controller
 
         $where = ['status' => Article::STATUS_YES];
 
-        $articleIdArr = $filterWhere = [];
+        $articleIdArr = $filterWhere = $searchWhere = [];
 
-        $breadcrumbTitle = '最新文章';
+        $breadcrumbTitle = Yii::t('frontend', 'Latest Articles');
         $breadcrumbItem = '';
 
+        //标签搜索
         if (!empty($tagId)) {
             $articleIdData = ArticleTagRelation::find()->joinWith('articleTag')->select([])->where(['tag_id' => $tagId])->all();
             if (!empty($articleIdData)) {
                 foreach ($articleIdData as $key) {
                     array_push($articleIdArr, $key->article_id);
-                    $breadcrumbItem = '标签：' . $key->articleTag->name;
+                    $breadcrumbItem = Yii::t('frontend', 'Tag') . '：' . $key->articleTag->name;
                 }
 
                 $filterWhere = ['in', 'id', $articleIdArr];
-                $breadcrumbTitle = '文章';
             }
         }
 
+        //分类搜索
         if (!empty($categoryId)) {
             $filterWhere = ['category_id' => $categoryId];
-            $breadcrumbTitle = '文章';
-            $breadcrumbItem = '分类：';
+            $breadcrumbItem = Yii::t('frontend', 'Category') . '：';
         }
 
-        $searchWhere = ['like', 'title', $search];
-
+        //搜索词搜索
         if (!empty($search)) {
-            $breadcrumbTitle = '文章';
-            $breadcrumbItem = '搜索：' . $search;
+            $searchWhere = ['like', 'title', $search];
+            $breadcrumbItem = Yii::t('frontend', 'Search') . '：' . $search;
+        }
+
+        //次标题判断
+        if (!empty($tagId) || !empty($categoryId) || !empty($search)) {
+            $breadcrumbTitle = Yii::t('frontend', 'Article');
         }
 
         $dataProvider = new ActiveDataProvider([
@@ -93,7 +97,8 @@ class ArticleController extends Controller
     public function actionView($id)
     {
         $model = Article::findOne(['id' => $id, 'type' => Article::ARTICLE, 'status' => Article::STATUS_YES]);
-        if( $model === null ) throw new NotFoundHttpException(Yii::t("frontend", "Article id {id} is not exists", ['id' => $id]));
+        if ($model === null) throw new NotFoundHttpException(Yii::t("frontend", "Article id {id} is not exists", ['id' => $id]));
+
         //获取前一篇文章
         $prev = Article::find()
             ->where(['category_id' => $model->category_id])
@@ -101,6 +106,7 @@ class ArticleController extends Controller
             ->orderBy("sort asc,created_at desc,id desc")
             ->limit(1)
             ->one();
+
         //获取后一篇文章
         $next = Article::find()
             ->where(['category_id' => $model->category_id])
@@ -114,73 +120,5 @@ class ArticleController extends Controller
             'prev' => $prev,
             'next' => $next,
         ]);
-    }
-
-    /**
-     * Creates a new Article model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Article();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Updates an existing Article model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('update', [
-            'model' => $model,
-        ]);
-    }
-
-    /**
-     * Deletes an existing Article model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the Article model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return Article the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Article::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('common', 'The requested page does not exist.'));
     }
 }

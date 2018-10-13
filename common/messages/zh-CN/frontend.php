@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: admin
- * Date: 2018/2/12
- * Time: 14:07
- */
 return [
     'Application Name' => '技术之路',
     'Home' => '首页',
@@ -14,8 +8,10 @@ return [
     'Login' => '登录',
 
     'Article' => '文章',
+    'Tag' => '标签',
+    'Category' => '分类',
 
-    'Latest Posts' => '最新文章',
+    'Latest Articles' => '最新文章',
     'Recommend Article' => '置顶推荐',
     'Hot Tags' => '热门标签',
     'Friend Link' => '友情链接',
