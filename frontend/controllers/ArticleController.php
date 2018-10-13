@@ -1,4 +1,10 @@
 <?php
+/**
+ * WitCMS
+ * 文章控制器
+ * Author: sunxiaozhi
+ * Date: 2018/10/13 11:59
+ */
 
 namespace frontend\controllers;
 
@@ -8,30 +14,11 @@ use common\models\Article;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 
-/**
- * ArticleController implements the CRUD actions for Article model.
- */
 class ArticleController extends Controller
 {
     /**
-     * @inheritdoc
-     */
-    public function behaviors()
-    {
-        return [
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * Lists all Article models.
+     * 文章列表页
      * @return mixed
      */
     public function actionIndex()
@@ -89,7 +76,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Displays a single Article model.
+     * 文章详情页
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
