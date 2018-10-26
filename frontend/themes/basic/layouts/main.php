@@ -9,6 +9,7 @@ use common\models\Article;
 use frontend\widgets\MenuView;
 use frontend\widgets\Breadcrumbs;
 ?>
+<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
@@ -39,6 +40,7 @@ use frontend\widgets\Breadcrumbs;
 </head>
 
 <body>
+<?php $this->beginBody() ?>
 <!--=== Style Switcher ===-->    
 <i class="style-switcher-btn icon-cogs"></i>
 <div class="style-switcher">
@@ -167,7 +169,7 @@ use frontend\widgets\Breadcrumbs;
                 <div class="posts">
                     <div class="headline"><h3><?= Yii::t('Frontend', 'Random Articles')?></h3></div>
                     <?php
-                        $articles = Article::find()->select([])->where(['status' => 1])->orderBy('id desc')->all();
+                        $articles = Article::find()->select(['id', 'title'])->where(['status' => Article::STATUS_YES])->orderBy('id desc')->limit(3)->all();
                         foreach ($articles as $article) {
                             $url = Url::to(['article/view', 'id' => $article->id]);
                             echo '<dl class="dl-horizontal">
@@ -235,5 +237,8 @@ use frontend\widgets\Breadcrumbs;
 <!--[if lt IE 9]>
     <script src="basic_assets/js/respond.js"></script>
 <![endif]-->
+
+<?php $this->endBody() ?>
 </body>
-</html>	
+</html>
+<?php $this->endPage() ?>
