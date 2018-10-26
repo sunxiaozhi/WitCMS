@@ -59,12 +59,4 @@ class SiteInfo extends Component
     public function getRunningDays() {
         return 1000;
     }
-
-    /**
-     * 获取友情链接
-     * @return array|\yii\db\ActiveRecord[]
-     */
-    public function getFriendLinks() {
-        return FriendLink::find()->where(['status' => FriendLink::STATUS_YES])->orderBy(['sort' => SORT_DESC, 'id' => SORT_DESC])->all();
-    }
 }

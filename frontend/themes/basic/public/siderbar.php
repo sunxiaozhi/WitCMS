@@ -1,8 +1,9 @@
 <?php
 
 use yii\helpers\Url;
-use common\components\Article;
-
+use common\models\Article;
+use common\models\FriendLink;
+use common\models\ArticleTagRelation;
 ?>
 
 <div class="span3">
@@ -19,16 +20,16 @@ use common\components\Article;
     <div class="posts margin-bottom-20">
         <div class="headline"><h3><?= Yii::t('frontend', 'Recommend Article') ?></h3></div>
         <?php
-        $articles = Article::getArticleLists(['status' => 1, 'is_recommend' => '1']);
-        foreach ($articles as $article) {
-            $url = Url::to(['article/view', 'id' => $article->id]);
-            echo '<dl class="dl-horizontal">
-                    <dt><a href="' . $url . '"><img src="basic_assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
-                    <dd>
-                        <p><a href="' . $url . '">' . $article->title . '</a></p>
-                    </dd>
-                </dl>';
-        }
+            $articles = Article::find()->select([])->where(['status' => 1, 'is_recommend' => '1'])->orderBy('id desc')->all();
+            foreach ($articles as $article) {
+                $url = Url::to(['article/view', 'id' => $article->id]);
+                echo '<dl class="dl-horizontal">
+                        <dt><a href="' . $url . '"><img src="basic_assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
+                        <dd>
+                            <p><a href="' . $url . '">' . $article->title . '</a></p>
+                        </dd>
+                    </dl>';
+            }
         ?>
     </div><!--/posts-->
 
@@ -36,11 +37,11 @@ use common\components\Article;
     <div class="headline"><h3><?= Yii::t('frontend', 'Hot Tags') ?></h3></div>
     <ul class="unstyled inline blog-tags">
         <?php
-        $tags = Article::getTags(14);
-        foreach ($tags as $tag) {
-            $url = Url::to(['article/index', 'tid' => $tag->articleTag->id]);
-            echo '<li><a href="' . $url . '"><i class="icon-tags"></i> ' . $tag->articleTag->name . '</a></li>';
-        }
+            $tags = ArticleTagRelation::find()->joinWith('articleTag')->select([])->limit(15)->groupBy(['tag_id'])->all();
+            foreach ($tags as $tag) {
+                $url = Url::to(['article/index', 'tid' => $tag->articleTag->id]);
+                echo '<li><a href="' . $url . '"><i class="icon-tags"></i> ' . $tag->articleTag->name . '</a></li>';
+            }
         ?>
     </ul>
 
@@ -66,11 +67,11 @@ use common\components\Article;
     <div class="headline"><h3><?= Yii::t('frontend', 'Friend Link') ?></h3></div>
     <ul class="unstyled inline blog-tags">
         <?php
-        $FriendLinks = Yii::$app->siteInfo->getFriendLinks();
-        foreach ($FriendLinks as $FriendLink) {
-            $url = $FriendLink->url;
-            echo '<li><a target="'. $FriendLink->target .'" href="' . $url . '"><i class="icon-link"></i> ' . $FriendLink->name . '</a></li>';
-        }
+            $FriendLinks = FriendLink::find()->select(['name', 'url', 'target'])->where(['status' => FriendLink::STATUS_YES])->orderBy(['sort' => SORT_DESC, 'id' => SORT_DESC])->all();
+            foreach ($FriendLinks as $FriendLink) {
+                $url = $FriendLink->url;
+                echo '<li><a target="'. $FriendLink->target .'" href="' . $url . '"><i class="icon-link"></i> ' . $FriendLink->name . '</a></li>';
+            }
         ?>
     </ul>
 
