@@ -169,7 +169,7 @@ use frontend\widgets\Breadcrumbs;
                 <div class="posts">
                     <div class="headline"><h3><?= Yii::t('Frontend', 'Random Articles')?></h3></div>
                     <?php
-                        $articles = Article::find()->select(['id', 'title'])->where(['status' => Article::STATUS_YES])->orderBy('id desc')->limit(3)->all();
+                        $articles = Article::find()->select(['id', 'title'])->where(['status' => Article::STATUS_YES])->orderBy('rand()')->limit(3)->all();
                         foreach ($articles as $article) {
                             $url = Url::to(['article/view', 'id' => $article->id]);
                             echo '<dl class="dl-horizontal">
