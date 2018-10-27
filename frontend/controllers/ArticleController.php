@@ -36,11 +36,11 @@ class ArticleController extends Controller
 
         //标签搜索
         if (!empty($tagId)) {
-            $articleIdData = ArticleTagRelation::find()->joinWith('articleTag')->select([])->where(['tag_id' => $tagId])->all();
-            if (!empty($articleIdData)) {
-                foreach ($articleIdData as $key) {
-                    array_push($articleIdArr, $key->article_id);
-                    $breadcrumbItem = Yii::t('frontend', 'Tag') . '：' . $key->articleTag->name;
+            $articleIdDatas = ArticleTagRelation::find()->joinWith('articleTag')->select([])->where(['tag_id' => $tagId])->all();
+            if (!empty($articleIdDatas)) {
+                foreach ($articleIdDatas as $articleIdData) {
+                    array_push($articleIdArr, $articleIdData->article_id);
+                    $breadcrumbItem = Yii::t('frontend', 'Tag') . '：' . $articleIdData->articleTag->name;
                 }
 
                 $filterWhere = ['in', 'id', $articleIdArr];
