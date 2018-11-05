@@ -8,12 +8,12 @@
 
 namespace frontend\controllers;
 
-use common\models\ArticleTagRelation;
 use Yii;
+use yii\web\Controller;
 use common\models\Article;
 use yii\data\ActiveDataProvider;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use common\models\ArticleTagRelation;
 
 class ArticleController extends Controller
 {
