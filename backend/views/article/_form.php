@@ -14,7 +14,7 @@ use froala\froalaeditor\FroalaEditorWidget;
     <div class="box-body">
         <div class="article-form">
             <?php $form = ActiveForm::begin(); ?>
-            <div class="col-md-7">
+            <div class="col-md-8">
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'sub_title')->textInput() ?>
                 <?= $form->field($model, 'abstract')->textarea() ?>
@@ -34,7 +34,7 @@ use froala\froalaeditor\FroalaEditorWidget;
                     ]
                 ]) ?>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="box">
                     <div class="box-header">
                         <div class="box-title">分类</div>
