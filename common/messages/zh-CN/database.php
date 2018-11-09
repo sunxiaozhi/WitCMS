@@ -22,6 +22,7 @@ return [
     'Title' => '标题',
     'Sub Title' => '副标题',
     'Abstract' => '摘要',
+    'Thumb' => '缩略图',
     'ArticleContent' => '文章内容',
     'Seo_Title' => 'SEO标题',
     'Seo_Keywords' => 'SEO关键词',

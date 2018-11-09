@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use froala\froalaeditor\FroalaEditorWidget;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
@@ -18,6 +19,9 @@ use froala\froalaeditor\FroalaEditorWidget;
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'sub_title')->textInput() ?>
                 <?= $form->field($model, 'abstract')->textarea() ?>
+                <?= $form->field($model, 'thumb')->widget(FileInput::classname(), [
+                    'options' => ['accept' => 'image/*'],
+                ]); ?>
 
                 <?= $form->field($model, 'content')->widget(FroalaEditorWidget::className(), [
                     'name' => 'body',
