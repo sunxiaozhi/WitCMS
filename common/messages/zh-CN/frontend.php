@@ -11,6 +11,9 @@ return [
     'Tag' => '标签',
     'Category' => '分类',
 
+    'Languages' => '语言',
+    'English' => '英文',
+    'Chinese' => '中文',
     'Theme Colors' => '主题颜色',
     'Latest Articles' => '最新文章',
     'Recommend Article' => '置顶推荐',

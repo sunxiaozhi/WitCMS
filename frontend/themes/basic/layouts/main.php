@@ -61,12 +61,10 @@ use frontend\widgets\Breadcrumbs;
 <div class="top">
     <div class="container">
         <ul class="loginbar pull-right">
-            <li><i class="icon-globe"></i><a>Languages <i class="icon-sort-up"></i></a>
+            <li><i class="icon-globe"></i><a><?= Yii::t('frontend', 'Languages')?> <i class="icon-sort-up"></i></a>
             	<ul class="nav-list">
-                	<li class="active"><a href="#">English</a> <i class="icon-ok"></i></li>
-                	<li><a href="#">Spanish</a></li>
-                	<li><a href="#">Russian</a></li>
-                	<li><a href="#">German</a></li>
+                	<li class="active"><a href="#"><?= Yii::t('frontend', 'English')?></a> <i class="icon-ok"></i></li>
+                	<li><a href="#"><?= Yii::t('frontend', 'Chinese')?></a></li>
                 </ul>
             </li>
             <!--<li class="devider">&nbsp;</li>
@@ -83,7 +81,7 @@ use frontend\widgets\Breadcrumbs;
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href="<?= Yii::$app->getHomeUrl()?>"><img style="padding-bottom: 15px;margin-right: 3px" id="logo-header" src="basic_assets/img/default.png" alt="Logo" /><h2 style="display: inline">技术之路</h2></a>
+            <a href="<?= Yii::$app->getHomeUrl()?>"><img id="logo-header" src="basic_assets/img/default.png" alt="Logo" /><h2 style="display: inline">技术之路</h2></a>
         </div><!-- /logo -->
                                     
         <!-- Menu -->       
