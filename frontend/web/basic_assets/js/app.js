@@ -77,7 +77,7 @@ var App = function () {
             $('#style_color').attr("href", "basic_assets/css/themes/" + color + ".css");
             if(data_header == 'light'){
                 $('#style_color-header-1').attr("href", "basic_assets/css/themes/headers/header1-" + color + ".css");
-                $('#logo-header').attr("src", "basic_assets/img/logo1-" + color + ".png");
+                $('#logo-header').attr("src", "basic_assets/img/" + color + ".png");
                 $('#logo-footer').attr("src", "basic_assets/img/logo2-" + color + ".png");
             } else if(data_header == 'dark'){
                 $('#style_color-header-2').attr("href", "basic_assets/css/themes/headers/header2-" + color + ".css");

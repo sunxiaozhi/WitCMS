@@ -45,7 +45,7 @@ use frontend\widgets\Breadcrumbs;
 <i class="style-switcher-btn icon-cogs"></i>
 <div class="style-switcher">
     <div class="theme-close"><i class="icon-remove"></i></div>
-    <div class="theme-heading">Theme Colors</div>
+    <div class="theme-heading"><?= Yii::t('frontend', 'Theme Colors')?></div>
     <ul class="unstyled">
         <li class="theme-default theme-active" data-style="default" data-header="light"></li>
         <li class="theme-blue" data-style="blue" data-header="light"></li>
@@ -83,7 +83,7 @@ use frontend\widgets\Breadcrumbs;
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href="<?= Yii::$app->getHomeUrl()?>"><img style="padding-bottom: 15px;margin-right: 3px" id="logo-header" src="basic_assets/img/logo1-default.png" alt="Logo" /><h2 style="display: inline">技术之路</h2></a>
+            <a href="<?= Yii::$app->getHomeUrl()?>"><img style="padding-bottom: 15px;margin-right: 3px" id="logo-header" src="basic_assets/img/default.png" alt="Logo" /><h2 style="display: inline">技术之路</h2></a>
         </div><!-- /logo -->
                                     
         <!-- Menu -->       

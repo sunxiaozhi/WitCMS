@@ -11,6 +11,7 @@ return [
     'Tag' => '标签',
     'Category' => '分类',
 
+    'Theme Colors' => '主题颜色',
     'Latest Articles' => '最新文章',
     'Recommend Article' => '置顶推荐',
     'Hot Tags' => '热门标签',
