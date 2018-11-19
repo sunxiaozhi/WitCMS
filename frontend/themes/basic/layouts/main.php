@@ -63,8 +63,8 @@ use frontend\widgets\Breadcrumbs;
         <ul class="loginbar pull-right">
             <li><i class="icon-globe"></i><a><?= Yii::t('frontend', 'Languages')?> <i class="icon-sort-up"></i></a>
             	<ul class="nav-list">
-                	<li class="active"><a href="#"><?= Yii::t('frontend', 'English')?></a> <i class="icon-ok"></i></li>
-                	<li><a href="#"><?= Yii::t('frontend', 'Chinese')?></a></li>
+                	<!--<li class="active"><a href="#"><?/*= Yii::t('frontend', 'English')*/?></a><i class="icon-ok"></i></li>-->
+                	<li class="active"><a href="#"><?= Yii::t('frontend', 'Chinese')?></a><i class="icon-ok"></i></li>
                 </ul>
             </li>
             <!--<li class="devider">&nbsp;</li>
