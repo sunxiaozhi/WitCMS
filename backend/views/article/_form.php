@@ -4,11 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use froala\froalaeditor\FroalaEditorWidget;
 use kartik\file\FileInput;
+use common\models\ImgUploadFile;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $treeArr backend\helpers\Tree  getTree()*/
+$imgUploadFile = new ImgUploadFile();
 ?>
 
 <div class="box">
@@ -19,8 +21,14 @@ use kartik\file\FileInput;
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'sub_title')->textInput() ?>
                 <?= $form->field($model, 'abstract')->textarea() ?>
-                <?= $form->field($model, 'thumb')->widget(FileInput::classname(), [
+                <?/*= $form->field($model, 'thumb')->hiddenInput() */?>
+                <?= $form->field($imgUploadFile, 'imgFiles')->widget(FileInput::classname(), [
                     'options' => ['accept' => 'image/*'],
+                    'pluginOptions' => [
+                        // 异步上传的接口地址设置
+                        'uploadUrl' => \yii\helpers\Url::to(['img-upload/asyncphoto']),
+                        'uploadAsync' => true,
+                    ]
                 ]); ?>
 
                 <?= $form->field($model, 'content')->widget(FroalaEditorWidget::className(), [
