@@ -29,14 +29,14 @@ class ImgUploadFile extends Model
     public function upload()
     {
         if ($this->validate()) {
-            $path = Yii::getAlias('@uploadPath') . date("Ymd");
+            $path = Yii::getAlias('@uploadPath') . DIRECTORY_SEPARATOR . date("Ymd");
 
             if (!is_dir($path) || !is_writable($path)) {
                 \yii\helpers\FileHelper::createDirectory($path, 0777, true);
             }
 
             foreach ($this->imgFiles as $file) {
-                $filedetail = '/goods_' . md5(uniqid() . mt_rand(10000, 99999999)) . '.' . $file->extension;
+                $filedetail = md5(uniqid() . mt_rand(10000, 99999999)) . '.' . $file->extension;
                 $filePath = $path . $filedetail;
 
                 if ($file->saveAs($filePath)) {

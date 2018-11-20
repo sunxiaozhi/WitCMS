@@ -21,7 +21,7 @@ $imgUploadFile = new ImgUploadFile();
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'sub_title')->textInput() ?>
                 <?= $form->field($model, 'abstract')->textarea() ?>
-                <?/*= $form->field($model, 'thumb')->hiddenInput() */?>
+                <?= $form->field($model, 'thumb')->hiddenInput() ?>
                 <?= $form->field($imgUploadFile, 'imgFiles')->widget(FileInput::classname(), [
                     'options' => ['accept' => 'image/*'],
                     'pluginOptions' => [
