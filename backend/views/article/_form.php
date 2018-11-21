@@ -33,18 +33,18 @@ $imgUploadFile = new ImgUploadFile();
                         'previewFileType' => 'image', // 需要预览的文件格式
                         'overwriteInitial' => false,
                         'browseLabel' => '选择图片',
-                        'dropZoneTitle' => '拖拽文件到这里 …',
+                        'dropZoneTitle' => '文章图片 …',
                         'msgFilesTooMany' => "选择上传的图片数量({n}) 超过允许的最大图片数{m}！",
                         'maxFileCount' => 5,//允许上传最多的图片5张
                         'maxFileSize' => 500,//限制图片最大200kB
 
-                        'initialPreview' => [
+                        /*'initialPreview' => [
                             "http://lorempixel.com/1920/1080/transport/1",
                         ],
 
                         'initialPreviewConfig' => [
                             ['caption' => 'transport-1.jpg', 'size' => 329892, 'width' => "120px",],
-                        ]
+                        ]*/
                     ],
                     'pluginEvents' => [
                         'fileuploaded' => "function (object,data){
