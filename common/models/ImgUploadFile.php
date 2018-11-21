@@ -9,6 +9,7 @@ namespace common\models;
 
 use Yii;
 use yii\base\Model;
+use yii\helpers\FileHelper;
 
 class ImgUploadFile extends Model
 {
@@ -21,6 +22,13 @@ class ImgUploadFile extends Model
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'imgFiles' => '文章图片',
+        ];
+    }
+
     /**
      * 图片上传
      * @return array|bool
@@ -29,20 +37,24 @@ class ImgUploadFile extends Model
     public function upload()
     {
         if ($this->validate()) {
-            $path = Yii::getAlias('@uploadPath') . DIRECTORY_SEPARATOR . date("Ymd") . DIRECTORY_SEPARATOR;
+            //图片保存路径
+            $imgUploadPath = Yii::getAlias('@upload') . '/' . date("Ymd") . '/';
 
-            if (!is_dir($path) || !is_writable($path)) {
-                \yii\helpers\FileHelper::createDirectory($path, 0777, true);
+            //创建目录
+            if (!is_dir($imgUploadPath) || !is_writable($imgUploadPath)) {
+                FileHelper::createDirectory($imgUploadPath, 0777, true);
             }
 
+            //图片上传
             foreach ($this->imgFiles as $file) {
-                $filedetail = md5(uniqid() . mt_rand(10000, 99999999)) . '.' . $file->extension;
-                $filePath = $path . $filedetail;
+                $imgDetail = md5(uniqid() . mt_rand(10000, 99999999)) . '.' . $file->extension;
 
-                if ($file->saveAs($filePath)) {
+                $imgPath = $imgUploadPath . $imgDetail;
+
+                if ($file->saveAs($imgPath)) {
 
                     //这里将上传成功后的图片信息保存到数据库
-                    $imageUrl = $this->parseImageUrl($filePath);
+                    $imageUrl = $this->parseImageUrl($imgPath);
                     $imageModel = new File();
                     $imageModel->md5_file = $imageUrl;
                     $imageModel->path = $imageUrl;
@@ -62,12 +74,12 @@ class ImgUploadFile extends Model
      * 这里在upload中定义了上传目录根目录别名，以及图片域名
      * @author Zhiqiang Guo
      */
-    private function parseImageUrl($filePath)
+    private function parseImageUrl($imgPath)
     {
-        if (strpos($filePath, Yii::getAlias('@uploadPath')) !== false) {
-            return str_replace(Yii::getAlias('@uploadPath'), '', $filePath);
+        if (strpos($imgPath, Yii::getAlias('@upload')) !== false) {
+            return str_replace(Yii::getAlias('@upload'), '', $imgPath);
         } else {
-            return $filePath;
+            return $imgPath;
         }
     }
 }

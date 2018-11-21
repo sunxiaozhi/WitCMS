@@ -9,7 +9,7 @@ use common\models\ImgUploadFile;
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 /* @var $form yii\widgets\ActiveForm */
-/* @var $treeArr backend\helpers\Tree  getTree()*/
+/* @var $treeArr backend\helpers\Tree  getTree() */
 $imgUploadFile = new ImgUploadFile();
 ?>
 
@@ -21,28 +21,51 @@ $imgUploadFile = new ImgUploadFile();
                 <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
                 <?= $form->field($model, 'sub_title')->textInput() ?>
                 <?= $form->field($model, 'abstract')->textarea() ?>
-                <?= $form->field($model, 'thumb')->hiddenInput() ?>
-                <?= $form->field($imgUploadFile, 'imgFiles')->widget(FileInput::classname(), [
+                <?= $form->field($model, 'thumb')->label(false)->hiddenInput() ?>
+                <?= $form->field($imgUploadFile, 'imgFiles[]')->widget(FileInput::classname(), [
                     'options' => ['accept' => 'image/*'],
                     'pluginOptions' => [
                         // 异步上传的接口地址设置
                         'uploadUrl' => \yii\helpers\Url::to(['img-upload/asyncphoto']),
-                        'uploadAsync' => true,
+                        'uploadAsync' => true, //配置异步上传还是同步上传
+                        'allowedPreviewTypes' => ['image'],
+                        'allowedFileExtensions' => ['jpg', 'gif', 'png'],
+                        'previewFileType' => 'image', // 需要预览的文件格式
+                        'overwriteInitial' => false,
+                        'browseLabel' => '选择图片',
+                        'dropZoneTitle' => '文章图片 …',
+                        'msgFilesTooMany' => "选择上传的图片数量({n}) 超过允许的最大图片数{m}！",
+                        'maxFileCount' => 5,//允许上传最多的图片5张
+                        'maxFileSize' => 500,//限制图片最大200kB
+
+                        /*'initialPreview' => [
+                            "http://lorempixel.com/1920/1080/transport/1",
+                        ],
+
+                        'initialPreviewConfig' => [
+                            ['caption' => 'transport-1.jpg', 'size' => 329892, 'width' => "120px",],
+                        ]*/
+                    ],
+                    'pluginEvents' => [
+                        'fileuploaded' => "function (object,data){
+                            $('form #article-thumb').val(data.response.imageUrl);
+                        }"
                     ]
                 ]); ?>
 
                 <?= $form->field($model, 'content')->widget(FroalaEditorWidget::className(), [
                     'name' => 'body',
                     'clientOptions' => [
-                        'toolbarInline'=> false,
+                        'toolbarInline' => false,
                         'height' => 600,
                         'theme' => 'gray',//optional: dark, red, gray, royal
-                        'language' => 'zh_cn' ,
+                        'language' => 'zh_cn',
                         'toolbarButtons' => ['fullscreen', 'bold', 'italic', 'underline', 'strikeThrough', 'subscript', 'superscript', 'fontFamily', 'fontSize', '|', 'color', 'emoticons', 'inlineStyle', 'paragraphStyle', '|', 'paragraphFormat', 'align', 'formatOL', 'formatUL', 'outdent', 'indent', '|', 'insertLink', 'insertImage', 'insertVideo', 'insertFile', 'insertTable', '|', 'quote', 'insertHR', 'undo', 'redo', 'clearFormatting', 'selectAll', 'html'],
                         'imageUploadParam' => 'file',
-                        'imageUploadURL' => \yii\helpers\Url::to(['site/upload/'])
+                        'imageUploadURL' => \yii\helpers\Url::to(['img-upload/asyncphoto/'])
                     ],
-                    'clientPlugins'=> ['align', 'char_counter', 'code_beautifier', 'code_view', 'colors', 'draggable', 'emoticons', 'entities', 'file', 'font_family', 'font_size', 'forms', 'fullscreen', 'help', 'image', 'image_manager', 'inline_style', 'line_breaker', 'link', 'lists', 'paragraph_format', 'paragraph_style', 'print', /*'quick_insert',*/ 'quote', 'save', 'special_characters', 'table', 'url', 'video', 'word_paste',
+                    'clientPlugins' => ['align', 'char_counter', 'code_beautifier', 'code_view', 'colors', 'draggable', 'emoticons', 'entities', 'file', 'font_family', 'font_size', 'forms', 'fullscreen', 'help', 'image', 'image_manager', 'inline_style', 'line_breaker', 'link', 'lists', 'paragraph_format', 'paragraph_style', 'print', /*'quick_insert',*/
+                        'quote', 'save', 'special_characters', 'table', 'url', 'video', 'word_paste',
                     ]
                 ]) ?>
             </div>

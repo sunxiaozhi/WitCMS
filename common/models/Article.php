@@ -56,7 +56,7 @@ class Article extends \yii\db\ActiveRecord
             [['title', 'sub_title', 'abstract'], 'string', 'max' => 255],
             [['content', 'seo_title', 'seo_keywords', 'seo_description',], 'string'],
             [['sort', 'status', 'type', 'is_recommend'], 'integer'],
-            [['thumb'], 'file'],
+            [['thumb'], 'string'],
         ];
     }
 
