@@ -29,7 +29,7 @@ class ImgUploadFile extends Model
     public function upload()
     {
         if ($this->validate()) {
-            $path = Yii::getAlias('@uploadPath') . DIRECTORY_SEPARATOR . date("Ymd");
+            $path = Yii::getAlias('@uploadPath') . DIRECTORY_SEPARATOR . date("Ymd") . DIRECTORY_SEPARATOR;
 
             if (!is_dir($path) || !is_writable($path)) {
                 \yii\helpers\FileHelper::createDirectory($path, 0777, true);
