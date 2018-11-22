@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\ArticleSearch */
@@ -37,7 +38,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     ],
                     [
                         'attribute' => 'title',
-                        'options' => ['width' => '200px;']
+                        'options' => ['width' => '250px;']
+                    ],
+                    [
+                        'attribute' => 'thumb',
+                        'options' => ['width' => '100px;'],
+                        'content' => function ($model) {
+                            return Html::img(Url::toImage($model->thumb), ['width'=> '90px', 'height'=>'20px']);
+                        },
                     ],
                     [
                         'attribute' => 'category_id',
@@ -45,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'value' => function ($model) {
                             return $model->articleCategory ? $model->articleCategory->name : Yii::t('app', 'uncategoried');
                         },
-                        'options' => ['width' => '200px;']
+                        'options' => ['width' => '100px;']
                     ],
                     [
                         'attribute' => 'sort',

@@ -5,12 +5,15 @@ use yii\widgets\ActiveForm;
 use froala\froalaeditor\FroalaEditorWidget;
 use kartik\file\FileInput;
 use common\models\ImgUploadFile;
+use common\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $treeArr backend\helpers\Tree  getTree() */
 $imgUploadFile = new ImgUploadFile();
+
+$preview[] = Html::img(Url::toImage($model->thumb), ['class' => 'file-preview-image']);
 ?>
 
 <div class="box">
@@ -25,26 +28,10 @@ $imgUploadFile = new ImgUploadFile();
                 <?= $form->field($imgUploadFile, 'imgFiles[]')->widget(FileInput::classname(), [
                     'options' => ['accept' => 'image/*'],
                     'pluginOptions' => [
-                        // 异步上传的接口地址设置
                         'uploadUrl' => \yii\helpers\Url::to(['img-upload/asyncphoto']),
-                        'uploadAsync' => true, //配置异步上传还是同步上传
-                        'allowedPreviewTypes' => ['image'],
-                        'allowedFileExtensions' => ['jpg', 'gif', 'png'],
-                        'previewFileType' => 'image', // 需要预览的文件格式
-                        'overwriteInitial' => false,
-                        'browseLabel' => '选择图片',
-                        'dropZoneTitle' => '文章图片 …',
-                        'msgFilesTooMany' => "选择上传的图片数量({n}) 超过允许的最大图片数{m}！",
-                        'maxFileCount' => 5,//允许上传最多的图片5张
-                        'maxFileSize' => 500,//限制图片最大200kB
-
-                        /*'initialPreview' => [
-                            "http://lorempixel.com/1920/1080/transport/1",
-                        ],
-
-                        'initialPreviewConfig' => [
-                            ['caption' => 'transport-1.jpg', 'size' => 329892, 'width' => "120px",],
-                        ]*/
+                        'browseLabel' => '选择照片',
+                        'initialPreview' => $preview,
+                        'initialPreviewConfig' =>[]
                     ],
                     'pluginEvents' => [
                         'fileuploaded' => "function (object,data){

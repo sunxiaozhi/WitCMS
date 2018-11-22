@@ -38,7 +38,7 @@ class ImgUploadFile extends Model
     {
         if ($this->validate()) {
             //图片保存路径
-            $imgUploadPath = Yii::getAlias('@upload') . '/' . date("Ymd") . '/';
+            $imgUploadPath = Yii::getAlias('@uploadImage') . '/' . date("Ymd") . '/';
 
             //创建目录
             if (!is_dir($imgUploadPath) || !is_writable($imgUploadPath)) {
@@ -76,8 +76,8 @@ class ImgUploadFile extends Model
      */
     private function parseImageUrl($imgPath)
     {
-        if (strpos($imgPath, Yii::getAlias('@upload')) !== false) {
-            return str_replace(Yii::getAlias('@upload'), '', $imgPath);
+        if (strpos($imgPath, Yii::getAlias('@uploadImage')) !== false) {
+            return str_replace(Yii::getAlias('@uploadImage'), '', $imgPath);
         } else {
             return $imgPath;
         }

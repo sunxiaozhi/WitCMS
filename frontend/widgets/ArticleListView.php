@@ -9,7 +9,7 @@
 namespace frontend\widgets;
 
 use Yii;
-use yii\helpers\Url;
+use common\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\widgets\LinkPager;
 use yii\helpers\StringHelper;
@@ -69,7 +69,7 @@ class ArticleListView extends \yii\widgets\ListView
             //文章作者
             //$author_name = StringHelper::truncate($model->author_name, 28);
             //文章图片
-            $articleThumb = 'upload/' . $model->thumb;
+            $articleThumb = Url::toImage($model->thumb);
             //文章标签
             $article_tag = '';
             if (!empty($model->articleTag)) {

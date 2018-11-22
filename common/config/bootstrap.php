@@ -4,4 +4,4 @@ Yii::setAlias('@frontend', dirname(dirname(__DIR__)) . '/frontend');
 Yii::setAlias('@backend', dirname(dirname(__DIR__)) . '/backend');
 Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
 
-Yii::setAlias('@upload', '@frontend/web/upload');//文件上传目录
+Yii::setAlias('@uploadImage', dirname(dirname(__DIR__)) . '/upload/image'); //图片上传目录
