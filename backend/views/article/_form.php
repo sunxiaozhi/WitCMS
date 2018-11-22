@@ -13,7 +13,7 @@ use common\helpers\Url;
 /* @var $treeArr backend\helpers\Tree  getTree() */
 $imgUploadFile = new ImgUploadFile();
 
-$preview[] = Html::img(Url::toImage($model->thumb), ['class' => 'file-preview-image']);
+$preview[] = Html::img(Url::toImage($model->thumb), ['class' => 'file-preview-image', 'width' => '100%', 'height' => '100%']);
 ?>
 
 <div class="box">
@@ -29,6 +29,11 @@ $preview[] = Html::img(Url::toImage($model->thumb), ['class' => 'file-preview-im
                     'options' => ['accept' => 'image/*'],
                     'pluginOptions' => [
                         'uploadUrl' => \yii\helpers\Url::to(['img-upload/asyncphoto']),
+                        //'showCaption' => false,
+                        //'showRemove' => false,
+                        //'showPreview' => false,
+                        //'showClose' => false,
+                        //'showUpload' => false, //是否显示上传按钮
                         'browseLabel' => '选择照片',
                         'initialPreview' => $preview,
                         'initialPreviewConfig' =>[]
