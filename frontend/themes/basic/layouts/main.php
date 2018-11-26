@@ -1,4 +1,4 @@
-<?php
+Random Articles<?php
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -165,7 +165,7 @@ use frontend\widgets\Breadcrumbs;
 			
 			<div class="span4">
                 <div class="posts">
-                    <div class="headline"><h3><?= Yii::t('Frontend', 'Random Articles')?></h3></div>
+                    <div class="headline"><h3><?= Yii::t('frontend', 'Random Articles')?></h3></div>
                     <?php
                         $articles = Article::find()->select(['id', 'title'])->where(['status' => Article::STATUS_YES])->orderBy('rand()')->limit(3)->all();
                         foreach ($articles as $article) {
