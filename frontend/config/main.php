@@ -44,13 +44,10 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*'urlManager' => [
+        'urlManager' => [
             'enablePrettyUrl' => true, //是否开启美化效果
             'showScriptName' => false, //是否省略脚本名index.php
-            'rules' => [
-                '' => 'article/index'
-            ],
-        ],*/
+        ],
     ],
     'params' => $params,
 ];
