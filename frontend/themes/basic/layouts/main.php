@@ -219,21 +219,21 @@ use frontend\widgets\Breadcrumbs;
 <!--=== End Copyright ===-->
 
 <!-- JS Global Compulsory -->           
-<script type="text/javascript" src="basic_assets/js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="basic_assets/js/modernizr.custom.js"></script>
-<script type="text/javascript" src="basic_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/basic_assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/basic_assets/js/modernizr.custom.js"></script>
+<script type="text/javascript" src="/basic_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <!-- JS Implementing Plugins -->
-<script type="text/javascript" src="basic_assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="/basic_assets/plugins/back-to-top.js"></script>
 <!-- JS Page Level -->
-<script type="text/javascript" src="basic_assets/js/app.js"></script>
-<script type="text/javascript" src="basic_assets/js/preload.js"></script>
+<script type="text/javascript" src="/basic_assets/js/app.js"></script>
+<script type="text/javascript" src="/basic_assets/js/preload.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
     });
 </script>
 <!--[if lt IE 9]>
-    <script src="basic_assets/js/respond.js"></script>
+    <script src="/basic_assets/js/respond.js"></script>
 <![endif]-->
 
 <?php $this->endBody() ?>
