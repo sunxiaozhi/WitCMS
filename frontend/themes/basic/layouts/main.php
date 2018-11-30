@@ -25,16 +25,16 @@ use frontend\widgets\Breadcrumbs;
     <meta name="author" content="" />
 
     <!-- CSS Global Compulsory-->
-    <link rel="stylesheet" href="basic_assets/plugins/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="basic_assets/css/style.css" />
-    <link rel="stylesheet" href="basic_assets/css/headers/header1.css" />
-    <link rel="stylesheet" href="basic_assets/plugins/bootstrap/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="basic_assets/css/style_responsive.css" />
+    <link rel="stylesheet" href="/basic_assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/basic_assets/css/style.css" />
+    <link rel="stylesheet" href="/basic_assets/css/headers/header1.css" />
+    <link rel="stylesheet" href="/basic_assets/plugins/bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="/basic_assets/css/style_responsive.css" />
     <link rel="shortcut icon" href="favicon.ico" />        
     <!-- CSS Implementing Plugins -->    
-    <link rel="stylesheet" href="basic_assets/plugins/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/basic_assets/plugins/font-awesome/css/font-awesome.css" />
     <!-- CSS Theme -->    
-    <link rel="stylesheet" href="basic_assets/css/themes/default.css" id="style_color" />
+    <link rel="stylesheet" href="/basic_assets/css/themes/default.css" id="style_color" />
     <!--<link rel="stylesheet" href="basic_assets/css/themes/headers/default.css" id="style_color-header-1" />-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
