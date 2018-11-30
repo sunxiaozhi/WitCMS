@@ -74,7 +74,7 @@ var App = function () {
         });
 
         var setColor = function (color, data_header) {
-            $('#style_color').attr("href", "basic_assets/css/themes/" + color + ".css");
+            $('#style_color').attr("href", "/basic_assets/css/themes/" + color + ".css");
             if(data_header == 'light'){
                 $('#style_color-header-1').attr("href", "/basic_assets/css/themes/headers/header1-" + color + ".css");
                 $('#logo-header').attr("src", "/basic_assets/img/" + color + ".png");
