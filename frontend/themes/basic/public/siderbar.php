@@ -24,7 +24,7 @@ use common\models\ArticleTagRelation;
             foreach ($articles as $article) {
                 $url = Url::to(['article/view', 'id' => $article->id]);
                 echo '<dl class="dl-horizontal">
-                        <dt><a href="' . $url . '"><img src="basic_assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
+                        <dt><a href="' . $url . '"><img src="/basic_assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
                         <dd>
                             <p><a href="' . $url . '">' . $article->title . '</a></p>
                         </dd>
