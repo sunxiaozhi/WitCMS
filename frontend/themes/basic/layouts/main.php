@@ -81,7 +81,7 @@ use frontend\widgets\Breadcrumbs;
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href="<?= Yii::$app->getHomeUrl()?>"><img id="logo-header" src="basic_assets/img/default.png" alt="Logo" /><h2 style="display: inline">技术之路</h2></a>
+            <a href="<?= Yii::$app->getHomeUrl()?>"><img id="logo-header" src="/basic_assets/img/default.png" alt="Logo" /><h2 style="display: inline">技术之路</h2></a>
         </div><!-- /logo -->
                                     
         <!-- Menu -->       
