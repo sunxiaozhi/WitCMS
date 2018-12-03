@@ -20,7 +20,7 @@ class AppBasicAssest extends AssetBundle
         'plugins/bootstrap/css/bootstrap-responsive.min.css',
         'css/style_responsive.css',
         'plugins/font-awesome/css/font-awesome.css',
-        'css/themes/default.css',
+        ['css/themes/default.css', 'id' => 'style_color'],
     ];
     public $js = [
         'js/jquery-1.8.2.min.js',

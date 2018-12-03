@@ -41,7 +41,6 @@ $.QianLoad = {
                                 load_options.delayTime,
                                 function() {
                                 $(this).remove();
-                                console.log('Loading has been successful');
                                 });
                         }, load_options.sleep);
                     }
