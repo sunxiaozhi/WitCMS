@@ -16,7 +16,7 @@ class AppBasicAssest extends AssetBundle
     public $css = [
         'plugins/bootstrap/css/bootstrap.min.css',
         'css/style.css',
-        'css/headers/header1.css',
+        'css/headers/header_default.css',
         'plugins/bootstrap/css/bootstrap-responsive.min.css',
         'css/style_responsive.css',
         'plugins/font-awesome/css/font-awesome.css',
@@ -31,8 +31,8 @@ class AppBasicAssest extends AssetBundle
         'js/preload.js',
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        //'yii\web\YiiAsset',
+        //'yii\bootstrap\BootstrapAsset',
     ];
 
 }

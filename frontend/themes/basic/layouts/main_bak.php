@@ -25,17 +25,17 @@ use frontend\widgets\Breadcrumbs;
     <meta name="author" content="" />
 
     <!-- CSS Global Compulsory-->
-    <link rel="stylesheet" href="/basic_assets/plugins/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/basic_assets/css/style.css" />
-    <link rel="stylesheet" href="/basic_assets/css/headers/header1.css" />
-    <link rel="stylesheet" href="/basic_assets/plugins/bootstrap/css/bootstrap-responsive.min.css" />
-    <link rel="stylesheet" href="/basic_assets/css/style_responsive.css" />
+    <link rel="stylesheet" href="/static/basic/plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/basic/css/style.css" />
+    <link rel="stylesheet" href="/static/basic/css/headers/header1.css" />
+    <link rel="stylesheet" href="/static/basic/plugins/bootstrap/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="/static/basic/css/style_responsive.css" />
     <link rel="shortcut icon" href="favicon.ico" />        
     <!-- CSS Implementing Plugins -->    
-    <link rel="stylesheet" href="/basic_assets/plugins/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/static/basic/plugins/font-awesome/css/font-awesome.css" />
     <!-- CSS Theme -->    
-    <link rel="stylesheet" href="/basic_assets/css/themes/default.css" id="style_color" />
-    <!--<link rel="stylesheet" href="basic_assets/css/themes/headers/default.css" id="style_color-header-1" />-->
+    <link rel="stylesheet" href="/static/basic/css/themes/default.css" id="style_color" />
+    <!--<link rel="stylesheet" href="static/basic/css/themes/headers/default.css" id="style_color-header-1" />-->
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
@@ -81,7 +81,7 @@ use frontend\widgets\Breadcrumbs;
     <div class="container">
         <!-- Logo -->
         <div class="logo">
-            <a href="<?= Yii::$app->getHomeUrl()?>"><img id="logo-header" src="/basic_assets/img/default.png" alt="Logo" /><h2 style="display: inline">技术之路</h2></a>
+            <a href="<?= Yii::$app->getHomeUrl()?>"><img id="logo-header" src="/static/basic/img/default.png" alt="Logo" /><h2 style="display: inline">技术之路</h2></a>
         </div><!-- /logo -->
                                     
         <!-- Menu -->       
@@ -171,7 +171,7 @@ use frontend\widgets\Breadcrumbs;
                         foreach ($articles as $article) {
                             $url = Url::to(['article/view', 'id' => $article->id]);
                             echo '<dl class="dl-horizontal">
-                                    <dt><a href="' . $url .'"><img src="/basic_assets/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
+                                    <dt><a href="' . $url .'"><img src="/static/basic/img/sliders/elastislide/11.jpg" alt="" /></a></dt>
                                     <dd>
                                         <p><a href="' . $url .'">' . $article->title . '</a></p>
                                     </dd>
@@ -211,7 +211,7 @@ use frontend\widgets\Breadcrumbs;
 	            <p>Copyright &copy; <?= date('Y')?>.Company name All rights reserved.</p>
 			</div>
 			<!--<div class="span4">
-				<a href="index.html"><img id="logo-footer" src="basic_assets/img/logo2-default.png" class="pull-right" alt="" /></a>
+				<a href="index.html"><img id="logo-footer" src="static/basic/img/logo2-default.png" class="pull-right" alt="" /></a>
 			</div>-->
 		</div><!--/row-fluid-->
 	</div><!--/container-->	
@@ -219,21 +219,21 @@ use frontend\widgets\Breadcrumbs;
 <!--=== End Copyright ===-->
 
 <!-- JS Global Compulsory -->           
-<script type="text/javascript" src="/basic_assets/js/jquery-1.8.2.min.js"></script>
-<script type="text/javascript" src="/basic_assets/js/modernizr.custom.js"></script>
-<script type="text/javascript" src="/basic_assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/basic/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="/static/basic/js/modernizr.custom.js"></script>
+<script type="text/javascript" src="/static/basic/plugins/bootstrap/js/bootstrap.min.js"></script>
 <!-- JS Implementing Plugins -->
-<script type="text/javascript" src="/basic_assets/plugins/back-to-top.js"></script>
+<script type="text/javascript" src="/static/basic/plugins/back-to-top.js"></script>
 <!-- JS Page Level -->
-<script type="text/javascript" src="/basic_assets/js/app.js"></script>
-<script type="text/javascript" src="/basic_assets/js/preload.js"></script>
+<script type="text/javascript" src="/static/basic/js/app.js"></script>
+<script type="text/javascript" src="/static/basic/js/preload.js"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
     });
 </script>
 <!--[if lt IE 9]>
-    <script src="/basic_assets/js/respond.js"></script>
+    <script src="/static/basic/js/respond.js"></script>
 <![endif]-->
 
 <?php $this->endBody() ?>
