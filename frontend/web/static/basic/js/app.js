@@ -75,15 +75,7 @@ var App = function () {
 
         var setColor = function (color, data_header) {
             $('#style_color').attr("href", "/static/basic/css/themes/" + color + ".css");
-            if(data_header == 'light'){
-                $('#style_color-header-1').attr("href", "/static/basic/css/themes/headers/header1-" + color + ".css");
-                $('#logo-header').attr("src", "/static/basic/img/" + color + ".png");
-                $('#logo-footer').attr("src", "/static/basic/img/logo2-" + color + ".png");
-            } else if(data_header == 'dark'){
-                $('#style_color-header-2').attr("href", "/static/basic/css/themes/headers/header2-" + color + ".css");
-                $('#logo-header').attr("src", "/static/basic/img/logo2-" + color + ".png");
-                $('#logo-footer').attr("src", "/static/basic/img/logo2-" + color + ".png");
-            }
+            $('#style_color-header').attr("href", "/static/basic/css/themes/headers/header_" + color + ".css");
         }
     }
 
