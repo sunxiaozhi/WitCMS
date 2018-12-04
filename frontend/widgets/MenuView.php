@@ -21,7 +21,7 @@ class MenuView extends \yii\base\Widget
 
     public $liTemplate_have_sub = "<li class='{current_menu_class}'><a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">{menu_name}<b class=\"caret\"></b></a>{sub_menu}<b class=\"caret-out\"></b></li>";
 
-    public $liTemplate_no_sub = "<li class='{current_menu_class}'><a href=\"{url}\">{menu_name}<b class=\"caret\"></b></a><b class=\"caret-out\"></b></li>";
+    public $liTemplate_no_sub = "<li class='{current_menu_class}'><a href=\"{url}\">{menu_name}</a></li>";
 
     public $subTemplate = "<ul class=\"dropdown-menu\">{lis}</ul>";
 
@@ -95,7 +95,7 @@ class MenuView extends \yii\base\Widget
                         '{url}',
                         '{icon}',
                         '{menu_name}'
-                    ],[
+                    ], [
                         $current_menu_class,
                         $url,
                         $menu['icon'],
@@ -124,21 +124,39 @@ class MenuView extends \yii\base\Widget
                     if ($menu['is_absolute_url']) {
                         $url = $menu['route'];
                     } else {
-                        $url = Url::to([$menu['route']]);
+                        $urlTo = [];
+
+                        //article/index?cid=1&t=2
+                        $urlArr = explode('?', $menu['route']);
+
+                        if (is_array($urlArr)) {
+                            $link = array_shift($urlArr);
+
+                            if (!empty($urlArr)) {
+                                $parameterArr = explode('&', $urlArr[0]);
+                                foreach ($parameterArr as $k => $v) {
+                                    $urlTo[substr($v,0,strrpos($v,'='))] = substr($v,strripos($v,"=")+1);
+                                }
+                            }
+
+                            array_unshift($urlTo, $link);
+                        }
+
+                        $url = Url::to($urlTo);
                     }
                 }
                 $current_menu_class = '';
 
                 if ($menu['route'] == Yii::$app->controller->id . '/' . Yii::$app->controller->action->id) {
-                    $current_menu_class = ' active ';
-                    $menu_open = ' active menu_open ';
+                    $current_menu_class = 'active';
+                    $menu_open = 'active menu_open';
                 } elseif ($menu['route'] == Yii::$app->controller->id . '/index') {
-                    $current_menu_class = ' active ';
-                    $menu_open = ' active menu_open ';
+                    $current_menu_class = 'active';
+                    $menu_open = 'active menu_open';
                 } else {
                     if (yii::$app->request->getPathInfo() == $menu['route']) {
-                        $current_menu_class = ' active ';
-                        $menu_open = ' active menu_open ';
+                        $current_menu_class = 'active';
+                        $menu_open = 'active menu_open';
                     }
                 }
 

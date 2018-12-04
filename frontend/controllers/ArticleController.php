@@ -14,6 +14,7 @@ use common\models\Article;
 use yii\data\ActiveDataProvider;
 use yii\web\NotFoundHttpException;
 use common\models\ArticleTagRelation;
+use common\models\ArticleCategory;
 
 class ArticleController extends Controller
 {
@@ -36,11 +37,11 @@ class ArticleController extends Controller
 
         //标签搜索
         if (!empty($tagId)) {
-            $articleIdDatas = ArticleTagRelation::find()->joinWith('articleTag')->select([])->where(['tag_id' => $tagId])->all();
-            if (!empty($articleIdDatas)) {
-                foreach ($articleIdDatas as $articleIdData) {
-                    array_push($articleIdArr, $articleIdData->article_id);
-                    $breadcrumbItem = Yii::t('frontend', 'Tag') . '：' . $articleIdData->articleTag->name;
+            $articleTagDatas = ArticleTagRelation::find()->joinWith('articleTag')->select([])->where(['tag_id' => $tagId])->all();
+            if (!empty($articleTagDatas)) {
+                foreach ($articleTagDatas as $articleTagData) {
+                    array_push($articleIdArr, $articleTagData->article_id);
+                    $breadcrumbItem = Yii::t('frontend', 'Tag') . '：' . $articleTagData->articleTag->name;
                 }
 
                 $filterWhere = ['in', 'id', $articleIdArr];
@@ -49,8 +50,15 @@ class ArticleController extends Controller
 
         //分类搜索
         if (!empty($categoryId)) {
+            //查询分类信息
+            $articleCategoryData = ArticleCategory::findOne($categoryId);
+
             $filterWhere = ['category_id' => $categoryId];
-            $breadcrumbItem = Yii::t('frontend', 'Category') . '：';
+            $breadcrumbItem = Yii::t('frontend', 'Category') . '：无';
+
+            if(!empty($articleCategoryData)) {
+                $breadcrumbItem = Yii::t('frontend', 'Category') . '：' . $articleCategoryData->name;
+            }
         }
 
         //搜索词搜索
