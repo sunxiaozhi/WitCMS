@@ -75,7 +75,7 @@ var App = function () {
 
         var setColor = function (color, data_header) {
             $('#style_color').attr("href", "/static/basic/css/themes/" + color + ".css");
-            $('#style_color-header').attr("href", "/static/basic/css/themes/headers/header_" + color + ".css");
+            $('#style_color-header').attr("href", "/static/basic/css/headers/header_" + color + ".css");
         }
     }
 
