@@ -1,9 +1,6 @@
 <?php
 /**
- *
- *
  * 前台菜单部件
- *
  * User: sunhuanzhi
  * Date: 2018/3/22
  * Time: 9:50
