@@ -181,7 +181,7 @@ AppBasicAssest::register($this);
                     分类总数：<?= Yii::$app->siteInfo->getCategoryCount()?> 个<br/>
                     标签总数：<?= Yii::$app->siteInfo->getTagCount()?> 个<br/>
                     <!--评论总数：<?/*= Yii::$app->siteInfo->getCommentCount()*/?> 条<br/>-->
-                    网站已运行：<?= Yii::$app->siteInfo->getRunningDays()?> 天
+                    网站已运行：<?= Yii::$app->siteInfo->getRunningDays()?>
                 </address>
 
                 <!-- Stay Connected -->
