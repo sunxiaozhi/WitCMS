@@ -32,6 +32,7 @@ return [
 
     /*wit_article_category start*/
     'Alias' => '别名',
+    'Parent Category' => '上级分类',
     /*wit_article_category end*/
 
     /*wit_comments start*/
@@ -50,6 +51,7 @@ return [
     /*wit_menu start*/
     'Route' => '路由',
     'Icon' => '图标',
+    'Parent Menu' => '上级菜单',
     /*wit_menu end*/
 
     /*wit_admin/wit_user start*/

@@ -47,7 +47,7 @@ class ArticleCategory extends ActiveRecord
     {
         return [
             'id' => Yii::t('database', 'ID'),
-            'parent_id' => Yii::t('database', 'Parent ID'),
+            'parent_id' => Yii::t('database', 'Parent Category'),
             'name' => Yii::t('database', 'Name'),
             'alias' => Yii::t('database', 'Alias'),
             'sort' => Yii::t('database', 'Sort'),

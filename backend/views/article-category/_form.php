@@ -14,9 +14,9 @@ use yii\widgets\ActiveForm;
 
             <?php $form = ActiveForm::begin(); ?>
 
-            <?= $form->field($model, 'parent_id')->dropDownList([0 => '一级分类'] + $treeArr, ['encode' => false]) ?>
-
             <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
+
+            <?= $form->field($model, 'parent_id')->dropDownList([0 => '一级分类'] + $treeArr, ['encode' => false]) ?>
 
             <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
 

@@ -32,7 +32,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Lists all Article models.
+     * 文章列表
      * @return mixed
      */
     public function actionIndex()
@@ -47,21 +47,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Displays a single Article model.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new Article model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * 文章创建
      * @return mixed
      */
     public function actionCreate()
@@ -85,8 +71,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Updates an existing Article model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * 文章更新
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -117,8 +102,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Deletes an existing Article model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * 文章删除
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -131,8 +115,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Finds the Article model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * 根据主键值查找文章分类模型
      * @param string $id
      * @return Article the loaded model
      * @throws NotFoundHttpException if the model cannot be found

@@ -30,7 +30,7 @@ class ArticleTagController extends Controller
     }
 
     /**
-     * Lists all ArticleTag models.
+     * 文章标签列表
      * @return mixed
      */
     public function actionIndex()
@@ -45,21 +45,7 @@ class ArticleTagController extends Controller
     }
 
     /**
-     * Displays a single ArticleTag model.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new ArticleTag model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * 文章标签创建
      * @return mixed
      */
     public function actionCreate()
@@ -76,8 +62,7 @@ class ArticleTagController extends Controller
     }
 
     /**
-     * Updates an existing ArticleTag model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * 文章标签更新
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -96,8 +81,7 @@ class ArticleTagController extends Controller
     }
 
     /**
-     * Deletes an existing ArticleTag model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * 文章标签删除
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -110,8 +94,7 @@ class ArticleTagController extends Controller
     }
 
     /**
-     * Finds the ArticleTag model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * 根据主键值查找文章分类模型
      * @param string $id
      * @return ArticleTag the loaded model
      * @throws NotFoundHttpException if the model cannot be found

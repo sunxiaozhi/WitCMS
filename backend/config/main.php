@@ -12,6 +12,11 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+    'controllerMap' => [
+        'ueditor' => [
+            'class' => 'crazydb\ueditor\UEditorController',
+        ]
+    ],
     'components' => [
         'view' => [
             'theme' => [

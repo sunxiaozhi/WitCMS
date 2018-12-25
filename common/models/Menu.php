@@ -2,7 +2,6 @@
 
 namespace common\models;
 
-use backend\models\search\MenuSearch;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
@@ -53,7 +52,7 @@ class Menu extends \yii\db\ActiveRecord
             [['name', 'route'], 'required'],
             [['parent_id', 'type', 'sort', 'status', 'created_at', 'updated_at'], 'integer'],
             [['name', 'route', 'icon'], 'string', 'max' => 255],
-            //['status', 'default', 'value' => '1']
+            ['status', 'default', 'value' => '1']
         ];
     }
 
@@ -65,7 +64,7 @@ class Menu extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('database', 'ID'),
             'name' => Yii::t('database', 'Name'),
-            'parent_id' => Yii::t('database', 'Parent ID'),
+            'parent_id' => Yii::t('database', 'Parent Menu'),
             'route' => Yii::t('database', 'Route'),
             'icon' => Yii::t('database', 'Icon'),
             'type' => Yii::t('database', 'Type'),

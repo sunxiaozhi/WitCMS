@@ -59,6 +59,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         'options' => ['width' => '120px;']
                     ],
                     [
+                        'attribute' => 'sort',
+                        'options' => ['width' => '80px;']
+                    ],
+                    [
                         'attribute' => 'created_at',
                         'format' => ['date', 'php:Y-m-d H:i:s'],
                         'options' => ['width' => '200px;']

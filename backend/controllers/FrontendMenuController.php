@@ -11,7 +11,7 @@ use yii\filters\VerbFilter;
 use backend\helpers\Tree;
 
 /**
- * MenuController implements the CRUD actions for Menu model.
+ * FrontendMenuController implements the CRUD actions for Menu model.
  */
 class FrontendMenuController extends Controller
 {
@@ -31,7 +31,7 @@ class FrontendMenuController extends Controller
     }
 
     /**
-     * Lists all Menu models.
+     * 前台菜单列表
      * @return mixed
      */
     public function actionIndex()
@@ -46,46 +46,42 @@ class FrontendMenuController extends Controller
     }
 
     /**
-     * Displays a single Menu model.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new Menu model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * 前台菜单创建
      * @return mixed
      */
     public function actionCreate()
     {
         $model = new Menu();
 
+        //前台菜单类型
         $model->type = Menu::FRONTEND_MENU_TYPE;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
-            $model->parent_id = Yii::$app->request->get('parent_id', 0);
-            $arr = Menu::find()->where(['type' => Menu::FRONTEND_MENU_TYPE])->asArray()->all();
-            $treeObj = new Tree($arr);
+            //排序默认0
+            $model->sort = 0;
+
+            //状态默认显示
             $model->status = 1;
+
+            //前台菜单父id
+            $model->parent_id = Yii::$app->request->get('parent_id', 0);
+
+            //获取前台菜单
+            $Menus = Menu::find()->where(['type' => Menu::FRONTEND_MENU_TYPE])->asArray()->all();
+
+            $menuTree = new Tree($Menus);
+
             return $this->render('create', [
                 'model' => $model,
-                'treeArr' => $treeObj->getTree(),
+                'treeArr' => $menuTree->getTree(),
             ]);
         }
     }
 
     /**
-     * Updates an existing Menu model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * 前台菜单更新
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -97,18 +93,20 @@ class FrontendMenuController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
-            $arr = Menu::find()->where(['type' => Menu::FRONTEND_MENU_TYPE])->asArray()->all();
-            $treeObj = new Tree($arr);
+            //获取前台菜单
+            $Menus = Menu::find()->where(['type' => Menu::FRONTEND_MENU_TYPE])->asArray()->all();
+
+            $menuTree = new Tree($Menus);
+
             return $this->render('update', [
                 'model' => $model,
-                'treeArr' => $treeObj->getTree(),
+                'treeArr' => $menuTree->getTree(),
             ]);
         }
     }
 
     /**
-     * Deletes an existing Menu model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * 前台菜单删除
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -121,8 +119,7 @@ class FrontendMenuController extends Controller
     }
 
     /**
-     * Finds the Menu model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * 根据主键值查找菜单模型
      * @param string $id
      * @return Menu the loaded model
      * @throws NotFoundHttpException if the model cannot be found
