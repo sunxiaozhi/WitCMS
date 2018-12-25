@@ -50,6 +50,7 @@ return [
     /*wit_menu start*/
     'Route' => '路由',
     'Icon' => '图标',
+    'Parent Menu' => '上级菜单',
     /*wit_menu end*/
 
     /*wit_admin/wit_user start*/
