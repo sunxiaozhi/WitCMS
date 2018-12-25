@@ -32,6 +32,7 @@ return [
 
     /*wit_article_category start*/
     'Alias' => '别名',
+    'Parent Category' => '上级分类',
     /*wit_article_category end*/
 
     /*wit_comments start*/

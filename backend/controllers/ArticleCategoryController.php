@@ -31,7 +31,7 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Lists all ArticleCategory models.
+     * 文章分类列表
      * @return mixed
      */
     public function actionIndex()
@@ -46,21 +46,7 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Displays a single ArticleCategory model.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new ArticleCategory model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * 文章分类创建
      * @return mixed
      */
     public function actionCreate()
@@ -70,19 +56,26 @@ class ArticleCategoryController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
+            //排序默认0
+            $model->sort = 0;
+
+            //文章分类父id
             $model->parent_id = Yii::$app->request->get('parent_id', 0);
-            $arr = ArticleCategory::find()->asArray()->all();
-            $treeObj = new Tree($arr);
+
+            //获取文章分类
+            $articleCategories = ArticleCategory::find()->asArray()->all();
+
+            $articleCategorieTree = new Tree($articleCategories);
+
             return $this->render('create', [
                 'model' => $model,
-                'treeArr' => $treeObj->getTree(),
+                'treeArr' => $articleCategorieTree->getTree(),
             ]);
         }
     }
 
     /**
-     * Updates an existing ArticleCategory model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * 文章分类更新
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -94,19 +87,20 @@ class ArticleCategoryController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
         } else {
-            $model->parent_id = Yii::$app->request->get('parent_id', 0);
-            $arr = ArticleCategory::find()->asArray()->all();
-            $treeObj = new Tree($arr);
+            //获取文章分类
+            $articleCategories = ArticleCategory::find()->asArray()->all();
+
+            $articleCategorieTree = new Tree($articleCategories);
+
             return $this->render('update', [
                 'model' => $model,
-                'treeArr' => $treeObj->getTree(),
+                'treeArr' => $articleCategorieTree->getTree(),
             ]);
         }
     }
 
     /**
-     * Deletes an existing ArticleCategory model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
+     * 文章分类删除
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -119,8 +113,7 @@ class ArticleCategoryController extends Controller
     }
 
     /**
-     * Finds the ArticleCategory model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
+     * 根据主键值查找文章分类模型
      * @param string $id
      * @return ArticleCategory the loaded model
      * @throws NotFoundHttpException if the model cannot be found

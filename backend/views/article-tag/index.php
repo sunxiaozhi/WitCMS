@@ -24,35 +24,18 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filterModel' => $searchModel,
                 'columns' => [
                     //['class' => 'yii\grid\SerialColumn'],
-
                     [
                         'class' => 'yii\grid\CheckboxColumn',
                         'options' => ['width' => '30px;']
                     ],
-                    //'parent_id',
                     [
                         'attribute' => 'name',
                         'format' => 'raw',
-                        'options' => ['width' => '150px;']
                     ],
-                    'alias',
-                    'sort',
-                    //'remark',
-                    //'created_at',
-                    //'updated_at',
-
                     [
                         'header' => '操作',
                         'class' => 'backend\grid\ActionColumn',
                         'template' => '{create} {update} {delete}',
-                        /*'buttons' => [
-                            'create' => function ($url, $model, $key) {
-                                return Html::a('<span class="fa fa-plus"></span> 添加子分类', ['create', 'parent_id' => $key], [
-                                    'title' => '添加子菜单',
-                                    'class' => 'btn btn-success btn-xs'
-                                ]);
-                            },
-                        ],*/
                     ],
                 ],
             ]); ?>
