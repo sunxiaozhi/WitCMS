@@ -8,6 +8,8 @@
 //use Yii;
 use yii\helpers\Url;
 use kartik\markdown\Markdown;
+
+$this->title = $model->name;
 $this->params['breadcrumbTitle'] = '文章';
 ?>
 <div class="span9 blog-item">
