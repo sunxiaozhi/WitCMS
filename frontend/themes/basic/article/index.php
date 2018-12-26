@@ -3,7 +3,8 @@
 /* @var $breadcrumbTitle string */
 /* @var $breadcrumbItem string */
 use frontend\widgets\ArticleListView;
-$this->title = Yii::t('common', 'Articles');
+
+$this->title = '技术之路';
 $this->params['breadcrumbTitle'] = $breadcrumbTitle;
 $this->params['breadcrumbItem'] = $breadcrumbItem;
 ?>
