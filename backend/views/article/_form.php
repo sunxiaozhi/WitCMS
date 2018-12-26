@@ -45,7 +45,8 @@ $preview[] = Html::img(Url::toImage($model->thumb), ['class' => 'file-preview-im
                     ]
                 ]); ?>
 
-                <?= $form->field($model, 'content')->widget(\crazydb\ueditor\UEditor::className()) ?>
+                <!--文章内容-->
+                <?= $form->field($model, 'content')->widget(\kartik\markdown\MarkdownEditor::className()) ?>
             </div>
             <div class="col-md-4">
                 <div class="box">

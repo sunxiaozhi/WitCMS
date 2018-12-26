@@ -7,6 +7,7 @@
 
 //use Yii;
 use yii\helpers\Url;
+use kartik\markdown\Markdown;
 $this->params['breadcrumbTitle'] = '文章';
 ?>
 <div class="span9 blog-item">
@@ -34,7 +35,7 @@ $this->params['breadcrumbTitle'] = '文章';
             </li>
         </ul>
         <div style="margin-top: 20px">
-            <?= $model->content?>
+            <?= Markdown::convert($model->content) ?>
         </div>
     </div><!--/blog-->
 

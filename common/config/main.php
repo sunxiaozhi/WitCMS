@@ -14,6 +14,13 @@ return [
     /* 目标语言 */
     'language' => 'zh-CN',
 
+    'modules' => [
+        //markdown 编辑器
+        'markdown' => [
+            'class' => 'kartik\markdown\Module',
+        ]
+    ],
+
     'components' => [
         //配置读写分离
         /*'db' => [

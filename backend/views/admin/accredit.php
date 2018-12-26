@@ -8,8 +8,6 @@ $this->params['title_sub'] = '';
 ?>
 
 <!-- BEGIN FORM-->
-
-
 <div class="box ">
     <div class="box-body">
         <div class="admin-form">
