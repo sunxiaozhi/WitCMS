@@ -53,6 +53,11 @@ class RbacBehavior extends \yii\base\Behavior
      * @return boolean
      * ---------------------------------------
      */
+    /**
+     * @param $event
+     * @return bool
+     * @throws ForbiddenHttpException
+     */
     public function rbacAction($event)
     {
         $event->isValid = true; // 继续执行action
