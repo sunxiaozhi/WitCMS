@@ -9,7 +9,7 @@
 use yii\helpers\Url;
 use kartik\markdown\Markdown;
 
-$this->title = '技术之路——' . $model->title;
+$this->title = Yii::$app->params['site']['WEB_SITE_TITLE'] . '——' . $model->title;
 $this->params['breadcrumbTitle'] = '文章';
 ?>
 <div class="span9 blog-item">
