@@ -22,7 +22,7 @@
 .loginbar li a:hover {
 	color:#7c8082;
 	font-size:11px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	font-family:'Open Sans', sans-serif;
 }
 
@@ -191,7 +191,7 @@ a:active {
 	color: #687074;
 	text-shadow:none;
 	padding:9px 20px;
-	text-transform:uppercase;
+	/*text-transform:uppercase;*/
 	border-bottom:solid 2px #eee;
 	font-family:'Open Sans', sans-serif;
     -webkit-transition:all 0.4s ease-in-out;
