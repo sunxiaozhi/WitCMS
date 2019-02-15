@@ -1,4 +1,4 @@
-/*   
+blog-tags/*
 Template Name: Unify - Responsive Bootstrap Template
 Description: Business, Corporate, Portfolio and Blog Theme.
 Version: 1.2
@@ -1204,6 +1204,11 @@ ul.blog-tags a i {
 	padding:2px 3px;
 	margin-right:2px;
 	background:#f4f4f4;
+}
+
+/*Blog Contents*/
+.blog-contents {
+	margin-top: 20px;
 }
 
 /*Blog Ads*/

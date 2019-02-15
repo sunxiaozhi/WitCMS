@@ -36,7 +36,7 @@ $this->params['breadcrumbTitle'] = '文章';
                 ?>
             </li>
         </ul>
-        <div style="margin-top: 20px">
+        <div class="blog-contents">
             <?= Markdown::convert($model->content) ?>
         </div>
     </div><!--/blog-->
