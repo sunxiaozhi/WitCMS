@@ -1211,6 +1211,10 @@ ul.blog-tags a i {
 	margin-top: 20px;
 }
 
+.blog-contents ul li {
+	margin-left: 25px !important;
+}
+
 /*Blog Ads*/
 .blog-ads li {
 	display:inline;
