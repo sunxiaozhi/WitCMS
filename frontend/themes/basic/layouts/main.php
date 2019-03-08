@@ -34,10 +34,10 @@ AppBasicAssest::register($this);
 <body>
 <?php $this->beginBody() ?>
 <!--=== Style Switcher ===-->    
-<i class="style-switcher-btn icon-cogs"></i>
+<!--<i class="style-switcher-btn icon-cogs"></i>
 <div class="style-switcher">
     <div class="theme-close"><i class="icon-remove"></i></div>
-    <div class="theme-heading"><?= Yii::t('frontend', 'Theme Colors')?></div>
+    <div class="theme-heading"><?/*= Yii::t('frontend', 'Theme Colors')*/?></div>
     <ul class="unstyled">
         <li class="theme-default theme-active" data-style="default" data-header="light"></li>
         <li class="theme-blue" data-style="blue" data-header="light"></li>
@@ -45,7 +45,7 @@ AppBasicAssest::register($this);
         <li class="theme-red" data-style="red" data-header="light"></li>
         <li class="theme-light" data-style="light" data-header="light"></li>
     </ul>
-</div>
+</div>-->
 <!--/style-switcher-->
 <!--=== End Style Switcher ===-->    
 
