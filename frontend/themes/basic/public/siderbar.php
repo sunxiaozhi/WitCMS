@@ -40,7 +40,7 @@ use common\models\ArticleTagRelation;
             $tags = ArticleTagRelation::find()->joinWith('articleTag')->select([])->limit(15)->groupBy(['tag_id'])->all();
             foreach ($tags as $tag) {
                 $url = Url::to(['article/index', 'tid' => $tag->articleTag->id]);
-                echo '<li><a href="' . $url . '"><i class="icon-tags"></i> ' . $tag->articleTag->name . '</a></li>';
+                echo '<li><a href="' . $url . '"><i class="fa fa-tags"></i> ' . $tag->articleTag->name . '</a></li>';
             }
         ?>
     </ul>
@@ -70,7 +70,7 @@ use common\models\ArticleTagRelation;
             $FriendLinks = FriendLink::find()->select(['name', 'url', 'target'])->where(['status' => FriendLink::STATUS_YES])->orderBy(['sort' => SORT_DESC, 'id' => SORT_DESC])->all();
             foreach ($FriendLinks as $FriendLink) {
                 $url = $FriendLink->url;
-                echo '<li><a target="'. $FriendLink->target .'" href="' . $url . '"><i class="icon-link"></i> ' . $FriendLink->name . '</a></li>';
+                echo '<li><a target="'. $FriendLink->target .'" href="' . $url . '"><i class="fa fa-link"></i> ' . $FriendLink->name . '</a></li>';
             }
         ?>
     </ul>

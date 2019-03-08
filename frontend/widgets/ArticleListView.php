@@ -30,14 +30,14 @@ class ArticleListView extends \yii\widgets\ListView
     public $template = "<div class='blog margin-bottom-30'>
         <h3>{title}</h3>
         <ul class='unstyled inline blog-info'>
-            <li><i class='icon-calendar'></i> {pub_date}</li>
-            <li><i class='icon-pencil'></i> Sun Xiaozhi</li>
-            <li><i class='icon-eye-open'></i> {page_views}</li>
-            <!--<li><i class='icon-comments'></i> <a href='#'>24 Comments</a></li>-->
+            <li><i class='fa fa-calendar'></i> {pub_date}</li>
+            <li><i class='fa fa-pencil'></i> Sun Xiaozhi</li>
+            <li><i class='fa fa-eye'></i> {page_views}</li>
+            <!--<li><i class='fa fa-comments'></i> <a href='#'>24 Comments</a></li>-->
         </ul>
         <ul class='unstyled inline blog-tags'>
             <li>
-                <i class='icon-tags'></i>
+                <i class='fa fa-tags'></i>
                 {article_tag}
             </li>
         </ul>
