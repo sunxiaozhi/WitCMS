@@ -41,22 +41,16 @@ $this->params['breadcrumbTitle'] = '文章';
         </div>
     </div><!--/blog-->
 
-    <hr />
-
-    <div>
+    <div class="blog-skip">
         <?php
         if ($prev != null) {
         ?>
-        <p>上一篇：<a href="<?= Url::to(['article/view', 'id' => $prev->id]) ?>"><?= $prev->title?></a></p>
-        <?php } else { ?>
-            <p>上一篇：没有了</p>
+        <span class="blog-skip-left"><a href="<?= Url::to(['article/view', 'id' => $prev->id]) ?>"><i class="fa fa-angle-double-left"></i><?= $prev->title?></a></span>
         <?php }?>
         <?php
         if ($next != null) {
         ?>
-        <p>下一篇：<a href="<?= Url::to(['article/view', 'id' => $next->id]) ?>"><?= $next->title?></a></p>
-        <?php } else { ?>
-            <p>下一篇：没有了</p>
+        <span class="blog-skip-right"><a href="<?= Url::to(['article/view', 'id' => $next->id]) ?>"><?= $next->title?><i class="fa fa-angle-double-right"></i></a></span>
         <?php }?>
     </div>
 
