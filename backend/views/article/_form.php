@@ -2,18 +2,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use froala\froalaeditor\FroalaEditorWidget;
-use kartik\file\FileInput;
-use common\models\ImgUploadFile;
-use common\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Article */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $treeArr backend\helpers\Tree  getTree() */
-$imgUploadFile = new ImgUploadFile();
-
-$preview[] = Html::img(Url::toImage($model->thumb), ['class' => 'file-preview-image', 'width' => '100%', 'height' => '100%']);
 ?>
 
 <div class="box">
@@ -25,28 +18,9 @@ $preview[] = Html::img(Url::toImage($model->thumb), ['class' => 'file-preview-im
                 <?= $form->field($model, 'sub_title')->textInput() ?>
                 <?= $form->field($model, 'abstract')->textarea() ?>
                 <?= $form->field($model, 'thumb')->label(false)->hiddenInput() ?>
-                <?= $form->field($imgUploadFile, 'imgFiles[]')->widget(FileInput::classname(), [
-                    'options' => ['accept' => 'image/*'],
-                    'pluginOptions' => [
-                        'uploadUrl' => \yii\helpers\Url::to(['img-upload/asyncphoto']),
-                        //'showCaption' => false,
-                        //'showRemove' => false,
-                        //'showPreview' => false,
-                        //'showClose' => false,
-                        //'showUpload' => false, //是否显示上传按钮
-                        'browseLabel' => '选择照片',
-                        'initialPreview' => $preview,
-                        'initialPreviewConfig' =>[]
-                    ],
-                    'pluginEvents' => [
-                        'fileuploaded' => "function (object,data){
-                            $('form #article-thumb').val(data.response.imageUrl);
-                        }"
-                    ]
-                ]); ?>
 
                 <!--文章内容-->
-                <?= $form->field($model, 'content')->widget(\kartik\markdown\MarkdownEditor::className()) ?>
+                <?= $form->field($model, 'content')->widget(\kartik\markdown\MarkdownEditor::className(), ['height' => 750]) ?>
             </div>
             <div class="col-md-4">
                 <div class="box">
