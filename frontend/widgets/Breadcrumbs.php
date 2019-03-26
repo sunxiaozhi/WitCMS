@@ -15,7 +15,7 @@ class Breadcrumbs extends Widget
     public $breadcrumbTitle;
     public $breadcrumbItem;
 
-    public $template = '<div class="breadcrumbs margin-bottom-20">
+    public $template = '<div class="breadcrumbs margin-bottom-10">
                             <div class="container">
                                 <h1 class="color-green pull-left">{breadcrumbTitle}{breadcrumbItem}</h1>
                             </div>
