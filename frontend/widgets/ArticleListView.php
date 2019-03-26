@@ -41,8 +41,8 @@ class ArticleListView extends \yii\widgets\ListView
                 {article_tag}
             </li>
         </ul>
-        <div class='blog-img'><img src='{article_thumb}' alt='' /></div>
-        <p>{abstract}</p>
+        <!--<div class='blog-img'><img src='{article_thumb}' alt='' /></div>-->
+        <p style='margin-top: 10px'>{abstract}</p>
         <p style='float: right'><a class='btn-u btn-u-small' href='{article_url}'>阅读更多</a></p>
     </div>";
 
@@ -69,7 +69,7 @@ class ArticleListView extends \yii\widgets\ListView
             //文章作者
             //$author_name = StringHelper::truncate($model->author_name, 28);
             //文章图片
-            $articleThumb = Url::toImage($model->thumb);
+            /*$articleThumb = Url::toImage($model->thumb);*/
             //文章标签
             $article_tag = '';
             if (!empty($model->articleTag)) {
@@ -80,7 +80,7 @@ class ArticleListView extends \yii\widgets\ListView
 
             return str_replace([
                 '{article_url}',
-                '{article_thumb}',
+                /*'{article_thumb}',*/
                 '{title}',
                 '{abstract}',
                 '{pub_date}',
@@ -88,7 +88,7 @@ class ArticleListView extends \yii\widgets\ListView
                 '{article_tag}'
             ], [
                 $articleUrl,
-                $articleThumb,
+                /*$articleThumb,*/
                 $title,
                 $abstract,
                 $pubTime,
