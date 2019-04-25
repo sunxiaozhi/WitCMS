@@ -68,11 +68,13 @@ class Admin extends ActiveRecord implements IdentityInterface
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\Admin', 'message' => Yii::t('backend', 'This email address has already been taken.')],
 
-            ['password', 'required'],
+            /*['password', 'required'],*/
             ['password', 'string', 'min' => 6],
 
             ['status', 'default', 'value' => Admin::STATUS_ACTIVE],
             ['status', 'in', 'range' => [Admin::STATUS_ACTIVE, Admin::STATUS_DELETED]],
+
+            [['login_ip', 'login_num', 'last_time'], 'safe']
         ];
     }
 
@@ -90,6 +92,10 @@ class Admin extends ActiveRecord implements IdentityInterface
             'password_reset_token' => Yii::t('database', 'Password Reset Token'),
             'email' => Yii::t('database', 'Email'),
             'status' => Yii::t('database', 'Status'),
+            'las' => Yii::t('database', 'Status'),
+            'login_ip' => Yii::t('database', 'LoginIp'),
+            'login_num' => Yii::t('database', 'LoginNum'),
+            'last_time' => Yii::t('database', 'LastTime'),
             'created_at' => Yii::t('database', 'Created At'),
             'updated_at' => Yii::t('database', 'Updated At'),
         ];

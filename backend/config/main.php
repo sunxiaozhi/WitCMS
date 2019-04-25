@@ -32,6 +32,7 @@ return [
             'identityClass' => 'common\models\Admin',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+            'as adminLoginLogs' => 'backend\behaviors\AdminLoginLogs',
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
