@@ -93,7 +93,7 @@ class Admin extends ActiveRecord implements IdentityInterface
             'email' => Yii::t('database', 'Email'),
             'status' => Yii::t('database', 'Status'),
             'las' => Yii::t('database', 'Status'),
-            'login_ip' => Yii::t('database', 'LoginIp'),
+            'login_ip' => Yii::t('database', 'LoginIP'),
             'login_num' => Yii::t('database', 'LoginNum'),
             'last_time' => Yii::t('database', 'LastTime'),
             'created_at' => Yii::t('database', 'Created At'),

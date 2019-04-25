@@ -51,6 +51,19 @@ $this->params['breadcrumbs'][] = $this->title;
                         'filter' => Html::activeDropDownList($searchModel, 'status', [0 => '注销', 10 => '正常'], ['prompt' => '全部', 'class' => 'form-control']),
                     ],
                     [
+                        'attribute' => 'login_ip',
+                        'options' => ['width' => '120px;']
+                    ],
+                    [
+                        'attribute' => 'login_num',
+                        'options' => ['width' => '100px;']
+                    ],
+                    [
+                        'attribute' => 'last_time',
+                        'format' => ['date', 'php:Y-m-d H:i'],
+                        'options' => ['width' => '200px;']
+                    ],
+                    [
                         'attribute' => 'created_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
                         'options' => ['width' => '200px;']

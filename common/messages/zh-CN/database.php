@@ -61,5 +61,8 @@ return [
     'Password Hash' => '密码哈希',
     'Password Reset Token' => '密码重置标志',
     'Email' => '邮箱',
+    'LastTime' => '最后登录时间',
+    'LoginIP' => '登录IP',
+    'LoginNum' => '登录次数',
     /*wit_admin/wit_user end*/
 ];
