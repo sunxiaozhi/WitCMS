@@ -1,7 +1,6 @@
 <?php
 /**
  * GridView的ActionColumn用于列表的查看、更新、删除等按钮
- *
  * User: sunhuanzhi
  * Date: 2018/3/22
  * Time: 9:50
@@ -14,7 +13,6 @@ use yii\helpers\Html;
 
 class ActionColumn extends \yii\grid\ActionColumn
 {
-
     public $template = '{view} {update} {auth} {accredit} {delete}';
 
     public function initDefaultButtons()
