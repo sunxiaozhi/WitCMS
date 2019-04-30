@@ -65,7 +65,6 @@ class RbacBehavior extends \yii\base\Behavior
         $rule = $action->getUniqueId();
 
         foreach ($this->allowActions as $allow) {
-            //dump($rule); dump(rtrim($allow,'*')); echo '<br>';
             if (substr($allow, -1) == '*') {
                 if (strpos($rule, rtrim($allow, '*')) === 0) {
                     return true;

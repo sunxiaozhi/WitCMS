@@ -7,7 +7,6 @@ namespace backend\helpers;
 
 class Tree
 {
-
     /**
      * 生成树型结构所需的多维数组
      * @var array
@@ -120,6 +119,7 @@ class Tree
      * @param  string $pidFeldName [父类id字段名]
      * @param  string $child [description]
      * @param  integer $root [description]
+     * @return array
      */
     public function getTreeArray($pk = 'id', $pidFeldName = 'parent_id', $child = '_child', $root = 0)
     {

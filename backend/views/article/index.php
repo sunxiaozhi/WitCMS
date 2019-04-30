@@ -12,12 +12,6 @@ $this->title = Yii::t('backend', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
-    <!-- <div class="box ">
-        <div class="box-body">
-            <?php /*echo $this->render('_search', ['model' => $searchModel]); */ ?>
-        </div>
-    </div>-->
-
     <div class="box">
         <div class="box-header">
             <div class="box-title">
@@ -26,16 +20,9 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="box-body">
             <?= GridView::widget([
-                //'layout' => "{items}\n{summary}\n{pager}",
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                 'columns' => [
-                    //['class' => 'yii\grid\SerialColumn'],
-
-                    [
-                        'class' => 'yii\grid\CheckboxColumn',
-                        'options' => ['width' => '30px;']
-                    ],
                     [
                         'attribute' => 'title',
                         'options' => ['width' => '250px;']

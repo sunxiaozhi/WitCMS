@@ -31,5 +31,4 @@ class AdminLoginLogs extends Behavior
 
         return $model->save();
     }
-
 }
