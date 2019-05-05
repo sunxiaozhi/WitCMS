@@ -16,6 +16,7 @@ class Date extends DateTime
      * @param $startDate
      * @param string $endDate
      * @return string
+     * @throws \Exception
      */
     public static function diffDate($startDate, $endDate = '')
     {
@@ -42,7 +43,8 @@ class Date extends DateTime
 
     /**
      * 格式化输出
-     * @param $time
+     * @param array $time
+     * @return string
      */
     public static function formatTime($time = [])
     {

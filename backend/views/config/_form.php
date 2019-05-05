@@ -18,13 +18,7 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'group')->textInput() ?>
-
-            <?= $form->field($model, 'type')->textInput() ?>
-
             <?= $form->field($model, 'value')->textarea(['rows' => 6]) ?>
-
-            <?= $form->field($model, 'extra')->textInput(['maxlength' => true]) ?>
 
             <?= $form->field($model, 'remark')->textInput(['maxlength' => true]) ?>
 
