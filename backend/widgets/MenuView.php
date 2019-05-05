@@ -108,7 +108,8 @@ class MenuView extends \yii\base\Widget
     /**
      * @param $menus
      * @param $cur_id
-     * @return mixed|string
+     * @return array
+     * @throws yii\base\InvalidConfigException
      */
     private function getSubMenu($menus, $cur_id)
     {

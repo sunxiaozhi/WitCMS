@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="col-sm-6 col-xs-12">
         <div class="box">
             <div class="box-header" style="border-bottom: 2px solid #eee">
-                <div class="box-title">环境</div>
+                <div class="box-title">运行环境</div>
             </div>
             <div class="box-body no-padding">
                 <style>

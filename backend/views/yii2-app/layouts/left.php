@@ -1,21 +1,18 @@
 <?php
 /**
- * Created by PhpStorm.
+ * 左栏.
  * User: Administrator
  * Date: 2018/2/25
  * Time: 15:57
  */
 
-use yii\helpers\Html;
-use yii\helpers\Url;
 use backend\widgets\MenuView;
 
+/* @var $directoryAsset string */
 ?>
 
 <aside class="main-sidebar">
-
     <section class="sidebar">
-
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
@@ -23,7 +20,6 @@ use backend\widgets\MenuView;
             </div>
             <div class="pull-left info">
                 <p><?= Yii::$app->user->identity->username ?></p>
-
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -40,8 +36,6 @@ use backend\widgets\MenuView;
         </form>-->
         <!-- /.search form -->
 
-        <?= MenuView::widget()?>
-
+        <?= MenuView::widget() ?>
     </section>
-
 </aside>

@@ -22,8 +22,8 @@ class Menu extends \yii\db\ActiveRecord
     const BACKEND_MENU_TYPE = 0;  //后台菜单
     const FRONTEND_MENU_TYPE = 1;  //前台菜单
 
-    const DISPLAY_NO = 0;
-    const DISPLAY_YES = 1;
+    const DISPLAY_NO = 0;  //不显示
+    const DISPLAY_YES = 1;  //显示
 
     /**
      * @inheritdoc
@@ -96,29 +96,25 @@ class Menu extends \yii\db\ActiveRecord
             return false;
         }
         return true;
-
     }
 
     /**
      * 获取全部菜单
      * @param int $type
+     * @return \yii\db\ActiveQuery
      */
     public static function getMenuData($type = self::BACKEND_MENU_TYPE)
     {
-        $query = self::find()->where(['type' => $type]);
-
-        return $query;
+        return self::find()->where(['type' => $type]);
     }
 
     /**
      * 按等级生成菜单
      * @param $type
-     * @return Menu
+     * @return \yii\db\ActiveQuery
      */
     public static function getMenus($type)
     {
-        $menuData = self::getMenuData($type);
-
-        return $menuData;
+        return self::getMenuData($type);
     }
 }
