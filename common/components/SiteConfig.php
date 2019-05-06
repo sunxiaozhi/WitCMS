@@ -23,14 +23,14 @@ class SiteConfig extends Component
     {
         $cache = Yii::$app->getCache();
 
-        $configs = $cache->get('config');
+        $configs = $cache->get('configs');
 
         if ($configs === false) {
             $configs = Config::find()->asArray()->all();
 
             $dependencyFileHelper = Yii::createObject([
                     'class' => DependencyFileHelper::className(),
-                    'dependencyFileName' => 'config.txt',
+                    'dependencyFileName' => 'configs.txt',
                 ]
             );
 
@@ -38,7 +38,7 @@ class SiteConfig extends Component
 
             $dependency = new FileDependency(['fileName' => $dependencyFileName]);
 
-            $cache->set('config', $configs, 0, $dependency);
+            $cache->set('configs', $configs, 0, $dependency);
         }
 
         foreach ($configs as $config) {

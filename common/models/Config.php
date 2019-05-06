@@ -80,7 +80,7 @@ class Config extends \yii\db\ActiveRecord
         //更新缓存依赖文件
         $dependencyFileHelper = Yii::createObject([
                 'class' => DependencyFileHelper::className(),
-                'dependencyFileName' => 'config.txt',
+                'dependencyFileName' => 'configs.txt',
             ]
         );
 
