@@ -37,7 +37,8 @@ class Config extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['group', 'type', 'sort', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['group', 'type'], 'safe'],
+            [['sort', 'status', 'created_at', 'updated_at'], 'integer'],
             [['value'], 'string'],
             [['name'], 'string', 'max' => 30],
             [['title'], 'string', 'max' => 50],
