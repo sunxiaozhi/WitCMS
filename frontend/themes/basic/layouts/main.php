@@ -200,7 +200,7 @@ AppBasicAssest::register($this);
 	<div class="container">
 		<div class="row-fluid">
 			<div class="span12">
-	            <p>Copyright &copy; <?= date('Y')?>.Company name All rights reserved.</p>
+	            <p>&copy; <?= date('Y')?> WitCMS <?= Yii::$app->params['site']['WEB_SITE_ICP']?></p>
 			</div>
 			<!--<div class="span4">
 				<a href="index.html"><img id="logo-footer" src="basic_assets/img/logo2-default.png" class="pull-right" alt="" /></a>
