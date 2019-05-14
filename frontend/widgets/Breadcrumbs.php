@@ -35,6 +35,5 @@ class Breadcrumbs extends Widget
             $breadcrumbTitle,
             $breadcrumbItem
         ], $this->template);
-
     }
 }
