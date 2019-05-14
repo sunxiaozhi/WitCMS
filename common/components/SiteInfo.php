@@ -1,12 +1,13 @@
 <?php
 /**
- * 网站配置
- * Author: sunhuanzhi
+ * 获取网站信息
+ * Author: sunxiaozhi
  * Date: 2018/10/8 16:36
  */
 
 namespace common\components;
 
+use Yii;
 use common\models\FriendLink;
 use yii\base\Component;
 use common\models\Article as ArticleModel;
@@ -65,10 +66,31 @@ class SiteInfo extends Component
     /**
      * 获取网站的运行时间
      * @return string
+     * @throws \Exception
      */
     public function getRunningDays()
     {
         $startDate = '2018-11-13';
         return Date::diffDate($startDate);
+    }
+
+    public function getSiteAllInfo()
+    {
+        $siteAllInfo = [
+            'articleCount' => 0,
+            'articleTagCount' => 0,
+            'CommemtCount' => 0,
+            'friendLinkCount' => 0,
+            'runningDays' => '1 天',
+        ];
+
+        $cache = Yii::$app->getCache();
+        $siteAllInfo = $cache->get('siteAllInfo');
+
+        if ($siteAllInfo === false) {
+
+        }
+
+        return $siteAllInfo;
     }
 }

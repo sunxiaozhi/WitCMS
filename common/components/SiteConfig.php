@@ -1,7 +1,7 @@
 <?php
 /**
- * 网站配置
- * Author: sunhuanzhi
+ * 获取网站配置
+ * Author: sunxiaozhi
  * Date: 2018/10/8 16:36
  */
 
