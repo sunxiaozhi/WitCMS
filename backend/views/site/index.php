@@ -5,6 +5,8 @@
 
 $this->title = '仪表盘';
 $this->params['breadcrumbs'][] = $this->title;
+
+$siteAllInfo = Yii::$app->siteInfo->getSiteAllInfo();
 ?>
 
 <!-- Info boxes -->
@@ -15,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="info-box-content">
                 <span class="info-box-text"><?= Yii::t('backend', 'Article') ?></span>
-                <span class="info-box-number"><?= Yii::$app->siteInfo->getArticleCount()?></span>
+                <span class="info-box-number"><?= $siteAllInfo['articleCount']?></span>
             </div>
             <!-- /.info-box-content -->
         </div>
@@ -54,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="info-box-content">
                 <span class="info-box-text">友情链接</span>
-                <span class="info-box-number"><?= Yii::$app->siteInfo->getFriendLinkCount()?></span>
+                <span class="info-box-number"><?= $siteAllInfo['friendLinkCount']?></span>
             </div>
             <!-- /.info-box-content -->
         </div>

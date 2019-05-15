@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: sunxiaozhi
  * Date: 2018/9/15
  * Time: 21:49
@@ -22,7 +21,7 @@ class Article extends \common\models\Article
      */
     public function afterSave($insert, $changedAttributes)
     {
-        $articele_id = $this->id;
+        $articleId = $this->id;
 
         if (Yii::$app->request->isPost) {
             $formArticle = Yii::$app->request->post('Article');
@@ -32,7 +31,7 @@ class Article extends \common\models\Article
 
                 //清除所有的文章和标签的关系
                 $ArticleTagRelation = new ArticleTagRelation();
-                $ArticleTagRelation::deleteAll(['article_id' => $articele_id]);
+                $ArticleTagRelation::deleteAll(['article_id' => $articleId]);
 
                 //依次添加文章和标签的关系
                 foreach ($tagArr as $key => $val) {
@@ -46,17 +45,17 @@ class Article extends \common\models\Article
                             $articeleTag->alias = $val;
                             $articeleTag->save();
 
-                            $tag_id = $articeleTag->id;
+                            $tagId = $articeleTag->id;
                         } else {
-                            $tag_id = $articeleTagData->id;
+                            $tagId = $articeleTagData->id;
                         }
                     } else {
                         continue;
                     }
 
                     $ArticleTagRelation = new ArticleTagRelation();
-                    $ArticleTagRelation->article_id = $articele_id;
-                    $ArticleTagRelation->tag_id = $tag_id;
+                    $ArticleTagRelation->article_id = $articleId;
+                    $ArticleTagRelation->tag_id = $tagId;
                     $ArticleTagRelation->save();
                 }
             }
