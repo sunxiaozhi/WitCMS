@@ -177,11 +177,12 @@ AppBasicAssest::register($this);
 	            <!-- Monthly Newsletter -->
 		        <div class="headline"><h3><?= Yii::t('frontend', 'Site Statistics')?></h3></div>
                 <address>
-                    文章总数：<?= Yii::$app->siteInfo->getArticleCount()?> 篇<br/>
-                    分类总数：<?= Yii::$app->siteInfo->getCategoryCount()?> 个<br/>
-                    标签总数：<?= Yii::$app->siteInfo->getTagCount()?> 个<br/>
+                    <?php $siteAllInfo = Yii::$app->siteInfo->getSiteAllInfo();?>
+                    文章总数：<?= $siteAllInfo['articleCount']?> 篇<br/>
+                    分类总数：<?= $siteAllInfo['articleCategoryCount']?> 个<br/>
+                    标签总数：<?= $siteAllInfo['articleTagCount']?> 个<br/>
                     <!--评论总数：<?/*= Yii::$app->siteInfo->getCommentCount()*/?> 条<br/>-->
-                    网站已运行：<?= Yii::$app->siteInfo->getRunningDays()?>
+                    网站已运行：<?= $siteAllInfo['runningDays']?>
                 </address>
 
                 <!-- Stay Connected -->

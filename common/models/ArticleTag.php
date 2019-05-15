@@ -17,7 +17,7 @@ use yii\db\ActiveRecord;
  * @property string $created_at 创建时间
  * @property string $updated_at 更新时间
  */
-class ArticleTag extends ActiveRecord
+class ArticleTag extends ArticleBase
 {
     /**
      * {@inheritdoc}

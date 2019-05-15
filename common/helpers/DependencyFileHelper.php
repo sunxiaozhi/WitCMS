@@ -13,7 +13,7 @@ use yii\helpers\FileHelper;
 
 class DependencyFileHelper extends BaseObject
 {
-    public $rootDir = '@backend/runtime/cache/dependency/';
+    public $rootDir = '@common/runtime/cache/dependency/';
 
     public $dependencyFileName = 'cache.txt';
 
@@ -28,9 +28,9 @@ class DependencyFileHelper extends BaseObject
 
         if (!file_exists(dirname($dependencyFileName))) {
             FileHelper::createDirectory(dirname($dependencyFileName));
-
-            file_put_contents($dependencyFileName, time());
         }
+
+        file_put_contents($dependencyFileName, time());
 
         return $dependencyFileName;
     }
@@ -50,7 +50,8 @@ class DependencyFileHelper extends BaseObject
      * 获取缓存依赖文件名
      * @return bool|string
      */
-    protected function getdependencyFileName() {
+    protected function getdependencyFileName()
+    {
         return Yii::getAlias($this->rootDir . $this->dependencyFileName);
     }
 

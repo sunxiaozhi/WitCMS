@@ -23,7 +23,7 @@ use yii\db\ActiveRecord;
  * @property int $created_at 创建时间
  * @property int $updated_at 更新时间
  */
-class Article extends \yii\db\ActiveRecord
+class Article extends ArticleBase
 {
     const STATUS_YES = 1;
     const STATUS_NO = 0;
@@ -112,6 +112,7 @@ class Article extends \yii\db\ActiveRecord
     /**
      * 获取文章标签
      * @return \yii\db\ActiveQuery
+     * @throws \yii\base\InvalidConfigException
      */
     public function getArticleTag() {
         return $this->hasMany(ArticleTag::className(), ['id' => 'tag_id'])->viaTable(ArticleTagRelation::tableName(),['article_id' => 'id']);

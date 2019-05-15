@@ -15,7 +15,7 @@ use Yii;
  * @property string $content 评论内容
  * @property int $created_at 创建时间
  */
-class Comments extends \yii\db\ActiveRecord
+class Comments extends ArticleBase
 {
     /**
      * @inheritdoc
