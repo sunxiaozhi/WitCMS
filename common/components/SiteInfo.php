@@ -31,14 +31,14 @@ class SiteInfo extends Component
         $siteAllInfo = $cache->get('siteAllInfo');
 
         if ($siteAllInfo === false) {
-            $startDay = Yii::$app->params['site']['WEB_START_DAY'];
+            $webStartDay = isset(Yii::$app->params['site']['WEB_START_DAY']) ? Yii::$app->params['site']['WEB_START_DAY'] : date('Y-m-d');
 
             $articleCount = Article::find()->count();
             $articleTagCount = ArticleTag::find()->count();
             $articleCategoryCount = ArticleCategory::find()->count();
             $CommemtCount = Comments::find()->count();
             $friendLinkCount = FriendLink::find()->count();
-            $runningDays = Date::diffDate($startDay);
+            $runningDays = Date::diffDate($webStartDay);
 
             $siteAllInfo = [
                 'articleCount' => $articleCount,

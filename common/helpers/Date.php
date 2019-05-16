@@ -66,6 +66,6 @@ class Date extends DateTime
             }
         }
 
-        return $formatString;
+        return $formatString ? $formatString : '1 天';
     }
 }
