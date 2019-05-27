@@ -56,7 +56,7 @@ class ArticleController extends Controller
             $filterWhere = ['category_id' => $categoryId];
             $breadcrumbItem = Yii::t('frontend', 'Category') . '：无';
 
-            if(!empty($articleCategoryData)) {
+            if (!empty($articleCategoryData)) {
                 $breadcrumbItem = Yii::t('frontend', 'Category') . '：' . $articleCategoryData->name;
             }
         }
