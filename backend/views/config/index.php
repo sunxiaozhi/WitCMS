@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\StringHelper;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\search\ConfigSearch */
@@ -24,8 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'columns' => [
                     'name',
                     'title',
-                    'value',
-
+                    [
+                        'attribute' => 'value',
+                        'content' => function($model) {
+                            return $model->value ? StringHelper::truncate($model->value, 20) : '';
+                        }
+                    ],
                     ['header' => '操作',
                         'class' => 'backend\grid\ActionColumn',
                         'template' => '{create} {update} {delete}',

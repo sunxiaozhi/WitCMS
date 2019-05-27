@@ -27,13 +27,13 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'title',
                         'options' => ['width' => '250px;']
                     ],
-                    [
+                    /*[
                         'attribute' => 'thumb',
                         'options' => ['width' => '100px;'],
                         'content' => function ($model) {
                             return Html::img(Url::toImage($model->thumb), ['width'=> '90px', 'height'=>'20px']);
                         },
-                    ],
+                    ],*/
                     [
                         'attribute' => 'category_id',
                         'label' => '分类',
