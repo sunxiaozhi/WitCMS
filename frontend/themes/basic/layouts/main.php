@@ -22,8 +22,9 @@ AppBasicAssest::register($this);
     <!-- Meta -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="keywords" content="<?= Html::encode(Yii::$app->params['site']['WEB_SITE_KEYWORDS'])?>" />
+    <meta name="description" content="<?= Html::encode(Yii::$app->params['site']['WEB_SITE_DESCRIPTION'])?>" />
+    <meta name="author" content="<?= Html::encode(Yii::$app->params['site']['WEB_SITE_AUTHOR'])?>" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <?= Html::csrfMetaTags() ?>
@@ -142,7 +143,7 @@ AppBasicAssest::register($this);
 				<!--<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
 				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>
 				<p class="margin-bottom-25">Unify is an incredibly beautiful responsive Bootstrap Template for corporate and creative professionals.</p>-->
-                <?= Yii::$app->params['site']['WEB_SITE_KEYWORD']?>
+                <?= Yii::$app->params['site']['WEB_SITE_ABOUT']?>
 
 	            <!-- Monthly Newsletter -->
 		        <!--<div class="headline"><h3>Monthly Newsletter</h3></div>
