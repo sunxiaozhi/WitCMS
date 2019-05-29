@@ -1,13 +1,18 @@
 <?php
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $breadcrumbTitle string */
+
 /* @var $breadcrumbItem string */
-//use frontend\widgets\ArticleListView;
+
 use frontend\widgets\articles\ArticlesListView;
 
+//标题
 $this->title = Yii::$app->params['site']['WEB_SITE_TITLE'];
-$this->params['breadcrumbTitle'] = $breadcrumbTitle;
-$this->params['breadcrumbItem'] = $breadcrumbItem;
+
+$this->params = [
+    'breadcrumbTitle' => $breadcrumbTitle,
+    'breadcrumbItem' => $breadcrumbItem,
+];
 ?>
 
 <div class="span9">
