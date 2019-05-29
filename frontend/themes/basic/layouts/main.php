@@ -100,7 +100,10 @@ AppBasicAssest::register($this);
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-10">
     <div class="container">
-        <h1 class="color-green pull-left"><?= $this->params['breadcrumbTitle']?><?= $this->params['breadcrumbItem']?></h1>
+        <h1 class="color-green pull-left">
+            <?= isset($this->params['breadcrumbTitle']) ? $this->params['breadcrumbTitle'] : '';?>
+            <?= isset($this->params['breadcrumbItem']) ? $this->params['breadcrumbItem'] : ''?>
+        </h1>
     </div>
 </div>
 <!--/breadcrumbs-->
