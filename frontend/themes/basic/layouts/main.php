@@ -7,7 +7,6 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use common\models\Article;
 use frontend\widgets\MenuView;
-use frontend\widgets\Breadcrumbs;
 use frontend\assets\AppBasicAssest;
 
 AppBasicAssest::register($this);
@@ -60,10 +59,6 @@ AppBasicAssest::register($this);
                 	<li class="active"><a href="#"><?= Yii::t('frontend', 'Chinese')?></a><i class="icon-ok"></i></li>
                 </ul>
             </li>
-            <!--<li class="devider">&nbsp;</li>
-            <li><a href="page_faq.html" class="login-btn">Help</a></li>
-            <li class="devider">&nbsp;</li>
-            <li><a href="page_login.html" class="login-btn">Login</a></li>-->
         </ul>
     </div>
 </div><!--/top-->
@@ -103,19 +98,11 @@ AppBasicAssest::register($this);
 <!--=== End Header ===-->
 
 <!--=== Breadcrumbs ===-->
-<!--<div class="breadcrumbs margin-bottom-20">
-	<div class="container">
-        <h1 class="color-green pull-left"><?/*= Yii::t('frontend','Latest Posts')*/?><span>标签：23423</span></h1>
-        <ul class="pull-right breadcrumb">
-            <li><a href="<?/*= Yii::$app->getHomeUrl()*/?>"><?/*= Yii::t('frontend', 'Home')*/?></a> <span class="divider">/</span></li>
-            <li class="active">Blog</li>
-        </ul>
+<div class="breadcrumbs margin-bottom-10">
+    <div class="container">
+        <h1 class="color-green pull-left"><?= $this->params['breadcrumbTitle']?><?= $this->params['breadcrumbItem']?></h1>
     </div>
-</div>-->
-<?= Breadcrumbs::widget([
-        'breadcrumbTitle' => isset($this->params['breadcrumbTitle']) ? $this->params['breadcrumbTitle'] : '',
-        'breadcrumbItem' => isset($this->params['breadcrumbItem']) ? $this->params['breadcrumbItem'] : '',
-]);?>
+</div>
 <!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->
 

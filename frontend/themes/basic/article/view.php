@@ -5,7 +5,6 @@
  * @var $next common\models\Article
  */
 
-//use Yii;
 use yii\helpers\Url;
 use kartik\markdown\Markdown;
 
