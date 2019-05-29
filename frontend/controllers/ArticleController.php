@@ -1,6 +1,5 @@
 <?php
 /**
- * WitCMS
  * 文章控制器
  * Author: sunxiaozhi
  * Date: 2018/10/13 11:59

@@ -1,9 +1,8 @@
 <?php
 /**
  * GridView的ActionColumn用于列表的查看、更新、删除等按钮
- * User: sunhuanzhi
- * Date: 2018/3/22
- * Time: 9:50
+ * User: sunxiaozhi
+ * Date: 2018/3/22 9:50
  */
 
 namespace backend\grid;
