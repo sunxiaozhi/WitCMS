@@ -24,9 +24,9 @@ class ArticleController extends Controller
      */
     public function actionIndex()
     {
-        $tagId = Yii::$app->getRequest()->get('tid');
-        $categoryId = Yii::$app->getRequest()->get('cid');
-        $search = Yii::$app->getRequest()->get('search');
+        $tagId = Yii::$app->getRequest()->get('tid');  //标签id
+        $categoryId = Yii::$app->getRequest()->get('cid'); //分类id
+        $search = Yii::$app->getRequest()->get('search'); //搜索词
 
         $where = ['status' => Article::STATUS_YES];
 
@@ -73,7 +73,7 @@ class ArticleController extends Controller
         }
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Article::find()->where($where)->andFilterWhere($filterWhere)->andFilterWhere($searchWhere)->orderBy('id desc'),
+            'query' => Article::find()->select('id,title,abstract,page_views,created_at')->where($where)->andFilterWhere($filterWhere)->andFilterWhere($searchWhere)->orderBy('id desc'),
         ]);
 
         return $this->render('index', [
