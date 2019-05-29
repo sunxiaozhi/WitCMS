@@ -1,9 +1,8 @@
 <?php
 /**
- * 后台用户登录记录.
+ * 后台用户登录记录
  * User: Sunxiaozhi
- * Date: 2019/4/25
- * Time: 9:23
+ * Date: 2019/4/25 9:23
  */
 
 namespace backend\behaviors;

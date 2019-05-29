@@ -3,7 +3,8 @@
 /* @var $content string */
 
 use yii\widgets\Breadcrumbs;
-use dmstr\widgets\Alert;
+//use dmstr\widgets\Alert;
+use common\widgets\Alert;
 
 ?>
 <div class="content-wrapper">

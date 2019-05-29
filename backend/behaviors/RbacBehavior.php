@@ -8,32 +8,21 @@ use common\models\Menu;
 use yii\web\ForbiddenHttpException;
 
 /**
- * RbacBehavior是用于权限检查，这个更简单的是继承\yii\filters\AccessControl，为了练习写行为，这里就继承了\yii\base\Behavior
- *
- * To use RbacBehavior, declare it in the application config as behavior.
- * For example.
- *
- * ~~~
+ * 使用方法：
  * 'as rbac' => [
  *     'class' => 'backend\behaviors\RbacBehavior',
  *     'allowActions' => ['site/login', 'site/error']
  * ]
- * ~~~
- *
  */
 class RbacBehavior extends \yii\base\Behavior
 {
-
     /**
      * @var array 无需权限检查的action
      */
     public $allowActions = [];
 
     /**
-     * ---------------------------------------
-     * 功能说明
      * @return array
-     * ---------------------------------------
      */
     public function events()
     {
@@ -43,20 +32,11 @@ class RbacBehavior extends \yii\base\Behavior
     }
 
     /**
-     * ---------------------------------------
-     * 控制器执行前的rbac处理
-     * @param $event \yii\base\ActionEvent 为什么是ActionEvent而不是Event，
-     *        因为yii/base/Controller第269行，事件参数是$event = new ActionEvent($action)
-     *
-     * 注意：ActionEvent::$isValid参数true/false分别表示继续执行或终止执行action，
-     *        所以验证成功后要$event->isValid = true，参考代码yii/base/Controller第152、270行
-     * @return boolean
-     * ---------------------------------------
-     */
-    /**
      * @param $event
      * @return bool
      * @throws ForbiddenHttpException
+     *
+     * @var $enent \yii\base\ActionEvent
      */
     public function rbacAction($event)
     {
@@ -80,23 +60,21 @@ class RbacBehavior extends \yii\base\Behavior
         if (Menu::checkRule($rule)) {
             return true;
         }
-        //echo 'Access Denied';
+
         $event->isValid = false; // 终止执行action
         $this->denyAccess();
     }
 
     /**
-     * Denies the access of the user. HTTP 403 您没有执行此操作的权限
-     * The default implementation will redirect the user to the login page if he is a guest;
-     * if the user is already logged, a 403 HTTP exception will be thrown.
-     * @throws ForbiddenHttpException if the user is already logged in.
+     * @throws ForbiddenHttpException
      */
     protected function denyAccess()
     {
         if (\Yii::$app->user->getIsGuest()) {
             \Yii::$app->user->loginRequired();
         } else {
-            throw new ForbiddenHttpException(Yii::t('yii', 'You are not allowed to perform this action.'));
+            Yii::$app->session->setFlash('error', '您没有执行此操作的权限');
+            Yii::$app->getResponse()->redirect(Yii::$app->request->referrer);
         }
     }
 }
