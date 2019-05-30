@@ -71,8 +71,10 @@ return [
             'site/login',
             'site/logout',
             'site/error',
+            'debug/*',
+            'gii/*',
         ],
-        'allowUsers' => [1, ]
+        'allowUsers' => [1,]
     ],
     'params' => $params,
 ];
