@@ -84,11 +84,6 @@ class Menu extends \yii\db\ActiveRecord
      */
     public static function checkRule($rule)
     {
-        /* 超级管理员允许访问任何页面 */
-        if(in_array(Yii::$app->user->id, Yii::$app->params['admin'])){
-            return true;
-        }
-
         /* rbac */
         if (!\Yii::$app->user->can($rule)) {
             return false;

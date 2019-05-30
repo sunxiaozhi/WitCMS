@@ -70,7 +70,8 @@ return [
         'allowActions' => [
             'site/login',
             'site/logout',
-        ]
+        ],
+        'allowIds' => [1]
     ],
     'params' => $params,
 ];

@@ -3,6 +3,7 @@
 namespace backend\behaviors;
 
 use Yii;
+use common\helpers\Url;
 use yii\base\Controller;
 use common\models\Menu;
 use yii\web\ForbiddenHttpException;
@@ -20,6 +21,11 @@ class RbacBehavior extends \yii\base\Behavior
      * @var array 无需权限检查的action
      */
     public $allowActions = [];
+
+    /**
+     * @var array  无需权限检查的id
+     */
+    public $allowIds = [];
 
     /**
      * @return array
@@ -40,29 +46,36 @@ class RbacBehavior extends \yii\base\Behavior
      */
     public function rbacAction($event)
     {
-        $event->isValid = true; // 继续执行action
+        /* 超级管理员允许访问任何页面 */
+        if(in_array(Yii::$app->user->id, $this->allowIds)){
+            return $event->isValid;
+        }
+
+        //$event->isValid = true; // 继续执行action
         $action = $event->action;
         $rule = $action->getUniqueId();
 
         foreach ($this->allowActions as $allow) {
             if (substr($allow, -1) == '*') {
                 if (strpos($rule, rtrim($allow, '*')) === 0) {
-                    return true;
+                    return $event->isValid;
                 }
             } else {
                 if ($rule == $allow) {
-                    return true;
+                    return $event->isValid;
                 }
             }
         }
 
         /* 权限检查 */
         if (Menu::checkRule($rule)) {
-            return true;
+            return $event->isValid;
         }
 
         $event->isValid = false; // 终止执行action
         $this->denyAccess();
+
+        return $event->isValid;
     }
 
     /**
@@ -73,8 +86,10 @@ class RbacBehavior extends \yii\base\Behavior
         if (\Yii::$app->user->getIsGuest()) {
             \Yii::$app->user->loginRequired();
         } else {
-            Yii::$app->session->setFlash('error', '您没有执行此操作的权限');
-            Yii::$app->getResponse()->redirect(Yii::$app->request->referrer);
+            //Yii::$app->session->setFlash('error', '您没有执行此操作的权限');
+            //Yii::$app->getResponse()->redirect(Yii::$app->getHomeUrl());
+
+            throw new ForbiddenHttpException('没有权限');
         }
     }
 }
