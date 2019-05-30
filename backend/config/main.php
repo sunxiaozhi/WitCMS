@@ -21,7 +21,7 @@ return [
         'view' => [
             'theme' => [
                 'pathMap' => [
-                    '@app/views' => '@backend/views/yii2-app'
+                    '@app/views' => '@backend/views/adminlte'
                 ],
             ],
         ],
@@ -70,8 +70,9 @@ return [
         'allowActions' => [
             'site/login',
             'site/logout',
+            'site/error',
         ],
-        'allowIds' => [1]
+        'allowUsers' => [1, ]
     ],
     'params' => $params,
 ];

@@ -25,7 +25,7 @@ class RbacBehavior extends \yii\base\Behavior
     /**
      * @var array  无需权限检查的id
      */
-    public $allowIds = [];
+    public $allowUsers = [];
 
     /**
      * @return array
@@ -47,11 +47,10 @@ class RbacBehavior extends \yii\base\Behavior
     public function rbacAction($event)
     {
         /* 超级管理员允许访问任何页面 */
-        if(in_array(Yii::$app->user->id, $this->allowIds)){
+        if(in_array(Yii::$app->user->id, $this->allowUsers)){
             return $event->isValid;
         }
 
-        //$event->isValid = true; // 继续执行action
         $action = $event->action;
         $rule = $action->getUniqueId();
 
@@ -86,10 +85,7 @@ class RbacBehavior extends \yii\base\Behavior
         if (\Yii::$app->user->getIsGuest()) {
             \Yii::$app->user->loginRequired();
         } else {
-            //Yii::$app->session->setFlash('error', '您没有执行此操作的权限');
-            //Yii::$app->getResponse()->redirect(Yii::$app->getHomeUrl());
-
-            throw new ForbiddenHttpException('没有权限');
+            throw new ForbiddenHttpException('您没有执行此操作的权限');
         }
     }
 }
