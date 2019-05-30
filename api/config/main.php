@@ -71,6 +71,11 @@ return [
                     'controller' => ['v1/goods'],
                     //'pluralize' => true  //自动复数化控制器
                 ],
+                /*[
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['v1/articles'],
+                    //'pluralize' => true  //自动复数化控制器
+                ],*/
             ]
         ],
     ],

@@ -12,7 +12,7 @@ use yii\helpers\ArrayHelper;
 use yii\data\ActiveDataProvider;
 use yii\data\Pagination;
 
-class GoodsController extends ActiveController
+class ArticlesController extends ActiveController
 {
     public $modelClass = 'common\models\Article';
 
