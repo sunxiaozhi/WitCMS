@@ -81,7 +81,7 @@ class Rabc extends Model
         $this->_item->name = $this->name;
         $this->_item->type = $this->type;
         $this->_item->description = $this->description;
-        if($this->ruleName) $this->_item->ruleName = $this->ruleName;
+        if ($this->ruleName) $this->_item->ruleName = $this->ruleName;
         $isNew ? $authManager->add($this->_item) : $authManager->update($oldName, $this->_item);
 
         return true;

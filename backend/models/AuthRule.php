@@ -1,11 +1,13 @@
 <?php
+
 namespace backend\models;
 
 use Yii;
 use yii\base\Model;
 use yii\rbac\Rule;
 
-class AuthRule extends Rule {
+class AuthRule extends Rule
+{
 
     public $name;
 
@@ -20,7 +22,8 @@ class AuthRule extends Rule {
      * @param array $params parameters passed to [[ManagerInterface::checkAccess()]].
      * @return boolean a value indicating whether the rule permits the auth item it is associated with.
      */
-    public function execute($user, $item, $params) {
+    public function execute($user, $item, $params)
+    {
         //var_dump($user);
         //var_dump($item);
         //var_dump($params);
@@ -32,15 +35,17 @@ class AuthRule extends Rule {
      * @param  [string] $name
      * @return [object]
      */
-    public function getRule($name) {
+    public function getRule($name)
+    {
         $this->_rule = Yii::$app->authManager->getRule($name);
         return $this->_rule;
     }
 
-    public function save() {
+    public function save()
+    {
         $authManager = Yii::$app->authManager;
         $this->_rule = $authManager->getRule($this->name);
-        if($this->_rule !== null) {
+        if ($this->_rule !== null) {
             $isNew = false;
             $oldName = $this->_rule->name;
         } else {
@@ -48,7 +53,7 @@ class AuthRule extends Rule {
             $this->_rule = $this;
         }
         $this->_rule->name = $this->name;
-        if($isNew) $authManager->add($this->_rule);
+        if ($isNew) $authManager->add($this->_rule);
         else $authManager->update($oldName, $this->_rule);
         //Helper::invalidate();
         return true;

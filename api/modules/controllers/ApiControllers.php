@@ -1,21 +1,18 @@
 <?php
+/**
+ * Api基础控制器
+ * User: sunxiaozhi
+ * Date: 2019/5/31 10:50
+ */
 
-namespace api\modules\v1\controllers;
+namespace api\modules\controllers;
 
-use api\models\Goods;
-use yii\rest\ActiveController;
-use yii\web\Response;
-use yii\filters\auth\CompositeAuth;
-use yii\filters\auth\QueryParamAuth;
-use yii\filters\RateLimiter;
 use yii\helpers\ArrayHelper;
-use yii\data\ActiveDataProvider;
-use yii\data\Pagination;
+use yii\web\Response;
+use yii\rest\ActiveController;
 
-class GoodsController extends ActiveController
+class ApiControllers extends ActiveController
 {
-    public $modelClass = 'api\models\Goods';
-
     public $serializer = [
         'class' => 'yii\rest\Serializer',
         'collectionEnvelope' => 'items',
@@ -67,7 +64,7 @@ class GoodsController extends ActiveController
                     //HttpBearerAuth::className(),
                     //3.请求参数: access token 当作API URL请求参数发送，这种方式应主要用于JSONP请求，因为它不能使用HTTP头来发送access token
                     //http://localhost/user/index/index?access-token=123
-                    QueryParamAuth::className(),
+                    //QueryParamAuth::className(),
                 ]
             ],
 
@@ -80,22 +77,4 @@ class GoodsController extends ActiveController
         ]);
     }
 
-    public function actions()
-    {
-        $actions = parent::actions();
-
-        unset($actions['index']);
-
-        return $actions;
-    }
-
-    //重写 $actions['index']
-    public function actionIndex()
-    {
-        return new ActiveDataProvider([
-            'query' => Goods::find(),
-            // 设置分页，比如每页5个条目
-            'pagination' => new Pagination(['pageSize' => 5])
-        ]);
-    }
 }
