@@ -13,6 +13,7 @@ use yii\web\ForbiddenHttpException;
  * 'as rbac' => [
  *     'class' => 'backend\behaviors\RbacBehavior',
  *     'allowActions' => ['site/login', 'site/error']
+ *     'allowUsers' => [1]
  * ]
  */
 class RbacBehavior extends \yii\base\Behavior
