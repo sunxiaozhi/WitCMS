@@ -8,6 +8,10 @@
 
 use backend\widgets\MenuView;
 
+//获取用户的权限组
+$roleAssignment = Yii::$app->authManager->getAssignments(Yii::$app->user->identity->id);
+reset($roleAssignment);
+
 /* @var $directoryAsset string */
 ?>
 
@@ -20,7 +24,8 @@ use backend\widgets\MenuView;
             </div>
             <div class="pull-left info">
                 <p><?= Yii::$app->user->identity->username ?></p>
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <i class="fa fa-circle text-success"></i> <?= key($roleAssignment)?>
+                <!--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>-->
             </div>
         </div>
 

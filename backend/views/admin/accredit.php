@@ -17,8 +17,7 @@ $this->params['title_sub'] = '';
                 <div class="mt-radio-list">
                     <?php foreach ($roles as $role) : ?>
                         <label class="mt-radio mt-radio-outline">
-                            <input class="flat-blue" type="radio" name="param"
-                                   value="<?= $role->name ?>" <?php echo in_array($role->name, $group) ? 'checked' : ''; ?> />
+                            <input class="flat-blue" type="radio" name="param" value="<?= $role->name ?>" <?php echo in_array($role->name, $group) ? 'checked' : ''; ?> />
                             <span></span>
                             <?= $role->name ?> (<?= $role->description ?>)
                         </label>

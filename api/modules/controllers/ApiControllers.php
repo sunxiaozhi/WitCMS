@@ -76,5 +76,4 @@ class ApiControllers extends ActiveController
             ]
         ]);
     }
-
 }
