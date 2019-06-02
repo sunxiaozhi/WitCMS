@@ -1,9 +1,9 @@
 /**app.wxss**/
+
 page {
   color: #686868;
-  font-size: 35rpx; 
+  font-size: 35rpx;
 }
-
 
 .container {
   height: 100%;
