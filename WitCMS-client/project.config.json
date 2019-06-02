@@ -15,7 +15,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
 	"appid": "wxfb0b751ad5ae76d4",
-	"projectname": "Witcms-client",
+	"projectname": "WitCMS-client",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

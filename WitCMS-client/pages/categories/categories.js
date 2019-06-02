@@ -1,29 +1,18 @@
-// pages/articles/articles.js
+// pages/categories/categories.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    articles: [
-      {
-        id: 1,
-        title: "文章",
-        views: 100,
-      },
-      {
-        id: 2,
-        title: "文章",
-        views: 100,
-      }
-    ]
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //console.log(articles)
+
   },
 
   /**
