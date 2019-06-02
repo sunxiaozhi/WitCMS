@@ -1,6 +1,0 @@
-<!--pages/about/about.wxml-->
-<view class='container'>
-  <view>
-    <image class="logo" src="../../images/logo.png"></image>
-  </view>
-</view>
