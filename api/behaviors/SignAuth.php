@@ -22,22 +22,28 @@ class SignAuth extends Behavior
     public function events()
     {
         return [
-            Controller::EVENT_BEFORE_ACTION => $this->checkSignAuth()
+            Controller::EVENT_BEFORE_ACTION => 'checkSignAuth'
         ];
     }
 
     /**
      * @throws UnprocessableEntityHttpException
      */
-    public function checkSignAuth()
+    public function checkSignAuth($event)
     {
         //timestamp、sign、appId、secretKey
+
+        //请求时间戳
         $timestamp = Yii::$app->request->get('timestamp', null);
 
-        if (empty($timestamp) || (time() - $timestamp) > Yii::$app->params['api']['time_difference']) {
+        $timestampStrat = time() - Yii::$app->params['api']['time_difference'];
+        $timestampEnd = time() + Yii::$app->params['api']['time_difference'];
+
+        if (empty($timestamp) || !($timestampStrat <= $timestamp && $timestamp <= $timestampEnd)) {
             throw new UnprocessableEntityHttpException('请求时间错误');
         }
 
+        //请求客户端
         $appId = Yii::$app->request->get('app_id', null);
 
         if (empty($appId) || !array_key_exists($appId, Yii::$app->params['api']['api_user'])) {

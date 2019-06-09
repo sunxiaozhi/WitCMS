@@ -75,6 +75,7 @@ class ApiControllers extends ActiveController
                 ]
             ],
 
+            //客户端请求签名验证
             'signAuth' => [
                 'class' => 'api\behaviors\SignAuth',
             ]
