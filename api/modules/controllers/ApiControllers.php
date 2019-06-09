@@ -73,6 +73,10 @@ class ApiControllers extends ActiveController
                 'formats' => [
                     'text/html' => Response::FORMAT_JSON
                 ]
+            ],
+
+            'signAuth' => [
+                'class' => 'api\behaviors\SignAuth',
             ]
         ]);
     }
