@@ -49,7 +49,12 @@ class ApiControllers extends ActiveController
 
         return $behaviors;*/
 
-        return ArrayHelper::merge(parent::behaviors(), [
+        return ArrayHelper::merge([
+            //客户端请求签名验证
+            'signAuth' => [
+                'class' => 'api\behaviors\SignAuth',
+            ],
+
             //速率限制
             'rateLimiter' => [
                 'enableRateLimitHeaders' => true,
@@ -77,11 +82,6 @@ class ApiControllers extends ActiveController
                     'text/html' => Response::FORMAT_JSON
                 ]
             ],
-
-            //客户端请求签名验证
-            'signAuth' => [
-                'class' => 'api\behaviors\SignAuth',
-            ]
-        ]);
+        ], parent::behaviors());
     }
 }
