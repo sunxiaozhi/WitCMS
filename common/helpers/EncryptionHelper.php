@@ -50,8 +50,8 @@ class EncryptionHelper
      */
     public static function decodeUrlParam($params, $appSecret, $signName = 'sign')
     {
-        // 验证必填参数 time/nonceStr/appId/signature
-        if (!isset($params['sign'])) {
+        // 验证sign
+        if (!isset($params[$signName])) {
             throw new UnprocessableEntityHttpException('校验sign缺失');
         }
 
