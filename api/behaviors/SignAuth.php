@@ -52,23 +52,6 @@ class SignAuth extends Behavior
 
         $appSecret = isset(Yii::$app->params['api']['api_user'][$appId]) ? Yii::$app->params['api']['api_user'][$appId] : '';
 
-        $params = Yii::$app->getRequest()->get();
-
-        return $this->verifySign($params, $appSecret);
-    }
-
-    /**
-     * 校验sign
-     * @param $params
-     * @return bool
-     * @throws UnprocessableEntityHttpException
-     */
-    protected function verifySign($params, $appSecret)
-    {
-        if (empty($params)) {
-            throw new UnprocessableEntityHttpException('请求验签失败');
-        }
-
-        return EncryptionHelper::decodeUrlParam($params, $appSecret);
+        return EncryptionHelper::decodeUrlParam(Yii::$app->getRequest()->get(), $appSecret);
     }
 }
