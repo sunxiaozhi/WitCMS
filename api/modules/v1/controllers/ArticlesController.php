@@ -16,6 +16,8 @@ class ArticlesController extends ApiControllers
 {
     public $modelClass = 'common\models\Article';
 
+    protected $optional = ['index'];
+
     public function actions()
     {
         $actions = parent::actions();
@@ -29,7 +31,7 @@ class ArticlesController extends ApiControllers
     public function actionIndex()
     {
         return new ActiveDataProvider([
-            'query' => Article::find(),
+            'query' => Article::find()->select('id, title, created_at'),
             // 设置分页，比如每页5个条目
             'pagination' => new Pagination(['pageSize' => 5])
         ]);

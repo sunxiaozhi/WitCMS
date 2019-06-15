@@ -14,6 +14,15 @@ use yii\filters\auth\QueryParamAuth;
 
 class ApiControllers extends ActiveController
 {
+    /**
+     * 不用进行登录验证的方法
+     * 例如： ['index', 'update', 'create', 'view', 'delete']
+     * 默认全部需要验证
+     *
+     * @var array
+     */
+    protected $optional = [];
+
     public $serializer = [
         'class' => 'yii\rest\Serializer',
         'collectionEnvelope' => 'items',
@@ -73,7 +82,8 @@ class ApiControllers extends ActiveController
                     //3.请求参数: access token 当作API URL请求参数发送，这种方式应主要用于JSONP请求，因为它不能使用HTTP头来发送access token
                     //http://localhost/user/index/index?access-token=123
                     QueryParamAuth::className(),
-                ]
+                ],
+                'optional' => $this->optional
             ],
 
             //格式化应答数据

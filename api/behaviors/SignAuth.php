@@ -52,6 +52,6 @@ class SignAuth extends Behavior
 
         $appSecret = isset(Yii::$app->params['api']['api_user'][$appId]) ? Yii::$app->params['api']['api_user'][$appId] : '';
 
-        return EncryptionHelper::decodeUrlParam(Yii::$app->getRequest()->get(), $appSecret);
+        return EncryptionHelper::decodeUrlParams(Yii::$app->getRequest()->get(), $appSecret);
     }
 }

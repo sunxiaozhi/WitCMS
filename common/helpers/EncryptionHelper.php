@@ -18,7 +18,7 @@ class EncryptionHelper
      * @param string $signName
      * @return bool|string
      */
-    public static function createUrlParam($params, $appSecret, $signName = 'sign')
+    public static function createUrlParams($params, $appSecret, $signName = 'sign')
     {
         $paramsStr = "";
         ksort($params);
@@ -48,7 +48,7 @@ class EncryptionHelper
      * @return bool
      * @throws UnprocessableEntityHttpException
      */
-    public static function decodeUrlParam($params, $appSecret, $signName = 'sign')
+    public static function decodeUrlParams($params, $appSecret, $signName = 'sign')
     {
         // 验证sign
         if (!isset($params[$signName])) {
