@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use common\helpers\DependencyFileHelper;
 
 /**
  * This is the model class for table "{{%friend_link}}".
