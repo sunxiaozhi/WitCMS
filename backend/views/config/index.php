@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'attribute' => 'value',
                         'content' => function($model) {
-                            return $model->value ? StringHelper::truncate($model->value, 20) : '';
+                            return $model->value ? Html::encode(StringHelper::truncate($model->value, 20)) : '';
                         }
                     ],
                     ['header' => '操作',

@@ -29,6 +29,7 @@ AppBasicAssest::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <?= Yii::$app->params['site']['WEB_STATISTICAL_CODE'] ?>
 </head>
 
 <body>
