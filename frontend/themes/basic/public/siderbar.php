@@ -67,7 +67,7 @@ use common\models\ArticleTagRelation;
     <div class="headline"><h3><?= Yii::t('frontend', 'Friend Link') ?></h3></div>
     <ul class="unstyled inline blog-tags">
         <?php
-            $FriendLinks = FriendLink::find()->select(['name', 'url', 'target'])->where(['status' => FriendLink::STATUS_YES])->orderBy(['sort' => SORT_DESC, 'id' => SORT_DESC])->all();
+            $FriendLinks = FriendLink::find()->select(['name', 'url', 'target'])->where(['status' => FriendLink::STATUS_YES])->orderBy(['sort' => SORT_DESC, 'id' => SORT_ASC])->all();
             foreach ($FriendLinks as $FriendLink) {
                 $url = $FriendLink->url;
                 echo '<li><a target="'. $FriendLink->target .'" href="' . $url . '"><i class="fa fa-link"></i> ' . $FriendLink->name . '</a></li>';
