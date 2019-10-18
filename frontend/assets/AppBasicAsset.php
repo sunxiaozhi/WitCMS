@@ -9,7 +9,7 @@ namespace frontend\assets;
 
 use yii\web\AssetBundle;
 
-class AppBasicAssest extends AssetBundle
+class AppBasicAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web/static/basic';

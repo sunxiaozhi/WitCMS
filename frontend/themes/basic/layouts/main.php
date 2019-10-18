@@ -7,9 +7,9 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use common\models\Article;
 use frontend\widgets\MenuView;
-use frontend\assets\AppBasicAssest;
+use frontend\assets\AppBasicAsset;
 
-AppBasicAssest::register($this);
+AppBasicAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
