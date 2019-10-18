@@ -27,7 +27,10 @@ class SiteInfo extends Component
      */
     public function getSiteAllInfo()
     {
+        //加载cache组件
         $cache = Yii::$app->getCache();
+
+        //获取网站信息
         $siteAllInfo = $cache->get('siteAllInfo');
 
         if ($siteAllInfo === false) {
@@ -36,7 +39,7 @@ class SiteInfo extends Component
             $articleCount = Article::find()->count();
             $articleTagCount = ArticleTag::find()->count();
             $articleCategoryCount = ArticleCategory::find()->count();
-            $CommemtCount = Comments::find()->count();
+            $commentCount = Comments::find()->count();
             $friendLinkCount = FriendLink::find()->count();
             $runningDays = Date::diffDate($webStartDay);
 
@@ -44,7 +47,7 @@ class SiteInfo extends Component
                 'articleCount' => $articleCount,
                 'articleTagCount' => $articleTagCount,
                 'articleCategoryCount' => $articleCategoryCount,
-                'CommemtCount' => $CommemtCount,
+                'commentCount' => $commentCount,
                 'friendLinkCount' => $friendLinkCount,
                 'runningDays' => $runningDays,
             ];
@@ -66,7 +69,7 @@ class SiteInfo extends Component
             'articleCount' => 0,
             'articleTagCount' => 0,
             'articleCategoryCount' => 0,
-            'CommemtCount' => 0,
+            'commentCount' => 0,
             'friendLinkCount' => 0,
             'runningDays' => '1 天',
         ];

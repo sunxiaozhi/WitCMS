@@ -24,7 +24,7 @@ class DependencyFileHelper extends BaseObject
      */
     public function createDependencyFile()
     {
-        $dependencyFileName = $this->getdependencyFileName();
+        $dependencyFileName = $this->getDependencyFileName();
 
         if (!file_exists(dirname($dependencyFileName))) {
             FileHelper::createDirectory(dirname($dependencyFileName));
@@ -40,7 +40,7 @@ class DependencyFileHelper extends BaseObject
      */
     public function updateDependencyFile()
     {
-        $dependencyFileName = $this->getdependencyFileName();
+        $dependencyFileName = $this->getDependencyFileName();
         if (file_exists($dependencyFileName)) {
             file_put_contents($dependencyFileName, time());
         }
@@ -50,7 +50,7 @@ class DependencyFileHelper extends BaseObject
      * 获取缓存依赖文件名
      * @return bool|string
      */
-    protected function getdependencyFileName()
+    protected function getDependencyFileName()
     {
         return Yii::getAlias($this->rootDir . $this->dependencyFileName);
     }
