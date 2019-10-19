@@ -28,8 +28,8 @@ class Article extends ArticleBase
     const STATUS_YES = 1;
     const STATUS_NO = 0;
 
-    const ARTICLE =0;
-    const PAGE =1;
+    const ARTICLE = 0;
+    const PAGE = 1;
 
     const RECOMMEND_YES = 1;
     const RECOMMEND_NO = 0;
@@ -52,7 +52,7 @@ class Article extends ArticleBase
         return [
             //[['created_at', 'updated_at'], 'required'],
             //[['created_at', 'updated_at'], 'integer'],
-            [['title','category_id'], 'required'],
+            [['title', 'category_id'], 'required'],
             [['title', 'sub_title', 'abstract'], 'string', 'max' => 255],
             [['content', 'seo_title', 'seo_keywords', 'seo_description',], 'string'],
             [['sort', 'status', 'type', 'is_recommend'], 'integer'],
@@ -114,7 +114,8 @@ class Article extends ArticleBase
      * @return \yii\db\ActiveQuery
      * @throws \yii\base\InvalidConfigException
      */
-    public function getArticleTag() {
-        return $this->hasMany(ArticleTag::className(), ['id' => 'tag_id'])->viaTable(ArticleTagRelation::tableName(),['article_id' => 'id']);
+    public function getArticleTag()
+    {
+        return $this->hasMany(ArticleTag::className(), ['id' => 'tag_id'])->viaTable(ArticleTagRelation::tableName(), ['article_id' => 'id']);
     }
 }

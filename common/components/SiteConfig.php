@@ -21,8 +21,10 @@ class SiteConfig extends Component
      */
     public static function getSiteConfigs()
     {
+        //加载cache组件
         $cache = Yii::$app->getCache();
 
+        //获取配置
         $configs = $cache->get('configs');
 
         if ($configs === false) {
