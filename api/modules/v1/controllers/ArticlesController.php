@@ -16,7 +16,7 @@ class ArticlesController extends ApiControllers
 {
     public $modelClass = 'common\models\Article';
 
-    protected $optional = ['index'];
+    protected $optional = ['index', 'view'];
 
     public function actions()
     {
