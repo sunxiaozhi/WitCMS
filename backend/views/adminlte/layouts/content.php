@@ -44,13 +44,12 @@ use common\widgets\Alert;
     </section>
 </div>
 
-<footer class="main-footer">
+<!--<footer class="main-footer">
     <div class="pull-right hidden-xs">
         <b>Version</b> 2.0
     </div>
-    <strong>Copyright &copy; 2014-<?= date('Y')?> <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
-    reserved.
-</footer>
+    <strong>Copyright &copy; 2014-<?/*= date('Y')*/?> <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
+</footer>-->
 
 <!-- Control Sidebar -->
 <aside class="control-sidebar control-sidebar-dark">

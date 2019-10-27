@@ -1,4 +1,5 @@
 <?php
+
 namespace backend\controllers;
 
 use Yii;
@@ -81,7 +82,7 @@ class SiteController extends Controller
             'MAX_EXECUTION_TIME' => ini_get('max_execution_time') . "s",
         ];
 
-        return $this->render('index',[
+        return $this->render('index', [
             'info' => $info
         ]);
     }
