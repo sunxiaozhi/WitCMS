@@ -23,27 +23,39 @@ class ArticleController extends Controller
      */
     public function actionIndex()
     {
-        $tagId = Yii::$app->getRequest()->get('tid');  //标签id
-        $categoryId = Yii::$app->getRequest()->get('cid'); //分类id
-        $search = Yii::$app->getRequest()->get('search'); //搜索词
+        //标签id
+        $tagId = Yii::$app->getRequest()->get('tid');
 
+        //分类id
+        $categoryId = Yii::$app->getRequest()->get('cid');
+
+        //搜索词
+        $search = Yii::$app->getRequest()->get('search');
+
+        //查询条件
         $where = ['status' => Article::STATUS_YES];
 
-        $articleIdArr = $filterWhere = $searchWhere = [];
+        //文章id数组       查询条件        查询条件
+        $articleIdArray = $filterWhere = $searchWhere = [];
 
+        //面包屑导航
         $breadcrumbTitle = Yii::t('frontend', 'Latest Articles');
         $breadcrumbItem = '';
 
         //标签搜索
         if (!empty($tagId)) {
-            $articleTagDatas = ArticleTagRelation::find()->joinWith('articleTag')->select([])->where(['tag_id' => $tagId])->all();
+            $articleTagDatas = ArticleTagRelation::find()
+                ->joinWith('articleTag')
+                ->select([])
+                ->where(['tag_id' => $tagId])
+                ->all();
             if (!empty($articleTagDatas)) {
                 foreach ($articleTagDatas as $articleTagData) {
-                    array_push($articleIdArr, $articleTagData->article_id);
+                    array_push($articleIdArray, $articleTagData->article_id);
                     $breadcrumbItem = Yii::t('frontend', 'Tag') . '：' . $articleTagData->articleTag->name;
                 }
 
-                $filterWhere = ['in', 'id', $articleIdArr];
+                $filterWhere = ['in', 'id', $articleIdArray];
             }
         }
 
@@ -55,7 +67,7 @@ class ArticleController extends Controller
             $filterWhere = ['category_id' => $categoryId];
             $breadcrumbItem = Yii::t('frontend', 'Category') . '：无';
 
-            if(!empty($articleCategoryData)) {
+            if (!empty($articleCategoryData)) {
                 $breadcrumbItem = Yii::t('frontend', 'Category') . '：' . $articleCategoryData->name;
             }
         }
@@ -72,7 +84,12 @@ class ArticleController extends Controller
         }
 
         $dataProvider = new ActiveDataProvider([
-            'query' => Article::find()->select('id,title,abstract,page_views,created_at')->where($where)->andFilterWhere($filterWhere)->andFilterWhere($searchWhere)->orderBy('id desc'),
+            'query' => Article::find()
+                ->select('id,title,abstract,page_views,created_at')
+                ->where($where)
+                ->andFilterWhere($filterWhere)
+                ->andFilterWhere($searchWhere)
+                ->orderBy('id desc'),
         ]);
 
         return $this->render('index', [
@@ -100,7 +117,7 @@ class ArticleController extends Controller
         Article::updateAllCounters(['page_views' => 1], ['id' => $id]);
 
         //获取前一篇文章
-        $prev = Article::find()
+        $previousArticle = Article::find()
             ->where(['category_id' => $model->category_id])
             ->andWhere(['>', 'id', $id])
             ->orderBy("sort asc,created_at desc,id desc")
@@ -108,7 +125,7 @@ class ArticleController extends Controller
             ->one();
 
         //获取后一篇文章
-        $next = Article::find()
+        $nextArticle = Article::find()
             ->where(['category_id' => $model->category_id])
             ->andWhere(['<', 'id', $id])
             ->orderBy("sort desc,created_at desc,id asc")
@@ -117,8 +134,8 @@ class ArticleController extends Controller
 
         return $this->render('view', [
             'model' => $model,
-            'prev' => $prev,
-            'next' => $next,
+            'previousArticle' => $previousArticle,
+            'nextArticle' => $nextArticle,
         ]);
     }
 }

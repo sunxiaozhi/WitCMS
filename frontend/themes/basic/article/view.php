@@ -1,8 +1,8 @@
 <?php
 /**
  * @var $model common\models\Article
- * @var $prev common\models\Article
- * @var $next common\models\Article
+ * @var $previousArticle common\models\Article
+ * @var $nextArticle common\models\Article
  */
 
 use yii\helpers\Url;
@@ -42,14 +42,14 @@ $this->params['breadcrumbTitle'] = '文章';
 
     <div class="blog-skip">
         <?php
-        if ($prev != null) {
+        if ($previousArticle != null) {
         ?>
-        <span class="blog-skip-left"><a href="<?= Url::to(['article/view', 'id' => $prev->id]) ?>"><i class="fa fa-angle-double-left"></i><?= $prev->title?></a></span>
+        <span class="blog-skip-left"><a href="<?= Url::to(['article/view', 'id' => $previousArticle->id]) ?>"><i class="fa fa-angle-double-left"></i><?= $previousArticle->title?></a></span>
         <?php }?>
         <?php
-        if ($next != null) {
+        if ($nextArticle != null) {
         ?>
-        <span class="blog-skip-right"><a href="<?= Url::to(['article/view', 'id' => $next->id]) ?>"><?= $next->title?><i class="fa fa-angle-double-right"></i></a></span>
+        <span class="blog-skip-right"><a href="<?= Url::to(['article/view', 'id' => $nextArticle->id]) ?>"><?= $nextArticle->title?><i class="fa fa-angle-double-right"></i></a></span>
         <?php }?>
     </div>
 
