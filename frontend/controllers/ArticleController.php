@@ -123,6 +123,7 @@ class ArticleController extends Controller
         $previousArticle = Article::find()
             ->where(['category_id' => $model->category_id])
             ->andWhere(['>', 'id', $id])
+            ->select(['id', 'title'])
             ->orderBy("sort asc,created_at desc,id desc")
             ->limit(1)
             ->one();
@@ -131,6 +132,7 @@ class ArticleController extends Controller
         $nextArticle = Article::find()
             ->where(['category_id' => $model->category_id])
             ->andWhere(['<', 'id', $id])
+            ->select(['id', 'title'])
             ->orderBy("sort desc,created_at desc,id asc")
             ->limit(1)
             ->one();
