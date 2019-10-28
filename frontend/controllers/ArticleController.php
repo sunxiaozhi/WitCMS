@@ -44,13 +44,16 @@ class ArticleController extends Controller
 
         //标签搜索
         if (!empty($tagId)) {
-            $articleTagDatas = ArticleTagRelation::find()
+            //所有文章标签数据
+            $allArticleTagData = ArticleTagRelation::find()
                 ->joinWith('articleTag')
                 ->select([])
                 ->where(['tag_id' => $tagId])
                 ->all();
-            if (!empty($articleTagDatas)) {
-                foreach ($articleTagDatas as $articleTagData) {
+
+            if (!empty($allArticleTagData)) {
+                /* @var $articleTagData \common\models\ArticleTagRelation */
+                foreach ($allArticleTagData as $articleTagData) {
                     array_push($articleIdArray, $articleTagData->article_id);
                     $breadcrumbItem = Yii::t('frontend', 'Tag') . '：' . $articleTagData->articleTag->name;
                 }

@@ -46,7 +46,8 @@ class ArticleTagRelation extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getArticleTag() {
+    public function getArticleTag()
+    {
         return $this->hasOne(ArticleTag::className(), ['id' => 'tag_id']);
     }
 }
