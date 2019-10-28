@@ -6,7 +6,6 @@ use Yii;
 use backend\models\Article;
 use common\models\ArticleCategory;
 use backend\models\search\ArticleSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\helpers\Tree;
@@ -14,8 +13,15 @@ use backend\helpers\Tree;
 /**
  * ArticleController implements the CRUD actions for Article model.
  */
-class ArticleController extends Controller
+class ArticleController extends BackendBaseController
 {
+    public function init()
+    {
+        $this->_model = new Article();
+
+        parent::init();
+    }
+
     /**
      * @inheritdoc
      */
@@ -112,20 +118,5 @@ class ArticleController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
-    }
-
-    /**
-     * 根据主键值查找文章分类模型
-     * @param string $id
-     * @return Article the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Article::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('backend', 'The requested page does not exist.'));
     }
 }

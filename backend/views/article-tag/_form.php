@@ -18,8 +18,6 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'alias')->textInput(['maxlength' => true]) ?>
 
-            <?= $form->field($model, 'sort')->textInput(['maxlength' => true]) ?>
-
             <?= $form->field($model, 'remark')->textInput(['maxlength' => true]) ?>
 
             <div class="form-group">

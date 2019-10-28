@@ -5,15 +5,21 @@ namespace backend\controllers;
 use Yii;
 use common\models\Admin;
 use backend\models\search\AdminSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
  * AdminController implements the CRUD actions for Admin model.
  */
-class AdminController extends Controller
+class AdminController extends BackendBaseController
 {
+    public function init()
+    {
+        $this->_model = new Admin();
+
+        parent::init();
+    }
+
     /**
      * @inheritdoc
      */
@@ -45,20 +51,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Displays a single Admin model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new Admin model.
+     * 创建管理员.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -82,7 +75,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Updates an existing Admin model.
+     * 更新管理员.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -103,36 +96,6 @@ class AdminController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
-    }
-
-    /**
-     * Deletes an existing Admin model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the Admin model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Admin the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Admin::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('backend', 'The requested page does not exist.'));
     }
 
     /**

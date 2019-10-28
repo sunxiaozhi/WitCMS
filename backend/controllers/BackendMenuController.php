@@ -5,7 +5,6 @@ namespace backend\controllers;
 use Yii;
 use common\models\Menu;
 use backend\models\search\MenuSearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\helpers\Tree;
@@ -13,8 +12,15 @@ use backend\helpers\Tree;
 /**
  * BackendMenuController implements the CRUD actions for Menu model.
  */
-class BackendMenuController extends Controller
+class BackendMenuController extends BackendBaseController
 {
+    public function init()
+    {
+        $this->_model = new Menu();
+
+        parent::init();
+    }
+
     /**
      * @inheritdoc
      */
@@ -103,33 +109,5 @@ class BackendMenuController extends Controller
                 'treeArr' => $menuTree->getTree(),
             ]);
         }
-    }
-
-    /**
-     * 后台菜单删除
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * 根据主键值查找菜单模型
-     * @param string $id
-     * @return Menu the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Menu::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('backend', 'The requested page does not exist.'));
     }
 }

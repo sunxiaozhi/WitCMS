@@ -5,7 +5,6 @@ namespace backend\controllers;
 use Yii;
 use common\models\ArticleCategory;
 use backend\models\search\ArticleCategorySearch;
-use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use backend\helpers\Tree;
@@ -13,8 +12,15 @@ use backend\helpers\Tree;
 /**
  * ArticleCategoryController implements the CRUD actions for ArticleCategory model.
  */
-class ArticleCategoryController extends Controller
+class ArticleCategoryController extends BackendBaseController
 {
+    public function init()
+    {
+        $this->_model = new ArticleCategory();
+
+        parent::init();
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -65,11 +71,11 @@ class ArticleCategoryController extends Controller
             //获取文章分类
             $articleCategories = ArticleCategory::find()->asArray()->all();
 
-            $articleCategorieTree = new Tree($articleCategories);
+            $articleCategoriesTree = new Tree($articleCategories);
 
             return $this->render('create', [
                 'model' => $model,
-                'treeArr' => $articleCategorieTree->getTree(),
+                'treeArr' => $articleCategoriesTree->getTree(),
             ]);
         }
     }
@@ -90,40 +96,12 @@ class ArticleCategoryController extends Controller
             //获取文章分类
             $articleCategories = ArticleCategory::find()->asArray()->all();
 
-            $articleCategorieTree = new Tree($articleCategories);
+            $articleCategoriesTree = new Tree($articleCategories);
 
             return $this->render('update', [
                 'model' => $model,
-                'treeArr' => $articleCategorieTree->getTree(),
+                'treeArr' => $articleCategoriesTree->getTree(),
             ]);
         }
-    }
-
-    /**
-     * 文章分类删除
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * 根据主键值查找文章分类模型
-     * @param string $id
-     * @return ArticleCategory the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = ArticleCategory::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException(Yii::t('backend', 'The requested page does not exist.'));
     }
 }

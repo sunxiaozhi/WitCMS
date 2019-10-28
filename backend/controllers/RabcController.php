@@ -63,7 +63,8 @@ class RabcController extends Controller
      * @return \yii\web\Response
      * @throws NotFoundHttpException
      */
-    public function actionDelete($id) {
+    public function actionDelete($id)
+    {
         $model = $this->findModel($id);
         Yii::$app->authManager->remove($model->item);
         return $this->redirect(['index']);
@@ -105,11 +106,12 @@ class RabcController extends Controller
     }
 
 
-    public function actionAuth($id) {
+    public function actionAuth($id)
+    {
         $authManager = Yii::$app->authManager;
-        if(Yii::$app->request->isPost) {
+        if (Yii::$app->request->isPost) {
             $rules = Yii::$app->request->post('rules', []);
-            if(!$role = $authManager->getRole($id)) {
+            if (!$role = $authManager->getRole($id)) {
                 Yii::$app->session->setFlash('error', '角色不存在');
             }
             //删除角色所有child
@@ -129,7 +131,7 @@ class RabcController extends Controller
                 $itemModel->save();
 
                 //auth_item_child表
-                if(!$authManager->hasChild($role, $itemModel)) {
+                if (!$authManager->hasChild($role, $itemModel)) {
                     $authManager->addChild($role, $itemModel);
                 }
             }

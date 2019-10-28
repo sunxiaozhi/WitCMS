@@ -10,13 +10,17 @@ namespace backend\controllers;
 use Yii;
 use \yii\web\Response;
 use common\models\ImgUploadFile;
-use yii\web\Controller;
 use yii\web\UploadedFile;
 use yii\helpers\Url;
 
-class ImgUploadController extends Controller
+class ImgUploadController extends BackendBaseController
 {
-    public function actionAsyncphoto()
+    /**
+     * 图片上传
+     * @return array
+     * @throws \yii\base\Exception
+     */
+    public function actionAsyncPhoto()
     {
         Yii::$app->response->format = Response::FORMAT_JSON;
 

@@ -15,9 +15,45 @@ class BackendBaseController extends Controller
 {
     /**
      * 模型
-     * @var $model \yii\db\BaseActiveRecord
+     * @var $_model \yii\db\BaseActiveRecord
      */
-    protected $model = null;
+    protected $_model = null;
+
+    /**
+     * 查看
+     * @param $id
+     * @return string
+     * @throws NotFoundHttpException
+     */
+    public function actionView($id)
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+    /**
+     * 创建
+     * @return string|\yii\web\Response
+     *
+     *
+     */
+    public function actionCreate()
+    {
+        //实例化模型
+        $model = new $this->_model();
+
+        //加载默认值
+        $model->loadDefaultValues();
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['index']);
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
 
     /**
      * 更新
@@ -59,11 +95,11 @@ class BackendBaseController extends Controller
      */
     protected function findModel($id)
     {
-        if ($this->model === null) {
+        if ($this->_model === null) {
             throw new NotFoundHttpException(Yii::t('backend', 'The requested page does not exist.'));
         }
 
-        if (($model = $this->model->findOne($id)) !== null) {
+        if (($model = $this->_model->findOne($id)) !== null) {
             return $model;
         }
 
