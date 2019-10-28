@@ -20,9 +20,15 @@ class AdminLoginLogs extends Behavior
         ];
     }
 
+    /**
+     * 登录日志
+     * @param $event
+     * @return bool
+     */
     public function addAdminLoginLogs($event)
     {
         /* @var $model \common\models\Admin */
+
         $model = $event->identity;
         $model->login_ip = Yii::$app->request->getUserIP();
         $model->login_num += 1;
