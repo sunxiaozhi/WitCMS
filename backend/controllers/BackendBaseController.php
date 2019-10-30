@@ -15,12 +15,14 @@ class BackendBaseController extends Controller
 {
     /**
      * 模型
+     *
      * @var $_model \yii\db\BaseActiveRecord
      */
     protected $_model = null;
 
     /**
      * 查看
+     *
      * @param $id
      * @return string
      * @throws NotFoundHttpException
@@ -34,9 +36,10 @@ class BackendBaseController extends Controller
 
     /**
      * 创建
+     *
      * @return string|\yii\web\Response
      *
-     *
+     * @var $model \yii\db\ActiveRecord
      */
     public function actionCreate()
     {
@@ -57,6 +60,7 @@ class BackendBaseController extends Controller
 
     /**
      * 更新
+     *
      * @param $id
      * @return string|\yii\web\Response
      * @throws NotFoundHttpException
@@ -76,6 +80,7 @@ class BackendBaseController extends Controller
 
     /**
      * 删除
+     *
      * @param $id
      * @return \yii\web\Response
      * @throws NotFoundHttpException
@@ -89,6 +94,7 @@ class BackendBaseController extends Controller
 
     /**
      * 查找数据模型
+     *
      * @param $id
      * @return mixed
      * @throws NotFoundHttpException

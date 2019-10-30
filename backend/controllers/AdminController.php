@@ -52,10 +52,11 @@ class AdminController extends BackendBaseController
 
     /**
      * 创建管理员.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
+     *
+     * @return string|\yii\web\Response
+     * @throws \yii\base\Exception
      */
-    public function actionCreate()
+    /*public function actionCreate()
     {
         $model = new Admin();
 
@@ -72,16 +73,18 @@ class AdminController extends BackendBaseController
         return $this->render('create', [
             'model' => $model,
         ]);
-    }
+    }*/
 
     /**
      * 更新管理员.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     *
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
+     *
+     * @var $model \common\models\Admin
      */
-    public function actionUpdate($id)
+    /*public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
@@ -94,6 +97,30 @@ class AdminController extends BackendBaseController
         }
 
         return $this->render('update', [
+            'model' => $model,
+        ]);
+    }*/
+
+    /**
+     * 修改管理员密码
+     *
+     * @param $id
+     * @return string|\yii\web\Response
+     * @throws NotFoundHttpException
+     */
+    public function actionChangePassword($id)
+    {
+        $model = $this->findModel($id);
+
+        if (Yii::$app->getRequest()->getIsPost()) {
+            if ($model->load(Yii::$app->request->post())) {
+                if ($user = $model->adminSave()) {
+                    return $this->redirect(['index']);
+                }
+            }
+        }
+
+        return $this->render('change-password', [
             'model' => $model,
         ]);
     }

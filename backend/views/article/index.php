@@ -61,11 +61,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => ['date', 'php:Y-m-d H:i'],
                         'options' => ['width' => '160px;']
                     ],
-                    [
+                    /*[
                         'attribute' => 'updated_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
                         'options' => ['width' => '160px;']
-                    ],
+                    ],*/
                     [
                         'class' => 'backend\grid\ActionColumn',
                         'template' => '{update} {delete}'

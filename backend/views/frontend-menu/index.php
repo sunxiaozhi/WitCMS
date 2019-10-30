@@ -62,7 +62,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'sort',
                         'options' => ['width' => '80px;']
                     ],
-                    [
+                   /* [
                         'attribute' => 'created_at',
                         'format' => ['date', 'php:Y-m-d H:i:s'],
                         'options' => ['width' => '200px;']
@@ -71,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'attribute' => 'updated_at',
                         'format' => ['date', 'php:Y-m-d H:i:s'],
                         'options' => ['width' => '200px;']
-                    ],
+                    ],*/
                     [
                         'header' => '操作',
                         'class' => 'backend\grid\ActionColumn',

@@ -18,6 +18,7 @@ class ActionColumn extends \yii\grid\ActionColumn
     {
         $this->initDefaultButton('view', 'eye-open', ['class' => 'btn btn-info btn-xs']);
         $this->initDefaultButton('update', 'pencil', ['class' => 'btn btn-primary btn-xs']);
+        $this->initDefaultButton('change-password', 'key', ['class' => 'btn btn-primary btn-xs']);
         $this->initDefaultButton('auth', 'lock', ['class' => 'btn btn-success btn-xs']);
         $this->initDefaultButton('accredit', 'user', ['class' => 'btn btn-success btn-xs']);
         $this->initDefaultButton('delete', 'trash', [
@@ -37,6 +38,9 @@ class ActionColumn extends \yii\grid\ActionColumn
                         break;
                     case 'update':
                         $title = Yii::t('yii', 'Update');
+                        break;
+                    case 'change-password':
+                        $title = Yii::t('backend', 'Change Password');
                         break;
                     case 'delete':
                         $title = Yii::t('yii', 'Delete');

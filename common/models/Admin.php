@@ -1,4 +1,5 @@
 <?php
+
 namespace common\models;
 
 use Yii;
@@ -71,7 +72,7 @@ class Admin extends ActiveRecord implements IdentityInterface
             ['email', 'string', 'max' => 255],
             ['email', 'unique', 'targetClass' => '\common\models\Admin', 'message' => Yii::t('backend', 'This email address has already been taken.')],
 
-            /*['password', 'required'],*/
+            ['password', 'required', 'on' => 'change-password'],
             ['password', 'string', 'min' => 6],
 
             ['status', 'default', 'value' => Admin::STATUS_ACTIVE],
@@ -81,8 +82,19 @@ class Admin extends ActiveRecord implements IdentityInterface
         ];
     }
 
+    /*public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+
+        $scenarios['create'] = ['username', 'email', 'status'];
+        $scenarios['update'] = ['username', 'email', 'status'];
+        $scenarios['change-password'] = ['password'];
+
+        return $scenarios;
+    }*/
+
     /*
-     * 定义attributeLables
+     * 定义attributeLabels
      * */
     public function attributeLabels()
     {
@@ -113,7 +125,10 @@ class Admin extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * @inheritdoc
+     * @param mixed $token
+     * @param null $type
+     * @return void|IdentityInterface
+     * @throws NotSupportedException
      */
     public static function findIdentityByAccessToken($token, $type = null)
     {
@@ -121,7 +136,7 @@ class Admin extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Finds user by username
+     * 通过用户名查找用户
      *
      * @param string $username
      * @return static|null
@@ -161,7 +176,7 @@ class Admin extends ActiveRecord implements IdentityInterface
             return false;
         }
 
-        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $timestamp = (int)substr($token, strrpos($token, '_') + 1);
         $expire = Yii::$app->params['user.passwordResetTokenExpire'];
         return $timestamp + $expire >= time();
     }
@@ -204,7 +219,8 @@ class Admin extends ActiveRecord implements IdentityInterface
     /**
      * Generates password hash from password and sets it to the model
      *
-     * @param string $password
+     * @param $password
+     * @throws \yii\base\Exception
      */
     public function setPassword($password)
     {
@@ -213,6 +229,8 @@ class Admin extends ActiveRecord implements IdentityInterface
 
     /**
      * Generates "remember me" authentication key
+     *
+     * @throws \yii\base\Exception
      */
     public function generateAuthKey()
     {
@@ -221,6 +239,8 @@ class Admin extends ActiveRecord implements IdentityInterface
 
     /**
      * Generates new password reset token
+     *
+     * @throws \yii\base\Exception
      */
     public function generatePasswordResetToken()
     {
@@ -236,9 +256,10 @@ class Admin extends ActiveRecord implements IdentityInterface
     }
 
     /**
-     * Signs user up.
+     * 注册用户
      *
-     * @return Admin|null the saved model or null if saving fails
+     * @return Admin|null
+     * @throws \yii\base\Exception the saved model or null if saving fails
      */
     public function adminSave()
     {

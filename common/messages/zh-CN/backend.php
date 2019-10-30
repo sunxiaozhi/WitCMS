@@ -25,6 +25,7 @@ return [
     'Save' => '保存',
     'Auth' => '权限',
     'Accredit' => '授权',
+    'Change Password' => '修改密码',
     /*后台页面公用 end*/
 
     /*后台用户 start*/

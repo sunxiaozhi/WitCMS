@@ -18,8 +18,6 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'email')->textInput() ?>
 
-            <?= $form->field($model, 'password')->textInput() ?>
-
             <?= $form->field($model, 'status')->radioList([10 => '正常', 0 => '隐藏'], ['itemOptions' => ['class' => 'flat-blue']]) ?>
 
             <div class="form-group">

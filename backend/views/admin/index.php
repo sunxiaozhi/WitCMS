@@ -63,11 +63,11 @@ $this->params['breadcrumbs'][] = $this->title;
                         'format' => ['date', 'php:Y-m-d H:i'],
                         'options' => ['width' => '200px;']
                     ],
-                    [
+                    /*[
                         'attribute' => 'created_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
                         'options' => ['width' => '200px;']
-                    ],
+                    ],*/
                     /*[
                         'attribute' => 'updated_at',
                         'format' => ['date', 'php:Y-m-d H:i'],
@@ -76,7 +76,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     [
                         'header' => '操作',
                         'class' => 'backend\grid\ActionColumn',
-                        'template' => '{update} {accredit} {delete}'
+                        'template' => '{update} {change-password} {accredit} {delete}'
                     ],
                 ],
             ]); ?>
