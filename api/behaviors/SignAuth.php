@@ -17,7 +17,6 @@ class SignAuth extends Behavior
 {
     /**
      * @return array
-     * @throws UnprocessableEntityHttpException
      */
     public function events()
     {
@@ -27,6 +26,8 @@ class SignAuth extends Behavior
     }
 
     /**
+     * @param $event
+     * @return bool
      * @throws UnprocessableEntityHttpException
      */
     public function checkSignAuth($event)

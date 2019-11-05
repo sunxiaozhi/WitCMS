@@ -18,6 +18,7 @@ use yii\db\ActiveRecord;
  * @property string $content 文章内容
  * @property string $sort 排序
  * @property string $status 状态
+ * @property int $page_views 浏览量
  * @property string $type 类型
  * @property string $is_recommend 类型
  * @property int $created_at 创建时间

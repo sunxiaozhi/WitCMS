@@ -1,7 +1,7 @@
 <?php
 /**
  * api错误处理
- * User: Administrator
+ * User: sunxiaozhi
  * Date: 2019/6/9 11:18
  */
 

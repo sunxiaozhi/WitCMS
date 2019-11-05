@@ -5,6 +5,8 @@
  * Date: 2019/5/28 9:53
  */
 
+/* @var $model \common\models\Article */
+
 use common\helpers\Url;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
