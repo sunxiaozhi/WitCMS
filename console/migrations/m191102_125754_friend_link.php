@@ -7,38 +7,6 @@ use yii\db\Migration;
  */
 class m191102_125754_friend_link extends Migration
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function safeUp()
-    {
-
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function safeDown()
-    {
-        echo "m191102_125754_friend_link cannot be reverted.\n";
-
-        return false;
-    }
-
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m191102_125754_friend_link cannot be reverted.\n";
-
-        return false;
-    }
-    */
     public function up()
     {
         $tableOptions = null;
@@ -47,17 +15,16 @@ class m191102_125754_friend_link extends Migration
         }
 
         $this->createTable('{{%friend_link}}', [
-            'id' => $this->primaryKey(),
-            'name' => $this->string(255)->notNull()->comment('友情链接名字'),
-            'image' => $this->string(255)->comment('友情链接图片'),
-            'url' => $this->string(255)->comment('友情链接网址'),
-            'target' => $this->string(20)->defaultValue('_blank')->comment('跳转方式'),
-            'sort' => $this->integer(11)->defaultValue(0)->comment('排序'),
-            'status' => $this->tinyInteger(1)->defaultValue(0)->comment('状态 0隐藏 1显示'),
-            'created_at' => $this->integer(11)->defaultValue(0)->comment('添加时间'),
-            'updated_at' => $this->integer(11)->defaultValue(0)->comment('修改时间'),
+            'id' => $this->primaryKey()->unsigned()->comment('id'),
+            'name' => $this->string(255)->notNull()->defaultValue('')->comment('友情链接名字'),
+            'image' => $this->string(255)->notNull()->defaultValue('')->comment('友情链接图片'),
+            'url' => $this->string(255)->notNull()->defaultValue('')->comment('友情链接网址'),
+            'target' => $this->string(20)->notNull()->defaultValue('_blank')->comment('跳转方式'),
+            'sort' => $this->integer(11)->notNull()->defaultValue(0)->comment('排序'),
+            'status' => $this->tinyInteger(1)->notNull()->defaultValue(0)->comment('状态 0隐藏 1显示'),
+            'created_at' => $this->integer(11)->unsigned()->notNull()->defaultValue(0)->comment('添加时间'),
+            'updated_at' => $this->integer(11)->unsigned()->notNull()->defaultValue(0)->comment('修改时间'),
         ], $tableOptions);
-
     }
 
     public function down()
